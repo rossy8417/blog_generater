@@ -58,7 +58,6 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 記事構成：
 ├── アイキャッチ画像（gpt-image-1、日本語タイトル付き）
 ├── リード文
-├── 目次
 ├── 第1章 h2見出し
 │   ├── chapter1サムネイル画像（imagen-3.0）
 │   └── 第1章本文
