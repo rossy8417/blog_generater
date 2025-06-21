@@ -1,11 +1,3 @@
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">【年齢別】生成AI教育完全ガイド｜3歳〜18歳の発達段階別活用法</h2>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">リード文</h2>
-<!-- /wp:heading -->
-
 <!-- wp:paragraph -->
 <p>「うちの子にもAI教育が必要なの？」「でも、何歳から始めればいいかわからない...」</p>
 <!-- /wp:paragraph -->
@@ -59,11 +51,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">年齢別生成AI教育の重要性：発達心理学の観点から</h2>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに：なぜ年齢別アプローチが必要なのか</h3>
+<h2 class="wp-block-heading">はじめに：なぜ年齢別アプローチが必要なのか</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -74,20 +62,20 @@
 <p>教育心理学の研究によると、子どもの認知能力は段階的に発達し、各年齢には最適な学習方法があることが明らかになっています。この科学的根拠に基づいて、生成AI教育も年齢別にアプローチすることで、より効果的で安全な学習環境を提供できるのです。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-1-1 ピアジェの認知発達段階とAI教育の関係</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-1-1 ピアジェの認知発達段階とAI教育の関係</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ピアジェ理論の基本概念</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ピアジェ理論の基本概念</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>スイスの心理学者ジャン・ピアジェ（1896-1980）は、子どもの認知発達を4つの段階に分けて説明しました。この理論は現在でも教育現場で広く活用されており、AI教育においても重要な指針となります。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 感覚運動段階（0-2歳）：五感による世界の探究</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 感覚運動段階（0-2歳）：五感による世界の探究</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -102,8 +90,8 @@
 <ul><li>音声AIによる子守唄や童謡の再生</li><li>音声認識による「いないいないばあ」ゲーム</li><li>親の声を学習したAIによる安心感のある音声環境</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 前操作段階（2-7歳）：象徴的思考の芽生え</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 前操作段階（2-7歳）：象徴的思考の芽生え</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -122,8 +110,8 @@
 <p><strong>実践例</strong>：4歳の太郎くんが「宇宙に住むライオンの話を聞きたい」と言った時、AI が生成したストーリーを通じて、太郎くんの想像力と語彙力が同時に育まれます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 具体的操作段階（7-11歳）：論理的思考の基礎</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 具体的操作段階（7-11歳）：論理的思考の基礎</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -142,8 +130,8 @@
 <p><strong>実践例</strong>：8歳の花子ちゃんが「なぜ氷は水に浮くの？」と質問した時、AIは具体的な実験方法を提示し、一緒に観察結果を記録して、段階的に理解を深めていきます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">4. 形式的操作段階（11歳以降）：抽象的思考の獲得</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">4. 形式的操作段階（11歳以降）：抽象的思考の獲得</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -158,12 +146,12 @@
 <ul><li><strong>研究支援AI</strong>：データ分析や仮説検証のサポート</li><li><strong>ディベートAI</strong>：異なる視点からの議論を通じた批判的思考力の育成</li><li><strong>創作AI</strong>：複雑な物語や論文の構成支援</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-1-2 ヴィゴツキーの最近接発達領域理論の応用</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-1-2 ヴィゴツキーの最近接発達領域理論の応用</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">最近接発達領域（ZPD）とは</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">最近接発達領域（ZPD）とは</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -174,12 +162,12 @@
 <p>ZPDとは、「子どもが一人でできることと、大人や優秀な仲間の助けがあればできることの間の領域」を指します。この理論をAI教育に応用することで、個々の子どもに最適化された学習環境を提供できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用したZPDの実現方法</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用したZPDの実現方法</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 個別適応型学習システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 個別適応型学習システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -194,8 +182,8 @@
 <ul><li>算数が得意な10歳のケンタくんには、学年を超えた応用問題を提示</li><li>漢字学習に苦手意識のある9歳のミカちゃんには、楽しいゲーム形式で段階的に学習</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. スキャフォールディング（足場掛け）の自動化</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. スキャフォールディング（足場掛け）の自動化</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -210,56 +198,56 @@
 <ol><li><strong>初期段階</strong>：AIが詳細な手順を提示しながら問題解決をサポート</li><li><strong>中期段階</strong>：ヒントは与えるが、解決方法は子ども自身に考えさせる</li><li><strong>後期段階</strong>：必要な時のみサポートを提供し、自立した学習を促進</li></ol>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. ピア学習の拡張</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. ピア学習の拡張</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>AIは「優秀な仲間」の役割も果たします。子どもの学習スタイルに合わせて、時には同レベルの学習パートナーとして、時には少し先を行く先輩として振る舞います。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">年齢別ZPD活用戦略</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">年齢別ZPD活用戦略</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">幼児期（3-6歳）</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">幼児期（3-6歳）</h4>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul><li><strong>ZPDの幅</strong>：比較的狭く、短時間での達成感が重要</li><li><strong>AI の役割</strong>：遊びの延長として、自然な学習環境を提供</li><li><strong>具体例</strong>：お絵描きAIが子どもの線に少しずつ色や形を加えて、完成度の高い作品に仕上げる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">小学生（7-12歳）</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">小学生（7-12歳）</h4>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul><li><strong>ZPDの幅</strong>：徐々に広がり、より複雑な課題に挑戦可能</li><li><strong>AI の役割</strong>：体系的な学習をサポートしながら、探究心を刺激</li><li><strong>具体例</strong>：科学実験の結果をAIと一緒に分析し、新しい仮説を立てる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">中高生（13-18歳）</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">中高生（13-18歳）</h4>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul><li><strong>ZPDの幅</strong>：最も広く、専門的な分野への深い探究が可能</li><li><strong>AI の役割</strong>：研究パートナーとして高度な学習をサポート</li><li><strong>具体例</strong>：AIと協働して社会問題の解決策を考え、プレゼンテーション資料を作成</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-1-3 現代の脳科学研究から見た年齢別学習特性</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-1-3 現代の脳科学研究から見た年齢別学習特性</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">脳の発達と学習の関係</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">脳の発達と学習の関係</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>近年の脳科学研究により、子どもの脳は成人までに段階的に発達することが明らかになっています。この知見をAI教育に活用することで、より効果的な学習環境を構築できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 神経可塑性の年齢による変化</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 神経可塑性の年齢による変化</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -274,8 +262,8 @@
 <p><strong>実践例</strong>：3歳のハルカちゃんは、日本語と英語の両方で歌を歌うAIと遊ぶことで、自然にバイリンガル能力を身につけています。AIは子どもの発音を聞き取り、褒めながら正しい発音を教えます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 前頭前野の段階的発達</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 前頭前野の段階的発達</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -306,8 +294,8 @@
 <p><strong>実践例</strong>：16歳のアヤネさんは、大学受験対策AIと一緒に3年間の学習計画を立てました。AIは彼女の学習データを分析し、弱点科目の集中対策時期や、モチベーション維持のための休憩タイミングを提案します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 情動システムの発達と学習効果</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 情動システムの発達と学習効果</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -330,68 +318,68 @@
 <ul><li>社会的承認欲求が強くなる</li><li>自己効力感の形成が重要</li><li><strong>AI活用法</strong>：成果を可視化し、達成感を提供するAIシステム</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">脳科学に基づく年齢別AI教育ガイドライン</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">脳科学に基づく年齢別AI教育ガイドライン</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3-6歳：感覚統合期</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3-6歳：感覚統合期</h4>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul><li><strong>推奨AI機能</strong>：音声認識、画像生成、簡単な対話</li><li><strong>使用時間</strong>：1日15-30分まで</li><li><strong>注意点</strong>：常に保護者の監督下で使用</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">7-12歳：認知基盤形成期</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">7-12歳：認知基盤形成期</h4>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul><li><strong>推奨AI機能</strong>：学習支援、創作活動、プログラミング基礎</li><li><strong>使用時間</strong>：1日30-60分まで</li><li><strong>注意点</strong>：デジタルとアナログのバランスを重視</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">13-18歳：高次認知発達期</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">13-18歳：高次認知発達期</h4>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul><li><strong>推奨AI機能</strong>：研究支援、専門学習、キャリア探索</li><li><strong>使用時間</strong>：学習目的であれば制限なし（ただし健康管理は必要）</li><li><strong>注意点</strong>：批判的思考力とAIリテラシーの同時育成</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：発達心理学に基づくAI教育の意義</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ：発達心理学に基づくAI教育の意義</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>発達心理学の知見をAI教育に応用することで、以下のような効果が期待できます：</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">1. 個別最適化された学習環境の実現</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. 個別最適化された学習環境の実現</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>ピアジェの発達段階理論に基づき、各年齢の認知特性に合わせたAI教育プログラムを設計することで、子ども一人ひとりに最適な学習体験を提供できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">2. 効果的な学習支援の自動化</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. 効果的な学習支援の自動化</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>ヴィゴツキーのZPD理論を活用することで、AIが適切なタイミングで適切なレベルの支援を提供し、子どもの自立的な学習を促進します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">3. 脳科学に基づく安全な学習環境</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. 脳科学に基づく安全な学習環境</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>現代の脳科学研究に基づき、各年齢の脳発達に適した学習時間や方法を設定することで、健全な発達を阻害することなくAI教育を実施できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">4. 長期的な学習効果の最大化</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. 長期的な学習効果の最大化</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -418,14 +406,14 @@
 <h2 class="wp-block-heading">第2章 幼児期（3-6歳）：言語習得と創造性を育む活用法</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"id":2830,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter1.png" alt="第1章サムネイル画像" class="wp-image-2830" /></figure>
+<!-- wp:image {"id":2852,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter1-2.png" alt="chapter1 サムネイル画像" class="wp-image-2852" /></figure>
 <!-- /wp:image -->
 
 
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">はじめに</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -436,20 +424,20 @@
 <p>本章では、3-6歳の幼児期における生成AI活用の具体的な方法を、保護者が実際に取り組める形で詳しく解説します。教育効果と安全性のバランスを重視し、子どもの発達段階に応じた適切なAI導入方法をご紹介します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-2-1 音声認識AIを活用した発音練習</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-2-1 音声認識AIを活用した発音練習</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">幼児期の発音学習の特徴</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">幼児期の発音学習の特徴</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>3-6歳の幼児は、音韻の区別能力が急速に発達する時期です。この時期に正しい発音パターンを身につけることで、将来の言語学習の基盤が築かれます。音声認識AIは、子どもの発音を客観的に評価し、楽しみながら改善できる理想的なツールです。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">具体的な活用方法</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">具体的な活用方法</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -484,8 +472,8 @@
 <p>「わんわん」「にゃーにゃー」「もーもー」などの擬音語を、音声認識AIに認識させるゲームです。正しく認識されると、対応する動物の画像や音が再生される仕組みを作ります。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">保護者向けの実施ガイド</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">保護者向けの実施ガイド</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -504,20 +492,20 @@
 <ul><li>間違いを厳しく指摘しない</li><li>楽しい雰囲気を維持する</li><li>子どもの興味が薄れたらすぐに切り上げる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-2-2 画像生成AIによる想像力育成プログラム</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-2-2 画像生成AIによる想像力育成プログラム</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">想像力育成の重要性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">想像力育成の重要性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>幼児期の想像力は、将来の創造性、問題解決能力、共感力の基盤となります。画像生成AIは、子どもの想像した世界を視覚化し、さらなる創造的思考を促進する強力なツールです。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">段階的な活用プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">段階的な活用プログラム</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -560,8 +548,8 @@
 <p>「虹色の象」「四角い太陽」など、現実にはない色彩や形を組み合わせたアイデアを視覚化します。これにより、既成概念にとらわれない柔軟な思考を育みます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">創造性を最大化するコツ</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">創造性を最大化するコツ</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -588,20 +576,20 @@
 <p>生成した画像を基に粘土遊びや描画活動につなげ、多感覚的な創造体験を提供します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-2-3 対話AIを使った語彙拡張ゲーム</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-2-3 対話AIを使った語彙拡張ゲーム</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">幼児期の語彙発達の特徴</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">幼児期の語彙発達の特徴</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>3-6歳は語彙爆発期と呼ばれ、1日に平均5-10個の新しい言葉を覚える能力があります。対話AIを活用することで、この語彙習得プロセスを効果的にサポートできます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">効果的な語彙拡張ゲーム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">効果的な語彙拡張ゲーム</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -652,8 +640,8 @@
 <ul><li>子どもが知っている言葉から始める</li><li>AIが新しい例を提示し、子どもが真似する</li><li>絵カードやイラストと組み合わせる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">効果的な実施のポイント</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">効果的な実施のポイント</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -680,20 +668,20 @@
 <p>学んだ語彙を日常生活の中で積極的に使用する機会を作ります。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">H3-2-4 注意すべき制限時間と安全対策</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">H3-2-4 注意すべき制限時間と安全対策</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">幼児期のスクリーンタイム管理</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">幼児期のスクリーンタイム管理</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>アメリカ小児科学会（AAP）とWHO（世界保健機関）の推奨に基づき、2-5歳の適切なスクリーンタイムは1日1時間以内とします。AI活用もこの時間内に収める必要があります。6歳以降は、質の高いコンテンツであれば時間を若干延長できますが、他の活動とのバランスを重視することが重要です。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">具体的な時間配分</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">具体的な時間配分</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -712,8 +700,8 @@
 <ul><li>平日：週3-4回（学習負担を考慮）</li><li>休日：必要に応じて実施（他の遊びや活動を優先）</li><li>連続使用は避け、15分ごとに休憩を挟む</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">安全対策のチェックリスト</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">安全対策のチェックリスト</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -748,8 +736,8 @@
 <ul><li>正しい姿勢での使用を指導</li><li>適度な休憩と目の保護</li><li>手洗いうがいの習慣化</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">効果測定と調整方法</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">効果測定と調整方法</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -768,8 +756,8 @@
 <ul><li>AI活動以外への興味の減退</li><li>過度な依存傾向</li><li>睡眠や食事への悪影響</li><li>社交性の低下</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -784,14 +772,14 @@
 <h2 class="wp-block-heading">第3章：小学校低学年（7-9歳）：基礎学力定着のためのAI活用</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"id":2831,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter2.png" alt="第2章サムネイル画像" class="wp-image-2831" /></figure>
+<!-- wp:image {"id":2853,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter2-2.png" alt="chapter2 サムネイル画像" class="wp-image-2853" /></figure>
 <!-- /wp:image -->
 
 
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに：基礎学力形成期の重要性</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">はじめに：基礎学力形成期の重要性</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -806,12 +794,12 @@
 <p>本章では、算数・国語・理科の3つの主要教科において、基礎学力の定着を効果的にサポートするAI活用法について、具体的な実践例とともに詳しく解説していきます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">算数の個別ペース学習：AIが支える一人ひとりに最適化された学習</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">算数の個別ペース学習：AIが支える一人ひとりに最適化された学習</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">算数学習における低学年の特徴と課題</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">算数学習における低学年の特徴と課題</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -826,12 +814,12 @@
 <ul><li>具体物を使った操作活動を通じて数概念を理解する</li><li>視覚的な表現やイメージを重視する</li><li>個人差が大きく、理解のペースが一人ひとり異なる</li><li>成功体験の積み重ねがその後の学習意欲に大きく影響する</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AI活用による個別適応型算数学習システム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AI活用による個別適応型算数学習システム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 適応型問題生成システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 適応型問題生成システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -850,8 +838,8 @@
 <ol><li><strong>現状把握段階</strong>：診断テストを通じて、ユウタくんの得意・不得意分野を特定</li><li><strong>基礎固め段階</strong>：具体物（リンゴやキャンディ）のイラストを使った引き算問題を提示</li><li><strong>段階的発展</strong>：理解度に応じて抽象的な数字の問題へ移行</li><li><strong>応用チャレンジ</strong>：得意な足し算と組み合わせた複合問題で自信回復</li></ol>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. リアルタイム学習支援機能</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. リアルタイム学習支援機能</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -866,8 +854,8 @@
 <ul><li><strong>躓き検知</strong>：同じ問題で3回以上間違えた場合、自動的に類似問題の解法動画を表示</li><li><strong>励まし機能</strong>：正解時に個人の名前を呼んで具体的に褒める（「ハナコちゃん、繰り上がりの計算ができたね！素晴らしい！」）</li><li><strong>休憩提案</strong>：集中力の低下を感知した際に、算数ゲームや体操タイムを提案</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 家庭学習連携システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 家庭学習連携システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -889,8 +877,8 @@
   ○お風呂で九九の歌を一緒に歌う</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">算数学習における安全性への配慮</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">算数学習における安全性への配慮</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -909,12 +897,12 @@
 <ul><li>個人の学習データは暗号化して保存</li><li>保護者の同意なしに第三者への共有は行わない</li><li>子どもが安心して学習できるプライバシー保護体制</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">国語の読解力向上：AIと一緒に育む言葉の力</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">国語の読解力向上：AIと一緒に育む言葉の力</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">低学年の国語学習特性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">低学年の国語学習特性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -929,12 +917,12 @@
 <ul><li>音読を通じて文字と音の関係を理解する</li><li>挿絵や視覚的情報から内容を推測する能力が高い</li><li>自分の体験と結びつけて物語を理解する</li><li>想像力が豊かで、物語の世界に没入しやすい</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用した読解力向上プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用した読解力向上プログラム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 対話型読み聞かせシステム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 対話型読み聞かせシステム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -969,8 +957,8 @@
 <p>このような対話を通じて、子どもは受け身の学習ではなく、能動的に物語と関わりながら読解力を向上させることができます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 個別漢字学習サポート</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 個別漢字学習サポート</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -999,8 +987,8 @@
       そして下に『木』を一つ。できましたか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 創作活動支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 創作活動支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1021,8 +1009,8 @@ AI：「それでは、『今日は公園で友達と鬼ごっこをしました
      次に、どんな気持ちだったかも書いてみませんか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">読解力向上における安全性と教育効果の両立</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">読解力向上における安全性と教育効果の両立</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1041,12 +1029,12 @@ AI：「それでは、『今日は公園で友達と鬼ごっこをしました
 <ul><li>AIでの学習後は必ず紙の本での読書時間を設ける</li><li>手書きでの感想文作成を推奨</li><li>保護者や教師との読書体験の共有を促進</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">理科の観察記録とAI考察サポート：科学的思考の芽を育てる</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">理科の観察記録とAI考察サポート：科学的思考の芽を育てる</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">低学年理科学習の特徴と重要性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">低学年理科学習の特徴と重要性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1061,12 +1049,12 @@ AI：「それでは、『今日は公園で友達と鬼ごっこをしました
 <ul><li>五感を使った体験学習が中心</li><li>「なぜ？」「どうして？」という疑問が豊富</li><li>観察したことを言葉で表現する力がまだ未発達</li><li>継続的な観察や記録が困難</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用した観察学習支援システム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用した観察学習支援システム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. スマート観察記録アプリ</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. スマート観察記録アプリ</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1110,8 +1098,8 @@ AI：「素晴らしい観察です！葉っぱは何枚ありますか？
      記録してみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 疑問解決支援システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 疑問解決支援システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1141,8 +1129,8 @@ AI：「雲も湯気と同じように、水が軽くなって
      教えてくださいね。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 科学的思考育成プログラム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 科学的思考育成プログラム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1181,8 +1169,8 @@ AI：「よい予想ですね！では実際に確かめてみましょう。
      予想通りになるでしょうか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">理科学習における安全性への配慮</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">理科学習における安全性への配慮</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1201,40 +1189,40 @@ AI：「よい予想ですね！では実際に確かめてみましょう。
 <ul><li>生き物を大切にする心を育てる</li><li>観察後の生き物は自然に返すことを指導</li><li>環境破壊につながる実験は避ける</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：基礎学力定着とAI活用の相乗効果</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ：基礎学力定着とAI活用の相乗効果</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>小学校低学年におけるAI活用は、従来の一斉授業では実現困難だった真の個別最適化学習を可能にします。本章で紹介した取り組みにより、以下のような教育効果が期待できます：</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">1. 個別ペース学習の実現</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. 個別ペース学習の実現</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>子ども一人ひとりの理解度や興味に合わせて学習内容を調整することで、落ちこぼれを防ぎながら、得意分野をさらに伸ばすことができます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">2. 学習意欲の向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. 学習意欲の向上</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>AIによる適切な励ましや達成感の提供により、学習に対する前向きな態度を育成できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">3. 科学的思考力の基礎形成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. 科学的思考力の基礎形成</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>観察・記録・考察のプロセスをAIがサポートすることで、論理的思考力の基礎を早期から育成できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">4. 家庭学習の質的向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. 家庭学習の質的向上</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1261,14 +1249,14 @@ AI：「よい予想ですね！では実際に確かめてみましょう。
 <h2 class="wp-block-heading">第4章：小学校高学年（10-12歳）：論理思考と探究心を伸ばす方法</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"id":2832,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter3.png" alt="第3章サムネイル画像" class="wp-image-2832" /></figure>
+<!-- wp:image {"id":2854,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter3-2.png" alt="chapter3 サムネイル画像" class="wp-image-2854" /></figure>
 <!-- /wp:image -->
 
 
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに：抽象思考能力発達期の特性と可能性</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">はじめに：抽象思考能力発達期の特性と可能性</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1299,12 +1287,12 @@ AI：「よい予想ですね！では実際に確かめてみましょう。
 <p>本章では、これらの発達特性を活かしながら、AIとの協働を通じて論理思考力と探究心を効果的に育成する方法について、具体的な実践例とともに詳しく解説していきます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">プログラミング思考とAI協働学習：論理的思考力の基盤形成</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">プログラミング思考とAI協働学習：論理的思考力の基盤形成</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">プログラミング思考育成の重要性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">プログラミング思考育成の重要性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1319,12 +1307,12 @@ AI：「よい予想ですね！では実際に確かめてみましょう。
 <ol><li><strong>分解（Decomposition）</strong>：複雑な問題を小さな部分に分ける</li><li><strong>パターン認識（Pattern Recognition）</strong>：共通点や規則性を見つける</li><li><strong>抽象化（Abstraction）</strong>：重要な特徴を抽出し、不要な詳細を省く</li><li><strong>アルゴリズム（Algorithm）</strong>：問題解決の手順を明確に定義する</li></ol>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIと協働するビジュアルプログラミング学習</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIと協働するビジュアルプログラミング学習</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 段階的プログラミング学習システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 段階的プログラミング学習システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1372,8 +1360,8 @@ AI：「完璧です！このように大きな作業を小さな作業に分け
 └── [じゃがいもの皮をむく] → [じゃがいもを2cm角に切る] → [お皿に入れる]</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 協働型問題解決プロジェクト</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 協働型問題解決プロジェクト</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1421,8 +1409,8 @@ AI：「素晴らしい分解ですね！では、これらの問題を解決す
 <ol><li>本を分類するシステムの設計</li><li>色分けによる視覚的案内システム</li><li>デジタル検索システムの簡単な設計図作成</li></ol>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. AI支援による創作プログラミング</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. AI支援による創作プログラミング</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1449,8 +1437,8 @@ AI：「面白そうですね！迷路ゲームにはどんな要素が必要で
 4. テスト・改善プロセスの指導</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">プログラミング学習における安全性と発達配慮</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">プログラミング学習における安全性と発達配慮</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1469,12 +1457,12 @@ AI：「面白そうですね！迷路ゲームにはどんな要素が必要で
 <ul><li>技術習得に偏らず、創造的思考も重視</li><li>失敗を恐れない学習環境の構築</li><li>多様な解決方法を認める評価システム</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">社会科AIデータ分析体験：情報活用能力と批判的思考の育成</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">社会科AIデータ分析体験：情報活用能力と批判的思考の育成</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">小学校高学年の社会科学習特性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">小学校高学年の社会科学習特性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1489,12 +1477,12 @@ AI：「面白そうですね！迷路ゲームにはどんな要素が必要で
 <ul><li>抽象的な概念（民主主義、経済など）の理解が可能になる</li><li>複数の資料を比較・検討する能力が発達する</li><li>自分なりの意見を形成し、表現できるようになる</li><li>社会の仕組みや問題に関心を持ち始める</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用したデータ分析学習プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用したデータ分析学習プログラム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 統計データの可視化と解釈</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 統計データの可視化と解釈</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1549,8 +1537,8 @@ AI：「良い観察ですね！では、なぜ大きな都市に
 <p>AIが関連データ（産業構造、交通網、教育機関数など）を提示し、仮説の検証を支援します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 歴史データの時系列分析</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 歴史データの時系列分析</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1577,8 +1565,8 @@ AI：「その通りです！この時期に何が起こったのか
      人口増加と関係がありそうな出来事は何でしょうか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 現代社会問題のデータ分析</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 現代社会問題のデータ分析</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1618,12 +1606,12 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
      解決策を考えてみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">情報の信頼性評価スキルの育成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">情報の信頼性評価スキルの育成</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">情報リテラシー教育の重要性</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">情報リテラシー教育の重要性</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1649,8 +1637,8 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 5. 根拠となるデータは示されているか？</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">データ分析学習における倫理的配慮</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">データ分析学習における倫理的配慮</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1669,24 +1657,24 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 <ul><li>データの解釈には複数の見方があることの理解</li><li>文化的背景の違いによる解釈の違い</li><li>偏見のないデータ分析の重要性</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">総合学習での課題解決プロジェクト：実践的問題解決能力の育成</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">総合学習での課題解決プロジェクト：実践的問題解決能力の育成</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">総合的な学習の時間とAI活用の意義</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">総合的な学習の時間とAI活用の意義</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>総合的な学習の時間は、子どもたちが自ら課題を設定し、多角的に探究する能力を育成する重要な機会です。AIを活用することで、より深い探究活動と効果的な問題解決が可能になります。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">プロジェクト型学習（PBL）とAIの協働</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">プロジェクト型学習（PBL）とAIの協働</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 地域課題解決プロジェクト</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 地域課題解決プロジェクト</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1762,8 +1750,8 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 5. 必要な協力者</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 環境問題解決プロジェクト</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 環境問題解決プロジェクト</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1815,8 +1803,8 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
    → 行動変容による長期的効果</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 文化継承プロジェクト</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 文化継承プロジェクト</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1836,12 +1824,12 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 - ウェブサイトやアプリでの情報発信（AIがプラットフォーム選択支援）</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">プロジェクト学習における評価と振り返り</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">プロジェクト学習における評価と振り返り</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">多面的評価システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">多面的評価システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1856,8 +1844,8 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 <ol><li><strong>課題設定力</strong>：適切な問題を発見・設定できたか</li><li><strong>情報収集力</strong>：多様な情報源から必要な情報を収集できたか</li><li><strong>分析・考察力</strong>：データや情報を論理的に分析できたか</li><li><strong>創造力</strong>：独創的で実現可能な解決策を提案できたか</li><li><strong>協働力</strong>：チームメンバーと効果的に協力できたか</li><li><strong>発表力</strong>：自分の考えを他者にわかりやすく伝えられたか</li></ol>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">AIによる学習の振り返り支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">AIによる学習の振り返り支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -1872,8 +1860,8 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
      これらの経験は、他のどんな場面で活かせそうですか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">総合学習における安全性と教育効果の最大化</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">総合学習における安全性と教育効果の最大化</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1892,48 +1880,48 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 <ul><li>異なる意見や価値観の尊重</li><li>文化的背景の違いへの配慮</li><li>すべての子どもが参加できる活動設計</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：論理思考と探究心育成のAI活用効果</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ：論理思考と探究心育成のAI活用効果</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>小学校高学年におけるAI活用は、子どもたちの論理的思考力と探究心を飛躍的に向上させる可能性を秘めています。本章で紹介した取り組みを通じて、以下のような教育効果が期待できます：</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">1. 体系的な論理思考力の育成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. 体系的な論理思考力の育成</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>プログラミング思考の4要素（分解・パターン認識・抽象化・アルゴリズム）を通じて、複雑な問題を整理し、段階的に解決する能力が向上します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">2. データリテラシーの基盤形成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. データリテラシーの基盤形成</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>統計データの読み取りから情報の信頼性評価まで、現代社会に不可欠なデータ活用能力を早期から育成できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">3. 実践的問題解決能力の獲得</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. 実践的問題解決能力の獲得</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>プロジェクト型学習を通じて、現実の課題に対して主体的に取り組み、創造的な解決策を生み出す能力が向上します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">4. 協働学習スキルの向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. 協働学習スキルの向上</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>AIとの協働体験を通じて、人間同士の協力関係の重要性と効果的な協働方法を学習します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">5. 批判的思考力の発達</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">5. 批判的思考力の発達</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -1960,14 +1948,14 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 <h2 class="wp-block-heading">第5章：中学生（13-15歳）：自立学習とメタ認知能力の向上</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"id":2833,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter4.png" alt="第4章サムネイル画像" class="wp-image-2833" /></figure>
+<!-- wp:image {"id":2855,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter4-2.png" alt="chapter4 サムネイル画像" class="wp-image-2855" /></figure>
 <!-- /wp:image -->
 
 
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに：思春期の特性を活かした自律的学習の重要性</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">はじめに：思春期の特性を活かした自律的学習の重要性</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2006,12 +1994,12 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 <p>本章では、これらの思春期特性を活かしながら、AIとの協働により自立的な学習能力とメタ認知能力を効果的に向上させる方法について、具体的な実践例とともに詳しく解説していきます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">学習プランニングAI：自己管理能力と学習戦略の確立</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">学習プランニングAI：自己管理能力と学習戦略の確立</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">中学生の学習計画における課題と特性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">中学生の学習計画における課題と特性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2026,12 +2014,12 @@ AI：「素晴らしいアイデアですね！では、実際にデータを
 <ul><li>学習時間の確保と効率的な配分</li><li>定期テストや入試に向けた長期計画の立案</li><li>苦手科目への取り組み方の確立</li><li>学習の進捗状況の客観的把握</li><li>モチベーション維持の困難</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用した個別最適化学習プランニングシステム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用した個別最適化学習プランニングシステム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 学習現状分析と目標設定支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 学習現状分析と目標設定支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2095,8 +2083,8 @@ AI：「数学の関数に課題があることがわかりました。
      他の活動との兼ね合いも考慮して調整しましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 適応型学習スケジューリング</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 適応型学習スケジューリング</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2124,8 +2112,8 @@ AI：「数学の関数に課題があることがわかりました。
      学習時間を少し減らしてもよいかもしれません。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. メタ認知能力向上支援システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. メタ認知能力向上支援システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2160,12 +2148,12 @@ AI：「その通りです！さらに、一度に長時間勉強するより、
      これらの発見を次の学習計画に活かしてみませんか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">学習プランニングにおける自律性の育成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">学習プランニングにおける自律性の育成</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">自己決定理論に基づく動機付け支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">自己決定理論に基づく動機付け支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2222,12 +2210,12 @@ AI：「その通りです！さらに、一度に長時間勉強するより、
      一緒に学習できる友達はいますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">ディベートAI活用：批判的思考力と論理的表現力の向上</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">ディベートAI活用：批判的思考力と論理的表現力の向上</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">中学生期における議論能力の発達</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">中学生期における議論能力の発達</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2242,12 +2230,12 @@ AI：「その通りです！さらに、一度に長時間勉強するより、
 <ul><li>抽象的な概念について議論できるようになる</li><li>複数の視点から物事を考えられるようになる</li><li>証拠や根拠を求めるようになる</li><li>感情的な反応から論理的な反応へ移行する</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用したディベート学習プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用したディベート学習プログラム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 段階的ディベート能力育成システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 段階的ディベート能力育成システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2324,8 +2312,8 @@ AI：「良い反駁ですね！では、さらに具体的な
      強化してみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 多様な価値観との対話</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 多様な価値観との対話</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2356,8 +2344,8 @@ AI：「良い反駁ですね！では、さらに具体的な
      また、それぞれの立場の良い点と問題点は何でしょうか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 建設的な議論スキルの育成</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 建設的な議論スキルの育成</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2382,12 +2370,12 @@ AI：「良い反駁ですね！では、さらに具体的な
      たどり着くことができます。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ディベート学習における思考力の向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ディベート学習における思考力の向上</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">批判的思考力の育成</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">批判的思考力の育成</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2412,8 +2400,8 @@ AI：「その通りです！これを『急速な一般化』と言います。
      他にも、どんな論理的欠陥があるか学んでみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">多角的思考の促進</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">多角的思考の促進</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -2430,12 +2418,12 @@ AI：「その通りです！これを『急速な一般化』と言います。
      それぞれの立場では、どんな意見になりそうですか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">進路探索AI：将来設計と自己理解の深化</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">進路探索AI：将来設計と自己理解の深化</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">中学生期の進路選択の特徴と課題</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">中学生期の進路選択の特徴と課題</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2450,12 +2438,12 @@ AI：「その通りです！これを『急速な一般化』と言います。
 <ul><li>自分の興味・関心の明確化が困難</li><li>将来の職業についての情報不足</li><li>学力と志望のミスマッチ</li><li>保護者や周囲の期待との葛藤</li><li>長期的な人生設計の困難さ</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用した包括的進路探索プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用した包括的進路探索プログラム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 多面的自己理解支援システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 多面的自己理解支援システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2539,8 +2527,8 @@ AI：「とても良い自己理解ですね！
      3つ選んでください。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 職業情報提供と体験機会の創出</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 職業情報提供と体験機会の創出</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2575,8 +2563,8 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
      体験後の感想を聞かせてください。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 高校選択支援システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 高校選択支援システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2610,8 +2598,8 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
      どちらの高校により魅力を感じますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">4. 長期的キャリア設計支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">4. 長期的キャリア設計支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2643,12 +2631,12 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
      修正したい部分はありますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">進路探索における自己効力感の向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">進路探索における自己効力感の向上</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">成長マインドセットの育成</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">成長マインドセットの育成</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -2667,8 +2655,8 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
      努力すれば必ず成長できます。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">挫折耐性の強化</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">挫折耐性の強化</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -2687,48 +2675,48 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
      成長し続ける姿勢です。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：自立学習とメタ認知能力向上の相乗効果</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ：自立学習とメタ認知能力向上の相乗効果</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>中学生期におけるAI活用は、生徒の自立性と学習の質を飛躍的に向上させる可能性を持っています。本章で紹介した取り組みを通じて、以下のような教育効果が期待できます：</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">1. 自己調整学習能力の確立</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. 自己調整学習能力の確立</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>学習プランニングAIとの協働により、自分の学習状況を客観的に把握し、効果的な学習戦略を選択する能力が向上します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">2. 批判的思考力の体系的育成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. 批判的思考力の体系的育成</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>ディベートAIとの対話を通じて、多角的な視点から物事を分析し、論理的に思考する能力が身につきます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">3. 自己理解の深化と将来設計能力</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. 自己理解の深化と将来設計能力</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>進路探索AIの支援により、自分の興味・能力・価値観を深く理解し、現実的な将来設計を行う能力が育成されます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">4. メタ認知能力の向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. メタ認知能力の向上</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>学習プロセスを客観視し、自分の思考や学習方法を改善する能力が発達します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">5. 内発的動機の強化</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">5. 内発的動機の強化</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2755,14 +2743,14 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
 <h2 class="wp-block-heading">第6章：高校生（16-18歳）：進路選択と専門性深化への応用</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"id":2834,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter5.png" alt="第5章サムネイル画像" class="wp-image-2834" /></figure>
+<!-- wp:image {"id":2856,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter5-2.png" alt="chapter5 サムネイル画像" class="wp-image-2856" /></figure>
 <!-- /wp:image -->
 
 
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに：成人前期への準備段階における高度AI活用</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">はじめに：成人前期への準備段階における高度AI活用</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2801,12 +2789,12 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
 <p>本章では、これらの高校生期の特性を活かしながら、AIとの協働により専門性を深化させ、将来の進路選択と社会参加の準備を効果的に進める方法について、具体的な実践例とともに詳しく解説していきます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">大学入試対策AI活用：効率的学習と戦略的受験準備</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">大学入試対策AI活用：効率的学習と戦略的受験準備</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">高校生の大学入試における現代的課題</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">高校生の大学入試における現代的課題</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2821,12 +2809,12 @@ AI：「素晴らしい選択ですね！では、カウンセラーの
 <ul><li>思考力・判断力・表現力の重視</li><li>記述式問題の増加</li><li>大学入学共通テストでの新傾向問題</li><li>総合型選抜での小論文・面接・プレゼンテーション</li><li>学習の主体性と多様性の評価</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用した包括的入試対策システム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用した包括的入試対策システム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 個別最適化された学習支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 個別最適化された学習支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2906,8 +2894,8 @@ AI：「もちろんです。火曜日の化学は16:00-17:00に
      学習の進捗に応じて、プランも更新していきます。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. AI出題システムによる実践的演習</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. AI出題システムによる実践的演習</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2954,8 +2942,8 @@ AI：「この問題は、理論化学の基本である
      まず、どの反応式から考えますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 記述式問題対策システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 記述式問題対策システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -2995,8 +2983,8 @@ AI：「素晴らしい読み取りです！
      このような配分で考えてみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">4. 総合型選抜対策支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">4. 総合型選抜対策支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3035,12 +3023,12 @@ AI：「良い例ですね！では、その技術が
      より説得力のある論文になります。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">大学入試AI活用における学習効果の最大化</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">大学入試AI活用における学習効果の最大化</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">データ駆動型学習改善</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">データ駆動型学習改善</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -3061,8 +3049,8 @@ AI：「良い例ですね！では、その技術が
      どの提案から実践してみますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">モチベーション維持システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">モチベーション維持システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -3083,12 +3071,12 @@ AI：「良い例ですね！では、その技術が
      何が効果的だったと思いますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">専門分野探究AI研究体験：学問の深化と研究スキルの基礎</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">専門分野探究AI研究体験：学問の深化と研究スキルの基礎</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">高校生期における専門分野探究の意義</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">高校生期における専門分野探究の意義</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3103,12 +3091,12 @@ AI：「良い例ですね！では、その技術が
 <ul><li>学問への深い理解と興味の醸成</li><li>研究方法論の基礎習得</li><li>批判的思考力の向上</li><li>問題発見・解決能力の育成</li><li>学習の主体性と自律性の確立</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIを活用した高校生研究プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIを活用した高校生研究プログラム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 研究テーマ設定支援システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 研究テーマ設定支援システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3179,8 +3167,8 @@ AI：「良いアイデアですね！質問紙調査なら
      このテーマはどうでしょうか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 研究方法論指導システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 研究方法論指導システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3243,8 +3231,8 @@ AI：「良い観察です！では、相関関係を見てみましょう。
      統計的に有意な関係が見つかりましたね。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 研究成果発表支援</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 研究成果発表支援</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3286,8 +3274,8 @@ AI：「とても良い判断です！
      引くことができますね。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">4. 学際的研究体験</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">4. 学際的研究体験</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3331,12 +3319,12 @@ AI：「素晴らしい出発点ですね！
      まず、どんな汚染物質から調べますか？」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">ビジネスAIツール基礎習得：実用的デジタルスキルの確立</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">ビジネスAIツール基礎習得：実用的デジタルスキルの確立</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">高校生のデジタルスキル習得の重要性</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">高校生のデジタルスキル習得の重要性</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3351,12 +3339,12 @@ AI：「素晴らしい出発点ですね！
 <ul><li>文書作成支援AI（ChatGPT、Claude等）</li><li>データ分析AI（Excel AI機能、Google Analytics等）</li><li>プレゼンテーション作成AI（Gamma、Tome等）</li><li>画像・動画生成AI（DALL-E、Midjourney等）</li><li>音声認識・翻訳AI（Whisper、DeepL等）</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">段階的AIツール習得プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">段階的AIツール習得プログラム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">1. 基礎的AIリテラシーの確立</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">1. 基礎的AIリテラシーの確立</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3398,8 +3386,8 @@ AI：「プロンプトとは、AIに与える指示や質問のことです。
      実際に練習してみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">2. 学習支援AIツールの活用</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">2. 学習支援AIツールの活用</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3427,8 +3415,8 @@ AI：「プロンプトとは、AIに与える指示や質問のことです。
      AIが学習をサポートしてくれます。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">3. 創作・表現活動での活用</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">3. 創作・表現活動での活用</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3470,8 +3458,8 @@ AI：「素晴らしいテーマですね！
      効果的な展示方法を提案します。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">4. 実践的ビジネススキルの習得</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">4. 実践的ビジネススキルの習得</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3509,12 +3497,12 @@ AI：「国際関係の仕事では、AIツールが大変役立ちます。
      総合的にサポートします。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">実践的プロジェクト学習</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">実践的プロジェクト学習</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">起業体験プログラム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">起業体験プログラム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -3548,12 +3536,12 @@ AI：「素晴らしいアイデアですね！
      ビジネスの可能性を探ってみましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">AIツール活用における倫理的配慮</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">AIツール活用における倫理的配慮</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">適切な使用ガイドライン</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">適切な使用ガイドライン</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -3580,8 +3568,8 @@ AI：「素晴らしいアイデアですね！
      AIを効果的に活用しましょう。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">批判的思考力の維持</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">批判的思考力の維持</h4>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
@@ -3604,48 +3592,48 @@ AI：「素晴らしいアイデアですね！
      自分の思考力も向上させることができます。」</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：高校生期のAI活用が開く未来への扉</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ：高校生期のAI活用が開く未来への扉</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>高校生期におけるAI活用は、単なる技術習得を超えて、将来の学習・職業生活の基盤を築く重要な意味を持ちます。本章で紹介した取り組みを通じて、以下のような能力が培われます：</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">1. 戦略的学習能力の確立</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. 戦略的学習能力の確立</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>大学入試対策を通じて、目標設定から計画実行、結果評価までの一連のプロセスを体系的に学び、生涯学習の基盤を築きます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">2. 専門的探究能力の向上</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. 専門的探究能力の向上</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>研究体験を通じて、問題発見・仮説設定・検証・考察という学問の基本的な方法論を身につけ、大学での学習への準備を整えます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">3. 実用的デジタルスキルの習得</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. 実用的デジタルスキルの習得</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>現代社会で必須となるAIツールの活用スキルを身につけ、将来の職業生活での競争優位を確保します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">4. 倫理的判断力の育成</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. 倫理的判断力の育成</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>AI活用における適切な判断基準を学び、技術と人間性の調和を図る能力を育成します。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">5. 自律的学習者としての確立</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">5. 自律的学習者としての確立</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3672,14 +3660,14 @@ AI：「素晴らしいアイデアですね！
 <h2 class="wp-block-heading">第7章：発達段階チェック表と最適なAIツール選択ガイド</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"id":2835,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter6.png" alt="第6章サムネイル画像" class="wp-image-2835" /></figure>
+<!-- wp:image {"id":2857,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://www.ht-sw.tech/wp-content/uploads/2025/06/20250619_145151_thumbnail_INT-02_chapter6-2.png" alt="chapter6 サムネイル画像" class="wp-image-2857" /></figure>
 <!-- /wp:image -->
 
 
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">はじめに：実践的AI教育の指針として</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">はじめに：実践的AI教育の指針として</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3706,12 +3694,12 @@ AI：「素晴らしいアイデアですね！
 <p>これらのガイドを活用することで、保護者や教育者は、個々の子どもに最適化されたAI教育環境を構築することができます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">発達段階別チェック表：子どもの現在地を正確に把握する</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">発達段階別チェック表：子どもの現在地を正確に把握する</h2>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">チェック表の使用方法</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">チェック表の使用方法</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3726,12 +3714,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>認知能力</strong>：思考力、理解力、問題解決能力</li><li><strong>社会性</strong>：コミュニケーション能力、協調性、自己制御</li><li><strong>学習態度</strong>：学習への取り組み、持続性、自主性</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">幼児期（3-6歳）発達チェック表</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">幼児期（3-6歳）発達チェック表</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">認知能力チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">認知能力チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3758,8 +3746,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] ごっこ遊びを楽しんで行う</li><li>[ ] 絵や工作で自分のアイデアを表現する</li><li>[ ] 「もしも〜だったら」という仮定の話を楽しむ</li><li>[ ] 新しい遊び方を考え出すことがある</li><li>[ ] 物語を自分なりに創作することがある</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">社会性チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">社会性チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3778,8 +3766,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 感情的になっても比較的早く落ち着ける</li><li>[ ] 「待つ」ことができる（短時間）</li><li>[ ] 危険な行動を避けることができる</li><li>[ ] 大人の指示に従うことができる</li><li>[ ] 自分の欲求を適切に表現できる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">学習態度チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">学習態度チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3806,12 +3794,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>20-24項目該当：高度な発達段階（年齢相応以上）</li><li>15-19項目該当：標準的な発達段階</li><li>10-14項目該当：やや遅れ気味（個別支援推奨）</li><li>9項目以下：専門家相談推奨</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">小学校低学年（7-9歳）発達チェック表</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">小学校低学年（7-9歳）発達チェック表</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">認知能力チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">認知能力チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3838,8 +3826,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 複数の情報を統合して考えることができる</li><li>[ ] 情報の重要度を判断できる</li><li>[ ] 間違いに気づいて修正することができる</li><li>[ ] 効率的な方法を考えて実行する</li><li>[ ] 記憶した内容を正確に再生できる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">社会性チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">社会性チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3858,8 +3846,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 学校や社会のルールを理解し、守ろうとする</li><li>[ ] 公平性を重視した行動ができる</li><li>[ ] 自分の行動が他者に与える影響を考える</li><li>[ ] 責任感を持って行動する</li><li>[ ] 約束を守ることの重要性を理解している</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">学習態度チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">学習態度チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3886,12 +3874,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>22-26項目該当：高度な発達段階</li><li>17-21項目該当：標準的な発達段階</li><li>12-16項目該当：支援が必要な段階</li><li>11項目以下：個別指導推奨</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">小学校高学年（10-12歳）発達チェック表</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">小学校高学年（10-12歳）発達チェック表</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">認知能力チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">認知能力チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3918,8 +3906,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 独創的なアイデアを生み出すことができる</li><li>[ ] 既存の知識を組み合わせて新しいものを作る</li><li>[ ] 問題に対して複数の解決策を考えることができる</li><li>[ ] 表現活動で個性を発揮する</li><li>[ ] 改善案を提案することができる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">社会性チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">社会性チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3938,8 +3926,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 行動の善悪を客観的に判断できる</li><li>[ ] 社会の仕組みについて考えることができる</li><li>[ ] 他者の立場に立って物事を考えられる</li><li>[ ] 公正性を重視した判断ができる</li><li>[ ] 社会貢献への意識を持っている</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">学習態度チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">学習態度チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3966,12 +3954,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>24-28項目該当：高度な発達段階</li><li>19-23項目該当：標準的な発達段階</li><li>14-18項目該当：支援が必要な段階</li><li>13項目以下：個別指導推奨</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">中学生（13-15歳）発達チェック表</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">中学生（13-15歳）発達チェック表</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">認知能力チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">認知能力チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -3990,8 +3978,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 効果的な学習方法を選択し、実行できる</li><li>[ ] 複数の情報源を統合して理解を深められる</li><li>[ ] 学習内容を構造化して整理できる</li><li>[ ] 知識の転移を意識的に行うことができる</li><li>[ ] 自分の理解プロセスを言語化できる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">社会性・アイデンティティチェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">社会性・アイデンティティチェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4010,8 +3998,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 多様な価値観を理解し、尊重できる</li><li>[ ] 建設的な議論ができる</li><li>[ ] 対立を適切に解決することができる</li><li>[ ] 社会問題に関心を持ち、自分なりの意見を持っている</li><li>[ ] 社会の一員としての責任を理解している</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">自律性チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">自律性チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4038,12 +4026,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>26-30項目該当：高度な発達段階</li><li>21-25項目該当：標準的な発達段階</li><li>16-20項目該当：支援が必要な段階</li><li>15項目以下：個別指導推奨</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">高校生（16-18歳）発達チェック表</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">高校生（16-18歳）発達チェック表</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">認知能力・学習能力チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">認知能力・学習能力チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4062,8 +4050,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] 多様な情報源から必要な情報を収集できる</li><li>[ ] 情報の信頼性を適切に評価できる</li><li>[ ] 大量の情報を効率的に処理できる</li><li>[ ] 情報を統合して新しい知見を生み出せる</li><li>[ ] 情報を効果的に他者に伝達できる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">キャリア発達チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">キャリア発達チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4082,8 +4070,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>[ ] コミュニケーション能力が高い</li><li>[ ] チームワークを発揮できる</li><li>[ ] リーダーシップを適切に発揮できる</li><li>[ ] 問題解決能力が高い</li><li>[ ] 新しい環境に適応することができる</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">人格的成熟チェック</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">人格的成熟チェック</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4110,16 +4098,16 @@ AI：「素晴らしいアイデアですね！
 <ul><li>28-32項目該当：高度な発達段階</li><li>23-27項目該当：標準的な発達段階</li><li>18-22項目該当：支援が必要な段階</li><li>17項目以下：個別指導推奨</li></ul>
 <!-- /wp:list -->
 
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">発達段階別推奨AIツール一覧</h2>
+<!-- /wp:heading -->
+
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">発達段階別推奨AIツール一覧</h3>
+<h3 class="wp-block-heading">幼児期（3-6歳）推奨AIツール</h3>
 <!-- /wp:heading -->
 
 <!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">幼児期（3-6歳）推奨AIツール</h4>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">基礎学習支援ツール</h5>
+<h4 class="wp-block-heading">基礎学習支援ツール</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4146,8 +4134,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：Khan Academy Kids、ABCmouse</li><li><strong>主な機能</strong>：</li><li>文字・数字の学習ゲーム</li><li>個別進度調整</li><li>達成度の可視化</li><li><strong>使用時間</strong>：1日30分まで</li><li><strong>注意事項</strong>：保護者による進捗確認推奨</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">安全性確保のための設定</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">安全性確保のための設定</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4158,12 +4146,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>年齢制限フィルターの有効化</li><li>外部サイトへのアクセス制限</li><li>個人情報入力の制限</li><li>使用時間の自動制限</li><li>保護者への活動報告機能</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">小学校低学年（7-9歳）推奨AIツール</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">小学校低学年（7-9歳）推奨AIツール</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">学習支援AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">学習支援AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4190,8 +4178,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：PlantNet（植物識別）、Seek by iNaturalist</li><li><strong>主な機能</strong>：</li><li>動植物の自動識別</li><li>観察記録の支援</li><li>関連情報の提供</li><li>デジタル図鑑機能</li><li><strong>使用時間</strong>：野外活動時のみ使用</li><li><strong>効果測定</strong>：観察記録の質的評価</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">創作活動支援AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">創作活動支援AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4202,12 +4190,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：StoryJumper、Book Creator</li><li><strong>主な機能</strong>：</li><li>物語の構成支援</li><li>挿絵の自動生成</li><li>音声読み上げ機能</li><li>他者との作品共有</li><li><strong>使用時間</strong>：週2回、各45分</li><li><strong>効果測定</strong>：創作物の多様性と完成度</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">小学校高学年（10-12歳）推奨AIツール</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">小学校高学年（10-12歳）推奨AIツール</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">高度学習支援AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">高度学習支援AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4234,8 +4222,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：ChatGPT-4（教育モード）、Claude（安全設定）</li><li><strong>主な機能</strong>：</li><li>質問応答システム</li><li>調べ学習の支援</li><li>論理的思考の訓練</li><li>多角的視点の提供</li><li><strong>使用時間</strong>：週4回、各45分</li><li><strong>効果測定</strong>：批判的思考力の評価</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">協働学習AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">協働学習AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4246,12 +4234,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：Kialo Edu、FlipGrid</li><li><strong>主な機能</strong>：</li><li>論点整理の支援</li><li>反駁練習の相手役</li><li>論理的欠陥の指摘</li><li>証拠収集の支援</li><li><strong>使用時間</strong>：週2回、各60分</li><li><strong>効果測定</strong>：議論スキル評価シート</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">中学生（13-15歳）推奨AIツール</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">中学生（13-15歳）推奨AIツール</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">学習管理・計画AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">学習管理・計画AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4270,8 +4258,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：Khan Academy、Coursera for Schools</li><li><strong>主な機能</strong>：</li><li>苦手分野の自動診断</li><li>個別問題生成</li><li>模擬試験の実施</li><li>成績予測と改善提案</li><li><strong>使用時間</strong>：平日2時間、休日3時間まで</li><li><strong>効果測定</strong>：模擬試験結果の推移</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">専門分野探究AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">専門分野探究AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4290,12 +4278,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：LinkedIn Learning、O*NET Interest Profiler</li><li><strong>主な機能</strong>：</li><li>適性診断</li><li>職業情報の提供</li><li>スキル要件の分析</li><li>キャリアパスの提案</li><li><strong>使用時間</strong>：月2回、各90分</li><li><strong>効果測定</strong>：進路選択の明確度評価</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">高校生（16-18歳）推奨AIツール</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">高校生（16-18歳）推奨AIツール</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">高度学習・研究AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">高度学習・研究AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4314,8 +4302,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：Zotero（AI機能）、Mendeley、ResearchGate</li><li><strong>主な機能</strong>：</li><li>学術論文の検索・管理</li><li>研究データの分析</li><li>共同研究の支援</li><li>研究成果の発表支援</li><li><strong>使用時間</strong>：研究プロジェクト期間中は制限なし</li><li><strong>効果測定</strong>：研究成果の学術的評価</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">実用スキル習得AI</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">実用スキル習得AI</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4334,16 +4322,16 @@ AI：「素晴らしいアイデアですね！
 <ul><li><strong>推奨ツール</strong>：Duolingo Max、Babbel Live</li><li><strong>主な機能</strong>：</li><li>個別カリキュラム作成</li><li>会話練習相手</li><li>発音矯正</li><li>文化的コンテキストの説明</li><li><strong>使用時間</strong>：毎日30-60分</li><li><strong>効果測定</strong>：言語能力試験結果</li></ul>
 <!-- /wp:list -->
 
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">個別学習プラン作成方法：実践的アプローチ</h2>
+<!-- /wp:heading -->
+
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">個別学習プラン作成方法：実践的アプローチ</h3>
+<h3 class="wp-block-heading">ステップ1：子どもの現状把握</h3>
 <!-- /wp:heading -->
 
 <!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ステップ1：子どもの現状把握</h4>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">発達状況の総合評価</h5>
+<h4 class="wp-block-heading">発達状況の総合評価</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4383,12 +4371,12 @@ AI：「素晴らしいアイデアですね！
 - 朝の学習効率が高い</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ステップ2：学習目標の設定</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ステップ2：学習目標の設定</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">SMART原則に基づく目標設定</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">SMART原則に基づく目標設定</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4420,12 +4408,12 @@ AI：「素晴らしいアイデアですね！
    - 期限：3ヶ月後の作品発表会</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ステップ3：AI教育プログラムの設計</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ステップ3：AI教育プログラムの設計</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">週間学習スケジュール作成</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">週間学習スケジュール作成</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4460,8 +4448,8 @@ AI：「素晴らしいアイデアですね！
 10:00-10:30 学習成果の整理と次週計画</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">個別配慮事項</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">個別配慮事項</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4472,12 +4460,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>視覚的学習者向け：グラフィカルなAIツールを優先使用</li><li>体験重視：実験・観察支援AIの活用頻度を高める</li><li>集中時間配慮：45分を超える学習は避ける</li><li>朝型特性：重要な学習は朝の時間帯に配置</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ステップ4：実施・モニタリング</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ステップ4：実施・モニタリング</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">日々の記録・評価システム</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">日々の記録・評価システム</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4518,12 +4506,12 @@ AI：「素晴らしいアイデアですね！
 - 改善案：社会科は実生活との関連を重視したAI活用</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">ステップ5：継続的改善</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ステップ5：継続的改善</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">月次レビューと調整</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">月次レビューと調整</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4558,16 +4546,16 @@ AI：「素晴らしいアイデアですね！
 4. 新規：データ分析AIの導入（興味に合致）</code></pre>
 <!-- /wp:code -->
 
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">安全性確保ガイドライン：年齢別安全配慮事項</h2>
+<!-- /wp:heading -->
+
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">安全性確保ガイドライン：年齢別安全配慮事項</h3>
+<h3 class="wp-block-heading">基本的安全原則</h3>
 <!-- /wp:heading -->
 
 <!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">基本的安全原則</h4>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">全年齢共通の安全配慮</h5>
+<h4 class="wp-block-heading">全年齢共通の安全配慮</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4594,12 +4582,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>不適切なコンテンツへのアクセス制限</li><li>年齢に適さない情報の遮断</li><li>有害なウェブサイトへのリンク制限</li><li>暴力的・性的コンテンツの完全排除</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">年齢別詳細ガイドライン</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">年齢別詳細ガイドライン</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">幼児期（3-6歳）安全配慮</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">幼児期（3-6歳）安全配慮</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4633,8 +4621,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>適切な座席・姿勢の確保</li><li>画面との距離（50cm以上）維持</li><li>適切な照明環境の提供</li><li>定期的な目の休憩</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">小学生（7-12歳）安全配慮</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">小学生（7-12歳）安全配慮</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4663,8 +4651,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>情報の真偽判定能力の育成</li><li>適切なAI活用方法の指導</li><li>デジタル市民権の基礎教育</li><li>ネットいじめ防止教育</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">中学生（13-15歳）安全配慮</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">中学生（13-15歳）安全配慮</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4693,8 +4681,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>フェイクニュースの識別方法</li><li>AI生成コンテンツの判別能力</li><li>著作権・知的財産権の理解</li><li>サイバーセキュリティの基礎</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">高校生（16-18歳）安全配慮</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">高校生（16-18歳）安全配慮</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4723,16 +4711,16 @@ AI：「素晴らしいアイデアですね！
 <ul><li>AI依存症の防止</li><li>批判的思考力の維持</li><li>創造性の自立性確保</li><li>キャリア形成での適切な活用</li></ul>
 <!-- /wp:list -->
 
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">効果測定と評価方法：客観的な学習効果の把握</h2>
+<!-- /wp:heading -->
+
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">効果測定と評価方法：客観的な学習効果の把握</h3>
+<h3 class="wp-block-heading">評価の基本方針</h3>
 <!-- /wp:heading -->
 
 <!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">評価の基本方針</h4>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">多面的評価アプローチ</h5>
+<h4 class="wp-block-heading">多面的評価アプローチ</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4751,12 +4739,12 @@ AI：「素晴らしいアイデアですね！
 <ul><li>定量的評価（テスト、測定）</li><li>定性的評価（観察、面談）</li><li>自己評価（振り返り、日記）</li><li>他者評価（保護者、教師）</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">年齢別評価指標</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">年齢別評価指標</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">幼児期（3-6歳）評価指標</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">幼児期（3-6歳）評価指標</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4794,8 +4782,8 @@ AI：「素晴らしいアイデアですね！
 <ul><li>月1回の観察記録</li><li>簡単な課題遂行テスト</li><li>保護者アンケート</li><li>遊び場面での行動観察</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">小学生（7-12歳）評価指標</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">小学生（7-12歳）評価指標</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4846,8 +4834,8 @@ AI：「素晴らしいアイデアですね！
    5段階評価：3 → 5（大幅向上）</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">中学生（13-15歳）評価指標</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">中学生（13-15歳）評価指標</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4895,8 +4883,8 @@ AI：「素晴らしいアイデアですね！
           解決策が非現実的</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">高校生（16-18歳）評価指標</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">高校生（16-18歳）評価指標</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4923,12 +4911,12 @@ AI：「素晴らしいアイデアですね！
 - 生涯学習への意識</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">継続的改善システム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">継続的改善システム</h3>
 <!-- /wp:heading -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">データ駆動型改善プロセス</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">データ駆動型改善プロセス</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4961,8 +4949,8 @@ AI：「素晴らしいアイデアですね！
 - 次期計画への反映</code></pre>
 <!-- /wp:code -->
 
-<!-- wp:heading {"level":5} -->
-<h5 class="wp-block-heading">長期的成長追跡</h5>
+<!-- wp:heading {"level":4} -->
+<h4 class="wp-block-heading">長期的成長追跡</h4>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -4973,48 +4961,48 @@ AI：「素晴らしいアイデアですね！
 <ul><li>年間成長記録の作成</li><li>発達段階移行の確認</li><li>個人特性の長期変化</li><li>教育効果の持続性評価</li></ul>
 <!-- /wp:list -->
 
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：個々の子どもに最適化されたAI教育の実現</h3>
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">まとめ：個々の子どもに最適化されたAI教育の実現</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>本章で提供したガイドラインと評価システムを活用することで、以下のような効果が期待できます：</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">1. 科学的根拠に基づく教育実践</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. 科学的根拠に基づく教育実践</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>発達段階チェック表により、子ども一人ひとりの現状を客観的に把握し、エビデンスに基づいた教育方針を決定できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">2. 最適なAIツール選択</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. 最適なAIツール選択</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>年齢・発達段階に応じた推奨ツール一覧により、効果的で安全なAI教育環境を構築できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">3. 個別最適化された学習プログラム</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. 個別最適化された学習プログラム</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>子どもの特性に合わせた個別学習プランにより、最大限の教育効果を実現できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">4. 安全で健全な学習環境</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. 安全で健全な学習環境</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>包括的な安全ガイドラインにより、リスクを最小化しながらAIの恩恵を最大化できます。</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":4} -->
-<h4 class="wp-block-heading">5. 継続的な改善と成長</h4>
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">5. 継続的な改善と成長</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -5050,11 +5038,7 @@ AI：「素晴らしいアイデアですね！
 <!-- /wp:list -->
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">まとめセクション</h2>
-<!-- /wp:heading -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">まとめ：年齢別生成AI教育で子どもの未来を切り開く</h3>
+<h2 class="wp-block-heading">まとめ：年齢別生成AI教育で子どもの未来を切り開く</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
