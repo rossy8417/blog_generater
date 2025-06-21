@@ -1,0 +1,108 @@
+# -------------------------------
+# 全体設定
+# -------------------------------
+style: "{{image_style}}"
+theme_color: "{{theme_colors}}"
+aspect_ratio: "{{aspect_ratio}}"
+resolution: "{{resolution}}"
+mood: "{{mood_keywords}}"
+typographer_agent: {{include_typography}}
+# トリミング対策：全体を縮小し余白を確保
+padding: "{{padding_values}}"
+
+# -------------------------------
+# ビジュアルアイデンティティ
+# -------------------------------
+visual_identity:
+  typography:
+    headline:
+      font: "{{headline_font}}"
+      size: "{{headline_size}}"
+      color: "{{headline_color}}"
+      outline: {color: "{{headline_outline_color}}", size: "{{headline_outline_size}}"}
+      glow: {color: "{{headline_glow_color}}", intensity: "{{headline_glow_intensity}}"}
+    subheadline:
+      font: "{{subheadline_font}}"
+      size: "{{subheadline_size}}"
+      color: "{{subheadline_color}}"
+      outline: {color: "{{subheadline_outline_color}}", size: "{{subheadline_outline_size}}"}
+    extra:
+      font: "{{extra_font}}"
+      size: "{{extra_size}}"
+      color: "{{extra_color}}"
+
+# -------------------------------
+# 背景設定
+# -------------------------------
+background:
+  type: "{{background_type}}"
+  color: "{{background_color}}"
+  overlay: "{{background_overlay}}"
+
+# -------------------------------
+# テキスト構成
+# -------------------------------
+main_texts:
+  - id: "headline1"
+    content: "{{headline1_text}}"
+    font_style: "{{headline1_style}}"
+    font_size: "{{headline1_size}}"
+    font_color: "{{headline1_color}}"
+    background_color: "{{headline1_bg_color}}"
+    padding: "{{headline1_padding}}"
+    border_radius: "{{headline1_border_radius}}"
+    position: "{{headline1_position}}"
+    offset: {x: {{headline1_offset_x}}, y: {{headline1_offset_y}}}
+  - id: "headline2"
+    content: "{{headline2_text}}"
+    font_style: "{{headline2_style}}"
+    font_size: "{{headline2_size}}"
+    font_color: "{{headline2_color}}"
+    text_outline: "{{headline2_outline}}"
+    position: "{{headline2_position}}"
+    offset: {x: {{headline2_offset_x}}, y: {{headline2_offset_y}}}
+  - id: "headline3"
+    content: "{{headline3_text}}"
+    font_style: "{{headline3_style}}"
+    font_size: "{{headline3_size}}"
+    font_color: "{{headline3_color}}"
+    text_outline: "{{headline3_outline}}"
+    position: "{{headline3_position}}"
+    line_spacing: {{headline3_line_spacing}}
+    offset: {x: {{headline3_offset_x}}, y: {{headline3_offset_y}}}
+  - id: "highlight"
+    content: "{{highlight_text}}"
+    font_style: "{{highlight_style}}"
+    font_size: "{{highlight_size}}"
+    font_color: "{{highlight_color}}"
+    text_effect: "{{highlight_effect}}"
+    position: "{{highlight_position}}"
+    offset: {x: {{highlight_offset_x}}, y: {{highlight_offset_y}}}
+
+# -------------------------------
+# 人物設定
+# -------------------------------
+person:
+  type: "{{person_type}}"
+  description: "{{person_description}}"
+  position: "{{person_position}}"
+  offset: {x: {{person_offset_x}}, y: {{person_offset_y}}}
+  size: "{{person_size}}"
+  style: "{{person_style}}"
+  lighting: "{{person_lighting}}"
+  skin_texture: "{{person_skin_texture}}"
+  camera_style: "{{person_camera_style}}"
+  expression: "{{person_expression}}"
+  outline: "{{person_outline}}"
+
+# -------------------------------
+# 装飾・演出
+# -------------------------------
+effects:
+  - type: "{{effect1_type}}"
+    placement: "{{effect1_placement}}"
+  - type: "{{effect2_type}}"
+    color: "{{effect2_color}}"
+    direction: "{{effect2_direction}}"
+  - type: "{{effect3_type}}"
+    detail: "{{effect3_detail}}"

@@ -1,0 +1,15 @@
+{
+  "eyecatch": "outputs/20250621_012641_eyecatch_INT-02",
+  "chapters": {
+    "chapter1_career_necessity": "outputs/20250621_012641_thumbnail_INT-02_chapter1",
+    "chapter2_analysis_planning": "outputs/20250621_012641_thumbnail_INT-02_chapter2",
+    "chapter3_tech_trends": "outputs/20250621_012641_thumbnail_INT-02_chapter3",
+    "chapter4_skillup_roadmap": "outputs/20250621_012641_thumbnail_INT-02_chapter4",
+    "chapter5_learning_methods": "outputs/20250621_012641_thumbnail_INT-02_chapter5",
+    "chapter6_success_cases": "outputs/20250621_012641_thumbnail_INT-02_chapter6"
+  },
+  "eyecatch_model": "gpt-image-1",
+  "eyecatch_features": "日本語タイトル付き",
+  "thumbnail_model": "imagen-3.0",
+  "thumbnail_features": "テキストなし視覚重視"
+}
