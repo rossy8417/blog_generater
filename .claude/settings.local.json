@@ -143,7 +143,31 @@
       "Bash(reboot:*)",
       "Bash(halt:*)",
       "Bash(systemctl:*)",
-      "Bash(service:*)"
+      "Bash(service:*)",
+      "Edit(templates/*)",
+      "Write(templates/*)",
+      "Delete(templates/*)",
+      "Replace(templates/*)",
+      "Edit(scripts/*.py)",
+      "Write(scripts/*.py)",
+      "Delete(scripts/*.py)",
+      "Replace(scripts/*.py)",
+      "Edit(utils/*.py)",
+      "Write(utils/*.py)",
+      "Delete(utils/*.py)",
+      "Replace(utils/*.py)",
+      "Edit(wordpress_client.py)",
+      "Write(wordpress_client.py)",
+      "Delete(wordpress_client.py)",
+      "Replace(wordpress_client.py)",
+      "Edit(generate_template.yaml)",
+      "Write(generate_template.yaml)",
+      "Delete(generate_template.yaml)",
+      "Replace(generate_template.yaml)",
+      "Edit(requirements.txt)",
+      "Write(requirements.txt)",
+      "Delete(requirements.txt)",
+      "Replace(requirements.txt)"
     ]
   }
 }
