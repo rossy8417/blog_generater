@@ -121,7 +121,10 @@
       "Bash(source:*)",
       "Bash(env)",
       "Bash(printenv:*)",
-      "mcp__*"
+      "mcp__*",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",

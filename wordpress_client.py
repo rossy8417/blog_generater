@@ -451,6 +451,14 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
                 content += f'<!-- /wp:image -->\n\n'
             i += 1
             
+        # Meta Description行をスキップ
+        elif re.match(r'\*\*Meta Description:\*\*', line):
+            i += 1
+            
+        # ローカルファイルパスの画像記法をスキップ
+        elif line.strip().startswith('![') and ('outputs/' in line or './' in line or '/mnt/' in line):
+            i += 1
+            
         # 通常の段落
         else:
             paragraph_text = format_text(line)
@@ -477,29 +485,35 @@ def insert_chapter_images(wp_content: str, chapter_images: list) -> str:
     # 章番号順にソート
     chapter_images_sorted = sorted(chapter_images, key=lambda x: x['chapter'])
     
-    # 各h2見出しを見つけて、対応する章の画像を挿入
-    heading_pattern = r'<!-- wp:heading \{"level":2\} -->\s*\n<h2 class="wp-block-heading">([^<]+)</h2>\s*\n<!-- /wp:heading -->'
+    # 章番号付きのH2見出しのみを対象にする
+    heading_pattern = r'<!-- wp:heading \{"level":2\} -->\s*\n<h2 class="wp-block-heading">([^<]*(?:<a[^>]*>[^<]*</a>)?[^<]*)</h2>\s*\n<!-- /wp:heading -->'
     
     heading_count = 0
     
     def replace_heading(match):
         nonlocal heading_count
         heading_content = match.group(0)
+        heading_text = match.group(1).strip()
         
-        # 対応する章の画像があるかチェック
-        if heading_count < len(chapter_images_sorted):
-            image_info = chapter_images_sorted[heading_count]
-            
-            # WordPress画像ブロックを作成
-            image_block = f'''<!-- wp:image {{"id":{image_info["attachment_id"]},"sizeSlug":"full","linkDestination":"none"}} -->
-<figure class="wp-block-image size-full"><img src="{image_info["url"]}" alt="{image_info['chapter']} サムネイル画像" class="wp-image-{image_info["attachment_id"]}"/></figure>
+        # アンカータグを除去して見出しテキストを抽出
+        clean_heading = re.sub(r'<a[^>]*>[^<]*</a>\s*', '', heading_text)
+        
+        # 章番号付きの見出しのみ処理（"1. ", "2. " などで始まる、または数字のみ）
+        if re.match(r'^\d+[\.\s]', clean_heading) or re.match(r'^第?\d+章', clean_heading):
+            # 対応する章の画像があるかチェック
+            if heading_count < len(chapter_images_sorted):
+                image_info = chapter_images_sorted[heading_count]
+                
+                # WordPress画像ブロックを作成
+                image_block = f'''<!-- wp:image {{"id":{image_info["attachment_id"]},"sizeSlug":"full","linkDestination":"none"}} -->
+<figure class="wp-block-image size-full"><img src="{image_info["url"]}" alt="第{heading_count + 1}章サムネイル画像" class="wp-image-{image_info["attachment_id"]}"/></figure>
 <!-- /wp:image -->
 
 '''
-            heading_count += 1
-            return heading_content + '\n\n' + image_block
-        else:
-            return heading_content
+                heading_count += 1
+                return heading_content + '\n\n' + image_block
+        
+        return heading_content
     
     # すべてのh2見出しに対して処理
     wp_content = re.sub(heading_pattern, replace_heading, wp_content)
