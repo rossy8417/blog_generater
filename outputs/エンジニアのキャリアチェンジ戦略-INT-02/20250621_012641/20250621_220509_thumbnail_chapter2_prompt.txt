@@ -1,0 +1,26 @@
+# 第2章サムネイル画像生成指示
+
+## 章タイトル
+キャリアチェンジ成功のための現状分析と目標設定
+
+## 画像生成プロンプト
+Chapter 2 thumbnail: "Current Analysis and Goal Setting"
+- Central image: SWOT analysis diagram or compass/target
+- Background: Strategic planning elements, charts, graphs
+- Colors: Green for growth, blue for analysis
+- Icons: Magnifying glass, checklist, goal target, analytics
+- Style: Business consulting aesthetic, professional
+- Size: 400x300 or 16:9 ratio
+
+## 代替デザイン案
+- シンプルな章番号 + アイコン
+- 色: プロフェッショナルブルー (#2E86AB)
+- フォント: モダンサンセリフ
+- サイズ: 400x300px または 16:9比率
+- 背景: グラデーション or ミニマル
+
+## 技術的仕様
+- ファイル形式: PNG (透過対応)
+- 解像度: 高解像度対応
+- 用途: ブログ記事内サムネイル
+- 最適化: Web表示用
