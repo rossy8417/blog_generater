@@ -129,7 +129,17 @@
       "Bash(pkill:*)",
       "Bash(for i in {1..6})",
       "Bash(do python3 scripts/image_generator.py --outline \"/mnt/c/home/hiroshi/blog_generator/outputs/【年齢別】生成AI教育完全ガイド｜3歳〜18歳の発達段階別活用法-INT-02/20250619_145151_outline_INT-02.md\" --mode thumbnail --chapter $i)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(./agent-send.sh:*)",
+      "Bash(rg:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(./agent-send.sh:*)",
+      "Bash(./Claude-Code-Communication/agent-send.sh:*)",
+      "Bash(tmux new-session:*)",
+      "Bash(tmux send-keys:*)",
+      "Bash(./Claude-Code-Communication/agent-send.sh:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
