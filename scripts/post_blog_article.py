@@ -87,6 +87,60 @@ def clean_markdown_content(markdown_content, image_files):
     
     return content.strip()
 
+def preview_blog_article(article_path):
+    """
+    ブログ記事の投稿前プレビュー（投稿はしない）
+    
+    Args:
+        article_path: 記事ファイルのパス
+    """
+    print("🔍 ブログ記事プレビュー開始...\n")
+    
+    try:
+        if not os.path.exists(article_path):
+            print(f"❌ 指定された記事ファイルが見つかりません: {article_path}")
+            return False
+        
+        print(f"📖 記事ファイル: {os.path.basename(article_path)}")
+        
+        # 記事読み込み
+        with open(article_path, 'r', encoding='utf-8') as f:
+            markdown_content = f.read()
+        
+        print(f"✅ 記事読み込み完了 ({len(markdown_content):,} 文字)")
+        
+        # メタデータ抽出
+        title, meta_description, excerpt = extract_article_metadata(markdown_content)
+        print(f"📝 タイトル: {title}")
+        
+        # 画像ファイル検索
+        article_dir = os.path.dirname(article_path)
+        basename = os.path.basename(article_path)
+        
+        if '_complete_article_' in basename:
+            eyecatch_pattern = os.path.join(article_dir, "*_eyecatch_*.png")
+            thumbnail_pattern = os.path.join(article_dir, "*_thumbnail_*_chapter*.png")
+            
+            import glob
+            eyecatch_files = glob.glob(eyecatch_pattern)
+            thumbnail_files = glob.glob(thumbnail_pattern)
+            
+            print(f"🖼️  発見された画像:")
+            print(f"   アイキャッチ: {len(eyecatch_files)}個")
+            print(f"   サムネイル: {len(thumbnail_files)}個")
+        
+        # マークダウン変換（デバッグ有効）
+        print("\n🔄 マークダウン→WordPress変換チェック:")
+        cleaned_content = clean_markdown_content(markdown_content, [])
+        wp_content = convert_markdown_to_gutenberg(cleaned_content, debug=True)
+        
+        print("✅ プレビュー完了!\n")
+        return True
+        
+    except Exception as e:
+        print(f"❌ プレビューエラー: {str(e)}")
+        return False
+
 def post_blog_article(article_path=None):
     """ブログ記事をWordPressに投稿"""
     
@@ -176,7 +230,7 @@ def post_blog_article(article_path=None):
         # マークダウンをクリーンアップしてWordPress形式に変換
         print("🔄 マークダウンをWordPress形式に変換中...")
         cleaned_content = clean_markdown_content(markdown_content, thumbnail_files)
-        wp_content = convert_markdown_to_gutenberg(cleaned_content)
+        wp_content = convert_markdown_to_gutenberg(cleaned_content, debug=True)
         
         # 章別画像を挿入
         if chapter_images:
@@ -230,10 +284,18 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description='ブログ記事をWordPressに投稿')
     parser.add_argument('--article', help='投稿する記事ファイルパス（指定しない場合は最新を自動選択）')
+    parser.add_argument('--preview', action='store_true', help='投稿前プレビューのみ実行（実際の投稿はしない）')
     
     args = parser.parse_args()
     
-    success = post_blog_article(args.article)
+    if args.preview:
+        if not args.article:
+            print("❌ プレビューモードでは --article オプションが必須です")
+            sys.exit(1)
+        success = preview_blog_article(args.article)
+    else:
+        success = post_blog_article(args.article)
+    
     if success:
         print("\n✅ 処理が正常に完了しました！")
         sys.exit(0)

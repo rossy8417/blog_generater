@@ -298,12 +298,13 @@ def create_image_block(image_url: str, alt_text: str = "", image_id: int = 0) ->
 
 '''
 
-def convert_markdown_to_gutenberg(markdown_content: str) -> str:
+def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) -> str:
     """
     マークダウンをWordPressブロックエディタ形式に変換（修正版）
     
     Args:
         markdown_content: マークダウン形式のコンテンツ
+        debug: デバッグ情報を表示するかどうか
     
     Returns:
         WordPressブロック形式のHTML
@@ -311,6 +312,15 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
     content = ""
     lines = markdown_content.split('\n')
     i = 0
+    
+    # デバッグ情報収集用
+    heading_info = []
+    skipped_lines = []
+    template_ids_found = []
+    
+    if debug:
+        print("🔍 マークダウン→WordPress変換デバッグ開始")
+        print(f"📝 総行数: {len(lines)}")
     
     while i < len(lines):
         line = lines[i].strip()
@@ -323,17 +333,31 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
         # H1見出し（メインタイトルまたは章見出し）
         if line.startswith('# '):
             heading_text = line[2:].strip()
+            
+            # テンプレート識別子チェック
+            if re.search(r'H\d+-\d+(-\d+)?', heading_text):
+                template_ids_found.append(f"H1: {heading_text}")
+            
             # 最初のH1（メインタイトル）のみスキップ、その他はH2として変換
             if heading_text != '【年齢別】生成AI教育完全ガイド｜3歳〜18歳の発達段階別活用法' and heading_text != 'リード文':
+                heading_info.append(f"H1→H2: {heading_text}")
                 content += f'<!-- wp:heading {{"level":2}} -->\n'
                 content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
                 content += f'<!-- /wp:heading -->\n\n'
+            else:
+                skipped_lines.append(f"H1スキップ: {heading_text}")
             # メインタイトルと「リード文」はスキップ
             i += 1
             
         # H2見出し（小見出し）
         elif line.startswith('## '):
             heading_text = line[3:].strip()
+            
+            # テンプレート識別子チェック
+            if re.search(r'H\d+-\d+(-\d+)?', heading_text):
+                template_ids_found.append(f"H2: {heading_text}")
+            
+            heading_info.append(f"H2→H3: {heading_text}")
             content += f'<!-- wp:heading {{"level":3}} -->\n'
             content += f'<h3 class="wp-block-heading">{heading_text}</h3>\n'
             content += f'<!-- /wp:heading -->\n\n'
@@ -342,6 +366,12 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
         # H3見出し
         elif line.startswith('### '):
             heading_text = line[4:].strip()
+            
+            # テンプレート識別子チェック
+            if re.search(r'H\d+-\d+(-\d+)?', heading_text):
+                template_ids_found.append(f"H3: {heading_text}")
+            
+            heading_info.append(f"H3→H4: {heading_text}")
             content += f'<!-- wp:heading {{"level":4}} -->\n'
             content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
             content += f'<!-- /wp:heading -->\n\n'
@@ -469,6 +499,40 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
             content += f'<p>{paragraph_text}</p>\n'
             content += f'<!-- /wp:paragraph -->\n\n'
             i += 1
+    
+    # デバッグ情報出力
+    if debug:
+        print("\n📊 変換結果サマリー:")
+        print(f"✅ 変換された見出し: {len(heading_info)}個")
+        for heading in heading_info:
+            print(f"   {heading}")
+        
+        if skipped_lines:
+            print(f"\n⏭️  スキップされた行: {len(skipped_lines)}個")
+            for skipped in skipped_lines:
+                print(f"   {skipped}")
+        
+        if template_ids_found:
+            print(f"\n⚠️  テンプレート識別子発見: {len(template_ids_found)}個")
+            for template_id in template_ids_found:
+                print(f"   {template_id}")
+        else:
+            print("\n✅ テンプレート識別子: なし")
+        
+        # WordPressブロック数カウント
+        block_counts = {
+            'heading': content.count('<!-- wp:heading'),
+            'paragraph': content.count('<!-- wp:paragraph'),
+            'list': content.count('<!-- wp:list'),
+            'table': content.count('<!-- wp:table'),
+            'image': content.count('<!-- wp:image')
+        }
+        print(f"\n📝 生成されたWordPressブロック:")
+        for block_type, count in block_counts.items():
+            if count > 0:
+                print(f"   {block_type}: {count}個")
+        
+        print("🔍 変換デバッグ完了\n")
     
     return content
 
