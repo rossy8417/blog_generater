@@ -146,14 +146,14 @@ class OutputManager:
         """
         # デフォルト値設定
         title = metadata.get('title', 'Unknown_Article').strip()
-        date = metadata.get('date', datetime.now().strftime('%Y-%m-%d'))
         int_number = metadata.get('int_number', 'INT-01')
         
         # ファイル名として使用できない文字を置換
         safe_title = self._sanitize_filename(title)
         
-        # ディレクトリパス生成: outputs/ブログタイトル/日付/INT番号/
-        output_dir = self.base_outputs_dir / safe_title / date / int_number
+        # ディレクトリパス生成: outputs/タイトル-INT番号/
+        folder_name = f"{safe_title}-{int_number}"
+        output_dir = self.base_outputs_dir / folder_name
         output_dir.mkdir(parents=True, exist_ok=True)
         
         return output_dir

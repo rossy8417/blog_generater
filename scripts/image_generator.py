@@ -79,11 +79,20 @@ class BlogImageGenerator:
                 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
                 outline_id = 'unknown'
             
+            # タイトルを抽出
+            title_match = re.search(r'Title:\s*(.+)', content)
+            title = title_match.group(1) if title_match else 'Unknown Title'
+            
+            # 日付を生成
+            date = datetime.now().strftime('%Y-%m-%d')
+            
             return {
                 'content': content,
                 'timestamp': timestamp,
                 'outline_id': outline_id,
-                'filename': filename
+                'filename': filename,
+                'title': title,
+                'date': date
             }
         except Exception as e:
             print(f"Error loading outline: {e}")
@@ -105,7 +114,13 @@ class BlogImageGenerator:
     def generate_prompt_with_gemini(self, template_file: str, outline_data: Dict, target_chapter: Optional[str] = None) -> str:
         """Geminiを使ってプロンプトテンプレートから画像生成プロンプトを作成"""
         try:
-            with open(template_file, 'r', encoding='utf-8') as f:
+            # テンプレートファイルの絶対パスを構築
+            if not os.path.isabs(template_file):
+                template_path = project_root / 'templates' / template_file
+            else:
+                template_path = Path(template_file)
+            
+            with open(template_path, 'r', encoding='utf-8') as f:
                 template = f.read()
             
             # 変数置換
@@ -444,7 +459,6 @@ class BlogImageGenerator:
             # 保存処理
             if metadata:
                 # 新しい自動分類システムを使用
-                from io import BytesIO
                 img_bytes = BytesIO()
                 image.save(img_bytes, 'PNG', optimize=True)
                 img_bytes.seek(0)

@@ -32,38 +32,38 @@
 # -------------------------------
 # 全体設定（gpt-image-1用）
 # -------------------------------
-style: "[記事テーマに適したスタイル（例：プロフェッショナル教育系、モダンテック系）]"
-theme_color: "[記事に適した配色（例：ネイビーブルー, ホワイト, オレンジ）]"
+style: "Professional educational illustration with modern tech elements"
+theme_color: "Soft blue, white, warm orange"
 aspect_ratio: "16:9"
 resolution: "1536x1024"
-mood: "[記事の雰囲気を表すキーワード（例：信頼感, 学習, 革新）]"
+mood: "Warm, trustworthy, and professional atmosphere"
 text_support: true  # 日本語テキスト対応
 
 # -------------------------------
 # 背景設定
 # -------------------------------
 background:
-  type: "[記事テーマに適した背景（例：デジタル教育環境、モダンオフィス、学習空間）]"
-  color: "[背景のグラデーション（例：ソフトブルー→ホワイトのグラデーション）]"
-  overlay: "[背景要素の詳細（例：教育関連アイコン、抽象的パターン）]"
+  type: "Futuristic yet warm educational environment"
+  color: "Soft blue to white gradient background"
+  overlay: "AI-related elements like glowing books, digital interfaces, growth stairs metaphor"
 
 # -------------------------------
 # テキスト構成（日本語対応）
 # -------------------------------
 main_texts:
   - id: "main_title"
-    content: "[記事タイトル日本語版]"
+    content: "年齢別 生成AI教育ガイド"
     font_style: "bold"
     font_size: "large"
-    font_color: "[メイン文字色]"
-    text_outline: "[アウトライン色]"
+    font_color: "Deep navy blue"
+    text_outline: "White outline"
     position: "center"
     offset: {x: 0, y: 0}
   - id: "subtitle"
-    content: "[サブタイトルまたはキーワード]"
+    content: "3歳～18歳の発達段階別活用法"
     font_style: "medium"
     font_size: "medium"
-    font_color: "[サブ文字色]"
+    font_color: "Orange accent"
     position: "bottom-center"
     offset: {x: 0, y: -60}
 
@@ -72,12 +72,12 @@ main_texts:
 # -------------------------------
 effects:
   - type: "glow"
-    placement: "[グロー効果の配置（例：タイトル周辺に柔らかな発光）]"
+    placement: "Soft glow around title text for professional look"
   - type: "digital flow"
-    color: "[流れる要素の色（例：水色・白）]"
-    direction: "[流れの方向（例：左上から右下）]"
+    color: "Light blue and white flowing elements"
+    direction: "From top-left to bottom-right"
   - type: "overlay elements"
-    detail: "[追加要素の詳細（例：記事テーマに関連するアイコンやパターン）]"
+    detail: "Children of different ages (toddlers, elementary, middle school, high school students) interacting with AI technology, robots, digital interfaces, and glowing books representing growth and development"
 ```
 
 **生成指示:**

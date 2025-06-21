@@ -320,35 +320,32 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
             i += 1
             continue
             
-        # H1見出し（章タイトル）
+        # H1見出し（メインタイトル - スキップ）
         if line.startswith('# '):
-            heading_text = line[2:].strip()
-            content += f'<!-- wp:heading {{"level":2}} -->\n'
-            content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
-            content += f'<!-- /wp:heading -->\n\n'
+            # メインタイトルは投稿タイトルとして使用されるため、本文では最初のH1をスキップ
             i += 1
             
-        # H2見出し
+        # H2見出し（章見出し）
         elif line.startswith('## '):
             heading_text = line[3:].strip()
-            content += f'<!-- wp:heading {{"level":3}} -->\n'
-            content += f'<h3 class="wp-block-heading">{heading_text}</h3>\n'
+            content += f'<!-- wp:heading {{"level":2}} -->\n'
+            content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
             content += f'<!-- /wp:heading -->\n\n'
             i += 1
             
         # H3見出し
         elif line.startswith('### '):
             heading_text = line[4:].strip()
-            content += f'<!-- wp:heading {{"level":4}} -->\n'
-            content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
+            content += f'<!-- wp:heading {{"level":3}} -->\n'
+            content += f'<h3 class="wp-block-heading">{heading_text}</h3>\n'
             content += f'<!-- /wp:heading -->\n\n'
             i += 1
             
         # H4見出し
         elif line.startswith('#### '):
             heading_text = line[5:].strip()
-            content += f'<!-- wp:heading {{"level":5}} -->\n'
-            content += f'<h5 class="wp-block-heading">{heading_text}</h5>\n'
+            content += f'<!-- wp:heading {{"level":4}} -->\n'
+            content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
             content += f'<!-- /wp:heading -->\n\n'
             i += 1
             
