@@ -338,15 +338,15 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
             if re.search(r'H\d+-\d+(-\d+)?', heading_text):
                 template_ids_found.append(f"H1: {heading_text}")
             
-            # 最初のH1（メインタイトル）のみスキップ、その他はH2として変換
-            if heading_text != '【年齢別】生成AI教育完全ガイド｜3歳〜18歳の発達段階別活用法' and heading_text != 'リード文':
+            # 最初のH1（メインタイトル）はスキップ、章見出し（第X章）はH2として変換
+            if '第' in heading_text and '章' in heading_text:
                 heading_info.append(f"H1→H2: {heading_text}")
                 content += f'<!-- wp:heading {{"level":2}} -->\n'
                 content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
                 content += f'<!-- /wp:heading -->\n\n'
             else:
                 skipped_lines.append(f"H1スキップ: {heading_text}")
-            # メインタイトルと「リード文」はスキップ
+            # メインタイトルはスキップ（上記の条件に該当しない最初のH1）
             i += 1
             
         # H2見出し（小見出し）
