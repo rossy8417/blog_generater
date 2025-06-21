@@ -18,28 +18,47 @@ sys.path.append(str(project_root))
 from wordpress_client import WordPressClient, convert_markdown_to_gutenberg, insert_chapter_images
 
 def find_latest_article_files(outputs_dir):
-    """最新の記事ファイルと関連画像を検索"""
-    article_files = glob.glob(os.path.join(outputs_dir, "*_complete_article_*.md"))
+    """最新の記事ファイルと関連画像を検索（新構造対応）"""
+    # 新構造で検索（ブログタイトル/日付/INT番号）
+    article_pattern = os.path.join(outputs_dir, "*/20*/*/*_complete_article_*.md")
+    article_files = glob.glob(article_pattern)
+    
+    # 旧構造でも検索
+    if not article_files:
+        article_files = glob.glob(os.path.join(outputs_dir, "*_complete_article_*.md"))
+    
     if not article_files:
         return None, [], None
     
     # 最新のファイルを選択
     latest_article = max(article_files, key=os.path.getctime)
+    article_dir = os.path.dirname(latest_article)
     
     # ファイル名から記事IDを抽出
     basename = os.path.basename(latest_article)
-    match = re.search(r'(\d{8}_\d{6})_complete_article_(.+)\.md', basename)
-    if not match:
-        return latest_article, [], None
     
-    timestamp, article_id = match.groups()
-    
-    # 関連画像を検索
-    eyecatch_pattern = os.path.join(outputs_dir, f"{timestamp}_*eyecatch_{article_id}*")
-    thumbnail_pattern = os.path.join(outputs_dir, f"{timestamp}_*thumbnail_{article_id}_chapter*.png")
-    
-    eyecatch_files = glob.glob(eyecatch_pattern)
-    thumbnail_files = glob.glob(thumbnail_pattern)
+    # 新構造の場合
+    if '/20' in article_dir and 'INT-' in article_dir:
+        # 同じディレクトリ内の関連ファイルを検索
+        eyecatch_pattern = os.path.join(article_dir, "*_eyecatch_*.png")
+        thumbnail_pattern = os.path.join(article_dir, "*_thumbnail_*_chapter*.png")
+        
+        eyecatch_files = glob.glob(eyecatch_pattern)
+        thumbnail_files = glob.glob(thumbnail_pattern)
+    else:
+        # 旧構造の場合
+        match = re.search(r'(\d{8}_\d{6})_complete_article_(.+)\.md', basename)
+        if not match:
+            return latest_article, [], None
+        
+        timestamp, article_id = match.groups()
+        
+        # 関連画像を検索
+        eyecatch_pattern = os.path.join(outputs_dir, f"{timestamp}_*eyecatch_{article_id}*")
+        thumbnail_pattern = os.path.join(outputs_dir, f"{timestamp}_*thumbnail_{article_id}_chapter*.png")
+        
+        eyecatch_files = glob.glob(eyecatch_pattern)
+        thumbnail_files = glob.glob(thumbnail_pattern)
     
     # チャプター画像をソート
     thumbnail_files.sort(key=lambda x: int(re.search(r'chapter(\d+)', x).group(1)) if re.search(r'chapter(\d+)', x) else 0)

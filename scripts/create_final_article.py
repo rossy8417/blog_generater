@@ -23,13 +23,21 @@ def create_final_article_structure():
 
     # 動的にファイルを検索
     
-    # 最新の章ファイルを取得
-    chapter_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_article_*_chapter*.md'
+    # 最新の章ファイルを取得（新構造対応）
+    chapter_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*/20*/*/*_article_*_chapter*.md'
     chapter_files = sorted(glob.glob(chapter_pattern))
+    if not chapter_files:
+        # 旧構造もチェック
+        chapter_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_article_*_chapter*.md'
+        chapter_files = sorted(glob.glob(chapter_pattern))
     
-    # 最新のサムネイル画像ファイルを取得
-    thumbnail_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_thumbnail_*_chapter*.png'
+    # 最新のサムネイル画像ファイルを取得（新構造対応）
+    thumbnail_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*/20*/*/*_thumbnail_*_chapter*.png'
     thumbnail_files = sorted(glob.glob(thumbnail_pattern))
+    if not thumbnail_files:
+        # 旧構造もチェック
+        thumbnail_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_thumbnail_*_chapter*.png'
+        thumbnail_files = sorted(glob.glob(thumbnail_pattern))
     
     main_content = ""
     for i, chapter_file in enumerate(chapter_files):
@@ -56,9 +64,13 @@ def create_final_article_structure():
             
             main_content += modified_chapter.rstrip()
     
-    # まとめセクション読み込み（動的検索）
-    summary_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_article_summary.md'
+    # まとめセクション読み込み（動的検索、新構造対応）
+    summary_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*/20*/*/*_article_summary.md'
     summary_files = glob.glob(summary_pattern)
+    if not summary_files:
+        # 旧構造もチェック
+        summary_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_article_summary.md'
+        summary_files = glob.glob(summary_pattern)
     summary_content = ""
     if summary_files:
         summary_file = sorted(summary_files)[-1]  # 最新のサマリーファイル
@@ -85,13 +97,43 @@ def create_final_article_structure():
 
 {summary_content}"""
     
-    # ファイル保存
-    final_file = '/mnt/c/home/hiroshi/blog_generator/outputs/20250620_181500_article_INT-01_final_structure.md'
+    # ブログタイトルを取得（章ファイルからタイトルを抽出）
+    blog_title = "生成AI教育とは？子供の学習に革命をもたらす基礎知識完全ガイド"
+    if chapter_files:
+        # 最新の章ファイルのディレクトリ構造から情報を取得
+        chapter_dir = os.path.dirname(chapter_files[0])
+        if '/outputs/' in chapter_dir:
+            parts = chapter_dir.split('/outputs/')[1].split('/')
+            if len(parts) >= 3:
+                blog_title = parts[0]
+                date_str = parts[1]
+                int_num = parts[2]
+                # 新構造で保存
+                final_file = f'{chapter_dir}/final_structure.md'
+                final_with_images_file = f'{chapter_dir}/with_images.md'
+            else:
+                # 旧構造での保存
+                from datetime import datetime
+                timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+                final_file = f'/mnt/c/home/hiroshi/blog_generator/outputs/{timestamp}_article_final_structure.md'
+                final_with_images_file = f'/mnt/c/home/hiroshi/blog_generator/outputs/{timestamp}_article_with_images.md'
+        else:
+            # デフォルト構造
+            from datetime import datetime
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            final_file = f'/mnt/c/home/hiroshi/blog_generator/outputs/{timestamp}_article_final_structure.md'
+            final_with_images_file = f'/mnt/c/home/hiroshi/blog_generator/outputs/{timestamp}_article_with_images.md'
+    else:
+        # デフォルト構造
+        from datetime import datetime
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        final_file = f'/mnt/c/home/hiroshi/blog_generator/outputs/{timestamp}_article_final_structure.md'
+        final_with_images_file = f'/mnt/c/home/hiroshi/blog_generator/outputs/{timestamp}_article_with_images.md'
+    
     with open(final_file, 'w', encoding='utf-8') as f:
         f.write(complete_article)
     
     # 画像付き版も保存
-    final_with_images_file = '/mnt/c/home/hiroshi/blog_generator/outputs/20250620_181500_article_INT-01_with_images.md'
     with open(final_with_images_file, 'w', encoding='utf-8') as f:
         f.write(article_with_images)
     
@@ -122,9 +164,13 @@ def upload_to_wordpress():
             print("❌ WordPress接続に失敗しました")
             return
         
-        # 最終構造記事読み込み（動的検索）
-        final_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_article_*_final_structure.md'
+        # 最終構造記事読み込み（動的検索、新構造対応）
+        final_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*/20*/*/final_structure.md'
         final_files = glob.glob(final_pattern)
+        if not final_files:
+            # 旧構造もチェック
+            final_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_article_*_final_structure.md'
+            final_files = glob.glob(final_pattern)
         if not final_files:
             print("❌ 最終構造記事ファイルが見つかりません")
             return None
@@ -140,9 +186,13 @@ def upload_to_wordpress():
         
         # 画像アップロードとURL置換（動的検索）
         
-        # アイキャッチ画像
-        eyecatch_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_eyecatch_*.png'
+        # アイキャッチ画像（新構造対応）
+        eyecatch_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*/20*/*/*_eyecatch_*.png'
         eyecatch_files = glob.glob(eyecatch_pattern)
+        if not eyecatch_files:
+            # 旧構造もチェック
+            eyecatch_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_eyecatch_*.png'
+            eyecatch_files = glob.glob(eyecatch_pattern)
         eyecatch_url = ""
         eyecatch_id = None
         if eyecatch_files:
@@ -152,10 +202,14 @@ def upload_to_wordpress():
                 eyecatch_url = eyecatch_result['url']
                 eyecatch_id = eyecatch_result.get('attachment_id')
         
-        # 各章のサムネイル画像アップロード（動的検索）
+        # 各章のサムネイル画像アップロード（動的検索、新構造対応）
         thumbnail_data = {}
-        thumbnail_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_thumbnail_*_chapter*.png'
+        thumbnail_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*/20*/*/*_thumbnail_*_chapter*.png'
         thumbnail_files = sorted(glob.glob(thumbnail_pattern))
+        if not thumbnail_files:
+            # 旧構造もチェック
+            thumbnail_pattern = '/mnt/c/home/hiroshi/blog_generator/outputs/*_thumbnail_*_chapter*.png'
+            thumbnail_files = sorted(glob.glob(thumbnail_pattern))
         
         for i, thumb_path in enumerate(thumbnail_files):
             if os.path.exists(thumb_path):
