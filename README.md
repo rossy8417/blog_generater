@@ -21,9 +21,18 @@ blog_generator/
 │   ├── create_final_article.py  # 記事作成スクリプト
 │   ├── image_generator.py      # 画像生成スクリプト
 │   └── post_career_article.py  # キャリア記事投稿（旧版）
-├── outputs/            # 生成ファイル出力
-│   ├── *.md           # 生成記事ファイル
-│   └── *.png          # 生成画像ファイル
+├── utils/              # ユーティリティ
+│   └── output_manager.py      # 出力自動分類管理
+├── outputs/            # 生成ファイル出力（自動分類）
+│   ├── ブログタイトルA/
+│   │   └── 2025-06-21/
+│   │       └── INT-02/
+│   │           ├── *.md    # 記事ファイル
+│   │           ├── *.png   # 画像ファイル
+│   │           └── metadata.json
+│   └── ブログタイトルB/
+│       └── 2025-06-19/
+│           └── INT-01/
 ├── wordpress_client.py # WordPressクライアント
 ├── requirements.txt   # Python依存関係
 ├── generate_template.yaml  # 生成設定
@@ -60,6 +69,13 @@ python scripts/post_blog_article.py --article outputs/your_article.md
 
 ## 主な機能
 
+### 📁 自動分類システム
+- **出力時自動分類**: `ブログタイトル/日付/INT番号/` 構造で自動整理
+- **メタデータ抽出**: タイトル・日付・INT番号を自動抽出
+- **散らかり防止**: 出力時点で正しいディレクトリに分類保存
+- **整理整頓コマンド**: `整理整頓` で既存ファイルを自動整理
+
+### 🚀 記事生成・投稿
 - **自動ファイル検索**: outputs/フォルダから最新の記事と画像を自動検出
 - **画像自動アップロード**: アイキャッチ画像と章別サムネイルを自動アップロード
 - **章別画像挿入**: H2見出し（章番号付き）の下に自動で画像挿入
@@ -87,10 +103,37 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 ## ワークフロー
 
 1. **記事生成**: プロンプトテンプレートを使用してコンテンツ作成
-2. **画像生成**: アイキャッチ（OpenAI）とサムネイル（Imagen）を生成
-3. **マークダウン変換**: WordPressブロック形式に変換
-4. **画像アップロード**: WordPress メディアライブラリにアップロード
-5. **記事投稿**: 章別画像付きで WordPress に投稿
+2. **画像生成**: アイキャッチ（OpenAI）とサムネイル（Imagen）を生成  
+3. **自動分類保存**: `OutputManager`が適切なディレクトリに自動分類
+4. **マークダウン変換**: WordPressブロック形式に変換
+5. **画像アップロード**: WordPress メディアライブラリにアップロード
+6. **記事投稿**: 章別画像付きで WordPress に投稿
+
+## 整理整頓機能
+
+### 合言葉「整理整頓」で自動整理
+```bash
+# Claude Codeで使用
+整理整頓
+```
+
+**実行内容**:
+- outputs配下の散らかったファイルを検出
+- ファイル内容からタイトル・日付・INT番号を自動抽出
+- 正しい`ブログタイトル/日付/INT番号/`構造に移動
+- 誤配置ファイルの自動修正
+- 整理結果の詳細レポート表示
+
+### OutputManager クラス
+```python
+from utils.output_manager import OutputManager
+
+manager = OutputManager()
+
+# 自動分類して保存
+manager.save_content(content, metadata, 'complete_article')
+manager.save_binary(image_data, metadata, 'eyecatch')
+```
 
 ## 画像挿入仕様
 

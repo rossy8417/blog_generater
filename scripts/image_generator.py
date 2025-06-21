@@ -27,6 +27,12 @@ from dotenv import load_dotenv
 import base64
 import numpy as np
 
+# プロジェクトルートをパスに追加
+project_root = Path(__file__).parent.parent
+sys.path.append(str(project_root))
+
+from utils.output_manager import OutputManager
+
 # 環境変数読み込み
 load_dotenv()
 
@@ -50,6 +56,10 @@ class BlogImageGenerator:
         self.imagen_model = 'imagen-3.0-generate-002'
         self.openai_image_model = 'gpt-image-1'
         
+        # 出力管理クラス初期化
+        self.output_manager = OutputManager()
+        
+        # 後方互換性のため
         self.outputs_dir = Path('outputs')
         self.outputs_dir.mkdir(exist_ok=True)
         
@@ -413,11 +423,9 @@ class BlogImageGenerator:
             print(f"Warning: Image extension failed: {e}")
             return image  # 失敗時は元画像を返す
     
-    def save_image(self, image_data: bytes, filename: str) -> str:
-        """画像を保存"""
+    def save_image(self, image_data: bytes, filename: str, metadata: Optional[Dict] = None, file_type: str = 'image', chapter: Optional[int] = None) -> str:
+        """画像を自動分類して保存"""
         try:
-            filepath = self.outputs_dir / filename
-            
             # 画像データをPILで処理
             image = Image.open(BytesIO(image_data))
             original_size = image.size
@@ -433,11 +441,23 @@ class BlogImageGenerator:
                 new_size = (1920, int(image.size[1] * ratio))
                 image = image.resize(new_size, Image.Resampling.LANCZOS)
             
-            # PNG形式で保存
-            image.save(filepath, 'PNG', optimize=True)
+            # 保存処理
+            if metadata:
+                # 新しい自動分類システムを使用
+                from io import BytesIO
+                img_bytes = BytesIO()
+                image.save(img_bytes, 'PNG', optimize=True)
+                img_bytes.seek(0)
+                
+                filepath = self.output_manager.save_binary(img_bytes.getvalue(), metadata, file_type, chapter)
+            else:
+                # 従来の方法（後方互換性）
+                filepath = self.outputs_dir / filename
+                image.save(filepath, 'PNG', optimize=True)
+                filepath = str(filepath)
             
             print(f"✅ Image saved: {filepath} ({image.size[0]}x{image.size[1]})")
-            return str(filepath)
+            return filepath
             
         except Exception as e:
             print(f"Error saving image: {e}")
@@ -460,9 +480,14 @@ class BlogImageGenerator:
         if not image_data:
             return None
         
-        # 保存
-        filename = f"{outline_data['timestamp']}_eyecatch_{outline_data['outline_id']}.png"
-        return self.save_image(image_data, filename)
+        # 自動分類して保存
+        metadata = {
+            'title': outline_data.get('title', ''),
+            'date': outline_data.get('date', ''),
+            'int_number': outline_data.get('outline_id', 'INT-01'),
+            'timestamp': outline_data.get('timestamp', '')
+        }
+        return self.save_image(image_data, '', metadata, 'eyecatch')
     
     def generate_thumbnail(self, outline_data: Dict, chapter: str, chapter_num: int) -> Optional[str]:
         """サムネイル画像生成（Imagen 3使用、テキストなし）"""
@@ -481,9 +506,14 @@ class BlogImageGenerator:
         if not image_data:
             return None
         
-        # 保存
-        filename = f"{outline_data['timestamp']}_thumbnail_{outline_data['outline_id']}_chapter{chapter_num}.png"
-        return self.save_image(image_data, filename)
+        # 自動分類して保存
+        metadata = {
+            'title': outline_data.get('title', ''),
+            'date': outline_data.get('date', ''),
+            'int_number': outline_data.get('outline_id', 'INT-01'),
+            'timestamp': outline_data.get('timestamp', '')
+        }
+        return self.save_image(image_data, '', metadata, 'thumbnail', chapter_num)
     
     def generate_all_images(self, outline_path: str) -> Dict:
         """全画像生成"""
