@@ -138,6 +138,7 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 6. アイキャッチ・サムネイル画像生成（全章分）
 7. WordPress投稿準備完了
 
+
 ### OutputManager クラス
 ```python
 from utils.output_manager import OutputManager

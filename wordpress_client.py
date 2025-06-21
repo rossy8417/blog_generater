@@ -320,9 +320,15 @@ def convert_markdown_to_gutenberg(markdown_content: str) -> str:
             i += 1
             continue
             
-        # H1見出し（メインタイトル - スキップ）
+        # H1見出し（メインタイトルまたは章見出し）
         if line.startswith('# '):
-            # メインタイトルは投稿タイトルとして使用されるため、本文では最初のH1をスキップ
+            heading_text = line[2:].strip()
+            # 最初のH1（メインタイトル）はスキップ、章見出し（第X章）はH2として変換
+            if '第' in heading_text and '章' in heading_text:
+                content += f'<!-- wp:heading {{"level":2}} -->\n'
+                content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
+                content += f'<!-- /wp:heading -->\n\n'
+            # メインタイトルはスキップ（上記の条件に該当しない最初のH1）
             i += 1
             
         # H2見出し（章見出し）
@@ -495,15 +501,15 @@ def insert_chapter_images(wp_content: str, chapter_images: list) -> str:
         # アンカータグを除去して見出しテキストを抽出
         clean_heading = re.sub(r'<a[^>]*>[^<]*</a>\s*', '', heading_text)
         
-        # 章番号付きの見出しのみ処理（"1. ", "2. " などで始まる、または数字のみ）
-        if re.match(r'^\d+[\.\s]', clean_heading) or re.match(r'^第?\d+章', clean_heading):
+        # 章番号付きの見出しのみ処理（"第X章" パターン）
+        if re.match(r'^第\d+章', clean_heading):
             # 対応する章の画像があるかチェック
             if heading_count < len(chapter_images_sorted):
                 image_info = chapter_images_sorted[heading_count]
                 
-                # WordPress画像ブロックを作成
+                # WordPress画像ブロックを作成（参考コード形式に合わせる）
                 image_block = f'''<!-- wp:image {{"id":{image_info["attachment_id"]},"sizeSlug":"full","linkDestination":"none"}} -->
-<figure class="wp-block-image size-full"><img src="{image_info["url"]}" alt="第{heading_count + 1}章サムネイル画像" class="wp-image-{image_info["attachment_id"]}"/></figure>
+<figure class="wp-block-image size-full"><img src="{image_info["url"]}" alt="{image_info["chapter"]} サムネイル画像" class="wp-image-{image_info["attachment_id"]}"/></figure>
 <!-- /wp:image -->
 
 '''
