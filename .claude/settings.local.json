@@ -140,7 +140,10 @@
       "Bash(tmux new-session:*)",
       "Bash(tmux send-keys:*)",
       "Bash(./Claude-Code-Communication/agent-send.sh:*)",
-      "Bash(rg:*)"
+      "Bash(rg:*)",
+      "Bash(timeout 300 python3 scripts/post_optimized_blog.py 2>&1)",
+      "Bash(../agent-send.sh:*)",
+      "Bash(./Claude-Code-Communication/agent-send.sh:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
