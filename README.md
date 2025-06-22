@@ -19,8 +19,8 @@ blog_generator/
 ├── scripts/            # 実行用スクリプト
 │   ├── create_final_article.py  # 記事作成スクリプト（OutputManager対応版）
 │   ├── image_generator.py      # 画像生成・最適化スクリプト
-│   └── post_optimized_blog.py  # 最適化画像対応記事投稿スクリプト
-│  
+│   ├── post_optimized_blog.py  # 最適化画像対応記事投稿スクリプト
+│   └── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
 ├── outputs/            # 生成ファイル出力（自動分類）
@@ -33,7 +33,6 @@ blog_generator/
 │       ├── *.md
 │       ├── *.png
 │       └── *.jpg
-├── wordpress_client.py # WordPressクライアント
 ├── config/             # 設定ファイル
 │   └── image_settings.json # 画像最適化設定
 ├── requirements.txt   # Python依存関係
@@ -235,7 +234,7 @@ manager.save_binary(image_data, metadata, 'eyecatch')
 - **挿入位置**: 見出し直後に独立した画像ブロックとして挿入
 - **画像順序**: chapter1, chapter2, ... の順番で章番号と自動対応
 - **画像形式**: WordPress Gutenbergブロックエディタ形式（paragraphブロックに入れない）
-- **修正済み**: `wordpress_client.py` の `insert_chapter_images` 関数で適切なブロック構造を生成
+- **修正済み**: `scripts/wordpress_client.py` の `insert_chapter_images` 関数で適切なブロック構造を生成
 
 ## テンプレート仕様
 
