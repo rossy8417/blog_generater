@@ -143,7 +143,10 @@
       "Bash(rg:*)",
       "Bash(timeout 300 python3 scripts/post_optimized_blog.py 2>&1)",
       "Bash(../agent-send.sh:*)",
-      "Bash(./Claude-Code-Communication/agent-send.sh:*)"
+      "Bash(./Claude-Code-Communication/agent-send.sh:*)",
+      "Bash(while [ ! -f tmp/test_worker2_analysis.md ])",
+      "Bash(do echo \"$(date): Worker2完了待機中...\")",
+      "Bash(tmux list-windows:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
