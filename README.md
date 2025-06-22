@@ -17,9 +17,8 @@ blog_generator/
 │   ├── thumbnail.md    # サムネイル画像生成テンプレート
 │   └── paragraph-example.md  # 段落例テンプレート
 ├── scripts/            # 実行用スクリプト
-│   ├── post_blog_article.py   # 汎用記事投稿スクリプト
 │   ├── create_final_article.py  # 記事作成スクリプト
-│   └── image_generator.py      # 画像生成スクリプト
+│   └── image_generator.py      # 画像生成・最適化スクリプト
 │  
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
@@ -31,7 +30,10 @@ blog_generator/
 │   └── ブログタイトルB-INT-01/
 │       ├── *.md
 │       └── *.png
+├── post_optimized_blog.py # 最適化画像対応記事投稿スクリプト
 ├── wordpress_client.py # WordPressクライアント
+├── config/             # 設定ファイル
+│   └── image_settings.json # 画像最適化設定
 ├── requirements.txt   # Python依存関係
 ├── generate_template.yaml  # 生成設定
 └── README.md          # このファイル
@@ -53,16 +55,23 @@ WORDPRESS_ENDPOINT=https://your-site.com/wp-json/blog-generator/v1
 OPENAI_API_KEY=your_openai_key
 ```
 
-### 2. 記事投稿
+### 2. 画像生成・最適化
 
-最新の記事を自動投稿：
+アイキャッチ画像生成（最適化済み）：
 ```bash
-python scripts/post_blog_article.py
+python scripts/image_generator.py --mode eyecatch --outline outputs/your_outline.md
 ```
 
-特定の記事を投稿：
+サムネイル画像生成：
 ```bash
-python scripts/post_blog_article.py --article outputs/your_article.md
+python scripts/image_generator.py --mode all --outline outputs/your_outline.md
+```
+
+### 3. 記事投稿
+
+最新の記事を最適化画像付きで自動投稿：
+```bash
+python post_optimized_blog.py
 ```
 
 ## 主な機能
@@ -73,8 +82,15 @@ python scripts/post_blog_article.py --article outputs/your_article.md
 - **散らかり防止**: 出力時点で正しいディレクトリに分類保存
 - **整理整頓コマンド**: `整理整頓` で既存ファイルを自動整理
 
+### 🖼️ 画像生成・最適化
+- **アイキャッチ最適化**: gpt-image-1で生成後、自動でファイルサイズ削減（95%削減）
+- **目標サイズ制御**: アイキャッチ500KB以下、サムネイル800KB以下に自動調整
+- **PNG→JPEG変換**: 透明背景の合成とプログレッシブJPEG対応
+- **設定ファイル管理**: `config/image_settings.json`でハードコードなし設定
+
 ### 🚀 記事生成・投稿
-- **自動ファイル検索**: outputs/フォルダから最新の記事と画像を自動検出
+- **自動ファイル検索**: outputs/フォルダから最新の記事と最適化画像を自動検出
+- **最適化画像対応**: .jpg/.png両方に対応、最新ファイル優先選択
 - **画像自動アップロード**: アイキャッチ画像と章別サムネイルを自動アップロード
 - **章別画像挿入**: H2見出し（章番号付き）の下に自動で画像挿入
 - **メタデータ抽出**: 記事からタイトル、メタディスクリプション、抜粋を自動抽出
@@ -130,8 +146,8 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 
 #### Phase 2-3: 作成・公開段階
 - **記事生成のみ**: `scripts/create_final_article.py` （章執筆〜統合）
-- **画像生成のみ**: `scripts/image_generator.py` （アイキャッチ・サムネイル）
-- **投稿のみ**: `scripts/post_blog_article.py` （WordPress投稿）
+- **画像生成のみ**: `scripts/image_generator.py` （アイキャッチ・サムネイル最適化）
+- **投稿のみ**: `python post_optimized_blog.py` （最適化画像対応WordPress投稿）
 
 ## 便利な合言葉コマンド
 
@@ -180,12 +196,14 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 8. **記事統合**: 全セクション統合で完全版記事完成
 
 **Phase 3: 画像生成・公開**
-9. **アイキャッチ生成**: OpenAI gpt-image-1で日本語テキスト画像
-10. **サムネイル生成**: Google Imagen 3で章別画像6枚
-11. **WordPress投稿**: 画像アップロード＋記事投稿完了
+9. **アイキャッチ生成**: OpenAI gpt-image-1で日本語テキスト画像（自動最適化）
+10. **サムネイル生成**: Google Imagen 3で章別画像6枚（自動最適化）
+11. **WordPress投稿**: 最適化画像アップロード＋記事投稿完了
 
 **重要な修正事項**:
 - **H5見出し禁止**: `templates/writing.md` でH5以下の見出し使用を禁止（段落より小さくなるため）
+- **章見出し構造修正**: 章見出しをH2タグで正しく出力（SEO最適化）
+- **画像最適化**: アイキャッチ95%サイズ削減、WordPress 504エラー解決
 - **まとめ見出し修正**: `templates/summary.md` で `## まとめ` → `# まとめ` に変更
 - **CTA更新**: ＳＡＴＯ-ＡＩ塾とＨＴサポートワークスへの誘導追加
 - **WordPress画像挿入**: 章見出し下への画像自動挿入機能（Gutenbergブロック対応）
