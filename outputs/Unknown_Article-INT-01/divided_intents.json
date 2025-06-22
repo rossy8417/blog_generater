@@ -1,0 +1,44 @@
+[
+  {
+    "IntentID": "INT-01",
+    "Label": "AI活用基礎知識・導入方法",
+    "Category": "Informational",
+    "Priority": "High",
+    "Keywords": ["AI活用", "導入手順", "自動化", "効率化", "基礎"]
+  },
+  {
+    "IntentID": "INT-02", 
+    "Label": "ルーチンワーク負担の現状分析",
+    "Category": "Informational",
+    "Priority": "High",
+    "Keywords": ["ルーチンワーク", "負担", "ストレス", "時間", "課題"]
+  },
+  {
+    "IntentID": "INT-03",
+    "Label": "AIツール比較・選定基準",
+    "Category": "Commercial Investigation", 
+    "Priority": "High",
+    "Keywords": ["AIツール", "比較", "選定", "評価", "機能"]
+  },
+  {
+    "IntentID": "INT-04",
+    "Label": "業界別・職種別成功事例",
+    "Category": "Informational",
+    "Priority": "High", 
+    "Keywords": ["事例", "成功", "業界", "職種", "実績"]
+  },
+  {
+    "IntentID": "INT-05",
+    "Label": "ROI・効果測定方法",
+    "Category": "Commercial Investigation",
+    "Priority": "Mid",
+    "Keywords": ["ROI", "効果測定", "投資対効果", "コスト", "評価"]
+  },
+  {
+    "IntentID": "INT-06",
+    "Label": "導入リスク・注意点",
+    "Category": "Informational", 
+    "Priority": "Mid",
+    "Keywords": ["リスク", "注意点", "失敗", "回避", "対策"]
+  }
+]

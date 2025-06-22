@@ -17,9 +17,10 @@ blog_generator/
 │   ├── thumbnail.md    # サムネイル画像生成テンプレート
 │   └── paragraph-example.md  # 段落例テンプレート
 ├── scripts/            # 実行用スクリプト
-│   ├── create_final_article.py  # 記事作成スクリプト（OutputManager対応版）
 │   ├── image_generator.py      # 画像生成・最適化スクリプト
-│   ├── post_optimized_blog.py  # 最適化画像対応記事投稿スクリプト
+│   ├── multi_intent_extractor.py  # 検索意図複数抽出スクリプト
+│   ├── organize_outputs.py     # 出力ファイル自動整理スクリプト
+│   ├── post_blog_universal.py  # 汎用WordPress記事投稿スクリプト（統一版）
 │   └── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
@@ -34,7 +35,12 @@ blog_generator/
 │       ├── *.png
 │       └── *.jpg
 ├── config/             # 設定ファイル
-│   └── image_settings.json # 画像最適化設定
+│   ├── image_settings.json # 画像最適化設定
+│   └── intent_variation_tracker.json # 検索意図バリエーション追跡
+├── docs/               # ドキュメント
+│   └── tmux-windows-setup-guide.md # tmux設定ガイド
+├── save_helper.py      # 安全な出力保存ヘルパー
+├── organize_command.py # 整理整頓コマンド実装
 ├── requirements.txt   # Python依存関係
 ├── generate_template.yaml  # 生成設定
 └── README.md          # このファイル
@@ -70,9 +76,9 @@ python scripts/image_generator.py --mode all --outline outputs/your_outline.md
 
 ### 3. 記事投稿
 
-最新の記事を最適化画像付きで自動投稿：
+最新の記事を最適化画像付きで自動投稿（どんな記事でも対応）：
 ```bash
-python scripts/post_optimized_blog.py
+python scripts/post_blog_universal.py
 ```
 
 ## 主な機能
@@ -89,19 +95,74 @@ python scripts/post_optimized_blog.py
 - **PNG→JPEG変換**: 透明背景の合成とプログレッシブJPEG対応
 - **設定ファイル管理**: `config/image_settings.json`でハードコードなし設定
 
-### 🚀 記事生成・投稿
-- **自動ファイル検索**: outputs/フォルダから最新の記事と最適化画像を自動検出
-- **最適化画像対応**: .jpg/.png両方に対応、最新ファイル優先選択
+### 🚀 記事生成・投稿（統一版スクリプト）
+- **汎用ファイル検索**: 新旧全フォルダ構造から最新記事を自動検出（ハードコードなし）
+- **自動タイトル抽出**: マークダウンH1から自動抽出（テンプレート識別子除去）
+- **自動メタディスクリプション生成**: タイトル・内容ベースで自動生成
+- **完全画像対応**: .jpg/.png両方、複数命名パターン、章番号自動ソート
 - **画像自動アップロード**: アイキャッチ画像と章別サムネイルを自動アップロード
 - **章別画像挿入**: H2見出し（章番号付き）の下に自動で画像挿入
-- **メタデータ抽出**: 記事からタイトル、メタディスクリプション、抜粋を自動抽出
-- **マークダウン変換**: WordPressブロックエディタ形式に自動変換
+- **投稿情報保存**: outputs/latest_post_info.txt に投稿詳細を自動記録
+
+## 📂 出力ファイル管理システム
+
+### 🔧 OutputManager クラス
+- **自動分類**: ファイル内容からタイトル・INT番号を自動抽出
+- **ディレクトリ構造**: `outputs/タイトル-INT番号/` で自動整理
+- **メタデータ管理**: metadata.json で記事情報を保存
+- **安全なファイル名**: 特殊文字を自動で安全な文字に変換
+
+### 🧹 散らばったファイルの対策
+**問題**: ルートディレクトリにファイルが散らばる
+**解決策**:
+1. **整理整頓スクリプト**: `python scripts/organize_outputs.py`
+2. **安全な保存ヘルパー**: `save_helper.py` で確実にoutputsに保存
+3. **自動監視**: ファイル操作を監視して警告表示
+
+### 💡 使用方法
+```python
+# 安全な保存（推奨）
+from save_helper import save_safely
+saved_path = save_safely(content, "filename.md", "article")
+
+# OutputManager直接使用
+from utils.output_manager import OutputManager
+manager = OutputManager()
+manager.save_content(content, metadata, file_type)
+```
+
+## 汎用WordPress投稿スクリプト（post_blog_universal.py）
+
+### 🎯 特徴
+- **完全自動化**: どんな記事でもハードコードなしで自動投稿
+- **柔軟な検索**: 新旧全フォルダ構造・命名規則に対応
+- **自動抽出**: タイトル・メタディスクリプション・抜粋を自動生成
+- **エラーハンドリング**: 詳細なデバッグ情報とトレースバック
+- **投稿記録**: latest_post_info.txt で投稿履歴を自動保存
+
+### 📁 対応ディレクトリ構造
+1. **新構造**: `outputs/タイトル-INT-XX/*complete_article*.md`
+2. **旧構造**: `outputs/ブログタイトル/20XX/*/*complete_article*.md`
+3. **直接配置**: `outputs/*complete_article*.md`
+4. **汎用**: `outputs/**/*.md` （再帰検索）
+
+### 🖼️ 対応画像パターン
+- **アイキャッチ**: `*eyecatch*.jpg`, `*eyecatch*.png`
+- **章別画像**: `*thumbnail*chapter*.jpg`, `*chapter*.jpg`, `*chapter*.png`
+- **優先順位**: JPG > PNG（ファイルサイズ最適化のため）
+- **自動ソート**: chapter1, chapter2... の順番で自動整列
+
+### 🔧 自動生成機能
+- **タイトル**: H1見出しから自動抽出、テンプレート識別子除去
+- **メタディスクリプション**: タイトル・内容ベースで自動生成
+- **抜粋**: 最初の段落から自動抽出、300文字制限
 
 ## 注意事項
 
 - Meta Description行とローカル画像パスは自動で除去されます
 - 章見出しは番号付き（"1. ", "第1章"など）のH2見出しのみに画像が挿入されます
 - 記事は下書きとして投稿されます
+- 統一版スクリプト使用により、スクリプトの重複管理が不要
 
 ## API キー設定
 
@@ -155,7 +216,7 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 #### Phase 2-3: 作成・公開段階
 - **記事生成のみ**: `scripts/create_final_article.py` （章執筆〜統合、OutputManager対応）
 - **画像生成のみ**: `scripts/image_generator.py` （アイキャッチ・サムネイル最適化）
-- **投稿のみ**: `python scripts/post_optimized_blog.py` （最適化画像対応WordPress投稿）
+- **投稿のみ**: `python scripts/post_blog_universal.py` （汎用WordPress投稿・完璧版）
 
 ## 便利な合言葉コマンド
 
@@ -163,13 +224,17 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 ```bash
 # Claude Codeで使用
 整理整頓
+
+# または直接スクリプト実行
+python scripts/organize_outputs.py
 ```
 
 **実行内容**:
-- outputs配下の散らかったファイルを検出
+- ルートディレクトリに散らばったファイルを検出
 - ファイル内容からタイトル・INT番号を自動抽出
-- 正しい`タイトル-INT番号/`構造に移動
+- 正しい`outputs/タイトル-INT番号/`構造に移動
 - 誤配置ファイルの自動修正
+- メタデータファイル自動生成
 - 整理結果の詳細レポート表示
 
 ### 「バルス」で出力ディレクトリ完全消去

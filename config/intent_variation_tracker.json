@@ -61,9 +61,75 @@
           ]
         }
       ]
+    },
+    {
+      "keyword": "AI ルーチンワーク 負担軽減",
+      "analyzed_date": "2025-06-22",
+      "intent_variations": [
+        {
+          "intent_id": "INT-01",
+          "intent_type": "基本導入・活用方法",
+          "target_audience": "一般ビジネスパーソン・管理職",
+          "search_intent": "AIでルーチンワークを軽減する具体的な方法を知りたい",
+          "content_focus": "AI活用基礎知識・導入手順・自動化方法",
+          "funnel_stage": "Awareness → Consideration",
+          "status": "in_progress",
+          "differentiation_points": [
+            "日常業務の負担軽減フォーカス",
+            "実践的導入ガイド",
+            "段階的アプローチ",
+            "即効性重視"
+          ]
+        },
+        {
+          "intent_id": "INT-02", 
+          "intent_type": "負担・ストレス解消",
+          "target_audience": "疲弊した現場担当者・オペレーター",
+          "search_intent": "現在の負担やストレスから解放される方法を求める",
+          "content_focus": "現状分析・課題解決・精神的負荷軽減",
+          "funnel_stage": "Awareness",
+          "status": "planned",
+          "differentiation_points": [
+            "感情的負担への共感",
+            "心理的効果重視", 
+            "働き方改善",
+            "ワークライフバランス"
+          ]
+        },
+        {
+          "intent_id": "INT-03",
+          "intent_type": "ツール選定・比較検討",
+          "target_audience": "IT担当者・導入責任者",
+          "search_intent": "最適なAIツールを選定・比較したい",
+          "content_focus": "AIツール比較・選定基準・評価方法",
+          "funnel_stage": "Commercial Investigation",
+          "status": "planned",
+          "differentiation_points": [
+            "技術的観点重視",
+            "機能・コスト比較",
+            "導入難易度評価",
+            "ROI重視"
+          ]
+        },
+        {
+          "intent_id": "INT-04",
+          "intent_type": "業界・職種別実践",
+          "target_audience": "特定業界・職種の専門家",
+          "search_intent": "自分の業界・職種での成功事例を知りたい",
+          "content_focus": "業界別事例・職種別活用法・専門的応用",
+          "funnel_stage": "Consideration",
+          "status": "planned",
+          "differentiation_points": [
+            "業界特化情報",
+            "専門性重視",
+            "実績・事例豊富",
+            "即実践可能"
+          ]
+        }
+      ]
     }
   ],
-  "next_int_number": 5,
+  "next_int_number": 9,
   "tracking_criteria": {
     "intent_variation_requirements": {
       "different_target_audience": "異なる職種・立場の読者層",
