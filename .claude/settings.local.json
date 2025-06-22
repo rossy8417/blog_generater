@@ -139,7 +139,8 @@
       "Bash(./Claude-Code-Communication/agent-send.sh:*)",
       "Bash(tmux new-session:*)",
       "Bash(tmux send-keys:*)",
-      "Bash(./Claude-Code-Communication/agent-send.sh:*)"
+      "Bash(./Claude-Code-Communication/agent-send.sh:*)",
+      "Bash(rg:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",

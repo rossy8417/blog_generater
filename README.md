@@ -17,20 +17,22 @@ blog_generator/
 │   ├── thumbnail.md    # サムネイル画像生成テンプレート
 │   └── paragraph-example.md  # 段落例テンプレート
 ├── scripts/            # 実行用スクリプト
-│   ├── create_final_article.py  # 記事作成スクリプト
-│   └── image_generator.py      # 画像生成・最適化スクリプト
+│   ├── create_final_article.py  # 記事作成スクリプト（OutputManager対応版）
+│   ├── image_generator.py      # 画像生成・最適化スクリプト
+│   └── post_optimized_blog.py  # 最適化画像対応記事投稿スクリプト
 │  
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
 ├── outputs/            # 生成ファイル出力（自動分類）
 │   ├── ブログタイトルA-INT-02/
 │   │   ├── *.md    # 記事ファイル
-│   │   ├── *.png   # 画像ファイル
+│   │   ├── *.png   # 画像ファイル（サムネイル）
+│   │   ├── *.jpg   # 最適化画像ファイル（アイキャッチ）
 │   │   └── metadata.json
 │   └── ブログタイトルB-INT-01/
 │       ├── *.md
-│       └── *.png
-├── post_optimized_blog.py # 最適化画像対応記事投稿スクリプト
+│       ├── *.png
+│       └── *.jpg
 ├── wordpress_client.py # WordPressクライアント
 ├── config/             # 設定ファイル
 │   └── image_settings.json # 画像最適化設定
@@ -71,7 +73,7 @@ python scripts/image_generator.py --mode all --outline outputs/your_outline.md
 
 最新の記事を最適化画像付きで自動投稿：
 ```bash
-python post_optimized_blog.py
+python scripts/post_optimized_blog.py
 ```
 
 ## 主な機能
@@ -145,9 +147,9 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 - **アウトライン作成**: `templates/outline.md` で章立て・構成設計
 
 #### Phase 2-3: 作成・公開段階
-- **記事生成のみ**: `scripts/create_final_article.py` （章執筆〜統合）
+- **記事生成のみ**: `scripts/create_final_article.py` （章執筆〜統合、OutputManager対応）
 - **画像生成のみ**: `scripts/image_generator.py` （アイキャッチ・サムネイル最適化）
-- **投稿のみ**: `python post_optimized_blog.py` （最適化画像対応WordPress投稿）
+- **投稿のみ**: `python scripts/post_optimized_blog.py` （最適化画像対応WordPress投稿）
 
 ## 便利な合言葉コマンド
 
