@@ -12,10 +12,10 @@ import re
 from pathlib import Path
 
 # プロジェクトルートをパスに追加
-project_root = Path(__file__).parent
+project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-from wordpress_client import WordPressClient, convert_markdown_to_gutenberg, insert_chapter_images
+from scripts.wordpress_client import WordPressClient, convert_markdown_to_gutenberg, insert_chapter_images
 
 def find_latest_article_files(outputs_dir):
     """最新の記事ファイルと関連画像を検索（最適化画像対応）"""
