@@ -56,8 +56,8 @@ def create_final_article_structure():
             for j, line in enumerate(lines):
                 modified_chapter += line + '\n'
                 
-                # H1タイトルの直後にサムネイル画像を挿入
-                if line.startswith('# ') and i < len(thumbnail_files):
+                # H2章タイトルの直後にサムネイル画像を挿入
+                if line.startswith('## ') and i < len(thumbnail_files):
                     thumbnail_file = thumbnail_files[i]
                     if os.path.exists(thumbnail_file):
                         modified_chapter += f"\n![第{i+1}章のサムネイル画像](thumbnail_chapter{i+1}_url)\n"
@@ -148,9 +148,9 @@ def create_final_article_structure():
     lines = complete_article.split('\n')
     h1_count = 0
     for line_num, line in enumerate(lines, 1):
-        if line.startswith('# '):
+        if line.startswith('## ') and '第' in line and '章' in line:
             h1_count += 1
-            print(f"   H1 #{h1_count} (行{line_num}): {line}")
+            print(f"   H2章 #{h1_count} (行{line_num}): {line}")
     
     return final_file, final_with_images_file
 
