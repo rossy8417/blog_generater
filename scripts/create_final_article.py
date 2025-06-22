@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 最終的な記事構造を作成：リード文→本文→まとめ＋画像配置
-OutputManager対応版 - 正しいディレクトリ構造で保存
+完全動的版 - ハードコード部分を除去し、OutputManager使用
 """
 
 import os
 import glob
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -19,37 +20,66 @@ from wordpress_client import WordPressClient, convert_markdown_to_gutenberg, cre
 from utils.output_manager import OutputManager
 
 def create_final_article_structure():
-    """正しい記事構造で最終版を作成（OutputManager使用）"""
+    """正しい記事構造で最終版を作成（完全動的版）"""
     
     # OutputManagerを初期化
     output_manager = OutputManager()
     
-    # 記事メタデータ
-    title = "生成AI教育とは？子供の学習に革命をもたらす基礎知識完全ガイド"
-    
-    # リード文作成
-    lead_text = """**「子供の教育に生成AIを取り入れるべきか迷っている」「安全性や効果が心配」「何から始めたらいいかわからない」** そんな保護者の皆様のお悩みにお答えします。
-
-生成AI教育は、従来の一方向的な教育から個別最適化された対話型学習への革命的な転換を実現します。世界各国で既に目覚ましい成果を上げており、日本でも政府が580億円の大規模予算で本格推進中です。
-
-本記事では、生成AI教育の基本概念から年齢別の活用法、科学的検証されたメリット・デメリット、そして実践的な導入チェックリストまで、保護者が知っておくべき情報を完全網羅。お子様の未来を左右する教育革新について、専門家の視点で分かりやすく解説します。"""
-    
-    # 動的にファイルを検索（現在のディレクトリからの相対パスを使用）
+    # 動的にファイルを検索
+    outputs_dir = output_manager.base_outputs_dir
     
     # 最新の章ファイルを取得（新構造対応）
-    chapter_pattern = './outputs/*/*_article_*_chapter*.md'
+    chapter_pattern = os.path.join(outputs_dir, '*/*_article_*_chapter*.md')
     chapter_files = sorted(glob.glob(chapter_pattern))
     if not chapter_files:
         # 旧構造もチェック
-        chapter_pattern = './outputs/*_article_*_chapter*.md'
+        chapter_pattern = os.path.join(outputs_dir, '*_article_*_chapter*.md')
         chapter_files = sorted(glob.glob(chapter_pattern))
     
+    # リード文ファイルを動的検索
+    lead_pattern = os.path.join(outputs_dir, '*/*_lead_*.md')
+    lead_files = glob.glob(lead_pattern)
+    if not lead_files:
+        lead_pattern = os.path.join(outputs_dir, '*_lead_*.md')
+        lead_files = glob.glob(lead_pattern)
+    
+    # デフォルト値を設定
+    title = "生成AI教育ガイド"
+    lead_text = "AI教育の基本概念について解説します。"
+    
+    # 最新のリード文ファイルから内容を取得
+    if lead_files:
+        latest_lead_file = sorted(lead_files)[-1]
+        try:
+            with open(latest_lead_file, 'r', encoding='utf-8') as f:
+                lead_content = f.read().strip()
+                # タイトルを抽出
+                title_match = re.search(r'^# (.+)$', lead_content, re.MULTILINE)
+                if title_match:
+                    title = title_match.group(1).strip()
+                # リード文を抽出（最初のH1の後の内容）
+                lead_parts = lead_content.split('\n', 1)
+                if len(lead_parts) > 1:
+                    lead_text = lead_parts[1].strip()
+        except Exception as e:
+            print(f"Warning: Failed to load lead file: {e}")
+    
+    # 章ファイルからメタデータを抽出
+    metadata = {'title': title, 'date': '', 'int_number': 'INT-01', 'timestamp': ''}
+    if chapter_files:
+        # 最初の章ファイルからメタデータを抽出
+        chapter_filename = os.path.basename(chapter_files[0])
+        extracted_metadata = output_manager.extract_metadata_from_content("", chapter_filename)
+        metadata.update(extracted_metadata)
+        if not metadata['title'] or metadata['title'] == 'Unknown_Article':
+            metadata['title'] = title
+    
     # 最新のサムネイル画像ファイルを取得（新構造対応）
-    thumbnail_pattern = './outputs/*/*_thumbnail_*_chapter*.png'
+    thumbnail_pattern = os.path.join(outputs_dir, '*/*_thumbnail_*_chapter*.png')
     thumbnail_files = sorted(glob.glob(thumbnail_pattern))
     if not thumbnail_files:
         # 旧構造もチェック
-        thumbnail_pattern = './outputs/*_thumbnail_*_chapter*.png'
+        thumbnail_pattern = os.path.join(outputs_dir, '*_thumbnail_*_chapter*.png')
         thumbnail_files = sorted(glob.glob(thumbnail_pattern))
     
     main_content = ""
@@ -78,11 +108,11 @@ def create_final_article_structure():
             main_content += modified_chapter.rstrip()
     
     # まとめセクション読み込み（動的検索、新構造対応）
-    summary_pattern = './outputs/*/*_article_summary.md'
+    summary_pattern = os.path.join(outputs_dir, '*/*_article_summary.md')
     summary_files = glob.glob(summary_pattern)
     if not summary_files:
         # 旧構造もチェック
-        summary_pattern = './outputs/*_article_summary.md'
+        summary_pattern = os.path.join(outputs_dir, '*_article_summary.md')
         summary_files = glob.glob(summary_pattern)
     summary_content = ""
     if summary_files:
@@ -101,7 +131,7 @@ def create_final_article_structure():
     article_with_images = f"""{lead_text}
 
 <!-- アイキャッチ画像 -->
-![生成AI教育の基本概念を表すイメージ](eyecatch_image_url)
+![{title}のアイキャッチ画像](eyecatch_image_url)
 
 {main_content}
 
@@ -110,13 +140,16 @@ def create_final_article_structure():
 
 {summary_content}"""
     
-    # OutputManagerを使用してメタデータ作成
-    metadata = {
-        'title': title,
-        'date': datetime.now().strftime('%Y-%m-%d'),
-        'int_number': 'INT-01',
-        'timestamp': datetime.now().strftime('%Y%m%d_%H%M%S')
-    }
+    # メタデータの最終確認・補完
+    if not metadata.get('date'):
+        metadata['date'] = datetime.now().strftime('%Y-%m-%d')
+    if not metadata.get('timestamp'):
+        metadata['timestamp'] = datetime.now().strftime('%Y%m%d_%H%M%S')
+    
+    print(f"📊 検出されたメタデータ:")
+    print(f"   Title: {metadata['title']}")
+    print(f"   INT Number: {metadata['int_number']}")
+    print(f"   Date: {metadata['date']}")
     
     # OutputManagerでファイル保存
     final_file = output_manager.save_content(complete_article, metadata, 'final_structure')
@@ -139,8 +172,131 @@ def create_final_article_structure():
     
     return final_file, final_with_images_file
 
+def upload_to_wordpress():
+    """WordPressに最終記事をアップロード（動的版）"""
+    try:
+        # WordPressクライアント初期化
+        client = WordPressClient()
+        
+        if not client.test_connection():
+            print("❌ WordPress接続に失敗しました")
+            return
+        
+        # OutputManagerを初期化
+        output_manager = OutputManager()
+        outputs_dir = output_manager.base_outputs_dir
+        
+        # 最終構造記事読み込み（動的検索、新構造対応）
+        final_pattern = os.path.join(outputs_dir, '*/final_structure.md')
+        final_files = glob.glob(final_pattern)
+        if not final_files:
+            # 旧構造もチェック
+            final_pattern = os.path.join(outputs_dir, '*_article_*_final_structure.md')
+            final_files = glob.glob(final_pattern)
+        if not final_files:
+            print("❌ 最終構造記事ファイルが見つかりません")
+            return None
+            
+        final_file = sorted(final_files)[-1]  # 最新のファイル
+        with open(final_file, 'r', encoding='utf-8') as f:
+            markdown_content = f.read()
+        
+        # タイトルとメタデータを動的抽出
+        lines = markdown_content.split('\n')
+        title = "生成AI教育ガイド"  # デフォルト値
+        for line in lines:
+            if line.startswith('# '):
+                title = line[2:].strip()
+                break
+        
+        meta_description = f"{title[:50]}の基本概念から実践手法まで専門家が解説"
+        excerpt = markdown_content[:300] + "..." if len(markdown_content) > 300 else markdown_content
+        
+        # 画像アップロードとURL置換（動的検索）
+        
+        # アイキャッチ画像（新構造対応）
+        eyecatch_pattern = os.path.join(outputs_dir, '*/*_eyecatch_*.png')
+        eyecatch_files = glob.glob(eyecatch_pattern)
+        if not eyecatch_files:
+            # JPGファイルもチェック
+            eyecatch_pattern = os.path.join(outputs_dir, '*/*_eyecatch_*.jpg')
+            eyecatch_files = glob.glob(eyecatch_pattern)
+        if not eyecatch_files:
+            # 旧構造もチェック
+            eyecatch_pattern = os.path.join(outputs_dir, '*_eyecatch_*.png')
+            eyecatch_files = glob.glob(eyecatch_pattern)
+        if not eyecatch_files:
+            eyecatch_pattern = os.path.join(outputs_dir, '*_eyecatch_*.jpg')
+            eyecatch_files = glob.glob(eyecatch_pattern)
+            
+        eyecatch_url = ""
+        eyecatch_id = None
+        if eyecatch_files:
+            eyecatch_path = sorted(eyecatch_files)[-1]  # 最新のアイキャッチ
+            eyecatch_result = client.upload_image(eyecatch_path, f"{title}アイキャッチ画像")
+            if eyecatch_result:
+                eyecatch_url = eyecatch_result['url']
+                eyecatch_id = eyecatch_result.get('attachment_id')
+        
+        # 各章のサムネイル画像アップロード（動的検索、新構造対応）
+        thumbnail_data = {}
+        thumbnail_pattern = os.path.join(outputs_dir, '*/*_thumbnail_*_chapter*.png')
+        thumbnail_files = sorted(glob.glob(thumbnail_pattern))
+        if not thumbnail_files:
+            # 旧構造もチェック
+            thumbnail_pattern = os.path.join(outputs_dir, '*_thumbnail_*_chapter*.png')
+            thumbnail_files = sorted(glob.glob(thumbnail_pattern))
+        
+        for i, thumb_path in enumerate(thumbnail_files):
+            if os.path.exists(thumb_path):
+                thumb_result = client.upload_image(thumb_path, f"第{i+1}章サムネイル画像")
+                if thumb_result:
+                    placeholder = f"thumbnail_chapter{i+1}_url"
+                    thumbnail_data[placeholder] = {
+                        'url': thumb_result['url'],
+                        'id': thumb_result.get('attachment_id', 0),
+                        'alt': f"第{i+1}章サムネイル画像"
+                    }
+        
+        # マークダウン画像記法を実際のURLに置換
+        for i, (placeholder, data) in enumerate(thumbnail_data.items(), 1):
+            # プレースホルダーを実際のURLに置換
+            markdown_pattern = f"![第{i}章のサムネイル画像]({placeholder})"
+            markdown_replacement = f"![第{i}章のサムネイル画像]({data['url']})"
+            markdown_content = markdown_content.replace(markdown_pattern, markdown_replacement)
+            print(f"🔄 URL置換: {placeholder} → {data['url']}")
+        
+        # WordPressブロック形式に変換（画像URL置換後）
+        wordpress_content = convert_markdown_to_gutenberg(markdown_content)
+        
+        # WordPress投稿
+        print(f"📝 最終記事投稿開始...")
+        print(f"   構成: リード文→本文→まとめ")
+        print(f"   画像: {1 + len(thumbnail_data)}枚追加（アイキャッチ + 各章サムネイル）")
+        print(f"   文字数: {len(markdown_content):,} 文字")
+        
+        result = client.create_post(
+            title=title,
+            content=wordpress_content,
+            excerpt=excerpt,
+            featured_image_id=eyecatch_id,
+            meta_description=meta_description,
+            status="draft"
+        )
+        
+        print(f"\n🎉 最終記事投稿完了!")
+        print(f"   投稿ID: {result.get('post_id')}")
+        print(f"   編集URL: {result.get('edit_url')}")
+        print(f"   プレビューURL: {result.get('preview_url')}")
+        
+        return result
+        
+    except Exception as e:
+        print(f"❌ エラーが発生しました: {str(e)}")
+        return None
+
 if __name__ == "__main__":
     # 最終構造作成
     final_file, final_with_images_file = create_final_article_structure()
     print("\n" + "="*50)
-    print("OutputManager対応版で記事作成完了!")
+    print("完全動的版で記事作成完了!")
