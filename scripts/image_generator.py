@@ -39,6 +39,8 @@ load_dotenv()
 class BlogImageGenerator:
     def __init__(self):
         """初期化"""
+        # 画像設定を読み込み
+        self.load_image_settings()
         # Google Gemini API (サムネイル用)
         self.google_api_key = os.getenv('GOOGLE_API_KEY')
         if not self.google_api_key:
@@ -62,6 +64,95 @@ class BlogImageGenerator:
         # 後方互換性のため
         self.outputs_dir = Path('outputs')
         self.outputs_dir.mkdir(exist_ok=True)
+    
+    def load_image_settings(self):
+        """画像設定ファイルを読み込み"""
+        try:
+            config_path = Path(__file__).parent.parent / 'config' / 'image_settings.json'
+            with open(config_path, 'r', encoding='utf-8') as f:
+                self.image_settings = json.load(f)
+        except Exception as e:
+            print(f"Warning: Could not load image settings: {e}")
+            # デフォルト設定
+            self.image_settings = {
+                "eyecatch": {
+                    "optimization": {
+                        "enabled": True,
+                        "target_max_size_kb": 500,
+                        "target_dimensions": {"width": 1024, "height": 576},
+                        "jpeg_quality": 85
+                    }
+                },
+                "thumbnail": {
+                    "optimization": {
+                        "enabled": True,
+                        "target_max_size_kb": 800,
+                        "target_dimensions": {"width": 800, "height": 450},
+                        "jpeg_quality": 80
+                    }
+                }
+            }
+    
+    def optimize_image(self, image_data: bytes, image_type: str = 'eyecatch') -> bytes:
+        """画像を最適化してファイルサイズを削減"""
+        try:
+            settings = self.image_settings.get(image_type, {}).get('optimization', {})
+            
+            if not settings.get('enabled', True):
+                return image_data
+            
+            # PIL Imageで読み込み
+            image = Image.open(BytesIO(image_data))
+            
+            # RGBA -> RGBに変換（JPEG保存のため）
+            if image.mode in ('RGBA', 'LA'):
+                # 白背景で合成
+                background = Image.new('RGB', image.size, (255, 255, 255))
+                if image.mode == 'RGBA':
+                    background.paste(image, mask=image.split()[3])  # アルファチャンネルをマスクとして使用
+                else:
+                    background.paste(image)
+                image = background
+            elif image.mode != 'RGB':
+                image = image.convert('RGB')
+            
+            # 目標サイズにリサイズ
+            target_dims = settings.get('target_dimensions', {})
+            if target_dims.get('width') and target_dims.get('height'):
+                target_size = (target_dims['width'], target_dims['height'])
+                image = image.resize(target_size, Image.Resampling.LANCZOS)
+            
+            # JPEG品質を段階的に調整してファイルサイズを最適化
+            target_size_kb = settings.get('target_max_size_kb', 500)
+            base_quality = settings.get('jpeg_quality', 85)
+            
+            for quality in range(base_quality, 50, -5):  # 85から50まで5刻みで下げる
+                output = BytesIO()
+                save_kwargs = {
+                    'format': 'JPEG',
+                    'quality': quality,
+                    'optimize': True,
+                    'progressive': True
+                }
+                image.save(output, **save_kwargs)
+                
+                output_size_kb = output.tell() / 1024
+                print(f"   Quality {quality}: {output_size_kb:.1f}KB")
+                
+                if output_size_kb <= target_size_kb:
+                    print(f"✅ Optimized to {output_size_kb:.1f}KB (quality: {quality})")
+                    return output.getvalue()
+            
+            # 最低品質でも目標サイズを超える場合は最低品質で保存
+            output = BytesIO()
+            image.save(output, format='JPEG', quality=50, optimize=True)
+            final_size_kb = output.tell() / 1024
+            print(f"⚠️  Final size: {final_size_kb:.1f}KB (minimum quality)")
+            return output.getvalue()
+            
+        except Exception as e:
+            print(f"❌ Image optimization failed: {e}")
+            return image_data  # 最適化に失敗した場合は元の画像を返す
         
     def load_outline(self, outline_path: str) -> Dict:
         """アウトラインファイルを読み込み"""
@@ -441,33 +532,49 @@ class BlogImageGenerator:
     def save_image(self, image_data: bytes, filename: str, metadata: Optional[Dict] = None, file_type: str = 'image', chapter: Optional[int] = None) -> str:
         """画像を自動分類して保存"""
         try:
-            # 画像データをPILで処理
-            image = Image.open(BytesIO(image_data))
-            original_size = image.size
+            # 画像形式を判定
+            try:
+                image = Image.open(BytesIO(image_data))
+                is_optimized_jpeg = image.format == 'JPEG'
+            except:
+                is_optimized_jpeg = False
             
-            # アイキャッチ画像（1536×1024）の場合は16:9に拡張
-            if original_size == (1536, 1024):
-                print(f"🎨 Detected OpenAI eyecatch image, extending to 16:9...")
-                image = self.extend_image_to_16_9(image)
-            
-            # Web最適化
-            if image.size[0] > 1920:  # 幅が1920pxより大きい場合リサイズ
-                ratio = 1920 / image.size[0]
-                new_size = (1920, int(image.size[1] * ratio))
-                image = image.resize(new_size, Image.Resampling.LANCZOS)
-            
-            # 保存処理
-            if metadata:
-                # 新しい自動分類システムを使用
-                img_bytes = BytesIO()
-                image.save(img_bytes, 'PNG', optimize=True)
-                img_bytes.seek(0)
-                
-                filepath = self.output_manager.save_binary(img_bytes.getvalue(), metadata, file_type, chapter)
+            if is_optimized_jpeg:
+                # 最適化済みJPEG画像の場合はそのまま保存
+                if metadata:
+                    filepath = self.output_manager.save_binary(image_data, metadata, file_type, chapter, extension='.jpg')
+                else:
+                    filepath = self.outputs_dir / filename.replace('.png', '.jpg')
+                    with open(filepath, 'wb') as f:
+                        f.write(image_data)
             else:
-                # 従来の方法（後方互換性）
-                filepath = self.outputs_dir / filename
-                image.save(filepath, 'PNG', optimize=True)
+                # PNG画像の場合は従来の処理
+                image = Image.open(BytesIO(image_data))
+                original_size = image.size
+                
+                # アイキャッチ画像（1536×1024）の場合は16:9に拡張
+                if original_size == (1536, 1024):
+                    print(f"🎨 Detected OpenAI eyecatch image, extending to 16:9...")
+                    image = self.extend_image_to_16_9(image)
+                
+                # Web最適化
+                if image.size[0] > 1920:  # 幅が1920pxより大きい場合リサイズ
+                    ratio = 1920 / image.size[0]
+                    new_size = (1920, int(image.size[1] * ratio))
+                    image = image.resize(new_size, Image.Resampling.LANCZOS)
+                
+                # 保存処理
+                if metadata:
+                    # 新しい自動分類システムを使用
+                    img_bytes = BytesIO()
+                    image.save(img_bytes, 'PNG', optimize=True)
+                    img_bytes.seek(0)
+                    
+                    filepath = self.output_manager.save_binary(img_bytes.getvalue(), metadata, file_type, chapter)
+                else:
+                    # 従来の方法（後方互換性）
+                    filepath = self.outputs_dir / filename
+                    image.save(filepath, 'PNG', optimize=True)
                 filepath = str(filepath)
             
             print(f"✅ Image saved: {filepath} ({image.size[0]}x{image.size[1]})")
@@ -494,6 +601,17 @@ class BlogImageGenerator:
         if not image_data:
             return None
         
+        # 画像を最適化（ファイルサイズ削減）
+        print(f"📦 Optimizing eyecatch image...")
+        original_size_kb = len(image_data) / 1024
+        print(f"   Original size: {original_size_kb:.1f}KB")
+        
+        optimized_data = self.optimize_image(image_data, 'eyecatch')
+        optimized_size_kb = len(optimized_data) / 1024
+        print(f"   Final size: {optimized_size_kb:.1f}KB ({(1-optimized_size_kb/original_size_kb)*100:.1f}% reduction)")
+        
+        image_data = optimized_data
+        
         # 自動分類して保存
         metadata = {
             'title': outline_data.get('title', ''),
@@ -519,6 +637,17 @@ class BlogImageGenerator:
         image_data = self.generate_image_imagen(image_prompt)
         if not image_data:
             return None
+        
+        # 画像を最適化（ファイルサイズ削減）
+        print(f"📦 Optimizing thumbnail image...")
+        original_size_kb = len(image_data) / 1024
+        print(f"   Original size: {original_size_kb:.1f}KB")
+        
+        optimized_data = self.optimize_image(image_data, 'thumbnail')
+        optimized_size_kb = len(optimized_data) / 1024
+        print(f"   Final size: {optimized_size_kb:.1f}KB ({(1-optimized_size_kb/original_size_kb)*100:.1f}% reduction)")
+        
+        image_data = optimized_data
         
         # 自動分類して保存
         metadata = {

@@ -250,7 +250,7 @@ class OutputManager:
             print(f"❌ Failed to save {file_type}: {e}")
             return ""
     
-    def save_binary(self, data: bytes, metadata: Dict[str, str], file_type: str, chapter: Optional[int] = None) -> str:
+    def save_binary(self, data: bytes, metadata: Dict[str, str], file_type: str, chapter: Optional[int] = None, extension: str = None) -> str:
         """
         バイナリデータを適切なディレクトリに保存
         
@@ -259,11 +259,16 @@ class OutputManager:
             metadata: メタデータ辞書
             file_type: ファイルタイプ
             chapter: チャプター番号
+            extension: ファイル拡張子（例: '.jpg', '.png'）
             
         Returns:
             保存されたファイルパス
         """
         filepath = self.get_output_filepath(metadata, file_type, chapter)
+        
+        # 拡張子が指定されている場合はファイルパスを変更
+        if extension:
+            filepath = Path(str(filepath).rsplit('.', 1)[0] + extension)
         
         try:
             with open(filepath, 'wb') as f:

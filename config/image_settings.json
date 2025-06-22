@@ -1,0 +1,38 @@
+{
+  "eyecatch": {
+    "generation": {
+      "size": "1536x1024",
+      "quality": "high"
+    },
+    "optimization": {
+      "enabled": true,
+      "target_max_size_kb": 500,
+      "target_dimensions": {
+        "width": 1024,
+        "height": 576
+      },
+      "jpeg_quality": 85,
+      "progressive": true,
+      "optimize": true
+    }
+  },
+  "thumbnail": {
+    "generation": {
+      "aspect_ratio": "16:9"
+    },
+    "optimization": {
+      "enabled": true,
+      "target_max_size_kb": 800,
+      "target_dimensions": {
+        "width": 800,
+        "height": 450
+      },
+      "jpeg_quality": 80
+    }
+  },
+  "upload": {
+    "retry_attempts": 3,
+    "timeout_seconds": 60,
+    "fallback_quality": 70
+  }
+}
