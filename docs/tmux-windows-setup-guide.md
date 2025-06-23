@@ -37,6 +37,35 @@ done
 wsl bash -c "for i in {0..3}; do tmux send-keys -t multiagent:0.\$i 'claude --dangerously-skip-permissions' C-m; done"
 ```
 
+#### 問題3: tmuxペインが見つからないエラー
+**症状**: `can't find pane: claude --dangerously-skip-permissions`
+
+**解決方法**: セッションを完全にクリーンアップして再構築
+```bash
+# 全セッション削除
+wsl tmux kill-server
+
+# 環境再構築
+wsl bash Claude-Code-Communication/setup.sh
+
+# ペイン構成確認
+wsl tmux list-panes -t multiagent -F "#{pane_index}: #{pane_title}"
+```
+
+#### 問題4: OAuth認証ポート競合エラー
+**症状**: `OAuth error: Port 54545 is already in use`
+
+**原因**: 複数のClaudeインスタンスが同時に同じポートで認証を試行
+
+**解決方法**: 段階的起動で認証を避ける
+```bash
+# 1. Presidentのみ先に起動
+wsl bash -c "tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m"
+
+# 2. President認証完了後、間隔を空けてMultiagent起動
+wsl bash -c "sleep 10 && for i in {0..3}; do tmux send-keys -t multiagent:0.\$i 'claude --dangerously-skip-permissions' C-m; sleep 2; done"
+```
+
 ### 🎯 正しい環境構築手順
 
 #### Step 1: スクリプト実行権限設定
@@ -53,7 +82,16 @@ wsl chmod +x Claude-Code-Communication/setup.sh
 wsl bash Claude-Code-Communication/setup.sh
 ```
 
-#### Step 3: Claude一括起動
+#### Step 3: ペイン構成確認
+```bash
+# セッション一覧確認
+wsl tmux list-sessions
+
+# ペイン構成確認
+wsl tmux list-panes -t multiagent -F "#{pane_index}: #{pane_title}"
+```
+
+#### Step 4: Claude一括起動
 ```bash
 # President起動
 wsl bash -c "tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m"
@@ -172,6 +210,7 @@ tmux new-session -s セッション名    # 新セッション作成
 tmux attach-session -t セッション名  # セッション接続
 tmux list-sessions                 # セッション一覧
 tmux kill-session -t セッション名    # セッション削除
+tmux kill-server                   # 全セッション削除
 ```
 
 ---
@@ -202,6 +241,16 @@ wsl tmux kill-server
 wsl bash Claude-Code-Communication/setup.sh
 ```
 
+### 問題: ペインが見つからない（can't find pane）
+```bash
+# ペイン構成確認
+wsl tmux list-panes -t multiagent -F "#{pane_index}: #{pane_title}"
+
+# 環境完全再構築
+wsl tmux kill-server
+wsl bash Claude-Code-Communication/setup.sh
+```
+
 ### 問題: マウス操作が効かない
 ```bash
 # 設定ファイル確認
@@ -225,6 +274,7 @@ wsl bash -c "コマンド"
 - [ ] WSL環境でsetup.sh実行
 - [ ] multiagentセッション（4ペイン）作成確認
 - [ ] presidentセッション作成確認
+- [ ] ペイン構成確認（boss1, worker1-3）
 - [ ] Claude一括起動完了
 
 ### マウス設定
@@ -238,6 +288,35 @@ wsl bash -c "コマンド"
 - [ ] マウスクリックでペイン切り替え
 - [ ] セッション間の移動
 - [ ] Claude各エージェント動作確認
+
+### 問題対応
+- [ ] 改行コード問題解決済み
+- [ ] PowerShell構文エラー解決済み
+- [ ] ペイン検出エラー解決済み
+
+---
+
+## 🔄 緊急時のリセット手順
+
+環境が不安定になった場合の完全リセット：
+
+```bash
+# 1. 全セッション停止
+wsl tmux kill-server
+
+# 2. 環境確認
+wsl tmux list-sessions  # 何も表示されないことを確認
+
+# 3. 環境再構築
+wsl bash Claude-Code-Communication/setup.sh
+
+# 4. ペイン構成確認
+wsl tmux list-panes -t multiagent -F "#{pane_index}: #{pane_title}"
+
+# 5. Claude再起動
+wsl bash -c "tmux send-keys -t president 'claude --dangerously-skip-permissions' C-m"
+wsl bash -c "for i in {0..3}; do tmux send-keys -t multiagent:0.\$i 'claude --dangerously-skip-permissions' C-m; done"
+```
 
 ---
 
