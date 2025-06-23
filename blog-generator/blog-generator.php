@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Blog Generator Plugin
-Description: WordPress plugin to import blog articles from outputs folder with chapter-by-chapter processing
-Version: 1.0
+Description: WordPress plugin to import blog articles from outputs folder with chapter-by-chapter processing and advanced update functionality
+Version: 2.0
 Author: Your Name
 */
 
@@ -1539,6 +1539,390 @@ class Blog_Generator_Plugin {
                 'innerContent' => array($list_html)
             )
         );
+    }
+    
+    // ===== 記事更新機能のメソッド群 =====
+    
+    // REST API: 記事更新エンドポイント
+    public function rest_update_post(WP_REST_Request $request) {
+        try {
+            $post_id = intval($request->get_param('id'));
+            
+            // 記事存在チェック
+            $post = get_post($post_id);
+            if (!$post) {
+                return new WP_Error('post_not_found', '指定された記事が見つかりません', array('status' => 404));
+            }
+            
+            $this->debug_log('Updating post via REST API:', array(
+                'post_id' => $post_id,
+                'current_title' => $post->post_title,
+                'current_status' => $post->post_status
+            ));
+            
+            // 更新データ取得
+            $title = $request->get_param('title');
+            $content = $request->get_param('content');
+            $excerpt = $request->get_param('excerpt');
+            $status = $request->get_param('status');
+            $meta_description = $request->get_param('meta_description');
+            $featured_image_id = $request->get_param('featured_image_id');
+            $update_strategy = $request->get_param('update_strategy') ?: 'full';
+            
+            // バックアップ作成（オプション）
+            $backup_id = null;
+            if ($request->get_param('backup') === true) {
+                $backup_result = $this->create_post_backup($post_id, $post);
+                if (!is_wp_error($backup_result)) {
+                    $backup_id = $backup_result['backup_id'];
+                    $this->debug_log('Backup created:', $backup_id);
+                }
+            }
+            
+            // 更新データ構築
+            $update_data = array('ID' => $post_id);
+            
+            if ($title !== null) {
+                $update_data['post_title'] = sanitize_text_field($title);
+            }
+            
+            if ($content !== null) {
+                $update_data['post_content'] = wp_kses_post($content);
+            }
+            
+            if ($excerpt !== null) {
+                $update_data['post_excerpt'] = sanitize_text_field($excerpt);
+            }
+            
+            if ($status !== null) {
+                $update_data['post_status'] = sanitize_text_field($status);
+            }
+            
+            // 記事更新実行
+            $result = wp_update_post($update_data);
+            
+            if (is_wp_error($result)) {
+                throw new Exception('記事の更新に失敗しました: ' . $result->get_error_message());
+            }
+            
+            // メタデータ更新
+            if ($meta_description !== null) {
+                update_post_meta($post_id, '_meta_description', sanitize_text_field($meta_description));
+            }
+            
+            // アイキャッチ画像更新
+            if ($featured_image_id !== null && is_numeric($featured_image_id)) {
+                if ($featured_image_id > 0) {
+                    set_post_thumbnail($post_id, intval($featured_image_id));
+                } else {
+                    delete_post_thumbnail($post_id);
+                }
+            }
+            
+            // 更新後の記事データ取得
+            $updated_post = get_post($post_id);
+            
+            $this->debug_log('Post updated successfully:', array(
+                'post_id' => $post_id,
+                'backup_id' => $backup_id,
+                'update_strategy' => $update_strategy
+            ));
+            
+            return rest_ensure_response(array(
+                'success' => true,
+                'post_id' => $post_id,
+                'backup_id' => $backup_id,
+                'modified_time' => $updated_post->post_modified,
+                'edit_link' => admin_url('post.php?action=edit&post=' . $post_id),
+                'preview_url' => get_preview_post_link($post_id),
+                'update_strategy' => $update_strategy
+            ));
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error in rest_update_post:', $e->getMessage());
+            return new WP_Error('update_failed', $e->getMessage(), array('status' => 500));
+        }
+    }
+    
+    // REST API: 記事取得エンドポイント
+    public function rest_get_post(WP_REST_Request $request) {
+        try {
+            $post_id = intval($request->get_param('id'));
+            
+            $post = get_post($post_id);
+            if (!$post) {
+                return new WP_Error('post_not_found', '指定された記事が見つかりません', array('status' => 404));
+            }
+            
+            // 記事データ構築
+            $post_data = array(
+                'id' => $post->ID,
+                'title' => $post->post_title,
+                'content' => $post->post_content,
+                'excerpt' => $post->post_excerpt,
+                'status' => $post->post_status,
+                'modified' => $post->post_modified,
+                'created' => $post->post_date,
+                'author' => $post->post_author,
+                'slug' => $post->post_name
+            );
+            
+            // メタデータ取得
+            $meta_description = get_post_meta($post_id, '_meta_description', true);
+            if ($meta_description) {
+                $post_data['meta_description'] = $meta_description;
+            }
+            
+            // アイキャッチ画像取得
+            $featured_image_id = get_post_thumbnail_id($post_id);
+            if ($featured_image_id) {
+                $post_data['featured_image_id'] = $featured_image_id;
+                $post_data['featured_image_url'] = wp_get_attachment_url($featured_image_id);
+            }
+            
+            $this->debug_log('Post retrieved successfully:', array(
+                'post_id' => $post_id,
+                'title' => $post->post_title
+            ));
+            
+            return rest_ensure_response($post_data);
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error in rest_get_post:', $e->getMessage());
+            return new WP_Error('get_failed', $e->getMessage(), array('status' => 500));
+        }
+    }
+    
+    // REST API: バックアップ作成エンドポイント
+    public function rest_backup_post(WP_REST_Request $request) {
+        try {
+            $post_id = intval($request->get_param('id'));
+            
+            $post = get_post($post_id);
+            if (!$post) {
+                return new WP_Error('post_not_found', '指定された記事が見つかりません', array('status' => 404));
+            }
+            
+            $backup_data = $request->get_json_params();
+            $result = $this->create_post_backup($post_id, $post, $backup_data);
+            
+            if (is_wp_error($result)) {
+                throw new Exception($result->get_error_message());
+            }
+            
+            return rest_ensure_response($result);
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error in rest_backup_post:', $e->getMessage());
+            return new WP_Error('backup_failed', $e->getMessage(), array('status' => 500));
+        }
+    }
+    
+    // REST API: バックアップ復元エンドポイント
+    public function rest_restore_post(WP_REST_Request $request) {
+        try {
+            $post_id = intval($request->get_param('id'));
+            $backup_id = $request->get_param('backup_id');
+            
+            if (!$backup_id) {
+                return new WP_Error('invalid_backup', 'バックアップIDが指定されていません', array('status' => 400));
+            }
+            
+            $result = $this->restore_post_from_backup($post_id, $backup_id);
+            
+            if (is_wp_error($result)) {
+                throw new Exception($result->get_error_message());
+            }
+            
+            return rest_ensure_response($result);
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error in rest_restore_post:', $e->getMessage());
+            return new WP_Error('restore_failed', $e->getMessage(), array('status' => 500));
+        }
+    }
+    
+    // REST API: 記事検索エンドポイント
+    public function rest_search_posts(WP_REST_Request $request) {
+        try {
+            $title = $request->get_param('title');
+            $fuzzy = $request->get_param('fuzzy') !== 'false';
+            
+            if (!$title) {
+                return rest_ensure_response(array());
+            }
+            
+            $search_args = array(
+                'post_type' => 'post',
+                'post_status' => array('publish', 'draft'),
+                'posts_per_page' => 10,
+                's' => $title
+            );
+            
+            if ($fuzzy) {
+                // ファジー検索の場合はより緩い条件で検索
+                $search_args['meta_query'] = array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => '_meta_description',
+                        'value' => $title,
+                        'compare' => 'LIKE'
+                    )
+                );
+            }
+            
+            $posts = get_posts($search_args);
+            $results = array();
+            
+            foreach ($posts as $post) {
+                $results[] = array(
+                    'id' => $post->ID,
+                    'title' => $post->post_title,
+                    'status' => $post->post_status,
+                    'modified' => $post->post_modified,
+                    'excerpt' => wp_trim_words($post->post_content, 20)
+                );
+            }
+            
+            return rest_ensure_response($results);
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error in rest_search_posts:', $e->getMessage());
+            return rest_ensure_response(array());
+        }
+    }
+    
+    // REST API: 記事分析データ取得エンドポイント
+    public function rest_get_analytics(WP_REST_Request $request) {
+        try {
+            $post_id = intval($request->get_param('id'));
+            
+            $post = get_post($post_id);
+            if (!$post) {
+                return new WP_Error('post_not_found', '指定された記事が見つかりません', array('status' => 404));
+            }
+            
+            // 基本分析データ
+            $analytics = array(
+                'post_id' => $post_id,
+                'word_count' => str_word_count(strip_tags($post->post_content)),
+                'character_count' => mb_strlen(strip_tags($post->post_content)),
+                'paragraph_count' => substr_count($post->post_content, '</p>'),
+                'last_modified' => $post->post_modified,
+                'status' => $post->post_status
+            );
+            
+            // 見出し数カウント
+            $analytics['heading_count'] = array(
+                'h2' => substr_count($post->post_content, '<h2'),
+                'h3' => substr_count($post->post_content, '<h3'),
+                'h4' => substr_count($post->post_content, '<h4')
+            );
+            
+            // アイキャッチ画像情報
+            $featured_image_id = get_post_thumbnail_id($post_id);
+            $analytics['has_featured_image'] = !empty($featured_image_id);
+            
+            return rest_ensure_response($analytics);
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error in rest_get_analytics:', $e->getMessage());
+            return rest_ensure_response(array());
+        }
+    }
+    
+    // バックアップ作成
+    private function create_post_backup($post_id, $post, $additional_data = array()) {
+        try {
+            $backup_id = 'backup_' . $post_id . '_' . time() . '_' . wp_generate_password(8, false);
+            
+            $backup_data = array(
+                'post_id' => $post_id,
+                'post_title' => $post->post_title,
+                'post_content' => $post->post_content,
+                'post_excerpt' => $post->post_excerpt,
+                'post_status' => $post->post_status,
+                'post_modified' => $post->post_modified,
+                'meta_description' => get_post_meta($post_id, '_meta_description', true),
+                'featured_image_id' => get_post_thumbnail_id($post_id),
+                'backup_created' => current_time('mysql'),
+                'additional_data' => $additional_data
+            );
+            
+            // バックアップをオプションとして保存（一時的な実装）
+            update_option('blog_generator_backup_' . $backup_id, $backup_data);
+            
+            $this->debug_log('Backup created successfully:', array(
+                'backup_id' => $backup_id,
+                'post_id' => $post_id
+            ));
+            
+            return array(
+                'backup_id' => $backup_id,
+                'created_at' => current_time('mysql'),
+                'post_title' => $post->post_title
+            );
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error creating backup:', $e->getMessage());
+            return new WP_Error('backup_failed', 'バックアップの作成に失敗しました: ' . $e->getMessage());
+        }
+    }
+    
+    // バックアップから復元
+    private function restore_post_from_backup($post_id, $backup_id) {
+        try {
+            $backup_data = get_option('blog_generator_backup_' . $backup_id);
+            
+            if (!$backup_data) {
+                return new WP_Error('backup_not_found', 'バックアップが見つかりません');
+            }
+            
+            if ($backup_data['post_id'] != $post_id) {
+                return new WP_Error('backup_mismatch', 'バックアップの記事IDが一致しません');
+            }
+            
+            // 記事復元
+            $restore_data = array(
+                'ID' => $post_id,
+                'post_title' => $backup_data['post_title'],
+                'post_content' => $backup_data['post_content'],
+                'post_excerpt' => $backup_data['post_excerpt'],
+                'post_status' => $backup_data['post_status']
+            );
+            
+            $result = wp_update_post($restore_data);
+            
+            if (is_wp_error($result)) {
+                throw new Exception('記事の復元に失敗しました: ' . $result->get_error_message());
+            }
+            
+            // メタデータ復元
+            if ($backup_data['meta_description']) {
+                update_post_meta($post_id, '_meta_description', $backup_data['meta_description']);
+            }
+            
+            // アイキャッチ画像復元
+            if ($backup_data['featured_image_id']) {
+                set_post_thumbnail($post_id, $backup_data['featured_image_id']);
+            }
+            
+            $this->debug_log('Post restored successfully:', array(
+                'post_id' => $post_id,
+                'backup_id' => $backup_id
+            ));
+            
+            return array(
+                'post_id' => $post_id,
+                'backup_id' => $backup_id,
+                'restored_time' => current_time('mysql'),
+                'restored_title' => $backup_data['post_title']
+            );
+            
+        } catch (Exception $e) {
+            $this->debug_log('Error restoring backup:', $e->getMessage());
+            return new WP_Error('restore_failed', 'バックアップの復元に失敗しました: ' . $e->getMessage());
+        }
     }
 }
 
