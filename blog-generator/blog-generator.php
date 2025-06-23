@@ -588,6 +588,78 @@ class Blog_Generator_Plugin {
             'callback' => array($this, 'rest_upload_image'),
             'permission_callback' => array($this, 'check_api_permission')
         ));
+        
+        // 記事更新機能のエンドポイント追加
+        register_rest_route('blog-generator/v1', '/update-post/(?P<id>\d+)', array(
+            'methods' => 'PUT',
+            'callback' => array($this, 'rest_update_post'),
+            'permission_callback' => array($this, 'check_api_permission'),
+            'args' => array(
+                'id' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                )
+            )
+        ));
+        
+        register_rest_route('blog-generator/v1', '/get-post/(?P<id>\d+)', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'rest_get_post'),
+            'permission_callback' => array($this, 'check_api_permission'),
+            'args' => array(
+                'id' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                )
+            )
+        ));
+        
+        register_rest_route('blog-generator/v1', '/backup-post/(?P<id>\d+)', array(
+            'methods' => 'POST',
+            'callback' => array($this, 'rest_backup_post'),
+            'permission_callback' => array($this, 'check_api_permission'),
+            'args' => array(
+                'id' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                )
+            )
+        ));
+        
+        register_rest_route('blog-generator/v1', '/restore-post/(?P<id>\d+)', array(
+            'methods' => 'POST',
+            'callback' => array($this, 'rest_restore_post'),
+            'permission_callback' => array($this, 'check_api_permission'),
+            'args' => array(
+                'id' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                )
+            )
+        ));
+        
+        register_rest_route('blog-generator/v1', '/search-posts', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'rest_search_posts'),
+            'permission_callback' => array($this, 'check_api_permission')
+        ));
+        
+        register_rest_route('blog-generator/v1', '/analytics/(?P<id>\d+)', array(
+            'methods' => 'GET',
+            'callback' => array($this, 'rest_get_analytics'),
+            'permission_callback' => array($this, 'check_api_permission'),
+            'args' => array(
+                'id' => array(
+                    'validate_callback' => function($param, $request, $key) {
+                        return is_numeric($param);
+                    }
+                )
+            )
+        ));
     }
     
     // APIアクセス権限チェック

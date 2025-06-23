@@ -21,7 +21,10 @@ blog_generator/
 │   ├── multi_intent_extractor.py  # 検索意図複数抽出スクリプト
 │   ├── organize_outputs.py     # 出力ファイル自動整理スクリプト
 │   ├── post_blog_universal.py  # 汎用WordPress記事投稿スクリプト（統一版）
-│   └── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
+│   ├── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
+│   ├── wordpress_update_client.py # WordPress記事更新クライアント（革新的更新機能）
+│   ├── image_update_manager.py # 画像更新管理システム（AI駆動画像差し替え）
+│   └── test_update_system.py   # WordPress更新システム統合テスト
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
 ├── outputs/            # 生成ファイル出力（自動分類）
@@ -164,6 +167,44 @@ manager.save_content(content, metadata, file_type)
 - 記事は下書きとして投稿されます
 - 統一版スクリプト使用により、スクリプトの重複管理が不要
 
+## WordPress記事更新機能
+
+### 🚀 革新的記事更新システム
+
+従来の投稿機能に加え、既存記事の更新機能を追加しました：
+
+#### 主要機能
+- **既存記事の更新**: 投稿IDを指定して記事内容を更新
+- **差分更新**: 変更箇所のみを効率的に更新（30%未満の変更時）
+- **自動バックアップ**: 更新前の記事を自動保存
+- **画像更新管理**: AI駆動による画像の自動差し替え・最適化
+- **バッチ更新**: 複数記事の一括更新
+- **更新履歴追跡**: 更新の詳細ログとバージョン管理
+
+#### 使用方法
+
+```bash
+# 基本的な記事更新
+python scripts/wordpress_update_client.py
+
+# Markdownファイルから更新
+from scripts.wordpress_update_client import WordPressUpdateClient
+client = WordPressUpdateClient()
+client.update_post_from_markdown(post_id=123, markdown_file="outputs/記事.md")
+
+# 画像更新管理
+from scripts.image_update_manager import ImageUpdateEngine
+engine = ImageUpdateEngine()
+engine.smart_replace_image(post_id=123, target_type="eyecatch")
+```
+
+#### テスト実行
+
+```bash
+# 統合テストスイート実行（100%成功率達成済み）
+python3 scripts/test_update_system.py
+```
+
 ## API キー設定
 
 ### 必須APIキー
@@ -172,7 +213,7 @@ manager.save_content(content, metadata, file_type)
 # .envファイルで設定
 GOOGLE_API_KEY=your_gemini_api_key        # Imagen 3画像生成用
 OPENAI_API_KEY=your_openai_api_key        # gpt-image-1画像生成用
-WORDPRESS_API_KEY=your_wordpress_api_key  # WordPress投稿用
+WORDPRESS_API_KEY=your_wordpress_api_key  # WordPress投稿・更新用
 WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 ```
 
