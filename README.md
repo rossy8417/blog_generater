@@ -418,6 +418,19 @@ python scripts/organize_outputs.py
 - 古い記事データや画像ファイルを一括削除
 - 新しいプロジェクト開始時のクリーン環境作成
 
+### 「リライト」でリライトメニュー表示
+```bash
+# Claude Codeで使用
+リライト 記事ID
+```
+
+**実行内容**:
+- 指定した記事IDのリライトメニューを表示
+- 6つのリライトオプションから選択可能
+- Claude Code主導の高品質リライト実行
+
+> **📋 詳細ガイド**: リライト機能の詳細な手順と各オプションについては [docs/rewrite-guide.md](docs/rewrite-guide.md) を参照してください
+
 ### 「ブログ完全生成」でワンストップ作成
 ```bash
 # Claude Codeで使用
@@ -520,3 +533,9 @@ manager.save_binary(image_data, metadata, 'eyecatch')
   - gpt-image-1による日本語テキスト入りアイキャッチ自動生成
   - 既存記事のアイキャッチ画像差し替え手順
   - WordPress API認証とトラブルシューティング
+
+- **[docs/rewrite-guide.md](docs/rewrite-guide.md)**: 記事リライト機能の詳細ガイド
+  - 6つのリライトオプションの詳細説明
+  - 各リライトタイプの適用場面と実行内容
+  - Claude Code主導のリライト手順
+  - 安全性とバックアップ機能
