@@ -2,7 +2,7 @@
 /*
 Plugin Name: Blog Generator Plugin
 Description: WordPress plugin to import blog articles from outputs folder with chapter-by-chapter processing and advanced update functionality
-Version: 2.0
+Version: 2.1
 Author: Your Name
 */
 
@@ -589,9 +589,9 @@ class Blog_Generator_Plugin {
             'permission_callback' => array($this, 'check_api_permission')
         ));
         
-        // 記事更新機能のエンドポイント追加
+        // 記事更新機能のエンドポイント追加（PUTとPOST両対応）
         register_rest_route('blog-generator/v1', '/update-post/(?P<id>\d+)', array(
-            'methods' => 'PUT',
+            'methods' => array('PUT', 'POST'),
             'callback' => array($this, 'rest_update_post'),
             'permission_callback' => array($this, 'check_api_permission'),
             'args' => array(
