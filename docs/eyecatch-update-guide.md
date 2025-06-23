@@ -1,4 +1,4 @@
-# Blog Generator - Claude Code ガイド
+# アイキャッチ画像自動更新ガイド
 
 ## 🚀 既存記事のアイキャッチ画像更新
 
@@ -82,11 +82,9 @@ $ python3 scripts/update_eyecatch_from_title.py 1388
    生成画像: outputs/eyecatch_gpt1_ChatGPT完全攻略プロンプトマスターガイド_20250623_101456.png
 ```
 
-## その他の機能
+## WordPress記事更新機能
 
-### WordPress記事更新機能
-
-詳細は[README.md](README.md)の「WordPress記事更新機能」セクションを参照してください。
+詳細は[README.md](../README.md)の「WordPress記事更新機能」セクションを参照してください。
 
 ### 必要な環境変数
 
