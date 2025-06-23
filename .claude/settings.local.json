@@ -148,7 +148,12 @@
       "Bash(do echo \"$(date): Worker2完了待機中...\")",
       "Bash(tmux list-windows:*)",
       "Bash(/mnt/c/home/hiroshi/blog_generator/Claude-Code-Communication/agent-send.sh boss1 \"【Worker3最終報告】WordPress記事更新統合システム開発完了！全テスト100%成功達成！バリデーション問題修正により品質向上。Boss1基盤×Worker1分析を活用した革新的統合システム完成。CLI・バッチ・統合・分析機能すべて実装完了。統合フェーズ大成功！\")",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:genedu.jp)",
+      "Bash(./agent-send.sh:*)",
+      "Bash(/mnt/c/home/hiroshi/blog_generator/Claude-Code-Communication/agent-send.sh:*)",
+      "Bash(while [ ! -f \"/mnt/c/home/hiroshi/blog_generator/tmp/worker1_complete.md\" ])",
+      "Bash(do sleep:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",

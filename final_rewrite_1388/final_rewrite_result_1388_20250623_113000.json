@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "post_id": 1388,
+  "backup_path": "backups/post_1388_final_backup_20250623_113000.json",
+  "update_result": {
+    "success": true,
+    "post_id": 1388,
+    "message": "シミュレーション更新完了",
+    "content_length": 23395,
+    "updated_at": "2025-06-23T11:30:00.369146"
+  },
+  "content_analysis": {
+    "character_count": 9184,
+    "heading_count": 28,
+    "h2_count": 5,
+    "h3_count": 23,
+    "h4_count": 0,
+    "chapter_structure": [
+      "第1章 ChatGPTプロンプト作成の基礎知識と2024年最新動向",
+      "第2章 効果的なプロンプト作成の極意と実践テクニック",
+      "第3章 実践的なプロンプト活用法とビジネス応用事例",
+      "第4章 上級者向けプロンプト技法とエキスパート活用術",
+      "まとめ：ChatGPTプロンプト作成術の完全習得へ"
+    ],
+    "analysis_timestamp": "2025-06-23T11:30:00.224949"
+  },
+  "completed_at": "2025-06-23T11:30:00.369260",
+  "rewrite_type": "複合リライト（SEO強化 + 情報更新 + 文体調整）"
+}
