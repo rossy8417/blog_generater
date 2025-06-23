@@ -123,16 +123,8 @@ python scripts/post_blog_universal.py
 3. **自動監視**: ファイル操作を監視して警告表示
 
 ### 💡 使用方法
-```python
-# 安全な保存（推奨）
-from save_helper import save_safely
-saved_path = save_safely(content, "filename.md", "article")
 
-# OutputManager直接使用
-from utils.output_manager import OutputManager
-manager = OutputManager()
-manager.save_content(content, metadata, file_type)
-```
+詳細は `save_helper.py` および `utils/output_manager.py` を参照してください。
 
 ## 汎用WordPress投稿スクリプト（post_blog_universal.py）
 
@@ -199,53 +191,9 @@ manager.save_content(content, metadata, file_type)
 - **SEO最適化**: タイトル・メタディスクリプション改善
 - **情報更新**: 古いデータの最新情報への置換
 
-#### 🔧 実用的な使用方法
+#### 🔧 使用例
 
-```python
-# 基本的な記事更新
-from scripts.wordpress_update_client import WordPressUpdateClient
-client = WordPressUpdateClient()
-
-# タイトル更新
-client.update_post(post_id=1388, title="新しいタイトル", backup=True)
-
-# アイキャッチ画像差し替え  
-client.update_post(post_id=1388, featured_image_id=新しいID)
-
-# gpt-image-1で自動生成・更新 (詳細: docs/eyecatch-update-guide.md)
-python3 scripts/update_eyecatch_from_title.py 1388
-
-# 全文リライト
-client.update_post(post_id=1388, content="新しい記事内容", backup=True)
-
-# SEO最適化
-client.update_post(
-    post_id=1388,
-    title="SEO最適化タイトル",
-    meta_description="検索エンジン最適化された説明文",
-    backup=True
-)
-```
-
-#### 🎯 高度な機能
-
-```python
-# 記事分析
-analytics = client.get_post_analytics(1388)
-print(f"文字数: {analytics['character_count']}")
-print(f"見出し数: H2={analytics['heading_count']['h2']}")
-
-# 記事検索
-results = client.search_posts_by_title("ChatGPT")
-
-# バックアップ復元
-client.restore_from_backup(post_id=1388, backup_id="backup_id")
-
-# AI画像更新
-from scripts.image_update_manager import ImageUpdateEngine
-engine = ImageUpdateEngine()
-engine.smart_replace_image(post_id=1388, target_type="eyecatch")
-```
+詳細な使用方法は `docs/` 内の各ガイドを参照してください。
 
 #### ✅ 動作確認済み実績
 
@@ -265,74 +213,11 @@ engine.smart_replace_image(post_id=1388, target_type="eyecatch")
 
 #### テスト実行
 
-```bash
-# 統合テストスイート実行（100%成功率達成済み）
-python3 scripts/test_update_system.py
+詳細なテスト手順は関連ドキュメントを参照してください。
 
-# 個別機能テスト
-python3 -c "
-from scripts.wordpress_update_client import WordPressUpdateClient
-client = WordPressUpdateClient()
-post = client.get_post(1388)
-print(f'取得成功: {post[\"title\"]}')
-"
-```
+#### 🎯 更新作業例
 
-#### 🎯 実用的な更新作業例
-
-**リライト作業:**
-```python
-# 記事の部分リライト
-client.update_post(
-    post_id=1388,
-    content="第3章を最新の2024年情報でリライトした内容...",
-    backup=True,
-    diff_update=True
-)
-```
-
-**SEO最適化:**
-```python
-# タイトルとメタディスクリプションの最適化
-client.update_post(
-    post_id=1388,
-    title="【2024年最新】ChatGPT完全攻略｜97%が効果実感のプロンプト術",
-    meta_description="ChatGPTを最大活用するプロンプト作成術。初心者でも即実践可能な具体例と秘訣を専門家が解説。",
-    backup=True
-)
-```
-
-**アイキャッチ画像更新:**
-```python
-# 新しいアイキャッチ画像の設定
-client.update_post(
-    post_id=1388,
-    featured_image_id=新しい画像ID,
-    backup=True
-)
-
-# AI生成による自動画像差し替え
-from scripts.image_update_manager import ImageUpdateEngine
-engine = ImageUpdateEngine()
-result = engine.smart_replace_image(
-    post_id=1388,
-    target_type="eyecatch",
-    generation_prompt="ChatGPTとプロンプトをテーマとした現代的なデザイン"
-)
-```
-
-**バッチ更新（複数記事の一括処理）:**
-```python
-# 複数記事のメタディスクリプション一括更新
-updates = [
-    {"post_id": 1388, "meta_description": "ChatGPT完全ガイド..."},
-    {"post_id": 1500, "meta_description": "AI活用術..."},
-    {"post_id": 1600, "meta_description": "プロンプト作成法..."}
-]
-
-results = client.batch_update_posts(updates)
-print(f"成功: {sum(1 for r in results if r['success'])}件")
-```
+詳細なコード例と手順は関連ドキュメントを参照してください。
 
 ## API キー設定
 
@@ -479,15 +364,8 @@ python scripts/organize_outputs.py
 
 
 ### OutputManager クラス
-```python
-from utils.output_manager import OutputManager
 
-manager = OutputManager()
-
-# 自動分類して保存
-manager.save_content(content, metadata, 'complete_article')
-manager.save_binary(image_data, metadata, 'eyecatch')
-```
+詳細は `utils/output_manager.py` を参照してください。
 
 ## 画像挿入仕様
 
@@ -527,15 +405,11 @@ manager.save_binary(image_data, metadata, 'eyecatch')
 - **ブロック形式**: マークダウンからWordPressブロックエディタ形式に自動変換
 - **下書き投稿**: 記事は下書き状態で投稿される
 
+## 📝 記事企画・執筆候補
+
+検索意図を分析した記事執筆候補は `config/intent_variation_tracker.json` を参照してください。ターゲット読者・検索意図・差別化ポイント別に整理された記事候補が保管されています。
+
 ## 関連ドキュメント
 
-- **[docs/eyecatch-update-guide.md](docs/eyecatch-update-guide.md)**: アイキャッチ画像自動生成・更新機能の詳細ガイド
-  - gpt-image-1による日本語テキスト入りアイキャッチ自動生成
-  - 既存記事のアイキャッチ画像差し替え手順
-  - WordPress API認証とトラブルシューティング
-
-- **[docs/rewrite-guide.md](docs/rewrite-guide.md)**: 記事リライト機能の詳細ガイド
-  - 6つのリライトオプションの詳細説明
-  - 各リライトタイプの適用場面と実行内容
-  - Claude Code主導のリライト手順
-  - 安全性とバックアップ機能
+- **[docs/eyecatch-update-guide.md](docs/eyecatch-update-guide.md)**: アイキャッチ画像自動生成・更新機能
+- **[docs/rewrite-guide.md](docs/rewrite-guide.md)**: 記事リライト機能
