@@ -1,0 +1,59 @@
+{
+  "wordpress_settings": {
+    "endpoint_base": "https://www.ht-sw.tech/wp-json/blog-generator/v1",
+    "timeout": 30,
+    "retry_attempts": 3,
+    "retry_delay": 2
+  },
+  "update_strategies": {
+    "new_post": {
+      "endpoint": "/create-post",
+      "method": "POST",
+      "backup_required": false
+    },
+    "direct_update": {
+      "endpoint": "/update-post/{post_id}",
+      "method": "POST", 
+      "backup_required": true
+    },
+    "proven_method": {
+      "endpoint": "/update-post/{post_id}",
+      "method": "POST",
+      "backup_required": true,
+      "verify_endpoint": "https://www.ht-sw.tech/wp-json/wp/v2/posts/{post_id}"
+    }
+  },
+  "content_processing": {
+    "h5_tag_removal": true,
+    "duplicate_h4_fix": true,
+    "image_restoration": true,
+    "backup_image_retrieval": true
+  },
+  "file_management": {
+    "output_directory": "outputs/article_operations",
+    "backup_directory": "backups",
+    "temp_directory": "tmp/article_updates",
+    "log_directory": "logs/article_updates"
+  },
+  "validation_rules": {
+    "title": {
+      "min_length": 5,
+      "max_length": 200
+    },
+    "content": {
+      "min_length": 500,
+      "max_length": 100000
+    },
+    "excerpt": {
+      "max_length": 300
+    }
+  },
+  "security": {
+    "auth_header": "X-API-Key",
+    "sensitive_data_exclusion": [
+      "api_key",
+      "password",
+      "token"
+    ]
+  }
+}

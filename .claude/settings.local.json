@@ -153,7 +153,8 @@
       "Bash(./agent-send.sh:*)",
       "Bash(/mnt/c/home/hiroshi/blog_generator/Claude-Code-Communication/agent-send.sh:*)",
       "Bash(while [ ! -f \"/mnt/c/home/hiroshi/blog_generator/tmp/worker1_complete.md\" ])",
-      "Bash(do sleep:*)"
+      "Bash(do sleep:*)",
+      "Bash(/mnt/c/home/hiroshi/blog_generator/Claude-Code-Communication/agent-send.sh boss1 \"【Worker2→Boss1緊急完了報告】President0追加要求・ファクトチェック修正戦略設計プロジェクト完了 ✅全6コンポーネント戦略設計完了 ✅革新的品質保証システム設計完了 ✅実装ロードマップ策定完了 成果物:/mnt/c/home/hiroshi/blog_generator/tmp/factcheck_correction_strategy.md 革命的価値提案:不正確情報完全排除、2024年最新情報全面更新、100%信頼性確保、品質保証100%達成システム Worker2緊急プロジェクト完了-Boss1確認要請\")"
     ],
     "deny": [
       "Bash(rm -rf /*)",
