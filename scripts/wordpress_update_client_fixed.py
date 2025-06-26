@@ -155,7 +155,7 @@ class WordPressUpdateClient:
             print(f"✏️  記事更新実行中... (戦略: {update_strategy})")
             print(f"   更新項目: {list(update_data.keys())}")
             
-            response = requests.post(
+            response = requests.put(
                 f"{self.endpoint}/update-post/{post_id}",
                 headers=self.headers,
                 json=update_data,
