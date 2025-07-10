@@ -1,0 +1,28 @@
+{
+  "title": "【2025年最新】AI駆動型開発の今後を完全解説｜97%が知らない次世代手法と成功戦略",
+  "meta_description": "AI駆動型開発の将来性に不安を感じていませんか？技術リーダー必見の2025年最新トレンドと実装戦略を完全解説。97%が知らない次世代手法で競争優位を確保しましょう。",
+  "slug": "ai-driven-development-future-guide-2025",
+  "keywords": ["AI駆動型開発", "今後", "2025年", "次世代手法", "成功戦略"],
+  "int_number": "INT-01",
+  "total_characters": 94720,
+  "chapters": 6,
+  "images": {
+    "eyecatch": "tmp/boss1_eyecatch.jpg",
+    "chapter1": "tmp/boss1_chapter1.jpg",
+    "chapter2": "tmp/boss1_chapter2.jpg",
+    "chapter3": "tmp/boss1_chapter3.jpg",
+    "chapter4": "tmp/boss1_chapter4.jpg",
+    "chapter5": "tmp/boss1_chapter5.jpg",
+    "chapter6": "tmp/boss1_chapter6.jpg"
+  },
+  "content_files": {
+    "lead": "tmp/boss1_lead.md",
+    "chapter1": "tmp/worker1_chapter1.md",
+    "chapter2": "tmp/worker1_chapter2.md",
+    "chapter3": "tmp/worker2_chapter3.md", 
+    "chapter4": "tmp/worker2_chapter4.md",
+    "chapter5": "tmp/worker3_chapter5.md",
+    "chapter6": "tmp/worker3_chapter6.md",
+    "summary": "tmp/boss1_summary.md"
+  }
+}

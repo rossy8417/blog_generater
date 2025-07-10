@@ -1,6 +1,0 @@
-{
-  "success": false,
-  "error": "'WordPressClient' object has no attribute 'update_post'",
-  "post_id": 1388,
-  "failed_at": "2025-06-23T11:23:56.618704"
-}

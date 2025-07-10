@@ -1,9 +1,0 @@
-{
-  "execution_time": "2025-06-23T13:39:24.177299",
-  "post_id": 1388,
-  "status": "failed",
-  "reason": "security_restrictions",
-  "attempted_strategies": 4,
-  "president0_requirements": "ready_but_blocked",
-  "solution_needed": "manual_intervention_or_security_config"
-}
