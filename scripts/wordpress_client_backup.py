@@ -350,8 +350,8 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
             if re.search(r'H\d+-\d+(-\d+)?', heading_text):
                 template_ids_found.append(f"H2: {heading_text}")
             
-            # 章見出し（第X章）または「まとめ」はH2として変換、その他の小見出しはH3として変換
-            if ('第' in heading_text and '章' in heading_text) or heading_text == 'まとめ':
+            # 章見出し（第X章）はH2として変換、その他の小見出しはH3として変換
+            if '第' in heading_text and '章' in heading_text:
                 heading_info.append(f"H2章→H2: {heading_text}")
                 content += f'<!-- wp:heading {{"level":2}} -->\n'
                 content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
