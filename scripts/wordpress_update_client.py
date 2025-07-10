@@ -3,6 +3,7 @@
 """
 WordPress記事更新クライアント - 革新的更新機能
 Boss1 & Worker1 共同開発による次世代WordPressクライアント
+POSTメソッド使用（WordPressの仕様に準拠）
 """
 
 import os
