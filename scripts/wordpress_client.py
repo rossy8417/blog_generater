@@ -298,6 +298,40 @@ def create_image_block(image_url: str, alt_text: str = "", image_id: int = 0) ->
 
 '''
 
+def validate_heading_structure(content: str) -> dict:
+    """
+    WordPress投稿前の見出し構造チェック
+    """
+    import re
+    
+    # 見出しレベル別カウント
+    h2_count = len(re.findall(r'<!-- wp:heading \{"level":2\}', content))
+    h3_count = len(re.findall(r'<!-- wp:heading \{"level":3\}', content))
+    h4_count = len(re.findall(r'<!-- wp:heading \{"level":4\}', content))
+    h5_count = len(re.findall(r'<!-- wp:heading \{"level":5\}', content))
+    h6_count = len(re.findall(r'<!-- wp:heading \{"level":6\}', content))
+    
+    # H5以上の禁止タグ検出
+    forbidden_tags = h5_count + h6_count
+    
+    # 理想的な構造チェック
+    structure_issues = []
+    if h3_count == 0 and h4_count > 0:
+        structure_issues.append("H3見出しが欠落してH4が直接使用されています")
+    if forbidden_tags > 0:
+        structure_issues.append(f"H5/H6タグが{forbidden_tags}個使用されています（禁止）")
+    
+    return {
+        "h2": h2_count,
+        "h3": h3_count, 
+        "h4": h4_count,
+        "h5": h5_count,
+        "h6": h6_count,
+        "forbidden_count": forbidden_tags,
+        "structure_issues": structure_issues,
+        "is_valid": len(structure_issues) == 0
+    }
+
 def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) -> str:
     """
     マークダウンをWordPressブロックエディタ形式に変換（修正版）
@@ -371,17 +405,17 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
             if re.search(r'H\d+-\d+(-\d+)?', heading_text):
                 template_ids_found.append(f"H3: {heading_text}")
             
-            heading_info.append(f"H3→H4: {heading_text}")
-            content += f'<!-- wp:heading {{"level":4}} -->\n'
-            content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
+            heading_info.append(f"H3→H3: {heading_text}")
+            content += f'<!-- wp:heading {{"level":3}} -->\n'
+            content += f'<h3 class="wp-block-heading">{heading_text}</h3>\n'
             content += f'<!-- /wp:heading -->\n\n'
             i += 1
             
         # H4見出し
         elif line.startswith('#### '):
             heading_text = line[5:].strip()
-            content += f'<!-- wp:heading {{"level":5}} -->\n'
-            content += f'<h5 class="wp-block-heading">{heading_text}</h5>\n'
+            content += f'<!-- wp:heading {{"level":4}} -->\n'
+            content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
             content += f'<!-- /wp:heading -->\n\n'
             i += 1
             
