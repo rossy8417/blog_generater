@@ -166,7 +166,13 @@
       "Bash(/mnt/c/home/hiroshi/blog_generator/agent-send.sh:*)",
       "Bash(/mnt/c/home/hiroshi/blog_generator/Claude-Code-Blog-communication/quality-check.sh all)",
       "Bash(dos2unix:*)",
-      "Bash(./Claude-Code-Blog-communication/quality-check.sh:*)"
+      "Bash(./Claude-Code-Blog-communication/quality-check.sh:*)",
+      "WebFetch(domain:cursor.com)",
+      "WebFetch(domain:github.blog)",
+      "WebFetch(domain:www.anthropic.com)",
+      "Bash(Claude-Code-Blog-communication/agent-send.sh worker2 \"【Boss1→Worker2】Worker2完了報告確認要求 - Phase2.5リライト・ファクトチェック完了状況の詳細報告を求めます。Worker1同様の完了報告形式で、第3章・第4章のリライト状況、ファクトチェック実施状況、修正反映状況を即座に報告してください。\")",
+      "Bash(Claude-Code-Blog-communication/agent-send.sh worker3 \"【Boss1→Worker3】Worker3完了報告確認要求 - Phase2.5リライト・ファクトチェック完了状況の詳細報告を求めます。Worker1同様の完了報告形式で、第5章・第6章のリライト状況、ファクトチェック実施状況、修正反映状況を即座に報告してください。\")",
+      "Bash(/mnt/c/home/hiroshi/blog_generator/Claude-Code-Blog-communication/agent-send.sh:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
