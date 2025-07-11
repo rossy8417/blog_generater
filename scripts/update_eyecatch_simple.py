@@ -81,7 +81,7 @@ def update_eyecatch(post_id):
         
         if upload_response.status_code == 200:
             result = upload_response.json()
-            attachment_id = result.get('id')
+            attachment_id = result.get('attachment_id')
             print(f"📤 アップロード成功: ID {attachment_id}")
         else:
             print(f"❌ アップロード失敗: {upload_response.text}")
