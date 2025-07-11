@@ -126,9 +126,9 @@ Tracks different search intents for the same base keywords, enabling creation of
 - Thumbnails: 800KB or less per chapter
 - Automatic WordPress media library integration
 
-## Multi-Agent Workflow
+## Multi-Agent Workflow with Validation Integration
 
-The system operates with a sophisticated 4-agent collaboration model through tmux sessions:
+The system operates with a sophisticated 4-agent collaboration model through tmux sessions, now enhanced with automated heading structure validation at multiple checkpoints:
 
 ### Agent Hierarchy and Communication
 - **President0 (Claude Code session)**: Strategic oversight, business vision, and quality standards enforcement
@@ -171,14 +171,16 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 2. **Intent Division**: Creating INT-numbered variations with templates/division.md
 3. **Outline Creation**: SEO-optimized structure with templates/outline.md
 
-#### Phase 2: Parallel Content Creation
+#### Phase 2: Parallel Content Creation with Validation
 - **Parallel Execution**: All 3 workers simultaneously create their assigned chapters
 - **Quality Monitoring**: Real-time verification of H5 tag prohibition, character counts, E-A-T elements
-- **Boss Integration**: Boss1 handles lead/summary creation and final article integration
+- **Heading Structure Validation**: Each worker validates chapter content using `scripts/validate_article.py`
+- **Boss Integration**: Boss1 handles lead/summary creation and final article integration with validation
 
-#### Phase 3: Parallel Image Generation & Publishing
+#### Phase 3: Parallel Image Generation & Publishing with Final Validation
 - **Parallel Image Creation**: Workers generate eyecatch and chapter-specific thumbnails
 - **Optimization Pipeline**: Automatic 95% size reduction and format optimization
+- **Pre-Publishing Validation**: Final heading structure check before WordPress posting
 - **WordPress Integration**: Automated posting with Gutenberg block formatting
 
 ### Communication Protocols
@@ -201,3 +203,38 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 - Meta Description and local image paths are automatically removed from content
 - Supports both new post creation and existing post updates
 - Maintains detailed logging in `logs/send_log.txt`
+
+## Heading Structure Validation System
+
+### Automated Prevention of Heading Structure Errors
+
+The system includes comprehensive validation tools to prevent heading structure issues:
+
+#### Pre-posting Validation
+```bash
+# Validate article before posting
+python scripts/validate_article.py outputs/article-name/complete_article.md
+```
+
+#### Built-in Validation Rules
+- **H5/H6 Prohibition**: Automatically detects and prevents H5/H6 usage
+- **Template ID Detection**: Identifies remaining template identifiers (H3-1, etc.)
+- **Heading Hierarchy Check**: Ensures proper H2→H3→H4 structure
+- **WordPress Conversion Validation**: Verifies correct Gutenberg block generation
+
+#### Validation Commands
+```bash
+# Pre-posting validation (recommended)
+python scripts/validate_article.py outputs/article-name/complete_article.md
+
+# Direct heading validator
+python scripts/heading_validator.py complete_article.md
+
+# WordPress posting with automatic validation
+python scripts/post_blog_universal.py  # Now includes built-in validation
+```
+
+#### Validation Output
+- ✅ **Success**: Article structure is correct and ready for posting
+- ⚠️ **Warning**: Minor issues detected, posting continues with notification
+- ❌ **Error**: Critical issues found, posting halted until resolution
