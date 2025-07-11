@@ -294,3 +294,39 @@ python scripts/image_update_manager.py --post-id {ID} --mode chapter
 - Bypassing existence validation checks
 - Forcing updates without backup creation
 - Ignoring API error responses (404, 403, 409)
+
+## Multi-Agent Workflow Monitoring System
+
+### President0 Monitoring and Continuity Management
+
+The system includes automated monitoring to prevent work stagnation and ensure continuous progress:
+
+#### Continuous Work Protocol
+1. **No Work Interruption**: All phases (Phase1→Phase2→Phase3) must execute continuously
+2. **Automatic Phase Transition**: Each phase automatically starts the next upon completion
+3. **Active Monitoring**: 30-minute interval checks for Boss1 activity
+4. **Automatic Escalation**: Immediate prompting when inactivity is detected
+
+#### Monitoring System Commands
+```bash
+# Start President0 monitoring system
+./monitoring_system.sh &
+
+# Manual Boss1 activity check
+tail -f logs/send_log.txt | grep "boss1: SENT"
+
+# Emergency Boss1 reactivation
+./agent-send.sh boss1 "President0緊急指示: 作業継続確認"
+```
+
+#### Work Continuity Rules
+- **5-minute intervals**: Worker progress checks during active phases
+- **15-minute threshold**: Emergency prompting for non-responsive agents
+- **30-minute threshold**: Automatic work redistribution
+- **No stopping between phases**: Continuous execution until final completion
+
+#### Quality Assurance During Continuous Work
+- Real-time heading structure validation
+- Automatic file organization and backup
+- Progress reporting every 30 minutes
+- Error detection with immediate correction protocols
