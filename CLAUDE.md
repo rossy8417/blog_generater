@@ -238,3 +238,59 @@ python scripts/post_blog_universal.py  # Now includes built-in validation
 - ✅ **Success**: Article structure is correct and ready for posting
 - ⚠️ **Warning**: Minor issues detected, posting continues with notification
 - ❌ **Error**: Critical issues found, posting halted until resolution
+
+## Article Update and Rewrite Safety Guidelines
+
+### Critical Safety Protocols for Article Updates
+
+When performing article updates or rewrites, the system enforces strict safety protocols to prevent accidental content loss or unintended new post creation:
+
+#### Pre-Update Validation
+```bash
+# Always verify article exists before updating
+python scripts/wordpress_update_client.py --post-id {ID} --check-only
+
+# For rewrite operations, verify target article
+python -c "
+import requests, os
+from dotenv import load_dotenv
+load_dotenv()
+response = requests.get(f'{os.getenv(\"WORDPRESS_ENDPOINT\")}/get-post/{POST_ID}', 
+                       headers={'X-API-Key': os.getenv('WORDPRESS_API_KEY')})
+if response.status_code != 200:
+    print('❌ Article not found - ABORTING UPDATE')
+    exit(1)
+print(f'✅ Article found: {response.json().get(\"title\")}')
+"
+```
+
+#### Update Safety Rules
+1. **Mandatory Existence Check**: All update operations MUST verify article existence before proceeding
+2. **Automatic Abort on 404**: If target article is not found, processing stops immediately
+3. **No Fallback Creation**: Update operations NEVER create new posts when target is missing
+4. **Backup Before Update**: System automatically creates backup before any content modification
+5. **Rollback Capability**: Failed updates can be reverted using backup restoration
+
+#### Error Handling for Updates
+- **PostNotFoundError**: Thrown when target article doesn't exist - processing halts
+- **InsufficientPermissionError**: Thrown for permission issues - processing halts  
+- **UpdateConflictError**: Thrown for concurrent modification conflicts - processing halts
+- **Graceful Degradation**: Any update failure preserves original content integrity
+
+#### Safe Update Commands
+```bash
+# Article content update with safety checks
+python scripts/wordpress_update_client.py --post-id {ID} --update-content
+
+# Eyecatch update with validation
+python scripts/update_eyecatch_simple.py {ID}
+
+# Chapter image updates with verification
+python scripts/image_update_manager.py --post-id {ID} --mode chapter
+```
+
+#### Prohibited Operations During Updates
+- Creating new posts when update target is missing
+- Bypassing existence validation checks
+- Forcing updates without backup creation
+- Ignoring API error responses (404, 403, 409)
