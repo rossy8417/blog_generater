@@ -2,7 +2,7 @@
 /*
 Plugin Name: Blog Generator Plugin
 Description: WordPress plugin to import blog articles from outputs folder with chapter-by-chapter processing and advanced update functionality
-Version: 2.1
+Version: 2.1.1
 Author: Your Name
 */
 
@@ -1610,13 +1610,42 @@ class Blog_Generator_Plugin {
                 update_post_meta($post_id, '_meta_description', sanitize_text_field($meta_description));
             }
             
-            // アイキャッチ画像更新
+            // アイキャッチ画像更新（詳細ログ付き）
             if ($featured_image_id !== null && is_numeric($featured_image_id)) {
+                $this->debug_log('Processing featured image update:', array(
+                    'post_id' => $post_id,
+                    'featured_image_id' => $featured_image_id,
+                    'attachment_exists' => wp_attachment_is_image($featured_image_id)
+                ));
+                
                 if ($featured_image_id > 0) {
-                    set_post_thumbnail($post_id, intval($featured_image_id));
+                    // 画像の存在確認
+                    if (!wp_attachment_is_image($featured_image_id)) {
+                        $this->debug_log('Warning: Featured image ID is not a valid image attachment', array(
+                            'featured_image_id' => $featured_image_id
+                        ));
+                    }
+                    
+                    $thumbnail_result = set_post_thumbnail($post_id, intval($featured_image_id));
+                    $this->debug_log('Set post thumbnail result:', array(
+                        'success' => $thumbnail_result,
+                        'post_id' => $post_id,
+                        'featured_image_id' => $featured_image_id,
+                        'current_thumbnail' => get_post_thumbnail_id($post_id)
+                    ));
                 } else {
-                    delete_post_thumbnail($post_id);
+                    $delete_result = delete_post_thumbnail($post_id);
+                    $this->debug_log('Delete post thumbnail result:', array(
+                        'success' => $delete_result,
+                        'post_id' => $post_id
+                    ));
                 }
+            } else {
+                $this->debug_log('Featured image update skipped:', array(
+                    'featured_image_id' => $featured_image_id,
+                    'is_null' => ($featured_image_id === null),
+                    'is_numeric' => is_numeric($featured_image_id)
+                ));
             }
             
             // 更新後の記事データ取得
@@ -1628,6 +1657,10 @@ class Blog_Generator_Plugin {
                 'update_strategy' => $update_strategy
             ));
             
+            // 更新後のアイキャッチ情報を取得
+            $current_featured_id = get_post_thumbnail_id($post_id);
+            $featured_url = $current_featured_id ? wp_get_attachment_url($current_featured_id) : null;
+            
             return rest_ensure_response(array(
                 'success' => true,
                 'post_id' => $post_id,
@@ -1635,7 +1668,12 @@ class Blog_Generator_Plugin {
                 'modified_time' => $updated_post->post_modified,
                 'edit_link' => admin_url('post.php?action=edit&post=' . $post_id),
                 'preview_url' => get_preview_post_link($post_id),
-                'update_strategy' => $update_strategy
+                'update_strategy' => $update_strategy,
+                'featured_image' => array(
+                    'id' => $current_featured_id,
+                    'url' => $featured_url,
+                    'updated' => ($featured_image_id !== null)
+                )
             ));
             
         } catch (Exception $e) {
@@ -1673,10 +1711,11 @@ class Blog_Generator_Plugin {
                 $post_data['meta_description'] = $meta_description;
             }
             
-            // アイキャッチ画像取得
+            // アイキャッチ画像取得（WordPress標準互換）
             $featured_image_id = get_post_thumbnail_id($post_id);
+            $post_data['featured_media'] = $featured_image_id; // WordPress標準フィールド
             if ($featured_image_id) {
-                $post_data['featured_image_id'] = $featured_image_id;
+                $post_data['featured_image_id'] = $featured_image_id; // 既存互換性
                 $post_data['featured_image_url'] = wp_get_attachment_url($featured_image_id);
             }
             
