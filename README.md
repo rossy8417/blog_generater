@@ -24,6 +24,8 @@ blog_generator/
 │   ├── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
 │   ├── wordpress_update_client.py # WordPress記事更新クライアント（革新的更新機能）
 │   ├── image_update_manager.py # 画像更新管理システム（AI駆動画像差し替え）
+│   ├── heading_validator.py    # 見出し構造検証ツール（H5禁止・階層チェック）
+│   ├── validate_article.py     # 投稿前記事検証CLIツール
 │   └── test_update_system.py   # WordPress更新システム統合テスト
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
@@ -79,12 +81,27 @@ python scripts/image_generator.py --mode all --outline outputs/your_outline.md
 
 ### 3. 記事投稿
 
+#### 3.1 投稿前検証（推奨）
+```bash
+# 記事の見出し構造を事前に検証
+python scripts/validate_article.py outputs/記事名-INT-01/complete_article.md
+```
+
+#### 3.2 記事投稿
 最新の記事を最適化画像付きで自動投稿（どんな記事でも対応）：
 ```bash
 python scripts/post_blog_universal.py
 ```
+**注意**: 見出し構造に問題がある場合、投稿が自動的に中止されます
 
 ## 主な機能
+
+### 🔍 見出し構造検証システム（NEW）
+- **投稿前検証**: H5/H6タグ禁止・階層構造の自動チェック
+- **テンプレート識別子検出**: H3-1等の残存を自動検出・警告
+- **WordPress変換検証**: Gutenbergブロック生成時の構造確認
+- **自動投稿中止**: 問題発見時にWordPress投稿を自動停止
+- **詳細レポート**: 修正すべき問題の具体的な指摘と解決方法
 
 ### 📁 自動分類システム
 - **出力時自動分類**: `タイトル-INT番号/` 構造で自動整理
@@ -105,6 +122,8 @@ python scripts/post_blog_universal.py
 - **完全画像対応**: .jpg/.png両方、複数命名パターン、章番号自動ソート
 - **画像自動アップロード**: アイキャッチ画像と章別サムネイルを自動アップロード
 - **章別画像挿入**: H2見出し（章番号付き）の下に自動で画像挿入
+- **見出し構造検証**: 投稿前にH5禁止・階層構造を自動チェック
+- **品質保証**: 問題発見時の自動投稿中止機能
 - **投稿情報保存**: outputs/latest_post_info.txt に投稿詳細を自動記録
 
 ## 📂 出力ファイル管理システム
@@ -252,9 +271,11 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 #### Phase 2: コンテンツ作成
 4. **各章コンテンツ作成**: `templates/writing.md` で章別内容執筆（第1章〜第6章）
 5. **ファクトチェック実施**: 専門的内容の正確性検証と信頼性確保
-6. **リード文生成**: `templates/lead.md` で導入部分作成
-7. **まとめ生成**: `templates/summary.md` で結論・CTA作成
-8. **完全記事統合**: 全セクションを統合した完全版記事作成
+6. **見出し構造検証**: 各章の見出し階層とH5禁止ルールの確認
+7. **リード文生成**: `templates/lead.md` で導入部分作成
+8. **まとめ生成**: `templates/summary.md` で結論・CTA作成
+9. **完全記事統合**: 全セクションを統合した完全版記事作成
+10. **最終構造検証**: 統合記事の見出し構造最終チェック
 
 #### Phase 3: 画像生成・公開
 9. **アイキャッチ画像生成**: OpenAI gpt-image-1で日本語テキスト付き画像作成
@@ -274,6 +295,22 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 - **投稿のみ**: `python scripts/post_blog_universal.py` （汎用WordPress投稿・完璧版）
 
 ## 便利な合言葉コマンド
+
+### 「記事検証」で見出し構造チェック（NEW）
+```bash
+# Claude Codeで使用
+記事検証 outputs/記事名-INT-01/complete_article.md
+
+# または直接スクリプト実行
+python scripts/validate_article.py outputs/記事名-INT-01/complete_article.md
+```
+
+**実行内容**:
+- H5/H6タグ禁止ルールの確認
+- テンプレート識別子（H3-1等）の残存チェック
+- 見出し階層（H2→H3→H4）の構造確認  
+- 具体的な修正方法の提示
+- 投稿可否の判定表示
 
 ### 「整理整頓」で自動ファイル整理
 ```bash
