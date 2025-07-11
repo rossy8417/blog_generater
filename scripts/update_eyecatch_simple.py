@@ -32,7 +32,7 @@ def update_eyecatch(post_id):
     
     # 1. 記事取得
     response = requests.get(f'{wordpress_endpoint}/get-post/{post_id}', headers=headers)
-    if response.status_code \!= 200:
+    if response.status_code != 200:
         print(f"❌ 記事取得失敗: {response.status_code}")
         return False
     
@@ -120,7 +120,7 @@ def update_eyecatch(post_id):
         return False
 
 if __name__ == '__main__':
-    if len(sys.argv) \!= 2:
+    if len(sys.argv) != 2:
         print("使用方法: python3 scripts/update_eyecatch_simple.py 記事ID")
         sys.exit(1)
     
@@ -134,4 +134,3 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"❌ 予期しないエラー: {e}")
         sys.exit(1)
-EOF < /dev/null
