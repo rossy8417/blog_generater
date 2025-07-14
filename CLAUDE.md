@@ -72,8 +72,14 @@ python scripts/post_blog_universal.py
 python scripts/wordpress_update_client.py --post-id 1388 --update-content
 
 # Update eyecatch image
-python scripts/update_eyecatch_simple.py --post-id 1388
+python scripts/update_eyecatch_simple.py 1388
 ```
+
+**⚠️ IMPORTANT**: WordPress APIエンドポイントのガイドライン
+- すべてのWordPress API呼び出しで.envのWORDPRESS_ENDPOINTを使用
+- 標準REST API使用時: `WORDPRESS_ENDPOINT`から`/wp-json/blog-generator/v1`を除去
+- カスタムAPI使用時: `WORDPRESS_ENDPOINT`をそのまま使用
+- ハードコードされたURL（www.ht-sw.tech等）は絶対に使用禁止
 
 ### File Management Commands
 

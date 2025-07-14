@@ -101,7 +101,9 @@ def update_eyecatch(post_id):
         print("🔄 アイキャッチ更新成功\!")
         
         # 6. 検証
-        verify_response = requests.get(f'https://www.ht-sw.tech/wp-json/wp/v2/posts/{post_id}')
+        # .envのWORDPRESS_ENDPOINTから標準REST APIエンドポイントを構築
+        base_url = os.getenv('WORDPRESS_ENDPOINT').replace('/wp-json/blog-generator/v1', '')
+        verify_response = requests.get(f'{base_url}/wp-json/wp/v2/posts/{post_id}')
         if verify_response.status_code == 200:
             verify_data = verify_response.json()
             current_id = verify_data.get('featured_media', 0)
