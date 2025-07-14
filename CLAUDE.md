@@ -247,6 +247,46 @@ python scripts/post_blog_universal.py  # Now includes built-in validation
 
 ## Article Update and Rewrite Safety Guidelines
 
+### Interactive Update Confirmation System
+
+**When rewrite instructions are given, Claude Code MUST confirm the following with the user:**
+
+#### 1. **Content Update Scope Confirmation**
+```
+記事ID [ID] のリライトを開始します。以下を確認してください：
+
+📝 **更新内容**:
+- [ ] 記事本文のリライト
+- [ ] 見出し構造の最適化
+- [ ] SEO要素の改善
+
+🖼️ **画像更新の有無**:
+- [ ] アイキャッチ画像の差し替えあり
+- [ ] 章別画像の差し替えあり  
+- [ ] 画像更新なし（既存画像維持）
+
+🔍 **ファクトチェック実施**:
+- [ ] 最新情報への更新が必要
+- [ ] 技術仕様の正確性確認が必要
+- [ ] ファクトチェック不要
+
+上記の確認後、処理を開始します。画像更新がある場合は、適切な差し替え処理を並行実行します。
+```
+
+#### 2. **Image Update Integration Protocol**
+When image updates are confirmed:
+- Execute `scripts/image_update_manager.py` for systematic image replacement
+- Maintain image version history for rollback capability
+- Verify image optimization and WordPress compatibility
+- Update chapter image insertion automatically
+
+#### 3. **Fact-Check Integration Protocol**
+When fact-checking is confirmed:
+- Execute multi-agent fact-checking via Worker1-3 assignment
+- Verify technical specifications, statistics, and legal information
+- Generate `factcheck_report_worker*.md` files for transparency
+- Apply corrections before final WordPress update
+
 ### Critical Safety Protocols for Article Updates
 
 When performing article updates or rewrites, the system enforces strict safety protocols to prevent accidental content loss or unintended new post creation:

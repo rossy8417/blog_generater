@@ -1,0 +1,73 @@
+{
+  "comment": "この設定ファイルは環境変数ベースに移行されました",
+  "migration_info": {
+    "status": "deprecated",
+    "replacement": "utils/config_manager.py",
+    "date": "2025-07-14",
+    "reason": "ハードコーディングされたURLを環境変数に移行"
+  },
+  "wordpress_settings": {
+    "endpoint_base": "${WORDPRESS_ENDPOINT}",
+    "timeout": "${API_TIMEOUT:-30}",
+    "retry_attempts": "${API_RETRY_ATTEMPTS:-3}",
+    "retry_delay": "${API_RETRY_DELAY:-2}",
+    "note": "実際の値は.envファイルから取得されます"
+  },
+  "update_strategies": {
+    "new_post": {
+      "endpoint": "/create-post",
+      "method": "POST",
+      "backup_required": false
+    },
+    "direct_update": {
+      "endpoint": "/update-post/{post_id}",
+      "method": "POST", 
+      "backup_required": true
+    },
+    "proven_method": {
+      "endpoint": "/update-post/{post_id}",
+      "method": "POST",
+      "backup_required": true,
+      "verify_endpoint": "${WORDPRESS_WP_API_BASE}/posts/{post_id}",
+      "note": "verify_endpointは環境変数から動的生成されます"
+    }
+  },
+  "content_processing": {
+    "h5_tag_removal": true,
+    "duplicate_h4_fix": true,
+    "image_restoration": true,
+    "backup_image_retrieval": true
+  },
+  "file_management": {
+    "output_directory": "outputs/article_operations",
+    "backup_directory": "backups",
+    "temp_directory": "tmp/article_updates",
+    "log_directory": "logs/article_updates"
+  },
+  "validation_rules": {
+    "title": {
+      "min_length": 5,
+      "max_length": 200
+    },
+    "content": {
+      "min_length": 500,
+      "max_length": 100000
+    },
+    "excerpt": {
+      "max_length": 300
+    }
+  },
+  "security": {
+    "auth_header": "X-API-Key",
+    "sensitive_data_exclusion": [
+      "api_key",
+      "password",
+      "token"
+    ]
+  },
+  "usage_instructions": {
+    "for_new_code": "from utils.config_manager import get_wordpress_config",
+    "for_existing_code": "article_update_config.jsonの代わりにget_wordpress_config()を使用",
+    "environment_setup": ".envファイルにWORDPRESS_BASE_URL等を設定"
+  }
+}
