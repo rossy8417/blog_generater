@@ -1,0 +1,1 @@
+2025-07-14 09:10:12 FROM president: Worker2応答テスト。10秒以内に ./agent-send.sh --send-with-receipt president "応答確認" worker2 で応答してください

@@ -1,0 +1,2 @@
+2025-07-14 09:09:19 FROM president: Worker1テスト送信
+2025-07-14 09:09:19 FROM president: Worker1テスト送信
