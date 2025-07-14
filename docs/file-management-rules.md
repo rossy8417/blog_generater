@@ -131,7 +131,7 @@ class FileManager:
 
 ### 完了した整理
 - ✅ `boss1_*_report.md` → `outputs/reports/`
-- ✅ `tmux-windows-setup-guide.md` → `docs/`
+- ✅ `tmux-windows-setup-guide.md` → `Claude-Code-Blog-communication/docs/`
 - ✅ `rewrite_1388_outputs/` → `outputs/article_1388_project/`
 - ✅ `*1388*` ファイル群 → `outputs/article_1388_project/`
 - ✅ レポート用ディレクトリ作成

@@ -19,14 +19,12 @@ blog_generator/
 ├── scripts/            # 実行用スクリプト
 │   ├── image_generator.py      # 画像生成・最適化スクリプト
 │   ├── multi_intent_extractor.py  # 検索意図複数抽出スクリプト
-│   ├── organize_outputs.py     # 出力ファイル自動整理スクリプト
 │   ├── post_blog_universal.py  # 汎用WordPress記事投稿スクリプト（統一版）
 │   ├── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
 │   ├── wordpress_update_client.py # WordPress記事更新クライアント（革新的更新機能）
 │   ├── image_update_manager.py # 画像更新管理システム（AI駆動画像差し替え）
 │   ├── heading_validator.py    # 見出し構造検証ツール（H5禁止・階層チェック）
 │   ├── validate_article.py     # 投稿前記事検証CLIツール
-│   └── test_update_system.py   # WordPress更新システム統合テスト
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
 ├── outputs/            # 生成ファイル出力（自動分類）
@@ -42,8 +40,17 @@ blog_generator/
 ├── config/             # 設定ファイル
 │   ├── image_settings.json # 画像最適化設定
 │   └── intent_variation_tracker.json # 検索意図バリエーション追跡
-├── docs/               # ドキュメント
-│   └── tmux-windows-setup-guide.md # tmux設定ガイド
+├── docs/               # ドキュメント・ガイドライン
+│   ├── rewrite-guide.md          # 記事リライト機能ガイド
+│   ├── api-endpoint-guidelines.md # WordPress APIエンドポイント使用ガイドライン
+│   ├── OUTPUTMANAGER_RULES.md    # 出力管理ルール
+│   └── その他システムガイド各種
+├── Claude-Code-Blog-communication/ # tmux関連システム
+│   ├── agent-send.sh             # エージェント間通信スクリプト
+│   ├── monitoring_system.sh      # 監視システム
+│   ├── docs/
+│   │   └── tmux-windows-setup-guide.md # tmux設定ガイド
+│   └── instructions/             # エージェント指示書
 ├── save_helper.py      # 安全な出力保存ヘルパー
 ├── organize_command.py # 整理整頓コマンド実装
 ├── requirements.txt   # Python依存関係

@@ -147,7 +147,7 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 - **Vision Setting**: Analyzes user requirements and sets strategic direction
 - **Quality Enforcement**: Ensures 100% compliance with content standards (H5 tag prohibition, 20,000+ characters, 6 chapters)
 - **System Integration**: Coordinates all README.md functions and template strategies
-- **Communication**: Sends instructions to Boss1 via tmux using `./agent-send.sh boss1 "instructions"`
+- **Communication**: Sends instructions to Boss1 via tmux using `./Claude-Code-Blog-communication/agent-send.sh boss1 "instructions"`
 
 #### Boss1 (Project Management)
 - **Strategic Execution**: Translates President0's vision into actionable project plans
@@ -316,13 +316,13 @@ The system includes automated monitoring to prevent work stagnation and ensure c
 #### Monitoring System Commands
 ```bash
 # Start President0 monitoring system
-./monitoring_system.sh &
+./Claude-Code-Blog-communication/monitoring_system.sh &
 
 # Manual Boss1 activity check
 tail -f logs/send_log.txt | grep "boss1: SENT"
 
 # Emergency Boss1 reactivation
-./agent-send.sh boss1 "President0緊急指示: 作業継続確認"
+./Claude-Code-Blog-communication/agent-send.sh boss1 "President0緊急指示: 作業継続確認"
 ```
 
 #### Work Continuity Rules
