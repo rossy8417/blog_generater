@@ -165,7 +165,8 @@
       "Bash(./connection-test.sh:*)",
       "Bash(./agent-receive.sh:*)",
       "Bash(bash:*)",
-      "Bash(do python3 /mnt/c/home/hiroshi/blog_generator/scripts/image_generator.py --outline outline_content.md --mode thumbnail --chapter $i)"
+      "Bash(do python3 /mnt/c/home/hiroshi/blog_generator/scripts/image_generator.py --outline outline_content.md --mode thumbnail --chapter $i)",
+      "Bash(./tmux-unified-controller.sh:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
