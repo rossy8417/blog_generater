@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-WordPress Blog Generator Client (Fixed Version)
-Claude CodeからWordPressプラグインAPIを呼び出して記事を作成するクライアント（修正版）
+WordPress Blog Generator Client (COMPLETELY FIXED VERSION)
+Claude CodeからWordPressプラグインAPIを呼び出して記事を作成するクライアント（完全修正版）
+
+主な修正点:
+1. H2見出しの保持 - すべてのMarkdown H2をWordPress H2として保持（章見出し用）
+2. H5/H6禁止処理 - H5/H6を検出してH4に自動降格
+3. 見出し構造の完全修正 - 正しい階層構造の維持
 """
 
 import os
@@ -334,7 +339,14 @@ def validate_heading_structure(content: str) -> dict:
 
 def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) -> str:
     """
-    マークダウンをWordPressブロックエディタ形式に変換（修正版）
+    マークダウンをWordPressブロックエディタ形式に変換（完全修正版）
+    
+    変換ルール:
+    - Markdown H1 → Skip (タイトル用)
+    - Markdown H2 → WordPress H2 (章見出し・画像挿入ポイント)
+    - Markdown H3 → WordPress H3 (セクション見出し)
+    - Markdown H4 → WordPress H4 (サブセクション見出し)
+    - Markdown H5/H6 → ERROR/WARNING → H4に自動降格
     
     Args:
         markdown_content: マークダウン形式のコンテンツ
@@ -351,6 +363,7 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
     heading_info = []
     skipped_lines = []
     template_ids_found = []
+    errors_found = []
     
     if debug:
         print("🔍 マークダウン→WordPress変換デバッグ開始")
@@ -376,7 +389,7 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
             skipped_lines.append(f"H1スキップ: {heading_text}")
             i += 1
             
-        # H2見出し（章見出しまたは小見出し）
+        # H2見出し（章見出し） - 常にH2として保持（修正済み）
         elif line.startswith('## '):
             heading_text = line[3:].strip()
             
@@ -384,17 +397,11 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
             if re.search(r'H\d+-\d+(-\d+)?', heading_text):
                 template_ids_found.append(f"H2: {heading_text}")
             
-            # 章見出し（第X章）または「まとめ」はH2として変換、その他の小見出しはH3として変換
-            if ('第' in heading_text and '章' in heading_text) or heading_text == 'まとめ':
-                heading_info.append(f"H2章→H2: {heading_text}")
-                content += f'<!-- wp:heading {{"level":2}} -->\n'
-                content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
-                content += f'<!-- /wp:heading -->\n\n'
-            else:
-                heading_info.append(f"H2→H3: {heading_text}")
-                content += f'<!-- wp:heading {{"level":3}} -->\n'
-                content += f'<h3 class="wp-block-heading">{heading_text}</h3>\n'
-                content += f'<!-- /wp:heading -->\n\n'
+            # すべてのH2見出しをWordPressのH2として保持（画像挿入ポイント）
+            heading_info.append(f"H2→H2: {heading_text}")
+            content += f'<!-- wp:heading {{"level":2}} -->\n'
+            content += f'<h2 class="wp-block-heading">{heading_text}</h2>\n'
+            content += f'<!-- /wp:heading -->\n\n'
             i += 1
             
         # H3見出し
@@ -414,6 +421,42 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
         # H4見出し
         elif line.startswith('#### '):
             heading_text = line[5:].strip()
+            
+            # テンプレート識別子チェック
+            if re.search(r'H\d+-\d+(-\d+)?', heading_text):
+                template_ids_found.append(f"H4: {heading_text}")
+            
+            heading_info.append(f"H4→H4: {heading_text}")
+            content += f'<!-- wp:heading {{"level":4}} -->\n'
+            content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
+            content += f'<!-- /wp:heading -->\n\n'
+            i += 1
+            
+        # H5見出し（禁止） - エラー処理と自動修正
+        elif line.startswith('##### '):
+            heading_text = line[6:].strip()
+            error_msg = f"❌ H5見出しが検出されました（禁止）: {heading_text}"
+            errors_found.append(error_msg)
+            print(error_msg)
+            
+            # H5をH4に降格して変換
+            print(f"🔄 H5→H4に自動修正: {heading_text}")
+            heading_info.append(f"H5→H4 (修正): {heading_text}")
+            content += f'<!-- wp:heading {{"level":4}} -->\n'
+            content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
+            content += f'<!-- /wp:heading -->\n\n'
+            i += 1
+            
+        # H6見出し（禁止） - エラー処理と自動修正
+        elif line.startswith('###### '):
+            heading_text = line[7:].strip()
+            error_msg = f"❌ H6見出しが検出されました（禁止）: {heading_text}"
+            errors_found.append(error_msg)
+            print(error_msg)
+            
+            # H6をH4に降格して変換
+            print(f"🔄 H6→H4に自動修正: {heading_text}")
+            heading_info.append(f"H6→H4 (修正): {heading_text}")
             content += f'<!-- wp:heading {{"level":4}} -->\n'
             content += f'<h4 class="wp-block-heading">{heading_text}</h4>\n'
             content += f'<!-- /wp:heading -->\n\n'
@@ -552,6 +595,13 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
                 print(f"   {template_id}")
         else:
             print("\n✅ テンプレート識別子: なし")
+            
+        if errors_found:
+            print(f"\n❌ エラー検出: {len(errors_found)}個")
+            for error in errors_found:
+                print(f"   {error}")
+        else:
+            print("\n✅ 見出し構造エラー: なし")
         
         # WordPressブロック数カウント
         block_counts = {
@@ -567,6 +617,11 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
                 print(f"   {block_type}: {count}個")
         
         print("🔍 変換デバッグ完了\n")
+    
+    # エラーがあった場合の警告表示
+    if errors_found:
+        print(f"\n⚠️  変換中に{len(errors_found)}個のエラーが検出され、自動修正されました")
+        print("📋 修正内容を確認してください")
     
     return content
 
