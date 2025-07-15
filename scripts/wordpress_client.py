@@ -297,8 +297,8 @@ def create_image_block(image_url: str, alt_text: str = "", image_id: int = 0) ->
     """
     # 画像IDが設定されている場合のみid属性を追加
     id_attr = f'"id":{image_id},' if image_id > 0 else ''
-    return f'''<!-- wp:image {{{id_attr}"sizeSlug":"full","linkDestination":"none"}} -->
-<figure class="wp-block-image size-full"><img src="{image_url}" alt="{alt_text}"/></figure>
+    return f'''<!-- wp:image {{{id_attr}"className":"wp-block-image size-full"}} -->
+<figure class="wp-block-image size-full"><img src="{image_url}" alt="{alt_text}" class="wp-image-{image_id}"/></figure>
 <!-- /wp:image -->
 
 '''
@@ -556,8 +556,8 @@ def convert_markdown_to_gutenberg(markdown_content: str, debug: bool = False) ->
                 image_url = match.group(2)
                 
                 # Coze形式のWordPress画像ブロックを生成（画像IDは後で設定される）
-                content += f'<!-- wp:image {{"sizeSlug":"full","linkDestination":"none"}} -->\n'
-                content += f'<figure class="wp-block-image size-full"><img src="{image_url}" alt="{alt_text}"/></figure>\n'
+                content += f'<!-- wp:image {{"className":"wp-block-image size-full"}} -->\n'
+                content += f'<figure class="wp-block-image size-full"><img src="{image_url}" alt="{alt_text}" class="wp-image-0"/></figure>\n'
                 content += f'<!-- /wp:image -->\n\n'
             i += 1
             
@@ -632,7 +632,7 @@ def insert_chapter_images(wp_content: str, chapter_images: list) -> str:
     Args:
         wp_content: WordPressブロック形式のコンテンツ
         chapter_images: [{'chapter': 'chapter1', 'attachment_id': 123, 'url': '...'}] 形式のリスト
-                      または [{'chapter_num': 1, 'id': 123, 'url': '...'}] 形式のリスト
+                      または [{'chapter_counter': 1, 'id': 123, 'url': '...'}] 形式のリスト
     
     Returns:
         画像が挿入されたWordPressブロック形式のコンテンツ
@@ -640,27 +640,29 @@ def insert_chapter_images(wp_content: str, chapter_images: list) -> str:
     import re
     
     # 章番号順にソート（新旧両フォーマット対応）
-    if chapter_images and 'chapter_num' in chapter_images[0]:
-        # 新フォーマット: {'chapter_num': 1, 'id': 123, 'url': '...'}
-        chapter_images_sorted = sorted(chapter_images, key=lambda x: x['chapter_num'])
+    if chapter_images and 'chapter_counter' in chapter_images[0]:
+        # 新フォーマット: {'chapter_counter': 1, 'id': 123, 'url': '...'}
+        chapter_images_sorted = sorted(chapter_images, key=lambda x: x['chapter_counter'])
     else:
         # 旧フォーマット: {'chapter': 'chapter1', 'attachment_id': 123, 'url': '...'}
         chapter_images_sorted = sorted(chapter_images, key=lambda x: x['chapter'])
     
     # H2見出しブロックのパターン（修正版）
-    heading_pattern = r'(<!-- wp:heading \{"level":2\} -->\s*<h2[^>]*>第(\d+)章[^<]*</h2>\s*<!-- /wp:heading -->)'
+    heading_pattern = r'(<!-- wp:heading \{"level":2\} -->\s*<h2[^>]*>[^<]*</h2>\s*<!-- /wp:heading -->)'
     
+    chapter_counter = 0
     def replace_heading(match):
         original_h2 = match.group(1)
-        chapter_num = int(match.group(2))
+        nonlocal chapter_counter
+        chapter_counter += 1
         
         # 対応する章の画像を検索
         image_info = None
         for img in chapter_images_sorted:
-            if 'chapter_num' in img and img['chapter_num'] == chapter_num:
+            if 'chapter_counter' in img and img['chapter_counter'] == chapter_counter:
                 image_info = img
                 break
-            elif 'chapter' in img and img['chapter'] == f'chapter{chapter_num}':
+            elif 'chapter' in img and img['chapter'] == f'chapter{chapter_counter}':
                 image_info = img
                 break
         
@@ -672,8 +674,8 @@ def insert_chapter_images(wp_content: str, chapter_images: list) -> str:
             # 独立した画像ブロックを作成（paragraphブロックに入らないよう注意）
             image_block = f'''
 
-<!-- wp:image {{"id":{image_id},"sizeSlug":"full","linkDestination":"none"}} -->
-<figure class="wp-block-image size-full"><img src="{image_url}" alt="第{chapter_num}章 サムネイル画像" class="wp-image-{image_id}"/></figure>
+<!-- wp:image {{"id":{image_id},"className":"wp-block-image size-full"}} -->
+<figure class="wp-block-image size-full"><img src="{image_url}" alt="第{chapter_counter}章 サムネイル画像" class="wp-image-{image_id}"/></figure>
 <!-- /wp:image -->'''
             
             return original_h2 + image_block

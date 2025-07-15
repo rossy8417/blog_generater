@@ -28,3 +28,12 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# 不要なバックアップ・テストファイル（作成禁止）
+*_backup.py
+*_fixed.py
+*_test.py
+*_temp.py
+
+# 重要：正常動作確認済みコンポーネント保護
+# WORKING_COMPONENTS_LOG.md - 修正禁止エリア記録（重要）
