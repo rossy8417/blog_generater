@@ -1,0 +1,55 @@
+{
+  "timestamp": "20250716_093402",
+  "summary": {
+    "files_moved": 7,
+    "directories_created": 0,
+    "duplicates_removed": 10,
+    "empty_dirs_removed": 2
+  },
+  "storage": {
+    "size_before_mb": 165.55,
+    "size_after_mb": 165.0,
+    "reduction_mb": 0.55,
+    "reduction_percentage": 0.33
+  },
+  "directories": {
+    "outputs_structure": {
+      "AI時代を制する記事リライト企画-INT-01": {
+        "files": 26,
+        "size_mb": 3.45
+      },
+      "AI時代を制する記事リライト企画｜人間らしさで勝つ6つの必須スキル-unknown": {
+        "files": 1,
+        "size_mb": 0.1
+      },
+      "article_2127_human_rewrite": {
+        "files": 6,
+        "size_mb": 0.04
+      },
+      "misc_files": {
+        "files": 16,
+        "size_mb": 14.0
+      },
+      "reports": {
+        "files": 12,
+        "size_mb": 0.2
+      },
+      "Unknown Title-unknown": {
+        "files": 2,
+        "size_mb": 0.22
+      },
+      "「AI調教師」誕生｜新ブルーカラーか一瞬の流行か？【2025年職業予測】-INT-01": {
+        "files": 16,
+        "size_mb": 0.61
+      },
+      "【2025年最新】AI駆動型開発の今後を完全解説｜97%が知らない次世代手法と成功戦略-INT-01": {
+        "files": 39,
+        "size_mb": 4.86
+      },
+      "ゴッホに新作を描かせるのは誰の権利か-死者の著作権をめぐる倫理戦争-INT-01": {
+        "files": 15,
+        "size_mb": 1.36
+      }
+    }
+  }
+}
