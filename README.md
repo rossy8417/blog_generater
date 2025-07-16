@@ -7,12 +7,14 @@ WordPressブログ記事の自動生成・投稿システム
 ```
 blog_generator/
 ├── templates/          # プロンプトテンプレート
-│   ├── writing.md      # 記事執筆用テンプレート
+│   ├── writing.md      # 記事執筆用テンプレート（SEO最適化パターン）
 │   ├── lead.md         # リード文生成テンプレート
 │   ├── summary.md      # まとめ生成テンプレート
-│   ├── outline.md      # アウトライン生成テンプレート
-│   ├── intent.md       # インテント分析テンプレート
-│   ├── division.md     # 章分割テンプレート
+│   ├── outline.md      # アウトライン生成テンプレート（SEO最適化パターン）
+│   ├── intent.md       # インテント分析テンプレート（検索キーワード用）
+│   ├── division.md     # 章分割テンプレート（検索意図分割用）
+│   ├── story_outline_template.md  # ストーリー型アウトライン（読み物重視パターン）
+│   ├── story_writing_template.md  # ストーリー型執筆（読み物重視パターン）
 │   ├── eyecatch.md     # アイキャッチ画像生成テンプレート
 │   ├── thumbnail.md    # サムネイル画像生成テンプレート
 │   └── paragraph-example.md  # 段落例テンプレート
@@ -256,7 +258,7 @@ python scripts/post_blog_universal.py
 
 ```bash
 # .envファイルで設定
-GOOGLE_API_KEY=your_gemini_api_key        # Imagen 3画像生成用
+GOOGLE_API_KEY=your_gemini_api_key        # Imagen 3画像生成 + ファクトチェック用
 OPENAI_API_KEY=your_openai_api_key        # gpt-image-1画像生成用
 WORDPRESS_API_KEY=your_wordpress_api_key  # WordPress投稿・更新用
 WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
@@ -266,7 +268,19 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 
 ### 完全ブログ生成プロセス（推奨）
 
-「**[ブログタイトル] ブログ完全生成**」コマンドで以下の手順を自動実行：
+#### 📝 2つの記事生成パターン
+
+**🔍 SEO最適化重視パターン（キーワードベース）**
+- 検索キーワードから検索意図を分析→複数の記事企画に分割→SEO特化記事作成
+- テンプレート: intent.md → division.md → outline.md → writing.md
+- 適用例: "AI 業務効率化", "リモートワーク ツール", "DX 導入手順" など
+
+**📖 読み物品質重視パターン（テーマベース）**
+- 確定したテーマから直接読み物として魅力的な記事を作成
+- テンプレート: story_outline_template.md → story_writing_template.md
+- 適用例: ジェミニ記事アイデア、特定のトピック深掘り記事など
+
+「**ブログ完全生成**」コマンドでユーザーの目的に応じた最適パターンを自動実行：
 
 **重要な品質管理ポイント：**
 - ✅ **H5タグ使用絶対禁止**: templates/writing.mdガイドライン厳守
@@ -281,8 +295,13 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 3. **アウトライン生成**: `templates/outline.md` で記事構成・章立て作成
 
 #### Phase 2: コンテンツ作成
-4. **各章コンテンツ作成**: `templates/writing.md` で章別内容執筆（第1章〜第6章）
-5. **ファクトチェック実施**: 専門的内容の正確性検証と信頼性確保
+4. **各章コンテンツ作成**: `templates/writing.md` または `templates/story_writing_template.md` で章別内容執筆（第1章〜第6章）
+5. **ファクトチェック実施**: 
+   - WebSearchツールで統計データ・市場規模の最新性確認
+   - WebFetchツールで公式ソース・専門機関データの検証
+   - 技術仕様の正確性をメーカー公式サイトで確認
+   - ファクトチェックレポート作成（factcheck_report_worker*.md）
+   - 検出された問題点の修正と信頼性向上
 6. **見出し構造検証**: 各章の見出し階層とH5禁止ルールの確認
 7. **リード文生成**: `templates/lead.md` で導入部分作成
 8. **まとめ生成**: `templates/summary.md` で結論・CTA作成
@@ -290,9 +309,9 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 10. **最終構造検証**: 統合記事の見出し構造最終チェック
 
 #### Phase 3: 画像生成・公開
-9. **アイキャッチ画像生成**: OpenAI gpt-image-1で日本語テキスト付き画像作成
-10. **章別サムネイル生成**: Google Imagen 3で各章のサムネイル画像作成（6章分）
-11. **WordPress投稿**: 画像アップロード＋記事投稿（章別画像自動挿入）
+11. **アイキャッチ画像生成**: OpenAI gpt-image-1で日本語テキスト付き画像作成（自動最適化）
+12. **章別サムネイル生成**: Google Imagen 3で各章のサムネイル画像作成（6章分）
+13. **WordPress投稿**: 画像アップロード＋記事投稿（章別画像自動挿入）
 
 ### 個別実行の場合
 
@@ -444,8 +463,19 @@ python scripts/organize_outputs.py
 - **テンプレート識別子除去**: `H3-1`、`H3-2`などの識別子は実際の見出し名に変換
 
 ### templates/summary.md
-- **見出しレベル**: `## まとめ` → `# まとめ` に変更
+- **見出しレベル**: `## まとめ` （H2タグでWordPress表示対応）
 - **CTA更新**: SATO-AI塾とHTサポートワークスへの誘導リンク追加
+- **行動促進**: 具体的なアクションプランと次のステップ提示
+
+### templates/story_outline_template.md（NEW）
+- **読み物重視**: テーマから直接魅力的なアウトライン作成
+- **知的好奇心**: 新しい視点・考え方の提供重視
+- **物語性**: エピソード・感情的共感を中心とした構成
+
+### templates/story_writing_template.md（NEW）
+- **ストーリー型執筆**: 物語性・エピソード中心の章執筆
+- **感情的共感**: 人間的体験・感情移入を重視
+- **実用的価値**: 生活・仕事に役立つ気づき提供
 
 ## WordPress投稿での注意事項
 
