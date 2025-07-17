@@ -1,0 +1,23 @@
+[
+  {
+    "IntentID": "INT-01",
+    "Label": "古文書AI解読技術の革新性と歴史的発見",
+    "Category": "Informational",
+    "Priority": "High",
+    "Keywords": ["古文書", "AI解読", "失われた環", "歴史研究", "デジタルヒューマニティーズ"]
+  },
+  {
+    "IntentID": "INT-02", 
+    "Label": "考古学・博物館でのAI技術導入検討",
+    "Category": "Commercial Investigation",
+    "Priority": "Mid",
+    "Keywords": ["AI導入", "古文書解析", "研究機関", "技術比較", "ソリューション"]
+  },
+  {
+    "IntentID": "INT-03",
+    "Label": "文明史の空白期間と文化遺産保護",
+    "Category": "Informational", 
+    "Priority": "Mid",
+    "Keywords": ["文明史", "ミッシングリンク", "文化遺産", "古代文明", "歴史の謎"]
+  }
+]
