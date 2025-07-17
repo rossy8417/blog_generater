@@ -1,5 +1,0 @@
-2025-07-14 09:04:49 FROM president: 【President0最終確認テスト】Boss1、記事更新アルゴリズム開発完了報告を ./agent-send.sh --send-with-receipt president "完了報告内容" boss1 で再送してください。必ず報告確認まで実行します。
-2025-07-14 09:05:53 FROM president: 【President0催促】前回指示への報告を即座にお願いします: 【President0最終確認テスト】Boss1、記事更新アルゴリズム開発完了報告を ./agent-send.sh --send-with-receipt president "完了報告内容" boss1 で再送してください。必ず報告確認まで実行します。
-2025-07-14 09:11:23 FROM president: 【President0→Boss1双方向通信確認テスト】Boss1、このメッセージ受信後、./agent-send.sh --send-with-receipt president "双方向通信テスト成功" boss1 で応答してください。必ず実行してください。
-2025-07-14 09:11:56 FROM president: 【President0催促】前回指示への報告を即座にお願いします: 【President0→Boss1双方向通信確認テスト】Boss1、このメッセージ受信後、./agent-send.sh --send-with-receipt president "双方向通信テスト成功" boss1 で応答してください。必ず実行してください。
-2025-07-14 09:13:11 FROM president: 【President0→Boss1再テスト】双方向通信確認。この後 ./agent-send.sh --send-with-receipt president "Boss1応答再テスト" boss1 で応答してください
