@@ -1,0 +1,50 @@
+{
+  "title": "【2025年最新】AIが解く800年の謎！古文書解読の驚異的進展と歴史発見の新時代",
+  "project_id": "ancient_documents_ai_decoding",
+  "intent_number": "INT-01",
+  "creation_date": "2025-07-18",
+  "status": "phase3_image_generation",
+  "content_stats": {
+    "total_characters": 24500,
+    "chapters": 6,
+    "word_count": 12000,
+    "reading_time": "15分"
+  },
+  "phase_completion": {
+    "phase1_planning": "completed",
+    "phase2_content": "completed", 
+    "phase3_images": "in_progress"
+  },
+  "workers_assigned": {
+    "worker1": {
+      "chapters": [1, 2],
+      "image_task": "eyecatch",
+      "status": "image_generation"
+    },
+    "worker2": {
+      "chapters": [3, 4],
+      "image_task": "thumbnails_1-3",
+      "status": "image_generation"
+    },
+    "worker3": {
+      "chapters": [5, 6],
+      "image_task": "thumbnails_4-6", 
+      "status": "image_generation"
+    }
+  },
+  "target_images": {
+    "eyecatch": "eyecatch.jpg",
+    "chapter1": "chapter1.jpg",
+    "chapter2": "chapter2.jpg",
+    "chapter3": "chapter3.jpg",
+    "chapter4": "chapter4.jpg",
+    "chapter5": "chapter5.jpg",
+    "chapter6": "chapter6.jpg"
+  },
+  "quality_metrics": {
+    "h5_tags": 0,
+    "h6_tags": 0,
+    "heading_structure": "valid",
+    "template_ids_removed": true
+  }
+}

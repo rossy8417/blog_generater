@@ -176,7 +176,11 @@
       "Bash(./scripts/emergency_connection_recovery.sh:*)",
       "Bash(BACKUP_DIR=\"/mnt/c/home/hiroshi/blog_generator/backup/legacy_instructions_$(date +%Y%m%d_%H%M%S)\")",
       "Bash(BACKUP_DIR=\"/mnt/c/home/hiroshi/blog_generator/backup/legacy_docs_$(date +%Y%m%d_%H%M%S)\")",
-      "Bash(./Claude-Code-Blog-communication/troubleshooting-workflow.sh:*)"
+      "Bash(./Claude-Code-Blog-communication/troubleshooting-workflow.sh:*)",
+      "Bash(./Claude-Code-Blog-communication/connection-recovery-unified.sh:*)",
+      "Bash(./Claude-Code-Blog-communication/log-management-unified.sh:*)",
+      "Bash(./Claude-Code-Blog-communication/role-reminder-system.sh:*)",
+      "Bash(./Claude-Code-Blog-communication/tmux-unified-controller.sh:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
