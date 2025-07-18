@@ -180,7 +180,8 @@
       "Bash(./Claude-Code-Blog-communication/connection-recovery-unified.sh:*)",
       "Bash(./Claude-Code-Blog-communication/log-management-unified.sh:*)",
       "Bash(./Claude-Code-Blog-communication/role-reminder-system.sh:*)",
-      "Bash(./Claude-Code-Blog-communication/tmux-unified-controller.sh:*)"
+      "Bash(./Claude-Code-Blog-communication/tmux-unified-controller.sh:*)",
+      "Bash(./Claude-Code-Blog-communication/scripts/emergency_connection_recovery.sh:*)"
     ],
     "deny": [
       "Bash(rm -rf /*)",
