@@ -279,21 +279,21 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 #### Connection Verification
 Each Worker can verify Boss1 connection:
 ```bash
-/mnt/c/home/hiroshi/blog_generator/Claude-Code-Blog-communication/agent-send.sh boss1 "接続テスト"
+/mnt/c/home/hiroshi/blog_generator/Claude-Code-Blog-communication/agent-send.sh boss1 "connection-test"
 ```
 
 #### Communication Flow
 PRESIDENT → boss1 → workers → boss1 → PRESIDENT
 
-#### 🎯 Magic Command "接続確認" (Connection Recovery)
+#### 🎯 Magic Command "connection-check" (Connection Recovery)
 **One-command complete collaboration state restoration:**
 
 ```bash
 # Use in Claude Code
-接続確認
+connection-check
 
 # Or direct execution via unified controller
-./Claude-Code-Blog-communication/tmux-unified-controller.sh boss1 "接続確認"
+./Claude-Code-Blog-communication/tmux-unified-controller.sh boss1 "connection-check"
 ```
 
 **Automatic Execution Process:**
@@ -322,7 +322,7 @@ Enhanced 4-agent collaboration model with automated heading structure validation
 
 ### 🔄 Automatic Agent Role Management System
 
-#### **Phase0: エージェント初期化** (Automatic YAML Role Loading)
+#### **Phase0: Agent Initialization** (Automatic YAML Role Loading)
 Every blog generation and article update workflow now includes automatic Phase0 initialization:
 - **Boss1**: Automatically loads `@Claude-Code-Blog-communication/instructions/boss.yaml`
 - **Worker1,2,3**: Automatically load `@Claude-Code-Blog-communication/instructions/worker.yaml`
@@ -337,7 +337,7 @@ All tmux session recovery and restart operations now include automatic YAML role
 - **Worker Recovery**: Individual worker recovery includes YAML role reloading
 - **Zero Manual Intervention**: No manual role reminders needed after session restarts
 
-#### **定期役割リマインダーシステム** (Periodic Role Reminder System)
+#### **Periodic Role Reminder System**
 Prevents agents from forgetting their roles and reporting obligations during long workflows:
 - **Auto-Start**: Automatically starts with every blog/article workflow (30-minute intervals)
 - **Periodic Reminders**: Regular role and reporting obligation confirmations
@@ -359,7 +359,7 @@ Prevents agents from forgetting their roles and reporting obligations during lon
 ./Claude-Code-Blog-communication/tmux-unified-controller.sh --system role-reminder stop
 ```
 
-### 📊 Sequential Report Collection System (競合報告回避)
+### 📊 Sequential Report Collection System (Report Conflict Prevention)
 
 #### **Problem: Report Timing Conflicts**
 When multiple Workers report simultaneously to Boss1, race conditions can cause report loss or oversight.
@@ -571,30 +571,30 @@ python scripts/post_blog_universal.py  # Now includes built-in validation
 
 #### 1. **Content Update Scope Confirmation**
 ```
-記事ID [ID] のリライトを開始します。以下を確認してください：
+Starting rewrite for Article ID [ID]. Please confirm the following:
 
-📝 **更新内容**:
-- [ ] 記事本文のリライト
-- [ ] 見出し構造の最適化
-- [ ] SEO要素の改善
+📝 **Update Content**:
+- [ ] Article content rewrite
+- [ ] Heading structure optimization
+- [ ] SEO element improvements
 
-🖼️ **画像更新の有無**:
-- [ ] アイキャッチ画像の差し替えあり
-- [ ] 章別画像の差し替えあり  
-- [ ] 画像更新なし（既存画像維持）
+🖼️ **Image Update Requirements**:
+- [ ] Eyecatch image replacement required
+- [ ] Chapter image replacement required  
+- [ ] No image updates (maintain existing images)
 
-🔍 **ファクトチェック実施**:
-- [ ] 最新情報への更新が必要
-- [ ] 技術仕様の正確性確認が必要
-- [ ] ファクトチェック不要
+🔍 **Fact-checking Implementation**:
+- [ ] Latest information updates required
+- [ ] Technical specification accuracy verification required
+- [ ] No fact-checking required
 
-上記の確認後、処理を開始します。画像更新がある場合は、適切な差し替え処理を並行実行します。
+Processing will begin after confirmation. If image updates are required, appropriate replacement processing will run in parallel.
 ```
 
 #### 2. **Image Update Integration Protocol**
 When image updates are confirmed:
 - Execute `scripts/consolidated_image_manager.py` for unified image management
-- Execute `scripts/consolidated_image_manager.py` for unified image replacement (統合済み)
+- Execute `scripts/image_update_manager.py` for systematic image replacement
 - Maintain image version history for rollback capability
 - Verify image optimization and WordPress compatibility
 - Update chapter image insertion automatically
@@ -647,14 +647,11 @@ print(f'✅ Article found: {response.json().get(\"title\")}')
 # Article content update with safety checks
 python scripts/wordpress_update_client.py --post-id {ID} --update-content
 
-# Eyecatch update with validation (統合版推奨)
-python scripts/consolidated_image_manager.py quick-update {ID}
+# Eyecatch update with validation
+python scripts/update_eyecatch_simple.py {ID}
 
-# Chapter image updates with verification (統合画像管理システム推奨)
-python scripts/consolidated_image_manager.py update --post-id {ID} --type chapter --chapter-num 1
-
-# ※ レガシーファイルは統合版へ移行済み・削除済み
-# image_update_manager.py -> consolidated_image_manager.py update
+# Chapter image updates with verification
+python scripts/image_update_manager.py --post-id {ID} --mode chapter
 ```
 
 #### Prohibited Operations During Updates
@@ -684,7 +681,7 @@ The system includes automated monitoring to prevent work stagnation and ensure c
 tail -f logs/send_log.txt | grep "boss1: SENT"
 
 # Emergency Boss1 reactivation
-./Claude-Code-Blog-communication/agent-send.sh boss1 "President0緊急指示: 作業継続確認"
+./Claude-Code-Blog-communication/agent-send.sh boss1 "President0 Emergency Instruction: Work Continuation Confirmation"
 ```
 
 #### Work Continuity Rules
@@ -698,14 +695,14 @@ tail -f logs/send_log.txt | grep "boss1: SENT"
 - Automatic file organization and backup
 - Progress reporting every 30 minutes
 - Error detection with immediate correction protocols
-## Boss1報告ログ自動管理システム（President0実装）
+## Boss1 Report Log Automatic Management System (President0 Implementation)
 
-### 🧹 ログクリーンアップ機能
-President0により、Boss1報告ログの蓄積問題を解決する自動管理システムを実装
+### 🧹 Log Cleanup Features
+Automatic management system implemented by President0 to resolve Boss1 report log accumulation issues
 
-#### 緊急クリーンアップコマンド
+#### Emergency Cleanup Commands
 ```bash
-# 即座にログクリーンアップ実行（20KB超過ログを2KB以下に削減）
+# Execute immediate log cleanup (reduce logs over 20KB to under 2KB)
 python3 -c "
 import os, shutil, datetime
 from pathlib import Path
@@ -723,118 +720,118 @@ for log_file in message_queue_dir.glob('*_queue.log'):
 "
 ```
 
-#### 定期自動クリーンアップ
+#### Scheduled Automatic Cleanup
 ```bash
-# 定期実行スクリプト実行
+# Execute scheduled cleanup script
 ./scripts/auto_log_cleanup.sh
 
-# バックグラウンド定期実行設定（1時間毎）
-# crontab -e で以下を追加:
+# Background scheduled execution setup (hourly)
+# Add to crontab -e:
 # 0 * * * * ./scripts/auto_log_cleanup.sh >> logs/cleanup.log 2>&1
 ```
 
-### 📊 ログ管理ルール
-- **サイズ制限**: 各ログファイル20KB以下維持
-- **保持ライン数**: 最新50エントリのみ保持
-- **バックアップ**: クリーンアップ前に自動バックアップ作成
-- **バックアップ保持期間**: 7日間（自動削除）
+### 📊 Log Management Rules
+- **Size Limit**: Maintain each log file under 20KB
+- **Line Retention**: Keep only latest 50 entries
+- **Backup**: Create automatic backup before cleanup
+- **Backup Retention**: 7 days (automatic deletion)
 
-### 🔧 トラブルシューティング
-#### Boss1報告遅延時の対処
-1. ログサイズ確認: `du -h tmp/message_queue/*.log`
-2. 緊急クリーンアップ実行: 上記コマンド実行
-3. 接続確認再実行: 「接続確認」合言葉実行
+### 🔧 Troubleshooting
+#### Response to Boss1 Report Delays
+1. Check log size: `du -h tmp/message_queue/*.log`
+2. Execute emergency cleanup: Run above commands
+3. Re-execute connection check: Run "connection-check" magic word
 
-#### 効果
-- boss1_queue.log: 35.9KB → 2.0KB（94%削減）
-- president_queue.log: 21.7KB → 2.1KB（90%削減）
-- 報告システム応答性能大幅改善
+#### Results
+- boss1_queue.log: 35.9KB → 2.0KB (94% reduction)
+- president_queue.log: 21.7KB → 2.1KB (90% reduction)
+- Significant improvement in report system responsiveness
 
 EOF < /dev/null
 
-## 完全正常状態永続化システム（President0実装）
+## Complete Normal State Persistence System (President0 Implementation)
 
-### 🎯 Boss1ターミナル落ち対策・完全復旧システム
-President0により、Boss1ターミナル落ちによる双方向通信遮断問題の根本解決システムを実装
+### 🎯 Boss1 Terminal Crash Recovery - Complete Recovery System
+President0 implements root solution system for bidirectional communication disruption caused by Boss1 terminal crashes
 
-#### 緊急復旧コマンド（最重要）
+#### Emergency Recovery Commands (Critical)
 ```bash
-# Boss1ターミナル落ち時の緊急復旧
+# Emergency recovery for Boss1 terminal crashes
 ./scripts/emergency_connection_recovery.sh
 
-# システムヘルスチェック
+# System health check
 ./scripts/emergency_connection_recovery.sh --health-check
 
-# 高度な状態管理（Python版）
+# Advanced state management (Python version)
 python3 scripts/connection_state_manager.py
 ```
 
-#### 📋 緊急復旧システムの動作
-1. **multiagentセッション完全再作成**: 破損したセッションをクリーン環境で再構築
-2. **全ペインClaude Code起動**: Boss1-Worker1,2,3で確実な起動実行
-3. **President0→Boss1接続確認**: 指揮系統の基盤確認
-4. **Boss1→Worker双方向接続確認**: Worker1,2,3との完全な双方向通信確認
+#### 📋 Emergency Recovery System Operations
+1. **Complete multiagent session recreation**: Rebuild corrupted sessions in clean environment
+2. **All pane Claude Code startup**: Reliable startup execution for Boss1-Worker1,2,3
+3. **President0→Boss1 connection verification**: Command structure foundation confirmation
+4. **Boss1→Worker bidirectional connection verification**: Complete bidirectional communication verification with Worker1,2,3
 
-#### 🛡️ 予防・監視機能
+#### 🛡️ Prevention and Monitoring Features
 ```bash
-# 定期ヘルスチェック（crontab推奨）
+# Regular health check (crontab recommended)
 */30 * * * * /mnt/c/home/hiroshi/blog_generator/scripts/emergency_connection_recovery.sh --health-check
 
-# 継続監視ログ確認
+# Continuous monitoring log verification
 tail -f logs/connection_recovery.log
 ```
 
-### 🔧 トラブルシューティング手順
+### 🔧 Troubleshooting Procedures
 
-#### Boss1ターミナル落ち症状
-- Boss1からの応答が突然停止
-- Worker1,2,3への指示が届かない
-- 「接続確認」合言葉が無効
+#### Boss1 Terminal Crash Symptoms
+- Boss1 responses suddenly stop
+- Instructions to Worker1,2,3 don't reach
+- "connection-check" magic word becomes invalid
 
-#### 対処手順（優先順）
-1. **緊急復旧実行**: `./scripts/emergency_connection_recovery.sh`
-2. **ヘルスチェック**: 復旧後の状態確認
-3. **接続確認合言葉**: 最終確認として実行
+#### Resolution Steps (Priority Order)
+1. **Execute emergency recovery**: `./scripts/emergency_connection_recovery.sh`
+2. **Health check**: Verify post-recovery status
+3. **Connection check magic word**: Execute as final confirmation
 
-#### 根本原因と対策
-- **原因**: Boss1ペインのClaude Code突然終了
-- **対策**: セッション完全再作成 + 全ペイン再起動
-- **予防**: 定期ヘルスチェック + 自動復旧システム
+#### Root Cause and Solutions
+- **Cause**: Sudden termination of Claude Code in Boss1 pane
+- **Solution**: Complete session recreation + all pane restart
+- **Prevention**: Regular health checks + automatic recovery system
 
-### 📊 完全正常状態の定義
-President0が定義する理想的なシステム状態：
+### 📊 Definition of Complete Normal State
+Ideal system state as defined by President0:
 
-#### TMUXセッション構造
+#### TMUX Session Structure
 ```
-multiagent:0.0 (Boss1)   - Claude Code稼働中
-multiagent:0.1 (Worker1) - Claude Code稼働中  
-multiagent:0.2 (Worker2) - Claude Code稼働中
-multiagent:0.3 (Worker3) - Claude Code稼働中
-president:0.0 (President0) - Claude Code稼働中
+multiagent:0.0 (Boss1)   - Claude Code running
+multiagent:0.1 (Worker1) - Claude Code running  
+multiagent:0.2 (Worker2) - Claude Code running
+multiagent:0.3 (Worker3) - Claude Code running
+president:0.0 (President0) - Claude Code running
 ```
 
-#### 通信フロー確認
-- ✅ President0→Boss1: 指示送信成功
-- ✅ Boss1→Worker1,2,3: 並行指示送信成功
-- ✅ Worker1,2,3→Boss1: 応答受信成功
-- ✅ Boss1→President0: 統合報告成功
+#### Communication Flow Verification
+- ✅ President0→Boss1: Instruction transmission success
+- ✅ Boss1→Worker1,2,3: Parallel instruction transmission success
+- ✅ Worker1,2,3→Boss1: Response reception success
+- ✅ Boss1→President0: Integrated report success
 
-### 🚀 運用ベストプラクティス
+### 🚀 Operational Best Practices
 
-#### 日常運用
-1. **プロジェクト開始前**: `--health-check`で状態確認
-2. **異常検知時**: 即座に緊急復旧実行
-3. **定期メンテナンス**: 週1回の完全復旧実行
+#### Daily Operations
+1. **Before project start**: Verify status with `--health-check`
+2. **When anomaly detected**: Execute emergency recovery immediately
+3. **Regular maintenance**: Execute complete recovery weekly
 
-#### システム管理
-- **ログ監視**: `logs/connection_recovery.log`の定期確認
-- **状態保存**: `tmp/connection_state.json`での状態追跡
-- **バックアップ**: 正常状態でのセッション構成保存
+#### System Management
+- **Log monitoring**: Regular verification of `logs/connection_recovery.log`
+- **State saving**: State tracking with `tmp/connection_state.json`
+- **Backup**: Save session configuration in normal state
 
-#### エスカレーション
-緊急復旧でも解決しない場合：
-1. TMUXセッション全削除・再作成
-2. Claude Codeプロセス完全再起動
-3. システム全体の再起動検討
+#### Escalation
+When emergency recovery doesn't resolve:
+1. Delete and recreate all TMUX sessions
+2. Complete restart of Claude Code processes
+3. Consider full system restart
 
 EOF < /dev/null
