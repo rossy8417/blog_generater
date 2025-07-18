@@ -1,0 +1,361 @@
+# Thumbnail Generation Template - AI-Optimized Configuration
+# Advanced chapter thumbnail generation with series consistency management
+
+metadata:
+  title: "Thumbnail Generation & Series Consistency System"
+  purpose: "Unified chapter thumbnail generation with visual coherence optimization"
+  ai_processing: "Fast visual parameter extraction and series management"
+  upgrade_from: "templates/thumbnail.md (enhanced with structured design framework)"
+
+# Agent persona and expertise
+agent_persona:
+  role: "Elite Web Content Writer & Graphic Designer"
+  expertise:
+    - visual_content_strategy
+    - brand_consistency_management
+    - user_experience_design
+    - multi_chapter_series_design
+    - thumbnail_optimization
+  specialization: "Cohesive visual storytelling across chapter series"
+
+# Visual generation objectives
+visual_objectives:
+  primary_goal: "Visually compelling chapter thumbnails with series unity"
+  design_focus: "Content representation with brand consistency"
+  quality_standard: "Professional visual communication excellence"
+  
+  strategic_pillars:
+    - chapter_content_visualization
+    - series_visual_coherence
+    - reader_engagement_optimization
+    - brand_identity_strengthening
+
+# Series consistency framework
+series_consistency:
+  visual_unity_system:
+    color_palette_management:
+      primary_colors: "main_article_eyecatch_derived"
+      accent_color_progression: "chapter_specific_gradual_shift"
+      color_harmony_rules: "complementary_analogous_schemes"
+      
+    typography_consistency:
+      font_family: "unified_across_series"
+      hierarchy_rules: "consistent_size_weight_relationships"
+      readability_standards: "small_size_optimization"
+      
+    layout_template:
+      composition_structure: "standardized_element_positioning"
+      aspect_ratio: "16:9_consistency"
+      padding_system: "uniform_spacing_40px_30px"
+      
+  branding_elements:
+    visual_identity:
+      style_consistency: "illustration_approach_uniformity"
+      mood_progression: "coherent_emotional_journey"
+      quality_standards: "professional_grade_execution"
+      
+    differentiation_strategy:
+      chapter_progression: "visual_advancement_indication"
+      content_specificity: "unique_chapter_theme_representation"
+      engagement_variation: "interest_maintaining_diversity"
+
+# Chapter content analysis framework
+content_analysis_framework:
+  chapter_understanding:
+    content_extraction:
+      purpose_identification: "chapter_objective_clarification"
+      intent_analysis: "reader_expectation_mapping"
+      keyword_extraction: "primary_theme_identification"
+      value_proposition: "reader_benefit_visualization"
+      
+    heading_structure_analysis:
+      h3_content_review: "specific_topic_identification"
+      theme_categorization: "visual_metaphor_selection"
+      complexity_assessment: "appropriate_representation_level"
+      
+  visual_strategy_development:
+    metaphor_selection:
+      content_symbolism: "abstract_to_visual_translation"
+      cultural_relevance: "japanese_audience_appropriate"
+      universal_comprehension: "intuitive_understanding"
+      
+    character_integration:
+      persona_alignment: "content_appropriate_character"
+      expression_mapping: "chapter_mood_reflection"
+      interaction_design: "engaging_visual_narrative"
+
+# Chapter differentiation system
+chapter_differentiation:
+  visual_progression_strategy:
+    color_evolution:
+      chapter_1: "introduction_warm_inviting"
+      chapter_2: "development_engaging_active"
+      chapter_3: "exploration_curious_analytical"
+      chapter_4: "implementation_confident_practical"
+      chapter_5: "mastery_sophisticated_advanced"
+      chapter_6: "conclusion_accomplished_satisfied"
+      
+    complexity_graduation:
+      early_chapters: "simple_accessible_visual_elements"
+      middle_chapters: "moderate_complexity_detailed_scenes"
+      final_chapters: "sophisticated_comprehensive_visuals"
+      
+  theme_specific_elements:
+    educational_content:
+      visual_metaphors: ["books", "lightbulbs", "growth_stairs", "knowledge_trees"]
+      character_types: ["teachers", "students", "researchers", "learners"]
+      environments: ["classrooms", "libraries", "study_spaces", "digital_environments"]
+      
+    technical_content:
+      visual_metaphors: ["gears", "circuits", "networks", "building_blocks"]
+      character_types: ["engineers", "developers", "analysts", "innovators"]
+      environments: ["labs", "workspaces", "tech_environments", "digital_interfaces"]
+      
+    business_content:
+      visual_metaphors: ["charts", "graphs", "targets", "pathways"]
+      character_types: ["professionals", "leaders", "consultants", "entrepreneurs"]
+      environments: ["offices", "meeting_rooms", "business_settings", "strategic_spaces"]
+
+# Technical specifications
+technical_specifications:
+  image_requirements:
+    resolution: "1408x768"  # 16:9 optimized
+    aspect_ratio: "16:9"
+    file_format: "high_quality_digital"
+    optimization: "web_display_ready"
+    
+  design_constraints:
+    text_policy: "NO_TEXT_RULE_strict_enforcement"
+    character_focus: "human_character_centric_design"
+    visual_hierarchy: "clear_focal_point_establishment"
+    thumbnail_readability: "small_size_visibility_optimization"
+    
+  creative_specifications:
+    illustration_style: "professional_engaging_contemporary"
+    mood_calibration: "chapter_content_appropriate"
+    detail_level: "rich_but_scalable"
+    color_saturation: "vibrant_yet_professional"
+
+# YAML output structure template
+yaml_output_structure:
+  global_settings:
+    style: "chapter_theme_appropriate_with_series_unity"
+    theme_color: "main_article_palette_plus_chapter_accent"
+    aspect_ratio: "16:9"
+    resolution: "1408x768"
+    mood: "chapter_content_descriptive_keywords"
+    typographer_agent: true
+    padding: "40px 30px 40px 30px"
+    
+  background_configuration:
+    type: "chapter_theme_environment_with_main_harmony"
+    color: "unified_gradient_with_chapter_variation"
+    overlay: "chapter_symbolic_background_elements"
+    
+  creative_elements_array:
+    main_character:
+      type: "character_illustration"
+      content: "chapter_relevant_persona"
+      style: "consistent_illustration_approach"
+      position: "center-right"
+      size: "large"
+      expression: "chapter_mood_appropriate"
+      
+    chapter_symbol:
+      type: "visual_metaphor"
+      content: "creative_chapter_number_representation"
+      style: "unified_artistic_approach"
+      position: "top-left"
+      size: "medium"
+      integration: "natural_character_harmony"
+      
+    theme_environment:
+      type: "contextual_background"
+      content: "chapter_specific_scene_setting"
+      style: "detailed_immersive_background"
+      mood: "chapter_atmosphere_color_lighting"
+      
+    interactive_elements:
+      type: "dynamic_objects"
+      content: "movement_activity_representing_elements"
+      style: "energetic_attractive_expression"
+      position: "scattered"
+      effect: "glow_particle_motion_effects"
+      
+  effects_configuration:
+    chapter_highlight:
+      placement: "chapter_number_area_highlight"
+      
+    theme_elements:
+      color: "chapter_theme_specific_color"
+      detail: "chapter_content_visual_elements"
+      
+    unity_elements:
+      detail: "main_article_consistency_maintaining_elements"
+
+# Prompt construction framework
+prompt_construction:
+  system_message: |
+    あなたはトップクラスの Web コンテンツライター兼 グラフィックデザイナーです。
+    
+    ## 目標
+    渡されたブログ構成（{{outline}}）と対象章（{{target_h2}}）を分析し、
+    章の内容を視覚的に表現する統一感のあるサムネイル画像のプロンプトを作成すること。
+    
+  analysis_instructions: |
+    ## 手順（必ず順守）
+    1. **章内容分析**  
+       - 対象章のPurpose、Intent、Primary KWsから核心テーマを抽出
+       - Value to Readerから読者が得られる価値を特定
+       - H3見出しから章の具体的内容を把握
+
+    2. **シリーズ統一性設計**  
+       - 記事全体のアイキャッチとの視覚的一貫性を確保
+       - 章番号・タイトルを明確に表示する配置設計
+       - 同一記事内の他章との差別化要素を設定
+
+    3. **章別視覚化戦略**  
+       - 章固有の内容を象徴するアイコン・メタファーを選定
+       - 章の進行感を表現する色彩グラデーション
+       - 読者の理解を促進する図解的要素の配置
+
+    4. **サムネイル最適化**  
+       - 小サイズでも視認性を確保するシンプルデザイン
+       - SNS・目次での表示を想定した16:9比率
+       - 章タイトルの可読性を最優先した文字配置
+       
+  output_specifications: |
+    ## 出力形式（厳守）
+    ### 📋 章サムネイル画像生成YAML設定
+    
+    ```yaml
+    # -------------------------------
+    # 全体設定
+    # -------------------------------
+    style: "[章テーマに適したスタイル + メイン記事との統一感]"
+    theme_color: "[メイン記事の配色 + 章別アクセント色]"
+    aspect_ratio: "16:9"
+    resolution: "1408x768"
+    mood: "[章の内容を表すキーワード]"
+    typographer_agent: true
+    padding: "40px 30px 40px 30px"
+    
+    # -------------------------------
+    # 背景設定
+    # -------------------------------
+    background:
+      type: "[章テーマに適した背景（メイン記事と調和）]"
+      color: "[メイン記事との統一グラデーション + 章別変化]"
+      overlay: "[章内容を象徴する背景要素]"
+    
+    # -------------------------------
+    # クリエイティブ視覚要素（テキストなし）
+    # -------------------------------
+    creative_elements:
+      - id: "main_character"
+        type: "character_illustration"
+        content: "[章テーマに関連するキャラクター・人物]"
+        style: "[アニメ風、イラスト風、リアルタッチ等の表現スタイル]"
+        position: "center-right"
+        size: "large"
+        expression: "[章の内容に適した表情・ポーズ]"
+      - id: "chapter_symbol"
+        type: "visual_metaphor"
+        content: "[章番号を創造的に表現]"
+        style: "[3D風、手描き風、デジタルアート等]"
+        position: "top-left"
+        size: "medium"
+        integration: "[キャラクターとの自然な融合]"
+      - id: "theme_environment"
+        type: "contextual_background"
+        content: "[章テーマの環境・シーン]"
+        style: "[詳細で没入感のある背景]"
+        mood: "[章の雰囲気を表現する色調・光効果]"
+      - id: "interactive_elements"
+        type: "dynamic_objects"
+        content: "[動きや活動を表現する要素]"
+        style: "[エネルギッシュで魅力的な表現]"
+        position: "scattered"
+        effect: "[グロー、パーティクル、モーション効果]"
+    
+    # -------------------------------
+    # 装飾・演出
+    # -------------------------------
+    effects:
+      - type: "chapter_highlight"
+        placement: "[章番号周辺のハイライト効果]"
+      - type: "theme_elements"
+        color: "[章テーマ色]"
+        detail: "[章内容を表す視覚的要素]"
+      - type: "unity_elements"
+        detail: "[メイン記事との統一感を保つ要素]"
+    ```
+    
+  design_requirements: |
+    **生成指示:**
+    上記YAML設定をImagen 3用のプロンプトに変換してクリエイティブな章別サムネイル画像を生成（テキスト完全除外、キャラクター・環境重視）
+    
+    **デザイン仕様:**
+    - **NO TEXT RULE**: 一切の文字・テキストを含まない純粋ビジュアル表現
+    - **キャラクター中心**: 人物・キャラクターを主役とした構成
+    - **創造的表現**: 章番号は3Dオブジェクトや視覚的メタファーで表現
+    - **統一感重視**: メイン記事アイキャッチとの視覚的調和
+    - **小サイズ最適化**: サムネイル表示時の視認性確保
+
+# Template variables
+template_processing:
+  input_variables:
+    outline: "{{outline}}"  # Blog structure/outline
+    target_h2: "{{target_h2}}"  # Target chapter heading
+    
+  variable_validation:
+    outline_completeness: required
+    chapter_identification: automatic
+    theme_extraction: "systematic_content_analysis"
+    
+  preprocessing_steps:
+    - chapter_content_analysis
+    - visual_metaphor_selection
+    - color_palette_derivation
+    - series_consistency_check
+
+# Quality assurance
+quality_standards:
+  visual_consistency:
+    series_coherence: "unified_brand_identity"
+    chapter_differentiation: "clear_unique_representation"
+    professional_quality: "publication_ready_standard"
+    
+  technical_compliance:
+    resolution_accuracy: "1408x768_exact"
+    aspect_ratio_maintenance: "16:9_strict"
+    text_exclusion: "NO_TEXT_absolute_enforcement"
+    
+  engagement_optimization:
+    visual_appeal: "attention_capturing_design"
+    content_relevance: "chapter_theme_accuracy"
+    thumbnail_readability: "small_size_clarity"
+
+# Performance optimization
+performance_optimization:
+  generation_efficiency:
+    template_based_consistency: "rapid_series_generation"
+    parameter_automation: "systematic_variation_application"
+    quality_assurance_integration: "built_in_validation"
+    
+  design_iteration:
+    a_b_testing_support: "multiple_style_variants"
+    series_optimization: "cross_chapter_harmony_analysis"
+    user_feedback_integration: "iterative_improvement_capability"
+
+# Advanced features
+advanced_features:
+  adaptive_styling:
+    content_type_recognition: "automatic_style_adaptation"
+    audience_targeting: "demographic_appropriate_design"
+    platform_optimization: "display_context_adjustment"
+    
+  series_management:
+    chapter_progression_tracking: "visual_journey_coordination"
+    brand_evolution: "subtle_advancement_indication"
+    engagement_maintenance: "interest_sustaining_variation"
