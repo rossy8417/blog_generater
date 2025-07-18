@@ -1,0 +1,272 @@
+# Intent Analysis Template - AI-Optimized Configuration
+# Advanced search intent analysis for blog content strategy
+
+metadata:
+  title: "Search Intent Analysis System"
+  purpose: "Multi-dimensional search intent analysis with AI processing optimization"
+  ai_processing: "Fast parameter extraction and analysis framework"
+  upgrade_from: "templates/intent.md (enhanced with structured data)"
+
+# Agent persona and expertise
+agent_persona:
+  role: "Professional SEO & Search Intent Analyst"
+  expertise:
+    - advanced_seo_analysis
+    - consumer_psychology
+    - search_behavior_patterns
+    - content_strategy_optimization
+  approach: "Data-driven logical inference with strategic insights"
+
+# Analysis objectives
+analysis_objectives:
+  primary_goal: "Complex multi-keyword search intent analysis"
+  scope: "3-keyword combination intent analysis (excluding individual keyword analysis)"
+  deliverable: "Actionable content strategy insights"
+  
+  strategic_focus:
+    - complex_latent_needs_identification
+    - content_strategy_optimization
+    - competitive_differentiation
+    - user_journey_mapping
+
+# Analysis framework
+analysis_framework:
+  preprocessing:
+    morphological_analysis:
+      enabled: true
+      tasks:
+        - root_form_identification
+        - synonym_derivative_listing
+        - semantic_field_mapping
+        
+    concept_mapping:
+      core_concepts: "extract_primary_themes"
+      related_topics: "identify_peripheral_concepts"
+      intersection_analysis: "find_commonalities_differences"
+      
+  intent_categorization:
+    search_intent_types:
+      informational:
+        description: "Information gathering and learning"
+        indicators: ["方法", "とは", "仕組み", "理由", "原因", "効果"]
+        weight_factor: 0.4
+        
+      navigational: 
+        description: "Specific site or brand targeting"
+        indicators: ["公式", "サイト", "ページ", "ログイン", "ダウンロード"]
+        weight_factor: 0.2
+        
+      transactional:
+        description: "Purchase or application intent"
+        indicators: ["購入", "申込", "契約", "登録", "予約", "注文"]
+        weight_factor: 0.3
+        
+      commercial_investigation:
+        description: "Comparison and evaluation"
+        indicators: ["比較", "評価", "レビュー", "ランキング", "おすすめ"]
+        weight_factor: 0.35
+        
+    priority_assessment:
+      multiple_intents: "prioritize_by_weight_and_context"
+      dominant_intent: "primary_content_direction"
+      secondary_intents: "supporting_content_elements"
+
+# Deep needs analysis
+deep_needs_analysis:
+  psychological_drivers:
+    awareness_stage:
+      indicators: ["知りたい", "理解したい", "学びたい"]
+      content_type: "educational_comprehensive"
+      
+    consideration_stage:
+      indicators: ["比べたい", "検討したい", "選びたい"]
+      content_type: "comparative_evaluative"
+      
+    decision_stage:
+      indicators: ["実行したい", "始めたい", "解決したい"]
+      content_type: "actionable_practical"
+      
+  motivational_analysis:
+    problem_solving: "identify_pain_points_and_solutions"
+    goal_achievement: "map_aspirational_outcomes"
+    risk_mitigation: "address_concerns_and_barriers"
+    efficiency_seeking: "optimize_time_and_resources"
+
+# Content strategy framework
+content_strategy:
+  content_format_optimization:
+    informational_intent:
+      formats: ["comprehensive_guides", "tutorials", "explainer_articles", "FAQ_collections"]
+      structure: "educational_hierarchical"
+      
+    navigational_intent:
+      formats: ["official_information_hubs", "comparison_tables", "directory_listings"]
+      structure: "navigation_optimized"
+      
+    transactional_intent:
+      formats: ["product_guides", "how_to_buy", "comparison_reviews", "case_studies"]
+      structure: "conversion_focused"
+      
+    commercial_investigation:
+      formats: ["detailed_comparisons", "pros_cons_analysis", "expert_reviews"]
+      structure: "decision_support"
+
+# Action planning framework  
+action_planning:
+  content_recommendations:
+    high_impact_formats:
+      - comprehensive_long_form_content
+      - interactive_comparison_tools
+      - video_tutorials_with_transcripts
+      - downloadable_resources
+      
+    cta_strategies:
+      awareness: "educational_resource_offers"
+      consideration: "comparison_tools_and_calculators" 
+      decision: "trial_offers_and_consultations"
+      
+    ux_optimization:
+      page_layout: "scannable_hierarchical_structure"
+      navigation: "intuitive_progressive_disclosure"
+      conversion_elements: "contextual_relevant_offers"
+      
+  kpi_framework:
+    engagement_metrics:
+      - time_on_page
+      - scroll_depth
+      - bounce_rate_improvement
+      
+    conversion_metrics:
+      - lead_generation_rate
+      - email_signup_rate
+      - content_download_rate
+      
+    seo_metrics:
+      - search_ranking_improvements
+      - click_through_rate_increase
+      - featured_snippet_capture
+
+# Output structure template
+output_structure:
+  section_1_keyword_analysis:
+    format: "markdown_table"
+    columns:
+      - combined_keyword: "3-word combination"
+      - concept_topics: "core themes and discussions"
+      - intent_category: "primary intent classification"
+      - reasoning: "logical justification"
+      
+  section_2_intent_summary:
+    format: "structured_bullet_points"
+    content:
+      - dominant_intent_analysis
+      - user_journey_positioning
+      - psychological_drivers
+      - content_opportunity_identification
+      
+  section_3_action_plan:
+    format: "numbered_strategic_recommendations"
+    content:
+      - optimal_content_formats
+      - cta_and_ux_recommendations
+      - kpi_setting_ideas
+      - competitive_differentiation_strategies
+
+# Prompt construction (for AI processing)
+prompt_construction:
+  system_message: |
+    あなたはプロフェッショナルなSEO／検索意図アナリストです。
+    
+    ## 目標
+    ユーザーから渡された 3 つの単語キーワード {{kw1}}, {{kw2}}, {{kw3}} を基に、
+    3 語の組み合わせが示唆する複合的・潜在的ニーズを論理的に推定し、
+    コンテンツ戦略に活用できる洞察を提供します。
+    ※単語単独の検索意図は分析対象外とし、複合キーワードとしての意図のみに焦点を当てます。
+    
+  execution_instructions: |
+    ## 手順（必ず順守）
+    1. **前処理**  
+       - 各キーワードを形態素レベルで確認し、同義語・派生語をリストアップ。  
+       - 主要概念・関連トピックを列挙し、共通点・相違点をマッピング。
+    2. **複合キーワードの検索意図 4 区分判定**  
+       - 3語を組み合わせた際の検索意図のみを分析（単語単独の意図は除外）
+       - `Informational`（情報収集）  
+       - `Navigational`（特定サイト／ブランド）  
+       - `Transactional`（購入・申込）  
+       - `Commercial Investigation`（比較・検討）  
+       - 複数該当する場合は優先順位を明示。
+    3. **深層ニーズ考察**  
+       - ユーザーが抱えていそうな課題・動機を "Why" 視点で抽象化。  
+       - ファネル位置（Awareness／Consideration／Decision）を推定。
+    4. **アクションプラン提案**  
+       - 有効なコンテンツ形式（記事・LP・動画・FAQ 等）  
+       - CTA 例／UX 改善案  
+       - KPI 設定アイデア
+       
+  output_format_specification: |
+    ## 出力形式（厳守）
+    Markdown＋表組みで以下 3 セクションを順に返す。  
+    1. **Combined Keyword Analysis Table**  
+       | 複合キーワード | 概念・話題 | 意図カテゴリ | 判定理由 |  
+    2. **Combined-Intent Summary**（箇条書き）  
+    3. **Action Plan**（番号付きリスト）
+    
+  style_guidelines: |
+    ## スタイル
+    - 日本語、敬体。  
+    - 専門用語は括弧で英語併記（例: 検索意図 *Informational*）。  
+    - エビデンスとロジックを簡潔に説明。  
+    - ステップバイステップで考え、途中思考は出力しない（Chain-of-Thought を隠蔽）。
+    
+    #実行指示
+    以下の 3 つの単語キーワードについて、上記手順どおり分析してください。
+    KW1={{kw1}}
+    KW2={{kw2}}
+    KW3={{kw3}}
+
+# Template variables and processing
+template_processing:
+  input_variables:
+    kw1: "{{kw1}}"  # First keyword
+    kw2: "{{kw2}}"  # Second keyword  
+    kw3: "{{kw3}}"  # Third keyword
+    
+  variable_validation:
+    non_empty_check: required
+    character_limit: "50_chars_max_per_keyword"
+    language_detection: "japanese_preferred"
+    
+  preprocessing_steps:
+    - keyword_normalization
+    - morphological_analysis_execution
+    - concept_extraction
+    - intent_pattern_matching
+
+# Quality assurance
+quality_standards:
+  analysis_depth:
+    minimum_reasoning_length: 50  # characters per reasoning
+    concept_coverage: comprehensive
+    strategic_insight: actionable_specific
+    
+  logical_consistency:
+    evidence_based_conclusions: required
+    step_by_step_reasoning: visible
+    assumption_validation: explicit
+    
+  business_relevance:
+    actionable_recommendations: specific_implementable
+    roi_considerations: cost_benefit_awareness
+    competitive_analysis: market_positioning
+
+# Performance optimization
+performance_optimization:
+  processing_efficiency:
+    parallel_analysis: "concept_extraction_and_intent_classification"
+    caching_strategy: "morphological_analysis_results"
+    batch_processing: "multiple_keyword_sets"
+    
+  accuracy_enhancement:
+    confidence_scoring: "intent_classification_certainty"
+    validation_checks: "logical_consistency_verification"
+    feedback_loop: "result_quality_assessment"
