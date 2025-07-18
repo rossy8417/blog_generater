@@ -72,23 +72,25 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 
 #### Generate Images
 ```bash
+# 統合画像管理システム（推奨）
 # Generate eyecatch image only
-python scripts/image_generator.py --outline outputs/article-name/outline.md --mode eyecatch
+python scripts/consolidated_image_manager.py generate --outline outputs/article-name/outline.md --mode eyecatch
 
 # Generate all images (eyecatch + chapter thumbnails)
+python scripts/consolidated_image_manager.py generate --outline outputs/article-name/outline.md --mode all
+
+# レガシー版も利用可能（後方互換性）
+python scripts/image_generator.py --outline outputs/article-name/outline.md --mode eyecatch
 python scripts/image_generator.py --outline outputs/article-name/outline.md --mode all
 ```
 
 #### Publish to WordPress
 ```bash
 # WordPress投稿（品質チェック統合版）- 推奨
-python scripts/post_blog_universal_with_quality_check.py
-
-# 従来版（品質チェックなし）
 python scripts/post_blog_universal.py
 ```
 
-**Note**: `post_blog_universal_with_quality_check.py` includes all standard features plus:
+**Note**: `post_blog_universal.py` now includes comprehensive quality check features:
 - **Pre-publishing Quality Check**: Comprehensive article validation before WordPress posting
 - **Automatic Fixes**: Auto-correction of common quality issues
 - **H5/H6 Tag Prevention**: Strict enforcement of heading hierarchy rules
@@ -96,6 +98,8 @@ python scripts/post_blog_universal.py
 - **Content Structure Validation**: Verification of proper chapter organization
 - **WordPress Conversion Validation**: Gutenberg block generation verification
 - **Detailed Quality Reports**: Complete quality assessment with fix recommendations
+
+The post_blog_universal.py has been enhanced to include all quality check functionalities for seamless and safe WordPress publishing.
 
 Standard features (both versions):
 - Markdown to Gutenberg block conversion for both SEO and Story patterns
@@ -108,8 +112,24 @@ Standard features (both versions):
 # Update specific article by ID
 python scripts/wordpress_update_client.py --post-id 1388 --update-content
 
+# 統合画像更新（推奨）
 # Update eyecatch image
-python scripts/update_eyecatch_simple.py 1388
+python scripts/consolidated_image_manager.py update --post-id 1388 --type eyecatch
+
+# Update chapter images
+python scripts/consolidated_image_manager.py update --post-id 1388 --type chapter --chapter-num 1
+
+# Quick update (legacy compatibility)
+python scripts/consolidated_image_manager.py quick-update 1388
+
+# レガシー版（段階的廃止予定）
+python scripts/consolidated_image_manager.py update --post-id 1388 --type eyecatch
+
+# 簡単更新（後方互換性）
+python scripts/consolidated_image_manager.py quick-update 1388
+
+# ※ レガシーファイルは統合版へ移行済み・削除済み
+# update_eyecatch_simple.py -> consolidated_image_manager.py quick-update
 ```
 
 **⚠️ IMPORTANT**: WordPress APIエンドポイントのガイドライン
@@ -140,14 +160,70 @@ Handles automatic file organization and metadata extraction. Ensures all generat
 - Manages WordPress post creation and updates
 - Supports both draft and published post states
 
-### Image Generation System (scripts/image_generator.py)
-- **Eyecatch**: Uses OpenAI gpt-image-1 for Japanese text-embedded images
-- **Thumbnails**: Uses Google Imagen 3 for chapter-specific visuals
-- Automatic image optimization (95% size reduction for eyecatch images)
-- Progressive JPEG conversion with transparency handling
+### 統合画像管理システム (scripts/consolidated_image_manager.py)
+- **新規画像生成**: OpenAI gpt-image-1（アイキャッチ）・Google Imagen 3（サムネイル）
+- **WordPress画像更新**: 既存記事の画像差し替え・バージョン管理
+- **自動最適化**: 95%サイズ削減・Progressive JPEG変換・透明背景対応
+- **後方互換性**: 従来のimage_generator.pyインターフェース維持（レガシーファイルは統合済み）
+- **バージョン管理**: 画像更新履歴・復元機能
+
+### レガシー画像システム（統合済み）
+- **scripts/image_generator.py**: 基本画像生成機能（引き続き利用可能）
+- **scripts/update_eyecatch_simple.py**: 簡単アイキャッチ更新 → 統合済み・削除済み
+- **scripts/image_update_manager.py**: 画像バージョン管理 → 統合済み・削除済み
 
 ### Multi-Intent Tracking (config/intent_variation_tracker.json)
 Tracks different search intents for the same base keywords, enabling creation of multiple targeted articles for different audience segments.
+
+## スクリプト統合システム（2025年7月統合版）
+
+### 統合済みスクリプト構成
+
+#### 1. WordPress投稿関連（統合完了）
+- **`post_blog_universal.py`**: 品質チェック統合版（メインスクリプト）
+  - 統合機能: 品質チェック、自動修正、H5/H6タグ禁止、見出し構造検証
+  - 従来の`post_blog_universal_with_quality_check.py`機能を統合
+- **`wordpress_client.py`**: コアライブラリ（維持）
+- **削除済み**: `post_blog_correct.py`（空ファイル）
+
+#### 2. 品質チェック・検証関連（個別維持）
+- **`pre_wordpress_quality_checker.py`**: 包括的品質チェックシステム
+- **`validate_article.py`**: コマンドライン記事検証ツール
+- **`heading_validator.py`**: 見出し構造専用検証ツール
+
+#### 3. 記事更新・リライト関連（統合計画策定済み）
+- **統合対象**: 
+  - `interactive_rewrite_manager.py`（インタラクティブUI）
+  - `article_update_manager.py`（汎用更新システム）
+  - `article_rewrite_system.py`（3Phase構造）
+- **統合後**: `article_rewrite_integrated.py`（計画中）
+- **維持**: `wordpress_update_client.py`（コアライブラリ）
+- **削除済み**: `article_rewrite_complete_system.py`（空ファイル）
+
+#### 4. 画像管理関連（統合計画策定済み）
+- **基盤**: `image_generator.py`（Imagen 3 & OpenAI gpt-image-1）
+- **統合予定機能**:
+  - image_update_manager.pyのバージョン管理機能（統合済み）
+  - update_eyecatch_simple.pyのシンプル更新機能（統合済み）
+
+#### 5. ファイル管理・整理関連（統合計画策定済み）
+- **基盤**: `organize_outputs.py`（自動ファイル整理）
+- **統合予定機能**:
+  - `smart_tmp_cleanup.py`のインテリジェントクリーンアップ
+  - `log_cleanup_manager.py`のログ自動管理
+
+### 統合による改善点
+
+#### 機能統合メリット
+- **コード重複の排除**: 類似機能を統合し、保守性向上
+- **一貫したインターフェース**: 統一されたコマンド体系
+- **品質保証の強化**: 全スクリプトに品質チェックを統合
+- **実行効率の向上**: 機能統合により処理速度向上
+
+#### 後方互換性
+- **既存コマンド維持**: 従来のコマンド構文は引き続き利用可能
+- **段階的移行**: 新機能への移行は任意のタイミングで実行可能
+- **エラーハンドリング**: 非互換性の自動検出と適切なエラーメッセージ
 
 ## Content Quality Standards
 
@@ -290,8 +366,8 @@ The system includes a sophisticated quality check and auto-correction system tha
 # Run comprehensive quality check before publishing
 python scripts/pre_wordpress_quality_checker.py outputs/article-name/complete_article.md
 
-# Publish with integrated quality check (recommended)
-python scripts/post_blog_universal_with_quality_check.py
+# Publish with integrated quality check (recommended - post_blog_universal.pyに統合済み)
+python scripts/post_blog_universal.py
 ```
 
 #### Automated Quality Checks
@@ -380,7 +456,8 @@ python scripts/post_blog_universal.py  # Now includes built-in validation
 
 #### 2. **Image Update Integration Protocol**
 When image updates are confirmed:
-- Execute `scripts/image_update_manager.py` for systematic image replacement
+- Execute `scripts/consolidated_image_manager.py` for unified image management
+- Execute `scripts/consolidated_image_manager.py` for unified image replacement (統合済み)
 - Maintain image version history for rollback capability
 - Verify image optimization and WordPress compatibility
 - Update chapter image insertion automatically
@@ -433,11 +510,14 @@ print(f'✅ Article found: {response.json().get(\"title\")}')
 # Article content update with safety checks
 python scripts/wordpress_update_client.py --post-id {ID} --update-content
 
-# Eyecatch update with validation
-python scripts/update_eyecatch_simple.py {ID}
+# Eyecatch update with validation (統合版推奨)
+python scripts/consolidated_image_manager.py quick-update {ID}
 
-# Chapter image updates with verification
-python scripts/image_update_manager.py --post-id {ID} --mode chapter
+# Chapter image updates with verification (統合画像管理システム推奨)
+python scripts/consolidated_image_manager.py update --post-id {ID} --type chapter --chapter-num 1
+
+# ※ レガシーファイルは統合版へ移行済み・削除済み
+# image_update_manager.py -> consolidated_image_manager.py update
 ```
 
 #### Prohibited Operations During Updates

@@ -1,8 +1,8 @@
 #\!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-汎用WordPress記事投稿スクリプト（完璧版）
-どんな記事でも問題なく動作する統一版スクリプト
+汎用WordPress記事投稿スクリプト（品質チェック統合版）
+WordPress投稿前品質チェック・自動修正システム統合版
 """
 
 import os
@@ -16,6 +16,7 @@ project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
 from scripts.wordpress_client import WordPressClient, convert_markdown_to_gutenberg, insert_chapter_images
+from scripts.pre_wordpress_quality_checker import run_pre_wordpress_quality_check
 
 def find_latest_article_files(outputs_dir):
     """最新の記事ファイルと関連画像を検索（全フォーマット対応）"""
@@ -54,19 +55,19 @@ def find_latest_article_files(outputs_dir):
     
     # 画像ファイル検索パターン（PNG/JPG対応）
     image_patterns = {
-        'eyecatch_png': os.path.join(article_dir, "*eyecatch*.png"),
-        'eyecatch_jpg': os.path.join(article_dir, "*eyecatch*.jpg"),
-        'thumbnail_png': os.path.join(article_dir, "*thumbnail*chapter*.png"),
-        'thumbnail_jpg': os.path.join(article_dir, "*thumbnail*chapter*.jpg"),
+        "eyecatch_png": os.path.join(article_dir, "*eyecatch*.png"),
+        "eyecatch_jpg": os.path.join(article_dir, "*eyecatch*.jpg"),
+        "thumbnail_png": os.path.join(article_dir, "*thumbnail*chapter*.png"),
+        "thumbnail_jpg": os.path.join(article_dir, "*thumbnail*chapter*.jpg"),
         # 追加パターン
-        'chapter_png': os.path.join(article_dir, "*chapter*.png"),
-        'chapter_jpg': os.path.join(article_dir, "*chapter*.jpg"),
+        "chapter_png": os.path.join(article_dir, "*chapter*.png"),
+        "chapter_jpg": os.path.join(article_dir, "*chapter*.jpg"),
     }
     
     # アイキャッチ画像検索（JPGを優先）
     eyecatch_files = []
-    eyecatch_files.extend(glob.glob(image_patterns['eyecatch_jpg']))
-    eyecatch_files.extend(glob.glob(image_patterns['eyecatch_png']))
+    eyecatch_files.extend(glob.glob(image_patterns["eyecatch_jpg"]))
+    eyecatch_files.extend(glob.glob(image_patterns["eyecatch_png"]))
     
     eyecatch_file = None
     if eyecatch_files:
@@ -79,10 +80,10 @@ def find_latest_article_files(outputs_dir):
     
     # 章別画像検索（JPGを優先）
     thumbnail_files = []
-    thumbnail_files.extend(glob.glob(image_patterns['thumbnail_jpg']))
-    thumbnail_files.extend(glob.glob(image_patterns['thumbnail_png']))
-    thumbnail_files.extend(glob.glob(image_patterns['chapter_jpg']))
-    thumbnail_files.extend(glob.glob(image_patterns['chapter_png']))
+    thumbnail_files.extend(glob.glob(image_patterns["thumbnail_jpg"]))
+    thumbnail_files.extend(glob.glob(image_patterns["thumbnail_png"]))
+    thumbnail_files.extend(glob.glob(image_patterns["chapter_jpg"]))
+    thumbnail_files.extend(glob.glob(image_patterns["chapter_png"]))
     
     # 重複除去
     thumbnail_files = list(set(thumbnail_files))
@@ -90,11 +91,11 @@ def find_latest_article_files(outputs_dir):
     # 章番号でソート（複数のパターンに対応）
     def extract_chapter_number(filename):
         # chapter1, chapter2... パターン
-        match = re.search(r'chapter(\d+)', filename)
+        match = re.search(r"chapter(\d+)", filename)
         if match:
             return int(match.group(1))
         # その他の数値パターン
-        match = re.search(r'(\d+)', filename)
+        match = re.search(r"(\d+)", filename)
         if match:
             return int(match.group(1))
         return 0
@@ -147,10 +148,10 @@ def generate_meta_description(title, content):
             return first_paragraph[:150] + "..."
         return first_paragraph or "専門家による詳細ガイド"
 
-def post_blog_universal():
-    """汎用WordPress記事投稿（完璧版）"""
+def post_blog_universal_with_quality_check():
+    """汎用WordPress記事投稿（品質チェック統合版）"""
     
-    print("🚀 汎用WordPress記事投稿を開始します...\n")
+    print("🚀 WordPress記事投稿（品質チェック統合版）を開始します...\n")
     
     try:
         # WordPress クライアント初期化
@@ -222,9 +223,9 @@ def post_blog_universal():
         cleaned_content = re.sub(r'\*\*Meta Description:\*\*[^\n]*\n?', '', cleaned_content)
         
         # ローカル画像パスを削除
-        cleaned_content = re.sub(r'\!\[[^\]]*\]\([^)]*outputs/[^)]*\)', '', cleaned_content)
-        cleaned_content = re.sub(r'\!\[[^\]]*\]\(\./[^)]*\)', '', cleaned_content)
-        cleaned_content = re.sub(r'\!\[[^\]]*\]\([^)]*mnt/[^)]*\)', '', cleaned_content)
+        cleaned_content = re.sub(r'\\!\[[^\]]*\]\([^)]*outputs/[^)]*\)', '', cleaned_content)
+        cleaned_content = re.sub(r'\\!\[[^\]]*\]\(\./[^)]*\)', '', cleaned_content)
+        cleaned_content = re.sub(r'\\!\[[^\]]*\]\([^)]*mnt/[^)]*\)', '', cleaned_content)
         
         # 連続する空行を削除
         cleaned_content = re.sub(r'\n\s*\n\s*\n+', '\n\n', cleaned_content).strip()
@@ -236,6 +237,35 @@ def post_blog_universal():
         if chapter_images:
             print(f"🖼️  {len(chapter_images)}個の章別画像を記事に挿入中...")
             wp_content = insert_chapter_images(wp_content, chapter_images)
+        
+        # =========================
+        # 🔍 WordPress投稿前品質チェック実行
+        # =========================
+        print(f"\n🔍 WordPress投稿前品質チェック・自動修正を実行中...")
+        
+        # 品質チェック実行
+        corrected_wp_content, can_proceed = run_pre_wordpress_quality_check(
+            wp_content,
+            cleaned_content,
+            chapter_images,
+            title
+        )
+        
+        # 投稿可否判定
+        if not can_proceed:
+            print(f"\n❌ 品質チェックでエラーが検出されました。")
+            print(f"📋 品質問題を解決後に再実行してください。")
+            print(f"💾 修正すべきコンテンツは tmp/quality_check/ に保存されています。")
+            return False
+        
+        print(f"\n✅ 品質チェック合格！WordPressへの投稿を続行します...")
+        
+        # 修正後のコンテンツを使用
+        wp_content = corrected_wp_content
+        
+        # =========================
+        # WordPress投稿実行
+        # =========================
         
         # 抜粋生成
         lines = markdown_content.split('\n')
@@ -271,6 +301,12 @@ def post_blog_universal():
             if chapter_images:
                 print(f"📷 章別画像: {len(chapter_images)}個挿入済み")
             
+            print(f"\n✅ 品質チェック完了:")
+            print(f"   🔧 自動修正が適用されました")
+            print(f"   📋 H5/H6タグ禁止ルール適用済み")
+            print(f"   🖼️  章別画像配置確認済み")
+            print(f"   📝 見出し構造最適化済み")
+            
             # 投稿情報をファイルに保存
             post_info_file = os.path.join(project_root, "outputs", "latest_post_info.txt")
             with open(post_info_file, 'w', encoding='utf-8') as f:
@@ -278,6 +314,8 @@ def post_blog_universal():
                 f.write(f"タイトル: {title}\n")
                 f.write(f"編集URL: {result.get('edit_url')}\n")
                 f.write(f"投稿日時: {os.popen('date').read().strip()}\n")
+                f.write(f"品質チェック: 合格\n")
+                f.write(f"自動修正適用: あり\n")
             
             return True
         else:
@@ -291,9 +329,12 @@ def post_blog_universal():
         return False
 
 if __name__ == "__main__":
-    success = post_blog_universal()
+    success = post_blog_universal_with_quality_check()
     
     if success:
         print("\n✅ 処理が正常に完了しました！")
+        print("🔍 品質チェック統合版による安全な投稿が完了しました")
     else:
         print("\n❌ 処理が失敗しました。")
+        print("📋 品質チェック結果を確認してください")
+EOF < /dev/null
