@@ -251,9 +251,69 @@ Tracks different search intents for the same base keywords, enabling creation of
 - Thumbnails: 800KB or less per chapter
 - Automatic WordPress media library integration
 
+## Multi-Agent Communication and Workflow System
+
+The system operates with a sophisticated 4-agent collaboration model through tmux sessions, enhanced with automated validation and seamless communication protocols:
+
+### Agent Communication System
+
+#### Agent Configuration
+- **PRESIDENT** (separate session): Strategic oversight and quality enforcement
+- **boss1** (multiagent:0.0): Team leader and project coordination
+- **worker1,2,3** (multiagent:0.1-3): Specialized task execution
+
+#### Agent Role References
+- **PRESIDENT**: @Claude-Code-Blog-communication/instructions/president.yaml
+- **boss1**: @Claude-Code-Blog-communication/instructions/boss.yaml
+- **worker1,2,3**: @Claude-Code-Blog-communication/instructions/worker.yaml
+
+#### Message Sending Protocol
+```bash
+# Working directory: /mnt/c/home/hiroshi/blog_generator
+./Claude-Code-Blog-communication/agent-send.sh [target] "[message]"
+
+# Or absolute path (recommended)
+/mnt/c/home/hiroshi/blog_generator/Claude-Code-Blog-communication/agent-send.sh [target] "[message]"
+```
+
+#### Connection Verification
+Each Worker can verify Boss1 connection:
+```bash
+/mnt/c/home/hiroshi/blog_generator/Claude-Code-Blog-communication/agent-send.sh boss1 "接続テスト"
+```
+
+#### Communication Flow
+PRESIDENT → boss1 → workers → boss1 → PRESIDENT
+
+#### 🎯 Magic Command "接続確認" (Connection Recovery)
+**One-command complete collaboration state restoration:**
+
+```bash
+# Use in Claude Code
+接続確認
+
+# Or direct execution via unified controller
+./Claude-Code-Blog-communication/tmux-unified-controller.sh boss1 "接続確認"
+```
+
+**Automatic Execution Process:**
+1. **System Foundation Repair**: TMUX and message queue initialization
+2. **Boss1 Recovery**: Response testing, recovery processing, role redefinition
+3. **Worker Recovery**: Individual recovery, Claude Code restart, role configuration
+4. **Hierarchical Connection Test**: Complete command system verification
+5. **Collaboration State Establishment**: Final confirmation and persistent recording
+
+**Complete Autonomous Features:**
+- ✅ Automatic fault detection and repair
+- ✅ TMUX session automatic recreation
+- ✅ Claude Code automatic restart
+- ✅ Individual Worker recovery processing
+- ✅ Strict hierarchical control
+- ✅ State persistence recording
+
 ## Multi-Agent Workflow with Validation Integration
 
-The system operates with a sophisticated 4-agent collaboration model through tmux sessions, now enhanced with automated heading structure validation at multiple checkpoints:
+Enhanced 4-agent collaboration model with automated heading structure validation at multiple checkpoints:
 
 ### Agent Hierarchy and Communication
 - **President0 (Claude Code session)**: Strategic oversight, business vision, and quality standards enforcement
@@ -264,8 +324,9 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 
 #### **Phase0: エージェント初期化** (Automatic YAML Role Loading)
 Every blog generation and article update workflow now includes automatic Phase0 initialization:
-- **Boss1**: Automatically loads @Claude-Code-Blog-communication/instructions/boss.yaml
-- **Worker1,2,3**: Automatically load @Claude-Code-Blog-communication/instructions/worker.yaml
+- **Boss1**: Automatically loads `@Claude-Code-Blog-communication/instructions/boss.yaml`
+- **Worker1,2,3**: Automatically load `@Claude-Code-Blog-communication/instructions/worker.yaml`
+- **President0**: References `@Claude-Code-Blog-communication/instructions/president.yaml`
 - **Role Confirmation**: All agents confirm role understanding before proceeding to main workflow
 
 #### **tmux Session Recovery with Auto YAML Loading**
