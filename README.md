@@ -22,11 +22,13 @@ blog_generator/
 │   ├── image_generator.py      # 画像生成・最適化スクリプト
 │   ├── multi_intent_extractor.py  # 検索意図複数抽出スクリプト
 │   ├── post_blog_universal.py  # 汎用WordPress記事投稿スクリプト（統一版）
+│   ├── post_blog_universal_with_quality_check.py # 品質チェック統合WordPress投稿（推奨）
+│   ├── pre_wordpress_quality_checker.py # WordPress投稿前品質チェック・自動修正システム
 │   ├── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
 │   ├── wordpress_update_client.py # WordPress記事更新クライアント（革新的更新機能）
 │   ├── image_update_manager.py # 画像更新管理システム（AI駆動画像差し替え）
 │   ├── heading_validator.py    # 見出し構造検証ツール（H5禁止・階層チェック）
-│   ├── validate_article.py     # 投稿前記事検証CLIツール
+│   ├── validate_article.py     # 投稿前記事検証CLIツール（レガシー）
 ├── utils/              # ユーティリティ
 │   └── output_manager.py      # 出力自動分類管理
 ├── outputs/            # 生成ファイル出力（自動分類）
@@ -43,6 +45,7 @@ blog_generator/
 │   ├── image_settings.json # 画像最適化設定
 │   └── intent_variation_tracker.json # 検索意図バリエーション追跡
 ├── docs/               # ドキュメント・ガイドライン
+│   ├── wordpress-quality-check-system-guide.md # WordPress投稿前品質チェック・自動修正システムガイド（NEW）
 │   ├── rewrite-guide.md          # 記事リライト機能ガイド
 │   ├── api-endpoint-guidelines.md # WordPress APIエンドポイント使用ガイドライン
 │   ├── OUTPUTMANAGER_RULES.md    # 出力管理ルール
@@ -90,22 +93,37 @@ python scripts/image_generator.py --mode all --outline outputs/your_outline.md
 
 ### 3. 記事投稿
 
-#### 3.1 投稿前検証（推奨）
+#### 3.1 投稿前品質チェック（推奨）
 ```bash
-# 記事の見出し構造を事前に検証
+# 包括的品質チェック・自動修正
+python scripts/pre_wordpress_quality_checker.py outputs/記事名-INT-01/complete_article.md
+
+# 従来の見出し構造検証のみ（レガシー）
 python scripts/validate_article.py outputs/記事名-INT-01/complete_article.md
 ```
 
 #### 3.2 記事投稿
-最新の記事を最適化画像付きで自動投稿（どんな記事でも対応）：
+最新の記事を品質チェック付きで自動投稿（推奨）：
 ```bash
+# 品質チェック統合版（推奨）
+python scripts/post_blog_universal_with_quality_check.py
+
+# 従来版（品質チェックなし）
 python scripts/post_blog_universal.py
 ```
-**注意**: 見出し構造に問題がある場合、投稿が自動的に中止されます
+**注意**: 品質チェックで問題が発見された場合、自動修正を実施するか投稿を中止します
 
 ## 主な機能
 
-### 🔍 見出し構造検証システム（NEW）
+### 🎯 WordPress投稿前品質チェック・自動修正システム（NEW）
+- **包括的品質検証**: 見出し構造・コンテンツ・SEO要素の統合チェック
+- **自動修正機能**: テンプレート識別子除去・見出し階層修正・形式整備
+- **H5/H6タグ防止**: 見出し階層ルールの厳格な執行と自動修正
+- **WordPress変換検証**: Gutenbergブロック生成の事前確認
+- **品質レポート生成**: 詳細な品質評価と改善提案の自動生成
+- **投稿可否判定**: 品質基準に基づく自動投稿制御
+
+### 🔍 見出し構造検証システム（レガシー）
 - **投稿前検証**: H5/H6タグ禁止・階層構造の自動チェック
 - **テンプレート識別子検出**: H3-1等の残存を自動検出・警告
 - **WordPress変換検証**: Gutenbergブロック生成時の構造確認
@@ -124,15 +142,18 @@ python scripts/post_blog_universal.py
 - **PNG→JPEG変換**: 透明背景の合成とプログレッシブJPEG対応
 - **設定ファイル管理**: `config/image_settings.json`でハードコードなし設定
 
-### 🚀 記事生成・投稿（統一版スクリプト）
+### 🚀 記事生成・投稿（品質チェック統合版スクリプト）
+- **品質チェック統合**: WordPress投稿前の包括的品質検証と自動修正
 - **汎用ファイル検索**: 新旧全フォルダ構造から最新記事を自動検出（ハードコードなし）
-- **自動タイトル抽出**: マークダウンH1から自動抽出（テンプレート識別子除去）
+- **自動タイトル抽出**: マークダウンH1から自動抽出（テンプレート識別子自動除去）
 - **自動メタディスクリプション生成**: タイトル・内容ベースで自動生成
 - **完全画像対応**: .jpg/.png両方、複数命名パターン、章番号自動ソート
 - **画像自動アップロード**: アイキャッチ画像と章別サムネイルを自動アップロード
 - **章別画像挿入**: H2見出し（章番号付き）の下に自動で画像挿入
-- **見出し構造検証**: 投稿前にH5禁止・階層構造を自動チェック
-- **品質保証**: 問題発見時の自動投稿中止機能
+- **包括的品質検証**: 見出し構造・コンテンツ・SEO要素の統合チェック
+- **自動修正機能**: 品質問題の自動検出と修正実行
+- **品質レポート生成**: 詳細な品質評価と改善提案の自動出力
+- **投稿可否制御**: 品質基準に基づく自動投稿制御
 - **投稿情報保存**: outputs/latest_post_info.txt に投稿詳細を自動記録
 
 ## 📂 出力ファイル管理システム
@@ -327,7 +348,26 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 
 ## 便利な合言葉コマンド
 
-### 「記事検証」で見出し構造チェック（NEW）
+### 「品質チェック」で包括的記事検証（NEW）
+```bash
+# Claude Codeで使用
+品質チェック outputs/記事名-INT-01/complete_article.md
+
+# または直接スクリプト実行
+python scripts/pre_wordpress_quality_checker.py outputs/記事名-INT-01/complete_article.md
+```
+
+**実行内容**:
+- 見出し構造の包括的検証（H5/H6禁止・階層チェック）
+- テンプレート識別子の自動検出・除去
+- コンテンツ構造の整合性確認
+- SEO要素の最適化検証
+- WordPress変換の事前確認
+- 自動修正の実行（必要に応じて）
+- 詳細品質レポートの生成
+- 投稿可否の最終判定
+
+### 「記事検証」で見出し構造チェック（レガシー）
 ```bash
 # Claude Codeで使用
 記事検証 outputs/記事名-INT-01/complete_article.md
@@ -490,5 +530,6 @@ python scripts/organize_outputs.py
 
 ## 関連ドキュメント
 
+- **[docs/wordpress-quality-check-system-guide.md](docs/wordpress-quality-check-system-guide.md)**: WordPress投稿前品質チェック・自動修正システム（NEW）
 - **[docs/eyecatch-update-guide.md](docs/eyecatch-update-guide.md)**: アイキャッチ画像自動生成・更新機能
 - **[docs/rewrite-guide.md](docs/rewrite-guide.md)**: 記事リライト機能

@@ -81,11 +81,23 @@ python scripts/image_generator.py --outline outputs/article-name/outline.md --mo
 
 #### Publish to WordPress
 ```bash
-# Automatically find and publish latest article with Gutenberg block conversion
+# WordPress投稿（品質チェック統合版）- 推奨
+python scripts/post_blog_universal_with_quality_check.py
+
+# 従来版（品質チェックなし）
 python scripts/post_blog_universal.py
 ```
 
-**Note**: `post_blog_universal.py` automatically handles:
+**Note**: `post_blog_universal_with_quality_check.py` includes all standard features plus:
+- **Pre-publishing Quality Check**: Comprehensive article validation before WordPress posting
+- **Automatic Fixes**: Auto-correction of common quality issues
+- **H5/H6 Tag Prevention**: Strict enforcement of heading hierarchy rules
+- **Template ID Detection**: Removal of remaining template identifiers
+- **Content Structure Validation**: Verification of proper chapter organization
+- **WordPress Conversion Validation**: Gutenberg block generation verification
+- **Detailed Quality Reports**: Complete quality assessment with fix recommendations
+
+Standard features (both versions):
 - Markdown to Gutenberg block conversion for both SEO and Story patterns
 - Chapter image insertion after H2 headings
 - Proper heading structure validation (H2-H4 hierarchy)
@@ -208,11 +220,12 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 - **Heading Structure Validation**: Each worker validates chapter content using `scripts/validate_article.py`
 - **Boss Integration**: Boss1 handles lead/summary creation and final article integration with validation
 
-#### Phase 3: Parallel Image Generation & Publishing with Final Validation
+#### Phase 3: Parallel Image Generation & Publishing with Quality Assurance
 - **Parallel Image Creation**: Workers generate eyecatch and chapter-specific thumbnails
 - **Optimization Pipeline**: Automatic 95% size reduction and format optimization
-- **Pre-Publishing Validation**: Final heading structure check before WordPress posting
-- **WordPress Integration**: Automated posting with Gutenberg block formatting
+- **Pre-Publishing Quality Check**: Comprehensive validation and auto-correction system
+- **Quality Report Generation**: Detailed assessment with fix recommendations
+- **WordPress Integration**: Automated posting with verified Gutenberg block formatting
 
 ### Communication Protocols
 - **Command Structure**: President0 → Boss1 → Workers
@@ -266,7 +279,43 @@ Both SEO and Story patterns utilize the same robust block conversion process:
 - **Image Insertion Check**: Verification that chapter images appear after correct H2 headings
 - **Content Integrity**: Ensures story elements and formatting are preserved during conversion
 
-## Heading Structure Validation System
+## WordPress投稿前品質チェック・自動修正システム
+
+### Comprehensive Pre-Publishing Quality Assurance
+
+The system includes a sophisticated quality check and auto-correction system that validates articles before WordPress publishing:
+
+#### Quality Check Features
+```bash
+# Run comprehensive quality check before publishing
+python scripts/pre_wordpress_quality_checker.py outputs/article-name/complete_article.md
+
+# Publish with integrated quality check (recommended)
+python scripts/post_blog_universal_with_quality_check.py
+```
+
+#### Automated Quality Checks
+- **Heading Structure Validation**: Enforces H2-H4 hierarchy, prevents H5/H6 usage
+- **Template ID Removal**: Detects and removes template identifiers (H3-1, etc.)
+- **Content Structure Verification**: Validates chapter organization and completeness
+- **WordPress Conversion Check**: Ensures proper Gutenberg block generation
+- **SEO Elements Validation**: Confirms meta descriptions, title optimization
+- **Image Integration Verification**: Validates chapter image placement
+
+#### Automatic Fixes Applied
+- **Template ID Cleanup**: Converts template identifiers to proper headings
+- **Heading Level Correction**: Downgrades H5/H6 to H4 with styling preservation
+- **Content Structure Repair**: Fixes malformed chapter organization
+- **Markdown Cleanup**: Removes invalid formatting and fixes syntax issues
+- **SEO Optimization**: Auto-generates missing meta descriptions
+
+#### Quality Report Generation
+- **Detailed Assessment**: Comprehensive quality score with specific issue identification
+- **Fix Recommendations**: Actionable suggestions for remaining issues
+- **Compliance Verification**: Confirmation of WordPress posting readiness
+- **Quality History**: Tracking of improvements and issue resolution
+
+## Heading Structure Validation System (Legacy)
 
 ### Automated Prevention of Heading Structure Errors
 
