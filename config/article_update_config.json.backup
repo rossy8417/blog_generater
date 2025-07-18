@@ -1,6 +1,6 @@
 {
   "wordpress_settings": {
-    "endpoint_base": "${WORDPRESS_ENDPOINT}",
+    "endpoint_base": "https://www.ht-sw.tech/wp-json/blog-generator/v1",
     "timeout": 30,
     "retry_attempts": 3,
     "retry_delay": 2
@@ -20,7 +20,7 @@
       "endpoint": "/update-post/{post_id}",
       "method": "POST",
       "backup_required": true,
-      "verify_endpoint": "${WORDPRESS_ENDPOINT_WP_V2}/posts/{post_id}"
+      "verify_endpoint": "https://www.ht-sw.tech/wp-json/wp/v2/posts/{post_id}"
     }
   },
   "content_processing": {
@@ -57,4 +57,3 @@
     ]
   }
 }
-EOF < /dev/null

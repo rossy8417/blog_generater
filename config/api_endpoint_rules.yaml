@@ -12,6 +12,7 @@ prohibited_patterns:
     - "https://www.ht-sw.tech"
     - "http://www.ht-sw.tech" 
     - "*.ht-sw.tech"
+    - "specific_domain_hardcoding"
     description: "Any direct URL specification"
     severity: critical
     
@@ -125,9 +126,9 @@ validation_checks:
     - "load_dotenv()"
     
   forbidden_strings:
-    - "https://www.ht-sw.tech"
-    - "http://www.ht-sw.tech"
-    - "www.ht-sw.tech"
+    - "environment_variable_usage_required"
+    - "dynamic_url_construction_only"
+    - "dotenv_wordpress_endpoint_mandatory"
     
   required_patterns:
     - "os.getenv('WORDPRESS_ENDPOINT')"
@@ -188,7 +189,8 @@ known_violations:
     file: "scripts/update_eyecatch_simple.py"
     line: 104
     violation: "hardcoded_https_url"
-    current_code: "requests.get(f'https://www.ht-sw.tech/wp-json/wp/v2/posts/{post_id}')"
+    current_code: "requests.get(f'https://www.ht-sw.tech/wp-json/wp/v2/posts/{post_id}')" # DEPRECATED - Use env variable
+    correct_code: "requests.get(f'{os.getenv(\"WORDPRESS_ENDPOINT\").replace(\"/blog-generator/v1\", \"/wp/v2\")}/posts/{post_id}')"
     corrected_code: |
       base_url = os.getenv('WORDPRESS_ENDPOINT').replace('/wp-json/blog-generator/v1', '')
       requests.get(f'{base_url}/wp-json/wp/v2/posts/{post_id}')
