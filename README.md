@@ -339,19 +339,19 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 「**ブログ完全生成**」コマンドでユーザーの目的に応じた最適パターンを自動実行：
 
 **重要な品質管理ポイント：**
-- ✅ **H5タグ使用絶対禁止**: templates/writing.mdガイドライン厳守
+- ✅ **H5タグ使用絶対禁止**: config/content_generation_template.yamlガイドライン厳守
 - ✅ **全6章完全作成**: 第1章から第6章まですべて存在確認
 - ✅ **アイキャッチ・章別画像必須**: 画像統合の完全実行
 - ✅ **最終文字数20,000字以上**: 実際の文字数カウントで確認
 - ✅ **まとめセクション必須**: 結論・CTA統合で完結
 
 #### Phase 1: コンテンツ企画・設計
-1. **検索意図分析**: `templates/intent.md` で3語キーワードの複合的ニーズを分析
+1. **検索意図分析**: `config/intent_analysis_template.yaml` で3語キーワードの複合的ニーズを分析
 2. **意図分割**: `templates/division.md` で個別検索意図をINT-01, INT-02...に分割・JSON化
-3. **アウトライン生成**: `templates/outline.md` で記事構成・章立て作成
+3. **アウトライン生成**: `config/outline_strategy_template.yaml` で記事構成・章立て作成
 
 #### Phase 2: コンテンツ作成
-4. **各章コンテンツ作成**: `templates/writing.md` または `templates/story_writing_template.md` で章別内容執筆（第1章〜第6章）
+4. **各章コンテンツ作成**: `config/content_generation_template.yaml` または `templates/story_writing_template.md` で章別内容執筆（第1章〜第6章）
 5. **ファクトチェック実施**: 
    - WebSearchツールで統計データ・市場規模の最新性確認
    - WebFetchツールで公式ソース・専門機関データの検証
@@ -372,9 +372,9 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 ### 個別実行の場合
 
 #### Phase 1: 企画・設計段階
-- **キーワード分析**: `templates/intent.md` で3語キーワードの検索意図分析
+- **キーワード分析**: `config/intent_analysis_template.yaml` で3語キーワードの検索意図分析
 - **意図分割**: `templates/division.md` で意図をINT-01, INT-02形式でJSON化
-- **アウトライン作成**: `templates/outline.md` で章立て・構成設計
+- **アウトライン作成**: `config/outline_strategy_template.yaml` で章立て・構成設計
 
 #### Phase 2-3: 作成・公開段階
 - **記事生成のみ**: `scripts/create_final_article.py` （章執筆〜統合、OutputManager対応）
@@ -471,12 +471,12 @@ python scripts/organize_outputs.py
 **実行プロセス（11ステップ）**:
 
 **Phase 1: 企画・設計**
-1. **検索意図分析**: `templates/intent.md` でキーワード複合ニーズ分析
+1. **検索意図分析**: `config/intent_analysis_template.yaml` でキーワード複合ニーズ分析
 2. **意図分割**: `templates/division.md` で個別意図をINT番号付きJSON化
-3. **アウトライン生成**: `templates/outline.md` で記事構成・章立て作成
+3. **アウトライン生成**: `config/outline_strategy_template.yaml` で記事構成・章立て作成
 
 **Phase 2: コンテンツ作成**
-4. **各章執筆**: `templates/writing.md` で第1章〜第6章作成
+4. **各章執筆**: `config/content_generation_template.yaml` で第1章〜第6章作成
 5. **ファクトチェック**: 専門内容の正確性検証
 6. **リード文作成**: `templates/lead.md` で導入部分作成
 7. **まとめ作成**: `templates/summary.md` で結論・CTA作成
@@ -523,14 +523,14 @@ python scripts/organize_outputs.py
 
 ## テンプレート仕様
 
-### templates/outline.md (SEO・CTR最適化対応)
+### config/outline_strategy_template.yaml (SEO・CTR最適化対応)
 - **高CTRタイトル戦略**: 数字・感情トリガー・権威性・記号（【】｜）を組み合わせた魅力的なタイトル
 - **検索意図別戦略**: How-to、比較、トラブル解決、情報収集タイプに応じた最適なタイトル形式
 - **心理トリガー活用**: 緊急性・限定性・課題解決・具体的成果でクリック率向上
 - **SEO要素最適化**: 32文字以内タイトル、120文字以内メタディスクリプション、キーワード含有スラッグ
 - **競合差別化**: 独自切り口と権威性で検索結果での差別化を実現
 
-### templates/writing.md (SEO・エンゲージメント最適化対応)
+### config/content_generation_template.yaml (SEO・エンゲージメント最適化対応)
 - **キーワード最適化**: メインキーワード・関連キーワード・長尾キーワードの戦略的配置
 - **検索結果対策**: 強調スニペット・アンサーボックス・音声検索対応の構造化
 - **E-A-T強化**: 専門性・権威性・信頼性を高める統計データ・専門家コメント・出典明記
