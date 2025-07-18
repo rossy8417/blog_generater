@@ -43,15 +43,18 @@ blog_generator/
 │       ├── *.md
 │       ├── *.png
 │       └── *.jpg
-├── config/             # 設定ファイル
-│   ├── image_settings.json # 画像最適化設定
+├── config/             # 設定・ルールファイル（AI最適化YAML形式）
+│   ├── api_endpoint_rules.yaml   # WordPress APIエンドポイント使用ルール
+│   ├── rewrite_options.yaml      # 記事リライト戦略・オプション
+│   ├── article_update_procedures.yaml # 記事更新手順・プロシージャ
+│   ├── file_management_rules.yaml # ファイル管理統一ルール
+│   ├── image_management_rules.yaml # 画像管理統一ルール（consolidated統合版）
+│   ├── quality_check_rules.yaml  # WordPress品質チェック・自動修正ルール
+│   ├── image_settings.json       # 画像最適化設定
 │   └── intent_variation_tracker.json # 検索意図バリエーション追跡
-├── docs/               # ドキュメント・ガイドライン
-│   ├── wordpress-quality-check-system-guide.md # WordPress投稿前品質チェック・自動修正システムガイド（NEW）
-│   ├── rewrite-guide.md          # 記事リライト機能ガイド
-│   ├── api-endpoint-guidelines.md # WordPress APIエンドポイント使用ガイドライン
-│   ├── file-management-comprehensive-guide.md  # ファイル管理包括ガイド（統合版）
-│   └── その他システムガイド各種
+├── docs/               # ドキュメント・履歴（説明系）
+│   ├── system-improvements-history.md # Phase1開発履歴
+│   └── shell-script-integration-report.md # シェルスクリプト統合レポート
 ├── Claude-Code-Blog-communication/ # tmux関連システム
 │   ├── agent-send.sh             # エージェント間通信スクリプト
 │   ├── monitoring_system.sh      # 監視システム
@@ -269,8 +272,7 @@ python scripts/post_blog_universal.py
 - **統合システム**: consolidated_image_manager.pyによる一元化
 
 > **📋 画像更新ガイド**: 
-> - **[統合画像管理ガイド](docs/consolidated-image-manager-guide.md)**: 新規生成・更新・バージョン管理の統合システム
-> - **[画像管理完全ガイド](docs/image-management-complete-guide.md)**: アイキャッチ・章別画像の包括的管理ガイド（統合版）
+> - **[統合画像管理ルール](config/image_management_rules.yaml)**: 新規生成・更新・バージョン管理の統合システム（AI最適化YAML形式）
 
 #### 📝 コンテンツ更新機能
 - **全文リライト**: 記事内容の完全書き換え
@@ -458,7 +460,7 @@ python scripts/organize_outputs.py
 - 6つのリライトオプションから選択可能
 - Claude Code主導の高品質リライト実行
 
-> **📋 詳細ガイド**: リライト機能の詳細な手順と各オプションについては [docs/rewrite-guide.md](docs/rewrite-guide.md) を参照してください
+> **📋 詳細ガイド**: リライト機能の詳細な手順と各オプションについては [config/rewrite_options.yaml](config/rewrite_options.yaml) を参照してください
 
 ### 「ブログ完全生成」でワンストップ作成
 ```bash
@@ -566,6 +568,6 @@ python scripts/organize_outputs.py
 
 ## 関連ドキュメント
 
-- **[docs/wordpress-quality-check-system-guide.md](docs/wordpress-quality-check-system-guide.md)**: WordPress投稿前品質チェック・自動修正システム（NEW）
-- **[docs/eyecatch-update-guide.md](docs/eyecatch-update-guide.md)**: アイキャッチ画像自動生成・更新機能
-- **[docs/rewrite-guide.md](docs/rewrite-guide.md)**: 記事リライト機能
+- **[config/quality_check_rules.yaml](config/quality_check_rules.yaml)**: WordPress投稿前品質チェック・自動修正システム（AI最適化YAML形式）
+- **[config/image_management_rules.yaml](config/image_management_rules.yaml)**: アイキャッチ画像自動生成・更新機能（統合版）
+- **[config/rewrite_options.yaml](config/rewrite_options.yaml)**: 記事リライト機能
