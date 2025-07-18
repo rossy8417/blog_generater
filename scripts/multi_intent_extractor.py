@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Multi-Intent Extractor - 検索意図分析から複数のINT候補を抽出
-templates/intent.mdの分析結果から、メイン意図以外のサブ意図を抽出し、
+config/intent_analysis_template.yamlの分析結果から、メイン意図以外のサブ意図を抽出し、
 高意図レベルのものを新しいINT候補として記録する
 """
 
@@ -16,7 +16,7 @@ def extract_sub_intents(analysis_result: str) -> List[Dict]:
     検索意図分析結果から複数の意図を抽出
     
     Args:
-        analysis_result: templates/intent.mdによる分析結果テキスト
+        analysis_result: config/intent_analysis_template.yamlによる分析結果テキスト
         
     Returns:
         抽出されたサブ意図のリスト
@@ -165,7 +165,7 @@ def process_multi_intent_analysis(original_keyword: str, analysis_result: str) -
     
     Args:
         original_keyword: 元のキーワード（例：「生成AI 定型業務 自動化」）
-        analysis_result: templates/intent.mdによる分析結果
+        analysis_result: config/intent_analysis_template.yamlによる分析結果
         
     Returns:
         処理結果

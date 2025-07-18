@@ -9,9 +9,9 @@ metadata:
 # Core principles
 core_principles:
   outputs_centralization:
-    main_principle: "All deliverables managed in outputs/[title-INT-XX]/ structure"
+    main_principle: "All deliverables managed in outputs/final_articles/[title-INT-XX]/ structure"
     scatter_prevention: "Root directory direct output completely prohibited"
-    temporary_separation: "tmp/ for work only, deliverable storage prohibited"
+    temporary_separation: "tmp/ categorized by function: agent_work/, quality_checks/, temporary_files/"
     
   responsibility_clarification:
     boss1: "Directory creation, integration work, WordPress posting preparation"
@@ -21,43 +21,69 @@ core_principles:
 # Agent responsibility matrix
 agent_responsibilities:
   boss1:
-    phase1: "Create outputs/[title-INT-XX]/ directory"
+    phase1: "Create outputs/final_articles/[title-INT-XX]/ directory"
     phase2: "Create complete_article.md during integration"
     phase3: "Execute WordPress posting"
     
   worker1:
     phase2: 
-      - "outputs/[title-INT-XX]/chapter1.md"
-      - "outputs/[title-INT-XX]/chapter2.md"
+      - "outputs/final_articles/[title-INT-XX]/chapter1.md"
+      - "outputs/final_articles/[title-INT-XX]/chapter2.md"
     phase3:
-      - "outputs/[title-INT-XX]/eyecatch.jpg"
+      - "outputs/final_articles/[title-INT-XX]/eyecatch.jpg"
       
   worker2:
     phase2:
-      - "outputs/[title-INT-XX]/chapter3.md" 
-      - "outputs/[title-INT-XX]/chapter4.md"
+      - "outputs/final_articles/[title-INT-XX]/chapter3.md" 
+      - "outputs/final_articles/[title-INT-XX]/chapter4.md"
     phase3:
-      - "outputs/[title-INT-XX]/chapter1.jpg"
-      - "outputs/[title-INT-XX]/chapter2.jpg"
-      - "outputs/[title-INT-XX]/chapter3.jpg"
+      - "outputs/final_articles/[title-INT-XX]/chapter1.jpg"
+      - "outputs/final_articles/[title-INT-XX]/chapter2.jpg"
+      - "outputs/final_articles/[title-INT-XX]/chapter3.jpg"
       
   worker3:
     phase2:
-      - "outputs/[title-INT-XX]/chapter5.md"
-      - "outputs/[title-INT-XX]/chapter6.md"
+      - "outputs/final_articles/[title-INT-XX]/chapter5.md"
+      - "outputs/final_articles/[title-INT-XX]/chapter6.md"
     phase3:
-      - "outputs/[title-INT-XX]/chapter4.jpg"
-      - "outputs/[title-INT-XX]/chapter5.jpg"
-      - "outputs/[title-INT-XX]/chapter6.jpg"
+      - "outputs/final_articles/[title-INT-XX]/chapter4.jpg"
+      - "outputs/final_articles/[title-INT-XX]/chapter5.jpg"
+      - "outputs/final_articles/[title-INT-XX]/chapter6.jpg"
 
 # Unified directory structure
 directory_structure:
   outputs:
     location: "outputs/"
-    description: "All deliverables unified management"
+    description: "All deliverables and project management"
     
-    project_structure:
+    final_articles:
+      location: "outputs/final_articles/"
       pattern: "[title-INT-XX]/"
+      description: "Published article deliverables"
+      
+    current_work:
+      location: "outputs/current_work/"
+      description: "Active project files and drafts"
+      
+    archives:
+      location: "outputs/archives/"
+      description: "Completed project reports and historical data"
+      
+  tmp:
+    location: "tmp/"
+    description: "Temporary working files categorized by function"
+    
+    agent_work:
+      location: "tmp/agent_work/"
+      description: "Multi-agent collaboration files and logs"
+      
+    quality_checks:
+      location: "tmp/quality_checks/"
+      description: "Validation, testing, and quality assurance files"
+      
+    temporary_files:
+      location: "tmp/temporary_files/"
+      description: "Short-term processing and draft files"
       required_files:
         articles:
           - "complete_article.md"    # Final integrated article (fixed filename)

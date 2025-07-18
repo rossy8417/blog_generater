@@ -12,13 +12,13 @@ This is a comprehensive WordPress blog article generation and management system 
 The system supports two distinct content creation patterns:
 
 #### **SEO Optimization Pattern** (keyword-based articles)
-- **templates/**: Contains prompt templates for each phase of content creation
-  - `intent.md`: Search intent analysis
-  - `division.md`: Intent variation splitting
-  - `outline.md`: Article structure planning
-  - `writing.md`: Chapter-by-chapter content creation
-  - `lead.md` / `summary.md`: Introduction/conclusion generation
-  - `eyecatch.md` / `thumbnail.md`: Image generation prompts
+- **Hybrid Template System**: AI-optimized YAML + Human-readable Markdown
+  - `config/intent_analysis_template.yaml`: Advanced search intent analysis with morphological framework
+  - `templates/division.md`: Intent variation splitting (JSON extraction)
+  - `config/outline_strategy_template.yaml`: CTR-optimized article structure planning
+  - `config/content_generation_template.yaml`: SEO-optimized chapter creation
+  - `templates/lead.md` / `templates/summary.md`: Introduction/conclusion generation
+  - `templates/eyecatch.md` / `config/thumbnail_generation_template.yaml`: Image generation
 
 #### **Story Quality Pattern** (theme-based articles)
 - **Story Templates**: Focus on narrative engagement and intellectual curiosity
@@ -44,12 +44,18 @@ The system supports two distinct content creation patterns:
 5. **Gutenberg Integration**: Convert story content to WordPress blocks while preserving engagement elements
 
 ### File Organization System
-- **outputs/**: Final deliverables organized as `{title}-INT-{number}/`
-  - `complete_article.md`: Final article content
-  - `metadata.json`: Article metadata
-  - `*eyecatch*.jpg`: Main article image
-  - `*chapter*.jpg`: Chapter-specific images
-- **tmp/**: Temporary working files and development artifacts
+- **outputs/**: Final deliverables and completed projects
+  - `final_articles/{title}-INT-{number}/`: Published articles
+    - `complete_article.md`: Final article content
+    - `metadata.json`: Article metadata
+    - `*eyecatch*.jpg`: Main article image
+    - `*chapter*.jpg`: Chapter-specific images
+  - `current_work/`: Active project files
+  - `archives/`: Completed project reports and historical data
+- **tmp/**: Temporary working files categorized by function
+  - `agent_work/`: Multi-agent collaboration files
+  - `quality_checks/`: Validation and testing files
+  - `temporary_files/`: Short-term processing files
 - **scripts/**: Main execution scripts
 - **utils/**: Shared utilities and managers
 

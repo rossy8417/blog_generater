@@ -150,7 +150,7 @@ class Boss1ConfusionPrevention:
         print(f"  - 除去: {len(clear_report['cleared_items'])}項目")
         print(f"  - 保持: {len(clear_report['preserved_items'])}項目")
         
-        print(f"\n✅ Boss1参照ファイル: tmp/current_project_reference.md")
+        print(f"\n✅ Boss1参照ファイル: tmp/agent_work/current_project_reference.md")
         print("="*60)
 
 def main():

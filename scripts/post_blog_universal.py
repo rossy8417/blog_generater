@@ -255,7 +255,7 @@ def post_blog_universal_with_quality_check():
         if not can_proceed:
             print(f"\n❌ 品質チェックでエラーが検出されました。")
             print(f"📋 品質問題を解決後に再実行してください。")
-            print(f"💾 修正すべきコンテンツは tmp/quality_check/ に保存されています。")
+            print(f"💾 修正すべきコンテンツは tmp/quality_checks/ に保存されています。")
             return False
         
         print(f"\n✅ 品質チェック合格！WordPressへの投稿を続行します...")
