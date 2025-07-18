@@ -347,7 +347,7 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 
 #### Phase 1: コンテンツ企画・設計
 1. **検索意図分析**: `config/intent_analysis_template.yaml` で3語キーワードの複合的ニーズを分析
-2. **意図分割**: `templates/division.md` で個別検索意図をINT-01, INT-02...に分割・JSON化
+2. **意図分割**: `config/intent_division_template.yaml` で個別検索意図をINT-01, INT-02...に分割・JSON化
 3. **アウトライン生成**: `config/outline_strategy_template.yaml` で記事構成・章立て作成
 
 #### Phase 2: コンテンツ作成
@@ -359,8 +359,8 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
    - ファクトチェックレポート作成（factcheck_report_worker*.md）
    - 検出された問題点の修正と信頼性向上
 6. **見出し構造検証**: 各章の見出し階層とH5禁止ルールの確認
-7. **リード文生成**: `templates/lead.md` で導入部分作成
-8. **まとめ生成**: `templates/summary.md` で結論・CTA作成
+7. **リード文生成**: `config/lead_generation_template.yaml` で導入部分作成
+8. **まとめ生成**: `config/summary_generation_template.yaml` で結論・CTA作成
 9. **完全記事統合**: 全セクションを統合した完全版記事作成
 10. **最終構造検証**: 統合記事の見出し構造最終チェック
 
@@ -373,7 +373,7 @@ WORDPRESS_ENDPOINT=your_wordpress_url     # WordPress API URL
 
 #### Phase 1: 企画・設計段階
 - **キーワード分析**: `config/intent_analysis_template.yaml` で3語キーワードの検索意図分析
-- **意図分割**: `templates/division.md` で意図をINT-01, INT-02形式でJSON化
+- **意図分割**: `config/intent_division_template.yaml` で意図をINT-01, INT-02形式でJSON化
 - **アウトライン作成**: `config/outline_strategy_template.yaml` で章立て・構成設計
 
 #### Phase 2-3: 作成・公開段階
@@ -472,14 +472,14 @@ python scripts/organize_outputs.py
 
 **Phase 1: 企画・設計**
 1. **検索意図分析**: `config/intent_analysis_template.yaml` でキーワード複合ニーズ分析
-2. **意図分割**: `templates/division.md` で個別意図をINT番号付きJSON化
+2. **意図分割**: `config/intent_division_template.yaml` で個別意図をINT番号付きJSON化
 3. **アウトライン生成**: `config/outline_strategy_template.yaml` で記事構成・章立て作成
 
 **Phase 2: コンテンツ作成**
 4. **各章執筆**: `config/content_generation_template.yaml` で第1章〜第6章作成
 5. **ファクトチェック**: 専門内容の正確性検証
-6. **リード文作成**: `templates/lead.md` で導入部分作成
-7. **まとめ作成**: `templates/summary.md` で結論・CTA作成
+6. **リード文作成**: `config/lead_generation_template.yaml` で導入部分作成
+7. **まとめ作成**: `config/summary_generation_template.yaml` で結論・CTA作成
 8. **記事統合**: 全セクション統合で完全版記事完成
 
 **Phase 3: 画像生成・公開**
@@ -497,7 +497,7 @@ python scripts/organize_outputs.py
 - **E-A-T強化**: 専門性・権威性・信頼性を高める統計データ・専門家コメント活用
 - **章見出し構造修正**: 章見出しをH2タグで正しく出力（SEO最適化）
 - **画像最適化**: アイキャッチ95%サイズ削減、WordPress 504エラー解決
-- **まとめ見出し修正**: `templates/summary.md` で `## まとめ` → `# まとめ` に変更
+- **まとめ見出し修正**: `config/summary_generation_template.yaml` で `## まとめ` → `# まとめ` に変更
 - **CTA更新**: ＳＡＴＯ-ＡＩ塾とＨＴサポートワークスへの誘導追加
 - **WordPress画像挿入**: 章見出し下への画像自動挿入機能（Gutenbergブロック対応）
 - **ハードコード除去**: `scripts/create_final_article.py` で固定パスを動的化、OutputManager完全対応
@@ -540,7 +540,7 @@ python scripts/organize_outputs.py
 - **章末まとめ禁止**: 各章の末尾にまとめセクションは作成しない
 - **テンプレート識別子除去**: `H3-1`、`H3-2`などの識別子は実際の見出し名に変換
 
-### templates/summary.md
+### config/summary_generation_template.yaml
 - **見出しレベル**: `## まとめ` （H2タグでWordPress表示対応）
 - **CTA更新**: SATO-AI塾とHTサポートワークスへの誘導リンク追加
 - **行動促進**: 具体的なアクションプランと次のステップ提示

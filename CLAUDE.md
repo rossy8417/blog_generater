@@ -14,11 +14,11 @@ The system supports two distinct content creation patterns:
 #### **SEO Optimization Pattern** (keyword-based articles)
 - **Hybrid Template System**: AI-optimized YAML + Human-readable Markdown
   - `config/intent_analysis_template.yaml`: Advanced search intent analysis with morphological framework
-  - `templates/division.md`: Intent variation splitting (JSON extraction)
+  - `config/intent_division_template.yaml`: Intent variation splitting (JSON extraction)
   - `config/outline_strategy_template.yaml`: CTR-optimized article structure planning
   - `config/content_generation_template.yaml`: SEO-optimized chapter creation
-  - `templates/lead.md` / `templates/summary.md`: Introduction/conclusion generation
-  - `templates/eyecatch.md` / `config/thumbnail_generation_template.yaml`: Image generation
+  - `config/lead_generation_template.yaml` / `config/summary_generation_template.yaml`: Introduction/conclusion generation
+  - `config/eyecatch_generation_template.yaml` / `config/thumbnail_generation_template.yaml`: Image generation
 
 #### **Story Quality Pattern** (theme-based articles)
 - **Story Templates**: Focus on narrative engagement and intellectual curiosity
@@ -423,9 +423,9 @@ Implements 15-second intervals between Worker reports to ensure all reports are 
 ### Workflow Execution Model
 
 #### Phase 1: Strategic Planning (Boss1 Solo)
-1. **Search Intent Analysis**: Using templates/intent.md for keyword analysis
-2. **Intent Division**: Creating INT-numbered variations with templates/division.md
-3. **Outline Creation**: SEO-optimized structure with templates/outline.md
+1. **Search Intent Analysis**: Using config/intent_analysis_template.yaml for keyword analysis
+2. **Intent Division**: Creating INT-numbered variations with config/intent_division_template.yaml
+3. **Outline Creation**: SEO-optimized structure with config/outline_strategy_template.yaml
 
 #### Phase 2: Parallel Content Creation with Validation
 - **Parallel Execution**: All 3 workers simultaneously create their assigned chapters
