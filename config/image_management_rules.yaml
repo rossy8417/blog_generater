@@ -1,0 +1,387 @@
+# Image Management Rules - AI-Optimized Configuration
+# Comprehensive WordPress image management with Consolidated Image Manager integration
+
+metadata:
+  title: "Image Management Complete Rules (Consolidated System)"
+  purpose: "Unified WordPress image management with consolidated_image_manager.py - complete integration"
+  ai_processing: "Fast image operation lookup and management procedures"
+  source_integration: "consolidated-image-manager-guide.md fully integrated"
+
+# Core image management principles
+core_principles:
+  unified_management:
+    primary_tool: "consolidated_image_manager.py"
+    centralized_operations: "All image operations through single interface"
+    wordpress_integration: "Direct WordPress media library management"
+    
+  quality_standards:
+    eyecatch_optimization: "95% size reduction for optimal loading"
+    chapter_thumbnails: "800KB or less per image"
+    format_standardization: "JPEG with progressive encoding"
+
+# Image types and specifications
+image_specifications:
+  eyecatch_images:
+    generator: "OpenAI gpt-image-1"
+    purpose: "Main article visual with Japanese text embedding"
+    size_limit: "500KB or less after optimization"
+    optimization: "95% size reduction standard"
+    format: "Progressive JPEG with transparency handling"
+    
+  chapter_thumbnails:
+    generator: "Google Imagen 3"
+    purpose: "Chapter-specific visual storytelling"
+    size_limit: "800KB or less per image"
+    count: "6 images (chapter1.jpg through chapter6.jpg)"
+    format: "Optimized JPEG"
+    
+  file_naming:
+    eyecatch: "*eyecatch*.jpg"
+    chapters: "*chapter{n}*.jpg (where n = 1-6)"
+    location: "outputs/[title-INT-XX]/"
+
+# Consolidated Image Manager System Integration
+consolidated_system:
+  overview: "統合画像管理システム(consolidated_image_manager.py)による3機能統合"
+  integrated_components:
+    image_generator: "新規アイキャッチ・サムネイル画像の生成"
+    image_update_manager: "WordPressの画像更新・バージョン管理"
+    update_eyecatch_simple: "簡単なアイキャッチ更新"
+
+# Command system (consolidated_image_manager.py)
+command_system:
+  new_image_generation:
+    all_images:
+      command: "python3 scripts/consolidated_image_manager.py generate --outline outputs/article/outline.md --mode all"
+      description: "全画像生成（アイキャッチ + サムネイル）"
+      
+    eyecatch_only:
+      command: "python3 scripts/consolidated_image_manager.py generate --outline outputs/article/outline.md --mode eyecatch"
+      description: "アイキャッチのみ生成"
+      
+    specific_chapter:
+      command: "python3 scripts/consolidated_image_manager.py generate --outline outputs/article/outline.md --mode thumbnail --chapter 1"
+      description: "特定章のサムネイル生成"
+      
+  wordpress_updates:
+    eyecatch_update:
+      command: "python3 scripts/consolidated_image_manager.py update --post-id 1234 --type eyecatch"
+      description: "アイキャッチ画像の更新"
+      
+    custom_eyecatch:
+      command: "python3 scripts/consolidated_image_manager.py update --post-id 1234 --type eyecatch --prompt \"Custom image prompt\""
+      description: "カスタムプロンプトでアイキャッチ更新"
+      
+    chapter_update:
+      command: "python3 scripts/consolidated_image_manager.py update --post-id 1234 --type chapter --chapter-num 1"
+      description: "特定章の画像更新"
+      
+  quick_operations:
+    simple_update:
+      command: "python3 scripts/consolidated_image_manager.py quick-update 1234"
+      description: "従来のupdate_eyecatch_simple.pyと同等の機能"
+      
+    custom_quick_update:
+      command: "python3 scripts/consolidated_image_manager.py quick-update 1234 --prompt \"Custom prompt\""
+      description: "カスタムプロンプト指定"
+      
+  version_management:
+    history_display:
+      command: "python3 scripts/consolidated_image_manager.py version --post-id 1234 --action history"
+      description: "画像更新履歴の表示"
+      
+    type_specific_history:
+      command: "python3 scripts/consolidated_image_manager.py version --post-id 1234 --action history --type eyecatch"
+      description: "特定タイプの履歴表示"
+      
+    version_restore:
+      command: "python3 scripts/consolidated_image_manager.py version --post-id 1234 --action restore --version-id VERSION_ID"
+      description: "バージョン復元（メタデータ表示）"
+
+# Technical specifications
+technical_specifications:
+  supported_apis:
+    openai_gpt_image_1:
+      purpose: "アイキャッチ画像生成（日本語テキスト対応）"
+      features: "Japanese text embedding, professional design"
+      
+    google_imagen_3:
+      purpose: "サムネイル画像生成（テキストなし、16:9アスペクト比）"
+      features: "High quality visual generation, aspect ratio consistency"
+      
+    wordpress_rest_api:
+      purpose: "画像アップロード・記事更新"
+      features: "Media library integration, automated uploads"
+      
+  image_optimization_settings:
+    eyecatch_images:
+      target_size: "1200×675px (16:9)"
+      max_file_size: "500KB"
+      jpeg_quality: "85 (段階的に調整)"
+      format: "JPEG（最適化済み）"
+      
+    thumbnail_images:
+      target_size: "800×450px (16:9)"
+      max_file_size: "800KB"
+      jpeg_quality: "80 (段階的に調整)"
+      format: "JPEG（最適化済み）"
+
+# File structure for consolidated system
+consolidated_file_structure:
+  pattern: |
+    outputs/
+    ├── image_version_db.json          # バージョン管理データベース
+    └── {title}-INT-{number}/          # 記事別フォルダ
+        ├── complete_article.md
+        ├── metadata.json
+        ├── {timestamp}_eyecatch.jpg   # アイキャッチ画像
+        └── {timestamp}_chapter*.jpg   # 章別画像
+
+# Environment requirements
+environment_setup:
+  required_env_variables:
+    google_api_key: "your_gemini_api_key (Google Imagen 3用)"
+    openai_api_key: "your_openai_api_key (OpenAI gpt-image-1用)" 
+    wordpress_api_key: "your_wordpress_api_key (WordPress更新用)"
+    wordpress_endpoint: "your_wordpress_url (WordPress API URL)"
+    
+  dependencies:
+    - "google-genai (Google Imagen 3)"
+    - "openai (OpenAI gpt-image-1)"
+    - "Pillow (画像処理)"
+    - "requests (HTTP通信)"
+    - "python-dotenv (環境変数管理)"
+    - "numpy (数値計算)"
+
+# System advantages
+system_advantages:
+  centralized_management:
+    - "全ての画像操作を単一のコマンドで実行"
+    - "統一されたコマンド体系とオプション"
+    - "統合された設定とログ管理"
+    
+  backward_compatibility:
+    - "既存スクリプトとの互換性維持"
+    - "quick-updateコマンドで従来の簡単更新を提供"
+    - "既存のワークフローに影響なし"
+    
+  feature_expansion:
+    - "バージョン管理システムの追加"
+    - "画像互換性分析"
+    - "自動最適化の強化"
+    - "エラーハンドリングの改善"
+    
+  operational_efficiency:
+    - "コマンド実行の簡素化"
+    - "自動分類と整理"
+    - "詳細なログとステータス表示"
+    - "バッチ処理対応"
+
+# Consolidated operations
+  eyecatch_management:
+    update_command: "python scripts/consolidated_image_manager.py --post-id {id} --eyecatch-update"
+    generation: "Generate new eyecatch with current article context"
+    optimization: "Automatic size reduction and format conversion"
+    wordpress_upload: "Direct media library integration"
+    
+  chapter_image_management:
+    update_command: "python scripts/consolidated_image_manager.py --post-id {id} --chapter-images"
+    batch_generation: "Generate all 6 chapter thumbnails"
+    individual_update: "Update specific chapter images"
+    insertion_validation: "Verify correct H2 heading placement"
+    
+  bulk_operations:
+    full_image_update: "python scripts/consolidated_image_manager.py --post-id {id} --full-update"
+    batch_optimization: "Optimize all images in project"
+    quality_verification: "Comprehensive image quality check"
+
+# WordPress integration procedures
+wordpress_integration:
+  media_library_management:
+    upload_process: "Direct API upload to WordPress media library"
+    duplicate_handling: "Check existing images before upload"
+    metadata_preservation: "Maintain alt text and descriptions"
+    
+  content_insertion:
+    eyecatch_setting: "Set as featured image for article"
+    chapter_placement: "Insert after H2 headings automatically"
+    block_structure: "Convert to proper Gutenberg image blocks"
+    responsive_sizing: "Ensure mobile-friendly display"
+    
+  verification_protocols:
+    upload_confirmation: "Verify successful media library integration"
+    display_validation: "Check frontend image display"
+    editor_verification: "Confirm correct editor preview"
+
+# Image generation workflows
+generation_workflows:
+  eyecatch_generation:
+    phase: "Phase3 - Worker1 responsibility"
+    input_source: "Article outline and content analysis"
+    style_requirements: "Japanese text integration, professional design"
+    api_integration: "OpenAI gpt-image-1 with retry mechanisms"
+    
+  chapter_thumbnails:
+    phase: "Phase3 - Worker2 and Worker3 responsibility"
+    distribution:
+      worker2: "chapter1.jpg, chapter2.jpg, chapter3.jpg"
+      worker3: "chapter4.jpg, chapter5.jpg, chapter6.jpg"
+    style_consistency: "Maintain visual coherence across chapters"
+    content_relevance: "Match chapter-specific content themes"
+
+# Quality assurance protocols
+quality_assurance:
+  image_validation:
+    file_existence: "Verify all required images present"
+    size_compliance: "Check file size limits"
+    format_verification: "Ensure proper JPEG format"
+    optimization_confirmation: "Validate compression levels"
+    
+  wordpress_validation:
+    media_library_check: "Confirm images in WordPress media library"
+    article_display: "Verify images appear in article"
+    mobile_compatibility: "Test responsive image display"
+    loading_performance: "Validate page load impact"
+    
+  content_integration:
+    heading_alignment: "Chapter images placed after correct H2 headings"
+    block_structure: "Proper Gutenberg block formatting"
+    alt_text_presence: "Accessibility compliance"
+
+# Update and replacement procedures
+update_procedures:
+  individual_image_updates:
+    eyecatch_only: "python scripts/consolidated_image_manager.py --post-id {id} --eyecatch-only"
+    specific_chapter: "python scripts/consolidated_image_manager.py --post-id {id} --chapter {number}"
+    batch_chapters: "python scripts/consolidated_image_manager.py --post-id {id} --chapters 1,3,5"
+    
+  version_management:
+    backup_creation: "Auto-backup original images before updates"
+    rollback_capability: "Restore previous image versions if needed"
+    change_tracking: "Log all image modifications with timestamps"
+    
+  emergency_procedures:
+    image_corruption: "Auto-regenerate from article content"
+    upload_failures: "Retry with exponential backoff"
+    size_violations: "Auto-optimize and re-upload"
+
+# Performance optimization
+performance_optimization:
+  generation_efficiency:
+    parallel_processing: "Generate multiple chapter images simultaneously"
+    api_rate_limiting: "Respect OpenAI and Google API limits"
+    cache_utilization: "Reuse similar images when appropriate"
+    
+  upload_optimization:
+    batch_uploads: "Upload multiple images in single session"
+    compression_staging: "Pre-optimize before upload"
+    connection_pooling: "Efficient WordPress API usage"
+    
+  storage_management:
+    local_cleanup: "Remove temporary generation files"
+    wordpress_cleanup: "Manage media library storage efficiently"
+    backup_rotation: "Rotate old image backups"
+
+# Error handling and recovery
+error_handling:
+  generation_failures:
+    api_errors: "Retry with alternative prompts"
+    rate_limits: "Implement waiting periods and retry logic"
+    quality_issues: "Auto-regenerate with improved prompts"
+    
+  upload_failures:
+    network_errors: "Retry with exponential backoff"
+    authentication_issues: "Verify WordPress credentials"
+    file_size_errors: "Auto-optimize and retry"
+    
+  integration_failures:
+    block_corruption: "Regenerate Gutenberg blocks"
+    placement_errors: "Correct H2 heading alignment"
+    display_issues: "Validate WordPress theme compatibility"
+
+# Automation and scheduling
+automation_features:
+  scheduled_updates:
+    routine_optimization: "Monthly image optimization sweeps"
+    quality_monitoring: "Weekly image quality assessments"
+    performance_analysis: "Monthly performance impact reviews"
+    
+  triggered_operations:
+    content_updates: "Auto-update chapter images when content changes"
+    template_changes: "Regenerate images when templates update"
+    quality_degradation: "Auto-fix when quality issues detected"
+
+# Integration with article workflows
+workflow_integration:
+  article_creation:
+    timing: "Images generated after content completion"
+    dependencies: "Require complete article outline"
+    validation: "Quality check before WordPress posting"
+    
+  article_updates:
+    selective_updates: "Only update images when content significantly changes"
+    consistency_maintenance: "Ensure visual coherence with updated content"
+    user_preference: "Respect user's image update preferences"
+    
+  multi_agent_coordination:
+    phase_synchronization: "Coordinate with content creation phases"
+    progress_tracking: "Monitor image generation progress"
+    error_escalation: "Report issues to appropriate agents"
+
+# Monitoring and analytics
+monitoring_systems:
+  performance_metrics:
+    generation_success_rate: "Track successful image generations"
+    upload_success_rate: "Monitor WordPress integration success"
+    optimization_efficiency: "Measure size reduction effectiveness"
+    
+  quality_metrics:
+    visual_consistency: "Assess coherence across article images"
+    content_relevance: "Evaluate image-content alignment"
+    user_engagement: "Monitor image-related user interactions"
+    
+  operational_metrics:
+    processing_time: "Track image generation and upload times"
+    resource_usage: "Monitor API quota and system resources"
+    error_frequency: "Track and analyze failure patterns"
+
+# Usage examples and best practices
+usage_examples:
+  routine_image_update:
+    scenario: "Update article 1234 images"
+    command: "python scripts/consolidated_image_manager.py --post-id 1234 --full-update"
+    expected_outcome: "All images regenerated and uploaded to WordPress"
+    
+  selective_chapter_update:
+    scenario: "Update only chapters 2 and 4"
+    command: "python scripts/consolidated_image_manager.py --post-id 1234 --chapters 2,4"
+    expected_outcome: "Chapter 2 and 4 images updated, others preserved"
+    
+  eyecatch_emergency_fix:
+    scenario: "Quickly fix corrupted eyecatch"
+    command: "python scripts/consolidated_image_manager.py --post-id 1234 --eyecatch-only --force"
+    expected_outcome: "New eyecatch generated and uploaded immediately"
+
+# Maintenance and support
+maintenance_procedures:
+  regular_maintenance:
+    weekly_tasks:
+      - "Image quality assessment"
+      - "WordPress media library cleanup"
+      - "Performance impact analysis"
+      
+    monthly_tasks:
+      - "Bulk image optimization"
+      - "API usage review"
+      - "System performance evaluation"
+      
+  troubleshooting_guides:
+    common_issues:
+      generation_failures: "Check API credentials and quota"
+      upload_problems: "Verify WordPress connectivity and permissions"
+      quality_issues: "Review generation prompts and optimization settings"
+      
+  support_resources:
+    log_files: "Check logs/image_management/ for detailed operation logs"
+    debug_mode: "Enable verbose logging for troubleshooting"
+    recovery_tools: "Use backup restoration for emergency recovery"

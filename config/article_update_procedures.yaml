@@ -1,0 +1,414 @@
+# Article Update System Procedures - AI-Optimized Configuration
+# Structured procedures for reliable WordPress article updates
+
+metadata:
+  title: "Universal Article Update System Guide"
+  purpose: "Reproducible and scalable article update system with hardcoding elimination"
+  ai_processing: "Fast procedure lookup and configuration-based management"
+
+# System overview and success analysis
+system_overview:
+  description: "再現性と汎用性を重視した記事更新システム"
+  key_benefits:
+    - "ハードコーディング排除"
+    - "設定ベース管理"
+    - "任意記事ID対応"
+    - "安定した更新処理"
+
+success_factors:
+  proven_effective:
+    post_method:
+      description: "POST メソッドの使用"
+      reason: "PUT ではなく POST が SiteGuard セキュリティを通過"
+      priority: critical
+      
+    x_api_key_auth:
+      description: "X-API-Key 認証"
+      reason: "WordPress プラグインの専用認証ヘッダーが有効"
+      priority: critical
+      
+    content_preprocessing:
+      description: "適切なコンテンツ前処理"
+      includes:
+        - "H5 タグ除去"
+        - "重複 H4 修正"
+        - "画像復元"
+      priority: high
+      
+    backup_image_restoration:
+      description: "バックアップからの画像復元"
+      method: "元記事から画像 URL を取得して復元"
+      priority: high
+
+problematic_factors:
+  identified_issues:
+    file_scattering:
+      description: "ファイル散乱"
+      problem: "23 個の Python ファイルがルートディレクトリに散らばり"
+      resolution: "organized_structure_implementation"
+      
+    hardcoding:
+      description: "ハードコーディング"
+      problem: "記事 ID 1388 が複数箇所に埋め込み"
+      resolution: "configuration_based_management"
+      
+    inconsistent_configuration:
+      description: "設定の非統一"
+      problem: "各スクリプトが独自の設定を持つ"
+      resolution: "unified_configuration_system"
+      
+    reproducibility_lack:
+      description: "再現性の欠如"
+      problem: "成功した手順の体系化不足"
+      resolution: "systematic_procedure_documentation"
+
+# System architecture
+system_architecture:
+  directory_structure:
+    config:
+      location: "config/"
+      files:
+        article_update_config: 
+          file: "article_update_config.json"
+          purpose: "統一設定ファイル"
+          
+    scripts:
+      location: "scripts/"
+      files:
+        main_updater:
+          file: "article_update_manager.py"
+          purpose: "メイン更新スクリプト"
+          
+    outputs:
+      location: "outputs/"
+      subdirectories:
+        article_operations:
+          purpose: "更新結果レポート"
+          
+    backups:
+      location: "backups/"
+      purpose: "自動バックアップ"
+      
+    temporary:
+      location: "tmp/"
+      subdirectories:
+        scattered_files:
+          purpose: "整理済み散乱ファイル"
+          
+    logs:
+      location: "logs/"
+      subdirectories:
+        article_updates:
+          purpose: "更新ログ"
+
+# Configuration management
+configuration_management:
+  wordpress_settings:
+    endpoint_base:
+      value: "environment_variable_based"
+      note: "ハードコードされたURL禁止"
+      correct_usage: "os.getenv('WORDPRESS_ENDPOINT')"
+      
+    timeout: 30
+    retry_attempts: 3
+    retry_delay: 2
+    
+  update_strategies:
+    new_post:
+      endpoint: "/create-post"
+      method: "POST"
+      backup_required: false
+      
+    direct_update:
+      endpoint: "/update-post/{post_id}"
+      method: "POST"
+      backup_required: true
+      
+    proven_method:
+      endpoint: "/update-post/{post_id}"
+      method: "POST"
+      backup_required: true
+      verify_endpoint: "standard_rest_api"
+      description: "実証済み安全更新方法"
+      
+  content_processing:
+    h5_tag_removal: true
+    h6_tag_removal: true
+    duplicate_h4_fix: true
+    image_restoration: true
+    backup_image_retrieval: true
+    
+  validation_rules:
+    title:
+      min_length: 5
+      max_length: 200
+      
+    content:
+      min_length: 500
+      max_length: 100000
+      
+    excerpt:
+      max_length: 300
+      
+  security:
+    auth_header: "X-API-Key"
+    sensitive_data_exclusion:
+      - "api_key"
+      - "password"
+      - "token"
+
+# Update execution procedures
+execution_procedures:
+  pre_update_validation:
+    article_existence_check:
+      command: "python scripts/wordpress_update_client.py --post-id {post_id} --check-only"
+      requirement: mandatory
+      failure_action: "abort_operation"
+      
+    environment_validation:
+      wordpress_endpoint: "must_be_set"
+      wordpress_api_key: "must_be_set"
+      network_connectivity: "verify_connection"
+      
+    content_validation:
+      heading_structure: "validate_h2_h3_h4_only"
+      character_count: "minimum_thresholds"
+      image_links: "verify_accessibility"
+      
+  backup_procedures:
+    automatic_backup:
+      enabled: true
+      timing: "before_any_update"
+      format: "backup_{post_id}_{timestamp}.json"
+      content_included:
+        - "original_article_content"
+        - "metadata"
+        - "image_urls"
+        - "current_status"
+        
+    backup_verification:
+      file_existence: "verify_after_creation"
+      content_integrity: "validate_json_structure"
+      restoration_test: "optional_but_recommended"
+      
+  content_preprocessing:
+    h5_h6_removal:
+      method: "automatic_conversion_to_h4"
+      validation: "confirm_no_h5_h6_remaining"
+      
+    heading_structure_fix:
+      duplicate_removal: "merge_or_restructure"
+      hierarchy_validation: "ensure_proper_nesting"
+      
+    image_processing:
+      url_validation: "check_image_accessibility"
+      backup_restoration: "restore_from_original_if_missing"
+      optimization: "maintain_existing_optimization"
+      
+  update_execution:
+    method: "POST"
+    endpoint_construction: "environment_variable_based"
+    headers:
+      x_api_key: "from_environment_variable"
+      content_type: "application/json"
+      
+    payload_structure:
+      post_id: "dynamic_parameter"
+      content: "preprocessed_markdown"
+      title: "optional_update"
+      excerpt: "optional_update"
+      
+    error_handling:
+      connection_errors: "retry_with_backoff"
+      authentication_errors: "verify_credentials_and_abort"
+      server_errors: "retry_limited_attempts"
+      content_errors: "validate_and_fix_content"
+      
+  post_update_verification:
+    immediate_verification:
+      api_response_check: "verify_success_status"
+      content_retrieval: "fetch_updated_content"
+      comparison: "compare_with_intended_changes"
+      
+    comprehensive_verification:
+      wordpress_admin_check: "visual_confirmation_in_editor"
+      frontend_check: "verify_public_display"
+      image_verification: "confirm_images_display_correctly"
+      
+    rollback_procedures:
+      automatic_rollback:
+        trigger: "verification_failure"
+        method: "restore_from_backup"
+        verification: "confirm_rollback_success"
+        
+      manual_rollback:
+        command: "python scripts/restore_backup.py --post-id {post_id} --backup-file {backup_file}"
+
+# Quality assurance protocols
+quality_assurance:
+  content_standards:
+    heading_hierarchy:
+      allowed: ["H1", "H2", "H3", "H4"]
+      prohibited: ["H5", "H6"]
+      enforcement: "automatic_conversion"
+      
+    character_limits:
+      minimum_content: 500
+      recommended_content: 20000
+      maximum_title: 200
+      maximum_excerpt: 300
+      
+    structural_requirements:
+      proper_markdown: "validate_syntax"
+      image_alt_text: "ensure_accessibility"
+      internal_links: "verify_functionality"
+      
+  technical_validation:
+    gutenberg_compatibility:
+      block_structure: "validate_before_update"
+      invalid_blocks: "prevent_creation"
+      
+    wordpress_integration:
+      custom_fields: "preserve_existing"
+      meta_data: "maintain_integrity"
+      categories_tags: "preserve_taxonomy"
+      
+  performance_monitoring:
+    update_speed: "track_execution_time"
+    success_rate: "monitor_failure_patterns"
+    resource_usage: "optimize_for_efficiency"
+
+# Error handling and recovery
+error_handling:
+  common_error_scenarios:
+    network_connectivity:
+      symptoms: "connection_timeout_refused"
+      diagnosis: "network_availability_check"
+      resolution: "retry_with_exponential_backoff"
+      
+    authentication_failure:
+      symptoms: "401_unauthorized_403_forbidden"
+      diagnosis: "verify_api_key_and_endpoint"
+      resolution: "update_credentials_retry"
+      
+    content_validation_failure:
+      symptoms: "invalid_content_structure"
+      diagnosis: "analyze_content_format"
+      resolution: "preprocess_and_fix_content"
+      
+    server_overload:
+      symptoms: "502_503_server_errors"
+      diagnosis: "server_status_check"
+      resolution: "wait_and_retry_with_longer_intervals"
+      
+  recovery_procedures:
+    partial_failure_recovery:
+      content_updated_images_failed: "retry_image_update_only"
+      images_updated_content_failed: "retry_content_update_only"
+      
+    complete_failure_recovery:
+      restore_from_backup: "automatic_restoration"
+      verify_restoration: "confirm_original_state"
+      report_failure: "generate_detailed_error_report"
+      
+  monitoring_and_alerting:
+    failure_detection: "automatic_monitoring"
+    alert_thresholds:
+      consecutive_failures: 3
+      failure_rate: "above_10_percent"
+      
+    notification_methods:
+      log_file_entry: "detailed_error_logging"
+      console_output: "immediate_feedback"
+
+# Usage patterns and best practices
+usage_patterns:
+  routine_updates:
+    content_refresh:
+      frequency: "monthly_or_as_needed"
+      focus: "information_accuracy_seo_optimization"
+      
+    image_updates:
+      frequency: "quarterly_or_major_changes"
+      focus: "visual_appeal_brand_consistency"
+      
+    structure_improvements:
+      frequency: "semi_annually"
+      focus: "heading_hierarchy_readability"
+      
+  emergency_updates:
+    critical_information_corrections:
+      response_time: "immediate"
+      validation: "extra_thorough"
+      
+    security_related_updates:
+      priority: "highest"
+      backup_verification: "mandatory"
+      
+  bulk_operations:
+    multiple_article_updates:
+      batch_processing: "supported_with_rate_limiting"
+      failure_isolation: "continue_on_individual_failures"
+      progress_tracking: "detailed_reporting"
+
+# Performance optimization
+performance_optimization:
+  update_speed_optimization:
+    content_preprocessing: "parallel_processing_where_possible"
+    api_calls: "batch_when_supported"
+    validation: "efficient_algorithms"
+    
+  resource_management:
+    memory_usage: "optimize_for_large_content"
+    network_bandwidth: "compress_payloads"
+    storage: "cleanup_temporary_files"
+    
+  scalability_considerations:
+    concurrent_updates: "limited_to_prevent_overload"
+    rate_limiting: "respect_api_limits"
+    queue_management: "handle_large_update_batches"
+
+# Maintenance and monitoring
+maintenance_procedures:
+  regular_maintenance:
+    backup_cleanup:
+      retention_period: "30_days_for_routine_backups"
+      archive_policy: "long_term_storage_for_major_updates"
+      
+    log_rotation:
+      frequency: "weekly"
+      retention: "90_days"
+      
+    configuration_review:
+      frequency: "monthly"
+      focus: "security_performance_accuracy"
+      
+  monitoring_metrics:
+    success_rates:
+      target: "above_95_percent"
+      measurement: "rolling_30_day_average"
+      
+    performance_metrics:
+      update_time: "track_average_and_outliers"
+      error_patterns: "identify_recurring_issues"
+      
+    system_health:
+      api_availability: "continuous_monitoring"
+      credential_validity: "periodic_verification"
+
+# Integration with other systems
+system_integration:
+  claude_code_integration:
+    command_interface: "seamless_integration"
+    error_reporting: "detailed_feedback_to_claude"
+    progress_updates: "real_time_status_reporting"
+    
+  wordpress_ecosystem:
+    plugin_compatibility: "blog_generator_plugin_optimized"
+    theme_compatibility: "tested_with_current_theme"
+    security_plugin_compatibility: "siteguard_wp_plugin_tested"
+    
+  development_workflow:
+    version_control: "git_integration_friendly"
+    testing_support: "dry_run_mode_available"
+    deployment: "environment_agnostic_configuration"

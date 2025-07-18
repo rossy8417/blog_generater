@@ -1,0 +1,288 @@
+# File Management Rules - AI-Optimized Configuration
+# Comprehensive file management standards for blog generation system
+
+metadata:
+  title: "File Management Comprehensive Rules"
+  purpose: "Unified file management standards with outputs/ centralization principle"
+  ai_processing: "Fast rule lookup and directory structure validation"
+
+# Core principles
+core_principles:
+  outputs_centralization:
+    main_principle: "All deliverables managed in outputs/[title-INT-XX]/ structure"
+    scatter_prevention: "Root directory direct output completely prohibited"
+    temporary_separation: "tmp/ for work only, deliverable storage prohibited"
+    
+  responsibility_clarification:
+    boss1: "Directory creation, integration work, WordPress posting preparation"
+    workers: "Output to correct locations for assigned files, completion confirmation"
+    auto_systems: "Quality checks, organization, backups"
+
+# Agent responsibility matrix
+agent_responsibilities:
+  boss1:
+    phase1: "Create outputs/[title-INT-XX]/ directory"
+    phase2: "Create complete_article.md during integration"
+    phase3: "Execute WordPress posting"
+    
+  worker1:
+    phase2: 
+      - "outputs/[title-INT-XX]/chapter1.md"
+      - "outputs/[title-INT-XX]/chapter2.md"
+    phase3:
+      - "outputs/[title-INT-XX]/eyecatch.jpg"
+      
+  worker2:
+    phase2:
+      - "outputs/[title-INT-XX]/chapter3.md" 
+      - "outputs/[title-INT-XX]/chapter4.md"
+    phase3:
+      - "outputs/[title-INT-XX]/chapter1.jpg"
+      - "outputs/[title-INT-XX]/chapter2.jpg"
+      - "outputs/[title-INT-XX]/chapter3.jpg"
+      
+  worker3:
+    phase2:
+      - "outputs/[title-INT-XX]/chapter5.md"
+      - "outputs/[title-INT-XX]/chapter6.md"
+    phase3:
+      - "outputs/[title-INT-XX]/chapter4.jpg"
+      - "outputs/[title-INT-XX]/chapter5.jpg"
+      - "outputs/[title-INT-XX]/chapter6.jpg"
+
+# Unified directory structure
+directory_structure:
+  outputs:
+    location: "outputs/"
+    description: "All deliverables unified management"
+    
+    project_structure:
+      pattern: "[title-INT-XX]/"
+      required_files:
+        articles:
+          - "complete_article.md"    # Final integrated article (fixed filename)
+          - "outline_content.md"     # Outline
+          - "lead_content.md"        # Lead text
+          - "summary_content.md"     # Summary
+          - "chapter1.md"            # Chapter 1
+          - "chapter2.md"            # Chapter 2
+          - "chapter3.md"            # Chapter 3
+          - "chapter4.md"            # Chapter 4
+          - "chapter5.md"            # Chapter 5
+          - "chapter6.md"            # Chapter 6
+          
+        images:
+          - "eyecatch.jpg"           # Main image
+          - "chapter1.jpg"           # Chapter 1 image
+          - "chapter2.jpg"           # Chapter 2 image
+          - "chapter3.jpg"           # Chapter 3 image
+          - "chapter4.jpg"           # Chapter 4 image
+          - "chapter5.jpg"           # Chapter 5 image
+          - "chapter6.jpg"           # Chapter 6 image
+          
+        metadata:
+          - "metadata.json"          # Article metadata
+          
+  tmp:
+    location: "tmp/"
+    description: "Temporary work area (usage restricted)"
+    
+    allowed_files:
+      progress_management:
+        - "worker1_done.txt"
+        - "worker2_done.txt"
+        - "worker3_done.txt"
+        - "worker1_phase3_done.txt"
+        - "worker2_phase3_done.txt"
+        - "worker3_phase3_done.txt"
+        
+    subdirectories:
+      worker_outputs: "Worker individual output (temporary)"
+      processing: "Files being processed (temporary)"
+      quality_check: "Quality check work (temporary)"
+      message_queue: "Agent communication queue"
+      debug: "Debug files (temporary)"
+
+# Quality assurance
+quality_checks:
+  project_completion_validation:
+    command: "ls -la outputs/[title-INT-XX]/"
+    required_file_count: 17
+    
+    mandatory_files:
+      - "complete_article.md"
+      - "chapter1.md through chapter6.md (6 files)"
+      - "eyecatch.jpg"
+      - "chapter1.jpg through chapter6.jpg (6 files)"
+      - "outline_content.md, lead_content.md, summary_content.md (3 files)"
+      - "metadata.json"
+      
+  validation_checks:
+    file_existence: "Verify all required files present"
+    file_size: "Ensure non-zero file sizes"
+    image_format: "Verify proper JPEG format"
+    metadata_structure: "Validate JSON structure"
+
+# Prohibition rules
+prohibition_rules:
+  scattered_files:
+    root_output: prohibited
+    prefix_usage: prohibited  # boss1_, worker1_ etc.
+    duplicate_storage: prohibited
+    description: "No files scattered outside outputs/ structure"
+    
+  tmp_restrictions:
+    final_deliverable_storage: prohibited
+    only_progress_files: allowed
+    description: "tmp/ only for progress management files"
+
+# Reference systems
+reference_systems:
+  post_blog_universal:
+    file: "scripts/post_blog_universal.py"
+    functions:
+      - "Auto-detect latest directory in outputs/"
+      - "Prioritize reading complete_article.md"
+      - "Auto-detect and upload image files"
+      
+  metadata_management:
+    file: "metadata.json"
+    functions:
+      - "Manage article information"
+      - "Add information after WordPress posting"
+
+# File lifecycle management
+lifecycle_management:
+  creation_standards:
+    naming_convention: "Follow fixed filename patterns"
+    location_compliance: "Must be in correct outputs/ subdirectory"
+    metadata_generation: "Auto-generate metadata.json"
+    
+  maintenance_rules:
+    backup_policy: "Auto-backup before modifications"
+    version_control: "Track changes in metadata"
+    cleanup_schedule: "Regular tmp/ cleanup"
+    
+  archival_policy:
+    completed_projects: "Move to outputs/archives/completed_projects/"
+    old_reports: "Move to outputs/archives/reports/"
+    update_history: "Move to outputs/archives/article_updates/"
+
+# Auto-cleanup policies
+cleanup_policies:
+  temporary_files:
+    tmp_processing:
+      retention_period: "30 days"
+      cleanup_frequency: "weekly"
+      
+    tmp_debug:
+      retention_period: "7 days"
+      cleanup_frequency: "daily"
+      
+    tmp_worker_outputs:
+      retention_period: "14 days"
+      cleanup_frequency: "weekly"
+      
+    logs:
+      retention_period: "90 days"
+      cleanup_frequency: "monthly"
+      
+  preservation_targets:
+    never_delete:
+      - "outputs/[title-INT-XX]/"  # Permanent storage
+      - "docs/"                     # Permanent storage
+      - "templates/"                # Permanent storage
+      - "config/"                   # Permanent storage
+
+# Automation integration
+automation_systems:
+  organize_outputs:
+    script: "scripts/organize_outputs.py"
+    trigger_keyword: "整理整頓"
+    functions:
+      - "Auto-organize scattered files"
+      - "Validate project structure"
+      - "Generate completion reports"
+      
+  cleanup_system:
+    script: "scripts/cleanup_system.py"
+    trigger_keyword: "バルス"
+    functions:
+      - "Complete outputs/ directory cleanup"
+      - "Reset for new projects"
+      - "Preserve configuration files"
+
+# Performance metrics
+performance_metrics:
+  structure_compliance_rate:
+    target: "above_95_percent"
+    measurement: "Projects following correct structure"
+    
+  scattered_file_count:
+    target: "zero_files"
+    measurement: "Files remaining in root/tmp/"
+    
+  automation_rate:
+    target: "above_90_percent"
+    measurement: "Tasks requiring manual intervention"
+    
+  recovery_time:
+    target: "under_5_minutes"
+    measurement: "Problem detection to normalization"
+
+# Error handling and recovery
+error_recovery:
+  common_issues:
+    structure_violations:
+      detection: "Auto-scan for non-compliant files"
+      resolution: "Auto-move to correct locations"
+      
+    missing_files:
+      detection: "Validate against required file list"
+      resolution: "Generate missing file templates"
+      
+    permission_issues:
+      detection: "File access error monitoring"
+      resolution: "Auto-fix permissions where possible"
+
+# Integration with other systems
+system_integration:
+  wordpress_posting:
+    dependency: "Complete project structure validation"
+    prerequisite: "All 17 files must be present"
+    
+  image_generation:
+    coordination: "Worker3 responsible for thumbnail completion"
+    validation: "Image format and size compliance"
+    
+  content_creation:
+    workflow: "Phase2 parallel execution with structure compliance"
+    quality_assurance: "Real-time file placement validation"
+
+# Usage examples
+usage_examples:
+  project_creation:
+    command: "Boss1 creates outputs/[title-INT-XX]/"
+    validation: "Directory structure compliance check"
+    
+  file_placement:
+    worker_example: "Worker1 outputs to outputs/[title-INT-XX]/chapter1.md"
+    validation: "Correct location and naming verification"
+    
+  completion_check:
+    command: "ls -la outputs/[title-INT-XX]/ | wc -l"
+    expected_result: "17 files total"
+
+# Continuous improvement
+improvement_framework:
+  monthly_review:
+    focus: "Structure compliance status verification"
+    metrics: "Compliance rate, scattered file count"
+    
+  quarterly_improvement:
+    focus: "System improvements and rule updates"
+    activities: "Process optimization, automation enhancement"
+    
+  annual_evaluation:
+    focus: "Overall efficiency assessment"
+    outcome: "Strategic direction for next year"

@@ -1,0 +1,221 @@
+# WordPress API Endpoint Rules - AI-Optimized Configuration
+# Structured rules for proper WordPress API endpoint usage
+
+metadata:
+  title: "WordPress API Endpoint Guidelines"
+  purpose: "Prevent hardcoded URLs and ensure environment-agnostic API usage"
+  ai_processing: "Fast rule lookup and validation"
+
+# Strict prohibition rules
+prohibited_patterns:
+  hardcoded_urls:
+    - "https://www.ht-sw.tech"
+    - "http://www.ht-sw.tech" 
+    - "*.ht-sw.tech"
+    description: "Any direct URL specification"
+    severity: critical
+    
+  environment_dependent:
+    - fixed_domain_references
+    - development_specific_urls
+    - production_specific_urls
+    description: "Environment-dependent URL constructions"
+    severity: high
+
+# Required implementation patterns
+required_patterns:
+  environment_variables:
+    wordpress_endpoint:
+      source: ".env file"
+      usage: "os.getenv('WORDPRESS_ENDPOINT')"
+      validation: "must_not_be_none"
+      
+    wordpress_api_key:
+      source: ".env file" 
+      usage: "os.getenv('WORDPRESS_API_KEY')"
+      validation: "must_not_be_none"
+
+  standard_rest_api:
+    description: "WordPress standard REST API usage"
+    base_url_construction:
+      method: "wordpress_endpoint.replace('/wp-json/blog-generator/v1', '')"
+      pattern: "{base_url}/wp-json/wp/v2/posts/{post_id}"
+      
+    use_cases:
+      - post_retrieval
+      - post_verification
+      - standard_wordpress_operations
+      
+    example_implementation: |
+      base_url = os.getenv('WORDPRESS_ENDPOINT').replace('/wp-json/blog-generator/v1', '')
+      standard_api_url = f'{base_url}/wp-json/wp/v2/posts/{post_id}'
+
+  custom_api:
+    description: "Custom blog-generator API usage"
+    base_url_construction:
+      method: "direct_usage"
+      pattern: "{wordpress_endpoint}/{endpoint_path}"
+      
+    use_cases:
+      - post_creation
+      - post_updates
+      - image_uploads
+      - custom_operations
+      
+    example_implementation: |
+      endpoint = os.getenv('WORDPRESS_ENDPOINT')
+      custom_api_url = f'{endpoint}/update-post/{post_id}'
+
+# API operation patterns
+api_operations:
+  post_retrieval:
+    api_type: standard_rest
+    method: GET
+    endpoint_pattern: "/wp-json/wp/v2/posts/{post_id}"
+    headers: {}
+    authentication: none
+    
+  post_update:
+    api_type: custom
+    method: POST
+    endpoint_pattern: "/update-post/{post_id}"
+    headers:
+      x_api_key: "required"
+    authentication: "X-API-Key header"
+    
+  image_upload:
+    api_type: custom
+    method: POST
+    endpoint_pattern: "/upload-image"
+    headers:
+      x_api_key: "required"
+    content_type: "multipart/form-data"
+    
+  post_creation:
+    api_type: custom
+    method: POST
+    endpoint_pattern: "/create-post"
+    headers:
+      x_api_key: "required"
+    authentication: "X-API-Key header"
+
+# URL construction helpers
+url_construction:
+  wordpress_edit_url:
+    pattern: "{base_url}/wp-admin/post.php?post={post_id}&action=edit"
+    construction_method: "base_url_from_endpoint"
+    use_case: "backend_editing_links"
+    
+  wordpress_frontend_url:
+    pattern: "{base_url}/?p={post_id}"
+    construction_method: "base_url_from_endpoint"
+    use_case: "frontend_viewing_links"
+    
+  base_url_extraction:
+    from_wordpress_endpoint: |
+      base_url = os.getenv('WORDPRESS_ENDPOINT').replace('/wp-json/blog-generator/v1', '')
+
+# Code validation rules
+validation_checks:
+  required_imports:
+    - "import os"
+    - "from dotenv import load_dotenv"
+    
+  required_initialization:
+    - "load_dotenv()"
+    
+  forbidden_strings:
+    - "https://www.ht-sw.tech"
+    - "http://www.ht-sw.tech"
+    - "www.ht-sw.tech"
+    
+  required_patterns:
+    - "os.getenv('WORDPRESS_ENDPOINT')"
+    - "os.getenv('WORDPRESS_API_KEY')"
+
+# Error handling requirements
+error_handling:
+  null_endpoint_check:
+    condition: "if not wordpress_endpoint:"
+    action: "raise_environment_error"
+    message: "WORDPRESS_ENDPOINT not found in environment variables"
+    
+  null_api_key_check:
+    condition: "if not api_key:"
+    action: "raise_authentication_error"
+    message: "WORDPRESS_API_KEY not found in environment variables"
+    
+  connection_failures:
+    retry_attempts: 3
+    retry_delay: 2
+    timeout: 30
+
+# Implementation templates
+code_templates:
+  get_post_standard:
+    language: python
+    template: |
+      def get_post_standard_api(post_id):
+          base_url = os.getenv('WORDPRESS_ENDPOINT').replace('/wp-json/blog-generator/v1', '')
+          response = requests.get(f'{base_url}/wp-json/wp/v2/posts/{post_id}')
+          return response.json()
+          
+  update_post_custom:
+    language: python
+    template: |
+      def update_post_custom_api(post_id, content):
+          endpoint = os.getenv('WORDPRESS_ENDPOINT')
+          headers = {'X-API-Key': os.getenv('WORDPRESS_API_KEY')}
+          response = requests.post(f'{endpoint}/update-post/{post_id}', 
+                                 json={'content': content}, headers=headers)
+          return response.json()
+          
+  upload_image:
+    language: python
+    template: |
+      def upload_image(image_path):
+          endpoint = os.getenv('WORDPRESS_ENDPOINT')
+          headers = {'X-API-Key': os.getenv('WORDPRESS_API_KEY')}
+          with open(image_path, 'rb') as f:
+              files = {'file': f}
+              response = requests.post(f'{endpoint}/upload-image', 
+                                     files=files, headers=headers)
+          return response.json()
+
+# Files requiring correction
+known_violations:
+  scripts_update_eyecatch_simple_py:
+    file: "scripts/update_eyecatch_simple.py"
+    line: 104
+    violation: "hardcoded_https_url"
+    current_code: "requests.get(f'https://www.ht-sw.tech/wp-json/wp/v2/posts/{post_id}')"
+    corrected_code: |
+      base_url = os.getenv('WORDPRESS_ENDPOINT').replace('/wp-json/blog-generator/v1', '')
+      requests.get(f'{base_url}/wp-json/wp/v2/posts/{post_id}')
+
+# Implementation checklist
+implementation_checklist:
+  environment_setup:
+    - env_file_wordpress_endpoint: "Set WORDPRESS_ENDPOINT in .env"
+    - env_file_api_key: "Set WORDPRESS_API_KEY in .env"
+    - dotenv_loading: "Implement load_dotenv() in code"
+    
+  code_compliance:
+    - use_environment_variables: "Replace hardcoded URLs with env vars"
+    - implement_base_url_conversion: "For standard API usage"
+    - use_direct_endpoint: "For custom API usage"
+    - add_error_handling: "Handle missing environment variables"
+    - validate_null_checks: "Ensure proper null validation"
+    
+  testing:
+    - development_environment: "Test with dev environment"
+    - production_environment: "Verify with production settings"
+    - error_scenarios: "Test missing environment variables"
+
+# Benefits of compliance
+compliance_benefits:
+  portability: "Same code works across all environments"
+  security: "No exposed URLs in source code"
+  maintainability: "Single point of configuration change"
+  scalability: "Easy environment management"
+  deployment: "Seamless CI/CD integration"

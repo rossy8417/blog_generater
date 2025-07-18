@@ -1,0 +1,322 @@
+# Quality Check Rules - AI-Optimized Configuration
+# WordPress posting quality check and auto-correction system
+
+metadata:
+  title: "WordPress Quality Check System Rules"
+  purpose: "Comprehensive quality verification and auto-correction before WordPress posting"
+  ai_processing: "Fast quality rule lookup and validation procedures"
+  source_integration: "wordpress-quality-check-system-guide.md fully integrated"
+
+# System overview
+system_overview:
+  description: "WordPress投稿前品質チェック・自動修正システム"
+  purpose: "記事投稿前に包括的な品質検証を行い、問題を自動修正する高度なシステム"
+  scope: "包括的品質チェック、自動修正機能、品質レポート生成"
+
+# Comprehensive quality checks
+quality_checks:
+  heading_structure_validation:
+    h5_h6_prohibition:
+      enforcement: strict
+      description: "H5/H6タグ禁止の厳格な執行"
+      scope: "H2-H4階層のみ許可"
+      
+    heading_hierarchy_check:
+      validation: "適切な階層構造の確認"
+      rules:
+        - "H2 → H3 → H4 の正しい順序"
+        - "階層のスキップ禁止"
+        - "見出しレベルの一貫性"
+        
+    template_identifier_detection:
+      target_patterns:
+        - "H3-1, H3-2 等の残存識別子"
+        - "テンプレート由来の番号付け"
+        - "プレースホルダーテキスト"
+      action: "自動検出と修正提案"
+      
+  content_structure_validation:
+    chapter_composition_check:
+      required_elements:
+        - "適切な章立ての確認"
+        - "6章構成の検証"
+        - "各章の適切な長さ"
+        
+    content_completeness_check:
+      verification_targets:
+        - "必要なセクションの存在確認"
+        - "intro/body/conclusion構造"
+        - "まとめセクションの存在"
+        
+    format_consistency_check:
+      markdown_validation:
+        - "マークダウン形式の正確性"
+        - "リストフォーマットの統一"
+        - "強調記法の適切な使用"
+        
+  seo_elements_validation:
+    title_optimization:
+      criteria:
+        - "適切なタイトル形式の確認"
+        - "文字数制限（30-60文字）"
+        - "感情トリガーの含有"
+        
+    meta_description_check:
+      requirements:
+        - "最適な長さ（120文字以下）"
+        - "内容の要約性"
+        - "CTA要素の含有"
+        
+    keyword_placement_validation:
+      target_areas:
+        - "タイトルでのキーワード配置"
+        - "見出しでのキーワード使用"
+        - "本文での自然な配置"
+        
+  wordpress_integration_validation:
+    gutenberg_block_compatibility:
+      verification_points:
+        - "適切なブロック変換の確認"
+        - "無効ブロック構造の検出"
+        - "ブロック間の適切な関係"
+        
+    image_integration_check:
+      validation_targets:
+        - "章別画像配置の確認"
+        - "アイキャッチ画像の設定"
+        - "画像サイズとフォーマット"
+        
+    posting_readiness_validation:
+      checklist:
+        - "WordPress投稿準備の確認"
+        - "必要メタデータの存在"
+        - "カテゴリ・タグの設定"
+
+# Auto-correction features
+auto_correction:
+  template_identifier_removal:
+    h3_conversion:
+      pattern: "H3-1, H3-2等の変換"
+      action: "適切な見出しテキストに自動変換"
+      preservation: "元の内容の意味保持"
+      
+    template_residue_cleanup:
+      target: "不要なテンプレート要素の自動削除"
+      scope: "プレースホルダー、指示文、サンプルテキスト"
+      
+  heading_hierarchy_correction:
+    h5_h6_downgrade:
+      conversion: "H4への自動変換"
+      style_preservation: "元の強調・装飾の保持"
+      
+    hierarchy_structure_fix:
+      adjustment: "適切な見出し階層への自動調整"
+      logic: "コンテンツの論理構造を保持"
+      
+  content_correction:
+    format_fixing:
+      markdown_repair: "マークダウン形式の自動修正"
+      list_standardization: "リスト形式の統一"
+      emphasis_normalization: "強調記法の正規化"
+      
+    structure_adjustment:
+      chapter_rebalancing: "章構成の自動調整"
+      section_reorganization: "セクションの論理的再配置"
+      
+    seo_optimization:
+      missing_elements_completion: "不足要素の自動補完"
+      keyword_optimization: "キーワード配置の最適化"
+      meta_generation: "メタデータの自動生成"
+
+# Quality reporting system
+quality_reporting:
+  detailed_evaluation:
+    quality_score:
+      calculation: "総合的な品質評価スコア"
+      factors:
+        - "見出し構造の適切性"
+        - "コンテンツの完全性"
+        - "SEO要素の充実度"
+        - "WordPress互換性"
+        
+    issue_categorization:
+      critical_issues: "投稿を阻害する重大な問題"
+      warning_issues: "改善推奨事項"
+      optimization_suggestions: "さらなる品質向上提案"
+      
+  correction_summary:
+    modifications_log:
+      before_after_comparison: "修正前後の詳細比較"
+      change_reasoning: "各修正の理由と効果"
+      impact_assessment: "修正による影響評価"
+      
+  compliance_verification:
+    standards_adherence:
+      h5_prohibition_compliance: "H5/H6使用禁止の遵守確認"
+      structure_standards: "構造基準への適合度"
+      seo_best_practices: "SEOベストプラクティスの実装度"
+
+# Validation commands and procedures
+validation_procedures:
+  pre_posting_validation:
+    comprehensive_check:
+      command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --comprehensive"
+      scope: "全品質項目の詳細チェック"
+      
+    quick_validation:
+      command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --quick"
+      scope: "基本的な品質項目のチェック"
+      
+    specific_validation:
+      heading_only: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --check-headings"
+      seo_only: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --check-seo"
+      structure_only: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --check-structure"
+      
+  auto_correction_execution:
+    safe_correction:
+      command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --auto-fix --backup"
+      description: "安全な自動修正（バックアップ付き）"
+      
+    aggressive_correction:
+      command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --auto-fix --aggressive"
+      description: "積極的な自動修正"
+      
+  report_generation:
+    detailed_report:
+      command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --report-detailed"
+      output: "outputs/quality_reports/detailed_report_{timestamp}.json"
+      
+    summary_report:
+      command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --report-summary"
+      output: "outputs/quality_reports/summary_report_{timestamp}.txt"
+
+# Error handling and recovery
+error_handling:
+  validation_failures:
+    file_access_errors:
+      detection: "ファイル読み込み失敗の検出"
+      recovery: "パス確認と権限修正"
+      
+    format_corruption:
+      detection: "マークダウン構造破損の検出"
+      recovery: "構造の自動修復または手動修正提案"
+      
+  correction_failures:
+    backup_restoration:
+      trigger: "修正失敗時の自動バックアップ復元"
+      verification: "復元後の整合性確認"
+      
+    partial_correction:
+      handling: "部分的修正成功時の継続処理"
+      reporting: "修正できなかった項目の詳細報告"
+      
+  system_errors:
+    dependency_issues:
+      detection: "必要ライブラリの不足検出"
+      resolution: "依存関係のインストール指示"
+      
+    resource_limitations:
+      monitoring: "メモリ・処理時間の監視"
+      optimization: "大きなファイルの効率的処理"
+
+# Integration with posting workflow
+workflow_integration:
+  pre_posting_pipeline:
+    mandatory_checks:
+      - "見出し構造の検証"
+      - "テンプレート識別子の除去"
+      - "WordPress互換性の確認"
+      
+    optional_enhancements:
+      - "SEO要素の最適化"
+      - "読みやすさの向上"
+      - "構造の論理性向上"
+      
+  post_correction_workflow:
+    verification_cycle:
+      - "修正内容の確認"
+      - "品質スコアの再評価"
+      - "WordPress投稿準備の最終確認"
+      
+  emergency_procedures:
+    quick_fix_mode:
+      description: "緊急時の最小限修正"
+      scope: "投稿阻害要因のみの修正"
+      
+    rollback_capability:
+      description: "修正前状態への復元"
+      backup_management: "自動バックアップシステム"
+
+# Performance and monitoring
+performance_monitoring:
+  processing_metrics:
+    validation_speed:
+      target: "大きな記事でも5分以内"
+      optimization: "並列処理とキャッシュ活用"
+      
+    correction_accuracy:
+      measurement: "修正の正確性と適切性"
+      feedback_loop: "修正結果の継続的改善"
+      
+  quality_metrics:
+    improvement_rate:
+      tracking: "修正による品質向上度"
+      benchmarking: "修正前後のスコア比較"
+      
+    error_reduction:
+      monitoring: "投稿エラーの減少率"
+      analysis: "問題パターンの特定と対策"
+
+# Configuration and customization
+system_configuration:
+  quality_standards:
+    strictness_levels:
+      strict: "厳格な品質基準（H5完全禁止）"
+      moderate: "標準的な品質基準"
+      lenient: "最低限の品質基準"
+      
+  correction_preferences:
+    auto_correction_scope:
+      conservative: "安全性重視の最小限修正"
+      balanced: "効果と安全性のバランス"
+      aggressive: "最大限の品質向上"
+      
+  reporting_options:
+    detail_level:
+      minimal: "エラーと警告のみ"
+      standard: "修正内容を含む標準レポート"
+      comprehensive: "詳細分析を含む包括レポート"
+
+# Usage examples and best practices
+usage_examples:
+  routine_quality_check:
+    scenario: "記事投稿前の標準チェック"
+    command: "python scripts/wordpress_quality_checker.py --article-path outputs/new-article-INT-01/complete_article.md --comprehensive --auto-fix --backup"
+    expected_outcome: "品質問題の自動修正と詳細レポート生成"
+    
+  emergency_fix:
+    scenario: "投稿直前の緊急修正"
+    command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --quick --auto-fix"
+    expected_outcome: "最小限の修正で投稿可能状態への変更"
+    
+  quality_analysis:
+    scenario: "記事品質の詳細分析"
+    command: "python scripts/wordpress_quality_checker.py --article-path outputs/article/complete_article.md --report-detailed --no-fix"
+    expected_outcome: "修正なしの詳細品質レポート生成"
+
+# Best practices and recommendations
+best_practices:
+  workflow_integration:
+    timing: "コンテンツ作成完了後、WordPress投稿前"
+    frequency: "全記事で必須実行"
+    backup_policy: "修正前の必須バックアップ"
+    
+  quality_maintenance:
+    template_management: "テンプレートの定期的な品質確認"
+    standard_updates: "品質基準の継続的改善"
+    training_integration: "新しい問題パターンの学習"
+    
+  performance_optimization:
+    batch_processing: "複数記事の効率的処理"
+    cache_utilization: "繰り返し処理の最適化"
+    resource_management: "メモリ効率的な大きなファイル処理"

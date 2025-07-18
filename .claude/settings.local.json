@@ -174,7 +174,8 @@
       "Bash(Claude-Code-Blog-communication/agent-send.sh boss1 \"【President0指示】ジェミニ記事テーマからアウトライン直接作成システム検討\n\ngemini_article_ideas.mdの1番目テーマ「AI調教師」について、検索意図分析を経由せず直接アウトライン作成する新しいワークフローを検討してください。\n\n【対象テーマ】\n「AI調教師」の誕生：21世紀の新しいブルーカラーか、それとも一瞬の流行か？\n- プロンプトエンジニアリングの先を行く、特定業務に特化したAI「しつけ」専門家\n- 単なる技術職ではなく、AIとの対話能力や業界知識が求められる新職人技の可能性\n\n【検討事項】\n1. 既存テンプレート（outline.md）のジェミニテーマ対応修正\n2. 検索キーワードに依存しない独創的アウトライン作成手法\n3. 一般的解説記事と差別化する切り口・視点の戦略\n\nboss1として最適なアプローチを分析・提案してください。\")",
       "Bash(Claude-Code-Blog-communication/tmux-unified-controller.sh --workflow connection-recovery)",
       "Bash(./scripts/emergency_connection_recovery.sh:*)",
-      "Bash(BACKUP_DIR=\"/mnt/c/home/hiroshi/blog_generator/backup/legacy_instructions_$(date +%Y%m%d_%H%M%S)\")"
+      "Bash(BACKUP_DIR=\"/mnt/c/home/hiroshi/blog_generator/backup/legacy_instructions_$(date +%Y%m%d_%H%M%S)\")",
+      "Bash(BACKUP_DIR=\"/mnt/c/home/hiroshi/blog_generator/backup/legacy_docs_$(date +%Y%m%d_%H%M%S)\")"
     ],
     "deny": [
       "Bash(rm -rf /*)",

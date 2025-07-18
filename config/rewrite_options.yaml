@@ -1,0 +1,413 @@
+# Article Rewrite Options - AI-Optimized Configuration
+# Structured rewrite strategies for Claude Code article improvement
+
+metadata:
+  title: "Article Rewrite Option Configuration"
+  purpose: "AI-optimized article rewrite strategy selection and execution"
+  ai_processing: "Fast option matching and requirement identification"
+
+# Rewrite option definitions
+rewrite_options:
+  option_1_full_rewrite:
+    id: 1
+    name: "全文リライト"
+    description: "記事全体をClaude Codeが包括的に書き直し"
+    
+    use_cases:
+      primary:
+        - "記事全体の品質を大幅に向上させたい"
+        - "古い記事を現代的な内容に刷新したい"
+        - "SEO効果を全体的に強化したい"
+      
+    execution_content:
+      - "記事全体の構成を最適化"
+      - "より読みやすく魅力的な文章に改善"
+      - "SEO効果を高める構造に再編"
+      - "最新の情報と正確性を確保"
+      - "20,000字以上の高品質記事に改善"
+      
+    quality_standards:
+      h5_headings: prohibited_strict
+      h6_headings: prohibited_strict
+      heading_structure: ["H2", "H3", "H4"]
+      minimum_chars: 20000
+      eat_elements: required
+      reader_value: high_improvement
+      
+    automatic_features:
+      factcheck: enabled
+      seo_optimization: comprehensive
+      structure_optimization: full
+      content_refresh: complete
+
+  option_2_chapter_rewrite:
+    id: 2
+    name: "章別リライト"
+    description: "指定した特定の章のみをClaude Codeが詳細に改善"
+    
+    use_cases:
+      primary:
+        - "特定の章だけ情報が古い"
+        - "一部の章の説明が不十分"
+        - "章ごとの品質にばらつきがある"
+        
+    execution_content:
+      - "指定章の内容を詳細で魅力的に改善"
+      - "最新の情報で正確性を確保"
+      - "読者にとって価値ある内容に向上"
+      - "1500-2500文字の適切な章構成"
+      - "H3-H4見出しで適切に構造化"
+      
+    selection_method:
+      - "記事の章構成を自動分析"
+      - "改善したい章番号を指定"
+      - "その章のみを集中的にリライト"
+      
+    scope: targeted_chapters
+    factcheck: chapter_specific
+
+  option_3_seo_enhancement:
+    id: 3
+    name: "SEO強化リライト"
+    description: "検索順位向上に特化してClaude Codeが最適化"
+    
+    use_cases:
+      primary:
+        - "検索順位を向上させたい"
+        - "特定キーワードでの上位表示を狙いたい"
+        - "SEO効果が不十分な記事を改善したい"
+        
+    execution_content:
+      - "対象キーワードを自然に文章に組み込み"
+      - "検索意図に沿った内容構成に改善"
+      - "E-A-T（専門性・権威性・信頼性）強化"
+      - "強調スニペット対応の構造化"
+      - "内部リンク戦略の最適化"
+      - "メタディスクリプションも最適化"
+      
+    required_information:
+      target_keywords: required
+      search_intent_analysis: required
+      competitor_research: recommended
+      
+    specialized_features:
+      keyword_optimization: natural_integration
+      snippet_optimization: enabled
+      internal_linking: strategic
+      meta_optimization: included
+
+  option_4_information_update:
+    id: 4
+    name: "情報更新リライト"
+    description: "古いデータや情報をClaude Codeが最新情報に更新"
+    
+    use_cases:
+      primary:
+        - "統計データが古くなった"
+        - "法改正や制度変更があった"
+        - "新機能や新サービスが登場した"
+        - "技術的な情報が変化した"
+        
+    execution_content:
+      - "古いデータや情報を最新のものに更新"
+      - "正確性と信頼性を確保"
+      - "出典や参考資料の更新"
+      - "読者にとって有用で実用的な最新情報の提供"
+      - "古い情報は削除または修正"
+      
+    update_targets:
+      statistical_data: priority_high
+      legal_regulatory: priority_high
+      technical_specs: priority_high
+      pricing_info: priority_medium
+      service_content: priority_medium
+      
+    factcheck_mode: intensive
+    verification_required: multiple_sources
+
+  option_5_style_adjustment:
+    id: 5
+    name: "文体調整リライト"
+    description: "より読みやすい文体にClaude Codeが調整"
+    
+    use_cases:
+      primary:
+        - "文体が読者層に合っていない"
+        - "一貫性のない表現がある"
+        - "より親しみやすい文章にしたい"
+        - "専門性を高めたい"
+        
+    style_options:
+      friendly_readable:
+        description: "親しみやすく読みやすい文体"
+        features:
+          - "一般読者向けの分かりやすい表現"
+          - "親近感のある語りかけるような文体"
+          
+      professional_authoritative:
+        description: "専門的で権威ある文体"
+        features:
+          - "専門用語を適切に使用"
+          - "信頼性と権威性を重視した表現"
+          
+      concise_clear:
+        description: "簡潔で要点明確な文体"
+        features:
+          - "無駄を省いた効率的な文章"
+          - "要点が明確で理解しやすい構成"
+          
+      detailed_explanatory:
+        description: "詳細で説明的な文体"
+        features:
+          - "丁寧で詳しい説明"
+          - "初心者にも理解しやすい詳細な記述"
+          
+    execution_content:
+      - "選択した文体に全体を調整"
+      - "読者層に適した表現レベル"
+      - "一貫性のある文体統一"
+      - "内容の価値を保ちつつ表現力向上"
+
+  option_6_custom_rewrite:
+    id: 6
+    name: "カスタムリライト"
+    description: "具体的な要求に応じてClaude Codeが柔軟に対応"
+    
+    use_cases:
+      primary:
+        - "上記5つのオプションに当てはまらない特殊な要求"
+        - "複数の改善要素を組み合わせたい"
+        - "特定の目的に特化したリライトが必要"
+        
+    execution_content:
+      - "ユーザーの具体的な要求に沿って記事を改善"
+      - "品質と正確性を保持"
+      - "読者価値の向上"
+      - "SEO効果の維持・向上"
+      
+    request_examples:
+      - "より事例を豊富にして実践的な内容に"
+      - "初心者向けの説明を増やして"
+      - "比較表やチェックリストを追加して"
+      - "最新のトレンドを反映した内容に"
+      
+    flexibility: high
+    customization: unlimited
+
+# Execution workflow
+execution_workflow:
+  step_1_preparation:
+    article_existence_check:
+      command: "python scripts/wordpress_update_client.py --post-id {post_id} --check-only"
+      requirement: mandatory
+      
+    current_state_verification:
+      method: "wordpress_base_url_check"
+      purpose: "現在の記事状態確認"
+      
+  step_2_backup:
+    automatic_backup:
+      enabled: true
+      format: "backup_{post_id}_{timestamp}.json"
+      content: "complete_article_content_and_metadata"
+      
+  step_3_claude_code_request:
+    request_format: |
+      記事ID {post_id} の{rewrite_type}をお願いします（オプション{option_number}）
+      
+      **重要**: 以下を必ず実行してください：
+      1. 既存記事をMarkdown形式で取得・分析
+      2. リライト処理実行
+      3. Gutenbergブロック形式に正しく変換
+      4. 章別画像をH2タグ直下に挿入
+      5. WordPress更新後の複数手段による検証
+      
+  step_4_claude_execution:
+    process_steps:
+      - "記事内容取得: WordPress API経由で既存記事を取得"
+      - "リライト処理: 選択されたオプションに応じて改善"
+      - "品質検証: H5禁止、文字数、構造確認"
+      - "ブロック変換: Markdown → Gutenbergブロック（検証付き）"
+      - "画像挿入: 章別画像をH2タグ直下に配置"
+      - "WordPress更新: カスタムAPI経由で安全更新"
+      - "多重検証: 標準API + 編集画面 + ブロック構造確認"
+      
+  step_5_verification:
+    required_checks:
+      standard_rest_api:
+        command: "curl $WORDPRESS_BASE_URL/wp-json/wp/v2/posts/{post_id}"
+        environment_setup: "WORDPRESS_BASE_URL=$(echo $WORDPRESS_ENDPOINT | sed 's|/wp-json/blog-generator/v1||')"
+        
+      wordpress_admin_verification:
+        checks:
+          - "全章が正しく表示されているか"
+          - "章別画像が適切に挿入されているか"
+          - "ブロック構造が正常か"
+          - "文字数が適切か"
+
+# Quality standards and decoration guidelines
+quality_standards:
+  content_requirements:
+    character_count: 20000  # minimum
+    heading_structure: ["H2", "H3", "H4"]  # H5/H6 prohibited
+    chapter_count: 6
+    eat_elements: required
+    
+  decoration_elements:
+    required_elements:
+      - "📊 比較表: 従来手法 vs 新手法の効果比較"
+      - "📋 番号付きリスト: ステップバイステップの手順説明"
+      - "💡 FAQ形式: よくある質問と回答（音声検索対策）"
+      - "📝 引用ブロック: 専門家コメントや統計データ"
+      - "🔍 要約ボックス: 重要ポイントの箇条書き"
+      - "太字強調: 重要キーワードと概念の適切な強調"
+      
+    visual_structure_elements:
+      important_points: "💡 重要なポイント"
+      concrete_examples: "🔍 具体的な事例と数値"
+      comparison_tables: "| 比較項目 | Before | After | 改善率 |"
+      failure_examples: "⚠️ よくある失敗例と対策"
+      expert_tips: "🎯 プロが実践する成功のコツ"
+      expert_quotes: "> 「専門家の重要なコメントや統計データ」"
+      
+    h5_alternatives:
+      step_notation: "ステップ1: 詳細説明と所要時間"
+      checklist_items: "□ 確認項目と実施内容"
+      data_display: "導入前後の数値比較"
+      warnings: "⚠️ マークでの重要な警告"
+
+# Safety and backup protocols
+safety_protocols:
+  automatic_backup:
+    all_rewrites: enabled
+    content_preservation: complete
+    restoration_capability: always_available
+    
+  quality_assurance:
+    article_existence_check: mandatory_before_update
+    h5_h6_prohibition: strict_enforcement
+    block_structure_validation: required
+    multi_verification: api_plus_visual_confirmation
+    staged_updates: content_then_images_then_verification
+    
+  failure_prevention:
+    learned_improvements:
+      boss1_false_reporting: "複数手段で検証（API成功≠実際成功）"
+      block_corruption: "無効なブロック構造を自動修正"
+      partial_loss: "編集画面での実際の表示まで確認"
+      image_mismatch: "ユーザー要求を既存テンプレートに反映"
+
+# Verification checklist
+verification_checklist:
+  article_basics:
+    - "タイトルが正しく表示される"
+    - "文字数が20,000字以上"
+    - "H2見出し6個（6章構成）+ まとめ"
+    
+  wordpress_admin:
+    - "全章が編集画面で表示される"
+    - "ブロック構造が正常"
+    - "H5/H6見出しが存在しない"
+    
+  images:
+    - "アイキャッチ画像が設定済み"
+    - "各章にサムネイル画像が挿入済み"
+    - "画像サイズが最適化済み"
+    
+  api_verification:
+    - "標準REST APIで正常応答"
+    - "カスタムAPIで正常応答"
+    - "実際の表示と一致"
+
+# Factcheck integration
+factcheck_system:
+  overview: "記事のリライト過程において専門的な内容の正確性を検証"
+  
+  target_areas:
+    technical_information:
+      priority: high
+      items:
+        - "バージョン情報（ChatGPT-4、GPT-4 Turbo等）"
+        - "機能仕様・制限事項"
+        - "API仕様・利用方法"
+        - "システム要件"
+        
+    numerical_statistical:
+      priority: high
+      items:
+        - "市場データ・調査結果"
+        - "利用者数・普及率"
+        - "価格情報・コスト"
+        - "パフォーマンス指標"
+        
+    legal_regulatory:
+      priority: high
+      items:
+        - "利用規約・ライセンス"
+        - "法規制・コンプライアンス"
+        - "プライバシー・セキュリティ規定"
+        - "業界基準・ガイドライン"
+        
+  execution_timing:
+    automatic_execution:
+      option_1_full_rewrite: enabled
+      option_4_information_update: intensive
+      other_options: "as_needed"
+      
+    independent_factcheck:
+      command: "記事ID {post_id} のファクトチェック修正をお願いします"
+      
+  verification_process:
+    information_source_check: "公式ドキュメント・発表との照合"
+    cross_reference: "複数ソースでの情報クロスチェック"
+    expert_validation: "専門家による内容確認"
+    temporal_verification: "時系列での情報更新状況確認"
+    
+  correction_reporting:
+    before_after_display: required
+    modification_reason: required
+    information_sources: required
+    location_specification: "章・節の指定"
+
+# Usage examples
+usage_examples:
+  example_1:
+    scenario: "古い技術記事の全文リライト"
+    command: "リライト 1234"
+    selection: "オプション1を選択"
+    full_request: "記事ID 1234 の全文リライトをお願いします（オプション1）"
+    
+  example_2:
+    scenario: "特定章の情報更新"
+    command: "リライト 5678"
+    selection: "オプション2を選択"
+    full_request: "記事ID 5678 の第3章のリライトをお願いします（オプション2）"
+    
+  example_3:
+    scenario: "SEO強化"
+    command: "リライト 9012"
+    selection: "オプション3を選択"
+    full_request: "記事ID 9012 のSEO強化リライト（キーワード：ChatGPT活用法）をお願いします（オプション3）"
+
+# Success optimization
+success_optimization:
+  preparation:
+    - "記事の現状分析"
+    - "改善目標の明確化"
+    - "対象読者層の確認"
+    - "ファクトチェックが必要な専門内容の特定"
+    
+  option_selection_guide:
+    full_improvement: "全文リライト（ファクトチェック含む）"
+    partial_issues: "章別リライト"
+    ranking_improvement: "SEO強化リライト"
+    outdated_information: "情報更新リライト（ファクトチェック重点）"
+    style_issues: "文体調整リライト"
+    special_requirements: "カスタムリライト"
+    content_verification: "ファクトチェック"
+    
+  continuous_improvement:
+    - "リライト後の効果測定"
+    - "読者フィードバックの収集"
+    - "定期的な情報更新"
+    - "ファクトチェックによる正確性維持"
