@@ -9,6 +9,9 @@ This is a comprehensive WordPress blog article generation and management system 
 ## Core Architecture
 
 ### Template-Driven Content Generation
+The system supports two distinct content creation patterns:
+
+#### **SEO Optimization Pattern** (keyword-based articles)
 - **templates/**: Contains prompt templates for each phase of content creation
   - `intent.md`: Search intent analysis
   - `division.md`: Intent variation splitting
@@ -17,12 +20,28 @@ This is a comprehensive WordPress blog article generation and management system 
   - `lead.md` / `summary.md`: Introduction/conclusion generation
   - `eyecatch.md` / `thumbnail.md`: Image generation prompts
 
+#### **Story Quality Pattern** (theme-based articles)
+- **Story Templates**: Focus on narrative engagement and intellectual curiosity
+  - `story_outline_template.md`: Creates engaging, narrative-driven article structures
+  - `story_writing_template.md`: Generates compelling, story-focused chapter content
+  - Emphasizes readability, emotional connection, and thought-provoking perspectives
+  - Optimizes for reader engagement over search engine optimization
+
 ### Multi-Phase Content Pipeline
+
+#### **SEO Optimization Pipeline**
 1. **Intent Analysis**: Analyze search keywords and identify multiple user intents (INT-01, INT-02, etc.)
 2. **Content Planning**: Create structured outlines with SEO optimization
 3. **Content Creation**: Generate 6-chapter articles using AI templates
 4. **Image Generation**: Create eyecatch images (OpenAI gpt-image-1) and thumbnails (Google Imagen 3)
 5. **WordPress Publishing**: Automated posting with Gutenberg block formatting
+
+#### **Story Quality Pipeline**
+1. **Theme Development**: Direct theme-to-outline creation using story templates
+2. **Narrative Planning**: Structure engaging, story-driven content with `story_outline_template.md`
+3. **Story Creation**: Generate compelling 6-chapter narratives using `story_writing_template.md`
+4. **Visual Storytelling**: Create thematic images that support narrative elements
+5. **Gutenberg Integration**: Convert story content to WordPress blocks while preserving engagement elements
 
 ### File Organization System
 - **outputs/**: Final deliverables organized as `{title}-INT-{number}/`
@@ -62,9 +81,15 @@ python scripts/image_generator.py --outline outputs/article-name/outline.md --mo
 
 #### Publish to WordPress
 ```bash
-# Automatically find and publish latest article
+# Automatically find and publish latest article with Gutenberg block conversion
 python scripts/post_blog_universal.py
 ```
+
+**Note**: `post_blog_universal.py` automatically handles:
+- Markdown to Gutenberg block conversion for both SEO and Story patterns
+- Chapter image insertion after H2 headings
+- Proper heading structure validation (H2-H4 hierarchy)
+- SEO elements preservation (tables, FAQ sections, checklists)
 
 #### Update Existing Articles
 ```bash
@@ -204,11 +229,42 @@ The system operates with a sophisticated 4-agent collaboration model through tmu
 
 ## WordPress Integration Notes
 
+### Article Publishing Process
 - All articles are posted as drafts by default
 - Chapter images are automatically inserted after numbered H2 headings
 - Meta Description and local image paths are automatically removed from content
 - Supports both new post creation and existing post updates
 - Maintains detailed logging in `logs/send_log.txt`
+
+### Gutenberg Block Editor Conversion
+The system provides comprehensive Markdown to WordPress Gutenberg block conversion via `scripts/wordpress_client.py`:
+
+#### **Block Conversion Features**
+- **Heading Structure**: Maintains proper H2-H4 hierarchy with automatic H5/H6 prohibition
+- **Content Blocks**: Converts paragraphs, lists, tables, quotes, and code blocks
+- **Image Integration**: Transforms Markdown images to WordPress image blocks with proper metadata
+- **Chapter Images**: Automatically inserts chapter-specific thumbnails after H2 headings
+- **Typography**: Applies WordPress block classes (`wp-block-heading`, `wp-block-image`, etc.)
+
+#### **SEO Template Integration**
+Traditional SEO optimization pattern (`intent.md → division.md → outline.md → writing.md`) includes comprehensive block conversion:
+- **Content Processing**: Markdown content from `writing.md` template automatically converts to Gutenberg blocks
+- **SEO Elements**: FAQ sections, tables, checklists maintain structure during conversion
+- **Visual Enhancements**: Emoji indicators (💡, ⚠️, 🎯, 📊) and formatting preserved
+- **Chapter Structure**: H2 headers trigger automatic thumbnail insertion for visual appeal
+
+#### **Story Template Integration**
+Both SEO and Story patterns utilize the same robust block conversion process:
+- **Story Content**: Narrative-driven content from `story_writing_template.md` converts seamlessly
+- **Engagement Elements**: Emoji indicators (💡, 📝, 🤔) and visual callouts preserved
+- **Reading Flow**: Proper paragraph breaks and section divisions maintained
+- **Interactive Elements**: Questions and thought-provokers formatted as engaging content blocks
+
+#### **Quality Assurance**
+- **Pre-conversion Validation**: Heading structure verification before WordPress posting
+- **Block Verification**: Automatic confirmation of proper Gutenberg block generation
+- **Image Insertion Check**: Verification that chapter images appear after correct H2 headings
+- **Content Integrity**: Ensures story elements and formatting are preserved during conversion
 
 ## Heading Structure Validation System
 
