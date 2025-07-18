@@ -441,7 +441,7 @@ class WordPressUpdateClient:
         try:
             # post_blog_universal.pyの変換機能を使用
             sys.path.append('/mnt/c/home/hiroshi/blog_generator/scripts')
-            from wordpress_client import convert_markdown_to_gutenberg, insert_chapter_images
+            from scripts.wordpress_client import convert_markdown_to_gutenberg, insert_chapter_images
             
             # 基本変換
             gutenberg_content = convert_markdown_to_gutenberg(markdown_content)

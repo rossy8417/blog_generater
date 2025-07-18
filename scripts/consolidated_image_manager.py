@@ -1194,8 +1194,8 @@ def main():
         epilog="""
 使用例:
   # 新規画像生成
-  python consolidated_image_manager.py generate --outline outputs/article/outline.md --mode eyecatch
-  python consolidated_image_manager.py generate --outline outputs/article/outline.md --mode all
+  python consolidated_image_manager.py generate --outline outputs/final_articles/article/outline.md --mode eyecatch
+  python consolidated_image_manager.py generate --outline outputs/final_articles/article/outline.md --mode all
   
   # WordPress画像更新
   python consolidated_image_manager.py update --post-id 1234 --type eyecatch

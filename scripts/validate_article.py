@@ -20,7 +20,7 @@ def main():
     if len(sys.argv) < 2:
         print("使用方法:")
         print("  python scripts/validate_article.py <記事ファイル.md>")
-        print("  python scripts/validate_article.py outputs/記事名-INT-01/complete_article.md")
+        print("  python scripts/validate_article.py outputs/final_articles/記事名-INT-01/complete_article.md")
         sys.exit(1)
     
     file_path = sys.argv[1]

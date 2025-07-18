@@ -33,7 +33,7 @@ class Boss1ConfusionPrevention:
 - **作成日時**: {datetime.now(timezone.utc).isoformat()}
 
 ## 作業ディレクトリ
-- **出力ディレクトリ**: outputs/{project_id}/
+- **出力ディレクトリ**: outputs/final_articles/{project_id}/
 - **一時作業領域**: tmp/project_{project_id}/
 
 ## 重要な注意事項
