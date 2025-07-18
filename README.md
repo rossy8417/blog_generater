@@ -26,9 +26,9 @@ blog_generator/
 │   ├── pre_wordpress_quality_checker.py # WordPress投稿前品質チェック・自動修正システム
 │   ├── wordpress_client.py     # WordPressクライアント（scriptsディレクトリ内）
 │   ├── wordpress_update_client.py # WordPress記事更新クライアント（革新的更新機能）
-│   ├── # ※ 以下のレガシーファイルはconsolidated_image_manager.pyへ統合済みで削除済み
-│   ├── # image_update_manager.py (削除済み)
-│   ├── # update_eyecatch_simple.py (削除済み)
+│   ├── # ※ 以下のレガシーファイルはconsolidated_image_manager.pyへ統合済み
+│   ├── # image_update_manager.py -> consolidated_image_manager.py
+│   ├── # update_eyecatch_simple.py -> consolidated_image_manager.py
 │   ├── heading_validator.py    # 見出し構造検証ツール（H5禁止・階層チェック）
 │   ├── validate_article.py     # 投稿前記事検証CLIツール（レガシー）
 ├── utils/              # ユーティリティ
@@ -50,7 +50,7 @@ blog_generator/
 │   ├── wordpress-quality-check-system-guide.md # WordPress投稿前品質チェック・自動修正システムガイド（NEW）
 │   ├── rewrite-guide.md          # 記事リライト機能ガイド
 │   ├── api-endpoint-guidelines.md # WordPress APIエンドポイント使用ガイドライン
-│   ├── OUTPUTMANAGER_RULES.md    # 出力管理ルール
+│   ├── file-management-comprehensive-guide.md  # ファイル管理包括ガイド（統合版）
 │   └── その他システムガイド各種
 ├── Claude-Code-Blog-communication/ # tmux関連システム
 │   ├── agent-send.sh             # エージェント間通信スクリプト
@@ -113,6 +113,7 @@ python scripts/image_generator.py --mode eyecatch --outline outputs/your_outline
 python scripts/image_generator.py --mode all --outline outputs/your_outline.md
 
 # ※ レガシーファイルは統合版へ移行済み・削除済み
+# レガシーコマンド統合:
 # update_eyecatch_simple.py -> consolidated_image_manager.py quick-update
 # image_update_manager.py -> consolidated_image_manager.py update
 ```
@@ -183,9 +184,9 @@ python scripts/post_blog_universal.py
 - **統合機能**: 新規画像生成・WordPress画像更新・バージョン管理を統合
 - **新規画像生成**: アイキャッチ（OpenAI gpt-image-1）・サムネイル（Google Imagen 3）
 - **WordPress画像更新**: 既存記事の画像差し替え・最適化・バージョン管理
-- **後方互換性**: 従来のimage_generator.py・update_eyecatch_simple.pyインターフェース維持
+- **後方互換性**: 従来のimage_generator.pyインターフェース維持
 - **コマンド統合**: generate（新規生成）・update（更新）・version（バージョン管理）
-- **簡単更新**: quick-update機能で従来のupdate_eyecatch_simple.pyと同等操作
+- **簡単更新**: quick-update機能で統合された操作体系
 
 ## 📂 出力ファイル管理システム
 
@@ -265,13 +266,11 @@ python scripts/post_blog_universal.py
 - **画像最適化**: サイズ・品質の自動調整（95%削減・Progressive JPEG変換）
 - **バージョン管理**: 画像更新履歴の追跡・復元機能
 - **alt属性管理**: アクセシビリティ対応
-- **後方互換性**: 従来コマンド（update_eyecatch_simple.py等）も継続利用可能
+- **統合システム**: consolidated_image_manager.pyによる一元化
 
 > **📋 画像更新ガイド**: 
 > - **[統合画像管理ガイド](docs/consolidated-image-manager-guide.md)**: 新規生成・更新・バージョン管理の統合システム
-> - **[統合画像更新ガイド](docs/image-update-integration-guide.md)**: アイキャッチ・章別画像の選択的更新メニュー
-> - **[アイキャッチ更新ガイド](docs/eyecatch-update-guide.md)**: アイキャッチ画像専用更新手順
-> - **[章別画像更新ガイド](docs/chapter-image-update-guide.md)**: 章別画像専用更新手順
+> - **[画像管理完全ガイド](docs/image-management-complete-guide.md)**: アイキャッチ・章別画像の包括的管理ガイド（統合版）
 
 #### 📝 コンテンツ更新機能
 - **全文リライト**: 記事内容の完全書き換え
