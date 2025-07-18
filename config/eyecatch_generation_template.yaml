@@ -1,0 +1,341 @@
+# Eyecatch Generation Template - AI-Optimized Configuration
+# Advanced article eyecatch image generation with OpenAI gpt-image-1 optimization
+
+metadata:
+  title: "Eyecatch Generation & Visual Branding System"
+  purpose: "High-impact article eyecatch creation with Japanese text support"
+  ai_processing: "Fast visual concept generation and gpt-image-1 optimization"
+  upgrade_from: "templates/eyecatch.md (enhanced with structured design framework)"
+  image_engine: "OpenAI gpt-image-1"  # IMPORTANT: NOT DALL-E 3
+
+# Agent persona and expertise
+agent_persona:
+  role: "Elite Web Content Writer & Graphic Designer"
+  expertise:
+    - visual_content_strategy
+    - brand_identity_design
+    - reader_psychology
+    - conversion_optimization
+    - japanese_typography
+  specialization: "Compelling eyecatch creation with maximum reader engagement"
+
+# Visual generation objectives
+visual_objectives:
+  primary_goal: "Visually compelling eyecatch that maximizes article click-through"
+  design_focus: "Article content representation with strong visual appeal"
+  quality_standard: "Professional publication-ready visual communication"
+  
+  strategic_pillars:
+    - content_theme_visualization
+    - reader_emotional_connection
+    - brand_authority_building
+    - social_media_optimization
+
+# gpt-image-1 optimization framework
+gpt_image_1_optimization:
+  engine_specifications:
+    model: "gpt-image-1"  # OpenAI's Japanese text-capable image generation
+    japanese_text_support: true
+    aspect_ratio_options: ["16:9", "4:3"]
+    resolution_standard: "1536x1024"
+    output_format: "PNG with transparency support"
+    
+  text_integration_capabilities:
+    japanese_text_rendering: "native_support"
+    font_style_options: ["bold", "medium", "light"]
+    text_outline_support: true
+    positioning_flexibility: "precise_coordinate_control"
+    
+  quality_optimization:
+    professional_output: "publication_ready_standard"
+    readability_focus: "text_clarity_prioritization"
+    social_sharing_optimization: "platform_display_ready"
+    file_size_management: "web_optimized_output"
+
+# Content analysis framework
+content_analysis_framework:
+  article_comprehension:
+    title_analysis: "core_theme_extraction"
+    meta_description_analysis: "value_proposition_identification"
+    keyword_analysis: "primary_concept_identification"
+    target_audience_identification: "reader_persona_mapping"
+    
+  value_extraction:
+    problem_solution_mapping: "article_benefit_identification"
+    unique_selling_points: "competitive_advantage_visualization"
+    emotional_triggers: "reader_motivation_factors"
+    actionable_outcomes: "concrete_result_representation"
+
+# Visual concept design system
+visual_concept_design:
+  metaphor_selection_strategy:
+    abstract_to_visual_translation: "concept_symbolism"
+    cultural_appropriateness: "japanese_market_relevance"
+    universal_comprehension: "intuitive_understanding"
+    brand_alignment: "professional_authority_expression"
+    
+  color_psychology_application:
+    trust_building_colors: "blue_white_combinations"
+    warmth_and_approachability: "orange_yellow_accents"
+    professionalism_indicators: "navy_gray_foundations"
+    energy_and_action: "strategic_bright_highlights"
+    
+  composition_principles:
+    visual_hierarchy: "title_prominence_design"
+    reading_flow: "left_to_right_eye_movement"
+    balance_and_symmetry: "professional_layout_standards"
+    focal_point_creation: "attention_directing_elements"
+
+# Japanese text optimization
+japanese_text_optimization:
+  typography_excellence:
+    readability_standards:
+      main_title: "large_bold_high_contrast"
+      subtitle: "medium_weight_complementary"
+      supporting_text: "clear_legible_hierarchy"
+      
+    font_selection_criteria:
+      japanese_font_support: "comprehensive_character_set"
+      readability_optimization: "clear_stroke_definition"
+      brand_consistency: "professional_appearance"
+      
+  text_positioning_strategy:
+    title_placement: "center_or_upper_center_prominence"
+    subtitle_coordination: "harmonious_secondary_positioning"
+    visual_balance: "text_image_element_integration"
+    
+  text_effects_enhancement:
+    outline_usage: "contrast_improvement_white_outline"
+    shadow_effects: "depth_and_separation"
+    background_contrast: "text_visibility_assurance"
+
+# YAML structure template
+yaml_structure_template:
+  global_settings:
+    style: "Professional educational illustration with modern elements"
+    theme_color: "Article-appropriate color palette"
+    aspect_ratio: "16:9"  # Default for social media optimization
+    resolution: "1536x1024"
+    mood: "Professional, trustworthy, engaging atmosphere"
+    text_support: true  # gpt-image-1 Japanese text capability
+    
+  background_configuration:
+    type: "Theme-appropriate professional environment"
+    color: "Strategic gradient supporting text readability"
+    overlay: "Content-relevant visual elements and metaphors"
+    
+  text_composition:
+    main_title:
+      content: "Article title in Japanese"
+      font_style: "bold"
+      font_size: "large"
+      font_color: "High-contrast professional color"
+      text_outline: "White outline for readability"
+      position: "center"
+      offset: "Precise positioning coordinates"
+      
+    subtitle:
+      content: "Supporting text or value proposition"
+      font_style: "medium"
+      font_size: "medium"
+      font_color: "Complementary accent color"
+      position: "Strategic secondary placement"
+      offset: "Coordinated with main title"
+      
+  effects_and_enhancement:
+    visual_effects:
+      glow: "Professional text enhancement"
+      depth: "3D visual appeal"
+      integration: "Seamless text-visual harmony"
+      
+    thematic_elements:
+      content_representation: "Article topic visual metaphors"
+      audience_appeal: "Target reader engagement elements"
+      brand_consistency: "Professional authority indicators"
+
+# Design workflow process
+design_workflow:
+  pre_design_analysis:
+    content_study: "Comprehensive article understanding"
+    audience_research: "Reader persona and preferences"
+    competitive_analysis: "Market differentiation opportunities"
+    brand_alignment: "Consistency with content strategy"
+    
+  concept_development:
+    visual_metaphor_creation: "Content-to-image translation"
+    color_scheme_selection: "Psychology-informed palette"
+    typography_planning: "Japanese text optimization"
+    composition_design: "Professional layout structure"
+    
+  gpt_image_1_execution:
+    prompt_construction: "Detailed technical specifications"
+    text_integration: "Japanese content incorporation"
+    quality_optimization: "Professional output standards"
+    format_finalization: "Web and social media ready"
+
+# Prompt construction framework
+prompt_construction:
+  system_message: |
+    あなたはトップクラスの Web コンテンツライター兼 グラフィックデザイナーです。
+    
+    ## 目標
+    渡されたブログ構成（{{outline}}）を分析し、
+    記事の内容を視覚的に表現する魅力的なアイキャッチ画像のプロンプトを作成すること。
+    
+  analysis_instructions: |
+    ## 手順（必ず順守）
+    1. **記事内容分析**  
+       - ブログタイトルとメタディスクリプションから核心テーマを把握
+       - Primary KWs と検索意図から読者層を特定
+       - 記事全体で提供される価値・解決策を抽出
+
+    2. **視覚的コンセプト設計**  
+       - 記事テーマに最適な視覚メタファーを選定
+       - 読者の感情に訴える色彩・構図を決定
+       - ブランディング要素（専門性・信頼性）を織り込み
+
+    3. **gpt-image-1最適化**  
+       - 高品質出力のための詳細なプロンプト構築
+       - 日本語テキスト要素の効果的な配置
+       - 16:9 または 4:3 アスペクト比での最適化
+
+    4. **品質確保要素**  
+       - プロフェッショナルな仕上がり指定
+       - 読みやすさを重視したデザイン
+       - SNSシェア時の視認性確保
+       
+  yaml_output_specification: |
+    ## 出力形式（厳守）
+    ### 🎨 アイキャッチ画像生成YAML設定
+    
+    ```yaml
+    # -------------------------------
+    # 全体設定（gpt-image-1用）
+    # -------------------------------
+    style: "Professional educational illustration with modern tech elements"
+    theme_color: "Soft blue, white, warm orange"
+    aspect_ratio: "16:9"
+    resolution: "1536x1024"
+    mood: "Warm, trustworthy, and professional atmosphere"
+    text_support: true  # 日本語テキスト対応
+    
+    # -------------------------------
+    # 背景設定
+    # -------------------------------
+    background:
+      type: "Futuristic yet warm educational environment"
+      color: "Soft blue to white gradient background"
+      overlay: "Content-relevant elements like glowing books, digital interfaces, thematic metaphors"
+    
+    # -------------------------------
+    # テキスト構成（日本語対応）
+    # -------------------------------
+    main_texts:
+      - id: "main_title"
+        content: "記事タイトル（日本語）"
+        font_style: "bold"
+        font_size: "large"
+        font_color: "Deep navy blue"
+        text_outline: "White outline"
+        position: "center"
+        offset: {x: 0, y: 0}
+      - id: "subtitle"
+        content: "サブタイトルまたは価値提案"
+        font_style: "medium"
+        font_size: "medium"
+        font_color: "Orange accent"
+        position: "bottom-center"
+        offset: {x: 0, y: -60}
+    
+    # -------------------------------
+    # 装飾・演出
+    # -------------------------------
+    effects:
+      - type: "glow"
+        placement: "Soft glow around title text for professional look"
+      - type: "digital flow"
+        color: "Light blue and white flowing elements"
+        direction: "From top-left to bottom-right"
+      - type: "overlay elements"
+        detail: "Content-specific thematic elements representing article value"
+    ```
+    
+  generation_instructions: |
+    **生成指示:**
+    上記YAML設定をgpt-image-1用のプロンプトに変換し、日本語テキストを含む画像生成を実行
+    
+    **保存ファイル名:**
+    `{{timestamp}}_eyecatch_{{outline_id}}.png`
+    
+    #実行指示
+    ### 入力データ
+    {{outline}}
+    
+    上記ガイドラインに従い、記事内容を効果的に視覚化する最高品質のアイキャッチ画像プロンプトを作成してください。
+
+# Template variables
+template_processing:
+  input_variables:
+    outline: "{{outline}}"  # Blog structure and content outline
+    
+  variable_validation:
+    outline_completeness: required
+    content_analysis: "systematic_theme_extraction"
+    visual_concept_development: "professional_design_standards"
+    
+  preprocessing_steps:
+    - article_content_analysis
+    - visual_metaphor_identification
+    - color_palette_selection
+    - japanese_text_planning
+
+# Quality assurance standards
+quality_standards:
+  visual_design_excellence:
+    professional_appearance: "publication_ready_quality"
+    brand_consistency: "authority_and_trust_building"
+    reader_engagement: "click_worthy_visual_appeal"
+    
+  technical_compliance:
+    gpt_image_1_optimization: "engine_specific_best_practices"
+    japanese_text_quality: "native_rendering_excellence"
+    resolution_standards: "web_and_social_media_ready"
+    
+  content_alignment:
+    thematic_accuracy: "article_content_representation"
+    audience_appropriateness: "target_reader_appeal"
+    value_communication: "clear_benefit_visualization"
+
+# Performance optimization
+performance_optimization:
+  generation_efficiency:
+    prompt_template_optimization: "rapid_concept_development"
+    yaml_structure_automation: "consistent_output_formatting"
+    quality_assurance_integration: "built_in_validation"
+    
+  design_iteration_support:
+    variant_generation: "multiple_concept_options"
+    a_b_testing_readiness: "systematic_comparison_capability"
+    feedback_integration: "iterative_improvement_process"
+    
+  brand_scaling:
+    template_standardization: "consistent_quality_across_articles"
+    series_coherence: "visual_brand_building"
+    efficiency_maximization: "streamlined_production_workflow"
+
+# Technical integration
+technical_integration:
+  gpt_image_1_api_optimization:
+    parameter_tuning: "best_practice_settings"
+    error_handling: "robust_generation_process"
+    quality_monitoring: "output_verification_systems"
+    
+  file_management_integration:
+    output_organization: "systematic_file_structure"
+    naming_conventions: "traceable_asset_management"
+    version_control: "iteration_tracking_capability"
+    
+  wordpress_integration:
+    featured_image_optimization: "cms_ready_formatting"
+    seo_metadata_preparation: "alt_text_and_descriptions"
+    responsive_display: "multi_device_compatibility"
